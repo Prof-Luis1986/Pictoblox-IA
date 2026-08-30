@@ -18,4 +18,4 @@ Regla aplicada: el PDF es la instrucción principal. Los proyectos completos son
 | Tomo 2, actividad 7 | `Reconocimiento_de_voz.sb3` | 15 bloques | Se usa solo para comprobar la estructura interna; la secuencia visible procede del PDF. |
 | Tomo 2, actividad 8 | `Casa_inteligente.sb3` | 30 bloques | El proyecto confirma los mensajes `apagar` y `encender` y un sprite llamado literalmente `ligth_off`. |
 
-Las imágenes incrustadas en los PDF se extrajeron sin reconstrucción a `public/resources/pdf-block-crops/`. Cada recorte mantiene página de procedencia en `src/data/pdfEmbeddedVisuals.json` y puede ampliarse desde la transcripción original.
+Las imágenes comprobables necesarias se extrajeron sin reconstrucción. Su trazabilidad permanece exclusivamente en `internal/source-data/pdfEmbeddedVisuals.json`; la interfaz del alumno sólo muestra los apoyos visuales asignados a cada paso y permite ampliarlos.

@@ -25,6 +25,7 @@ import {
   QuizAnswerSubmission,
   ExperimentSubmission,
   StepSubmission
+  ,EvidenceAttachment
 } from '../types';
 import {
   DESTINATION_EMAILS,
@@ -71,6 +72,7 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submittedPayload, setSubmittedPayload] = useState<PracticeSubmissionPayload | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [evidenceFiles, setEvidenceFiles] = useState<File[]>([]);
   
   // AppScript settings view
   const [showConfig, setShowConfig] = useState(false);
@@ -105,8 +107,19 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
     }
 
     setErrorMessage(null);
+    let evidenceAttachments: EvidenceAttachment[];
+    try {
+      evidenceAttachments = await Promise.all(evidenceFiles.map(file => new Promise<EvidenceAttachment>((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve({ fileName: file.name, mimeType: file.type as EvidenceAttachment['mimeType'], base64Data: String(reader.result).split(',')[1] || '' });
+        reader.onerror = () => reject(new Error(`No se pudo leer ${file.name}`));
+        reader.readAsDataURL(file);
+      })));
+    } catch (error) {
+      setErrorMessage(error instanceof Error ? error.message : 'No se pudieron preparar las imágenes.');
+      return;
+    }
     setIsSubmitting(true);
-
     saveSessionIdentity(studentName.trim(), studentGroup.trim());
 
     // Build Quiz Answer Details
@@ -172,6 +185,7 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
       totalSteps,
       completedStepsCount: stepsCount,
       steps: stepList,
+      evidenceAttachments: evidenceAttachments.length ? evidenceAttachments : undefined,
       simulatorCompleted,
       quizScore: quizScore !== undefined ? quizScore : undefined,
       quizTotalQuestions: practice.quizQuestions?.length,
@@ -188,8 +202,9 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
       setIsSubmitting(false);
 
       if (res.success) {
-        setSubmittedPayload(payload);
-        onSubmissionSuccess(payload);
+        const localReceipt = { ...payload, evidenceAttachments: undefined };
+        setSubmittedPayload(localReceipt);
+        onSubmissionSuccess(localReceipt);
         confetti({
           particleCount: 80,
           spread: 70,
@@ -373,6 +388,23 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
               </div>
 
               {/* Summary to send */}
+              <div className="space-y-3 p-4 sm:p-5 rounded-2xl bg-slate-900/90 border border-cyan-500/30">
+                <div>
+                  <h4 className="text-sm font-bold text-cyan-200">📷 Capturas o imágenes de evidencia (opcional)</h4>
+                  <p className="mt-1 text-xs text-slate-400">Puedes adjuntar hasta 3 imágenes PNG, JPG o WebP. Se enviarán únicamente cuando confirmes la entrega y se guardarán en la carpeta de Drive del curso.</p>
+                </div>
+                <input type="file" accept="image/png,image/jpeg,image/webp" multiple
+                  onChange={event => {
+                    const selected = Array.from(event.currentTarget.files || []) as File[];
+                    const invalid = selected.find(file => file.size > 4 * 1024 * 1024);
+                    if (invalid) { setErrorMessage(`La imagen ${invalid.name} supera el límite de 4 MB.`); event.target.value = ''; return; }
+                    if (selected.length > 3) { setErrorMessage('Puedes adjuntar como máximo 3 imágenes.'); event.target.value = ''; return; }
+                    setErrorMessage(null); setEvidenceFiles(selected);
+                  }}
+                  className="block w-full text-xs text-slate-300 file:mr-3 file:rounded-xl file:border-0 file:bg-cyan-500 file:px-4 file:py-2 file:font-bold file:text-slate-950 hover:file:bg-cyan-400" />
+                {evidenceFiles.length > 0 && <ul className="space-y-1 text-xs text-slate-300">{evidenceFiles.map(file => <li key={`${file.name}-${file.size}`}>✓ {file.name} ({(file.size / 1024 / 1024).toFixed(2)} MB)</li>)}</ul>}
+              </div>
+
               <div className="space-y-3 p-4 sm:p-5 rounded-2xl bg-violet-950/30 border border-violet-500/30 text-xs">
                 <h4 className="font-bold text-violet-200 flex items-center gap-1.5">
                   <FileText className="w-4 h-4" /> Resumen privado de tu Muro del Progreso

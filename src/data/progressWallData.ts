@@ -16,7 +16,7 @@ const makeStages = ({ challenge, result, designSteps, prototypeSteps }: WallDefi
   {
     id: 'idea', title: 'IDEA', guidingQuestion: '¿Qué posibles soluciones imaginas?', relatedStepNumbers: [],
     instructions: ['Piensa en los personajes, fondos, sensores o extensiones que podrías utilizar.', 'Elige las acciones principales y toma una decisión inicial.'],
-    responseFields: [{ id: 'selected_idea', prompt: 'Escribe brevemente la idea que elegiste.', multiline: true }]
+    responseFields: [{ id: 'possible_ideas', prompt: '¿Qué posibles soluciones se te ocurren?', multiline: true }, { id: 'selected_idea', prompt: 'Escribe brevemente la idea que elegiste.', multiline: true }]
   },
   {
     id: 'design', title: 'DISEÑO', guidingQuestion: '¿Cuál será tu plan antes de programar?', relatedStepNumbers: designSteps,
@@ -33,12 +33,15 @@ const makeStages = ({ challenge, result, designSteps, prototypeSteps }: WallDefi
     instructions: ['Compara lo que esperabas con lo que ocurrió realmente.', 'Ubica el paso y revisa el bloque, valor, objeto o recurso relacionado.', 'Encontrar errores es una parte normal del aprendizaje.'],
     responseFields: [
       { id: 'unexpected', prompt: '¿Qué no funcionó como esperabas?', multiline: true },
+      { id: 'step', prompt: '¿En qué paso ocurrió? Si todo funcionó, escribe cómo hiciste la prueba.', multiline: true },
+      { id: 'expected', prompt: '¿Qué esperabas que ocurriera?', multiline: true },
+      { id: 'actual', prompt: '¿Qué ocurrió realmente?', multiline: true },
       { id: 'cause', prompt: '¿Qué crees que causó el problema?', multiline: true }
     ]
   },
   {
     id: 'redesign', title: 'REDISEÑO', guidingQuestion: '¿Cómo lo mejoramos?', relatedStepNumbers: [],
-    instructions: ['Corrige el error, realiza una nueva prueba y compara el resultado.', 'Puedes agregar una mejora creativa sin cambiar el objetivo del proyecto.'],
+    instructions: ['Si encontraste un error, registra la corrección y realiza una nueva prueba.', 'Si todo funcionó, explica cómo lo comprobaste y anota una conclusión o mejora opcional.'],
     responseFields: [
       { id: 'change', prompt: '¿Qué cambiaste para mejorar tu proyecto?', multiline: true },
       { id: 'worked', prompt: '¿Funcionó mejor después del cambio? Explica qué ocurrió.', multiline: true },
@@ -65,9 +68,9 @@ export const PROGRESS_WALL_BY_PRACTICE: Record<string, ProgressWallStage[]> = {
 
 export const FRUTA_NINJA_PROGRESS_WALL: ProgressWallStage[] = [
   { id: 'problem', title: 'PROBLEMA', guidingQuestion: '¿Qué reto libre quieres resolver?', instructions: [], relatedStepNumbers: [], responseFields: [{ id: 'problem', prompt: 'Define tu propio reto.', multiline: true }] },
-  { id: 'idea', title: 'IDEA', guidingQuestion: '¿Qué solución imaginas?', instructions: [], relatedStepNumbers: [], responseFields: [{ id: 'selected_idea', prompt: 'Anota tu idea.', multiline: true }] },
+  { id: 'idea', title: 'IDEA', guidingQuestion: '¿Qué solución imaginas?', instructions: [], relatedStepNumbers: [], responseFields: [{ id: 'possible_ideas', prompt: '¿Qué posibles soluciones se te ocurren?', multiline: true }, { id: 'selected_idea', prompt: 'Anota la idea que elegiste.', multiline: true }] },
   { id: 'design', title: 'DISEÑO', guidingQuestion: '¿Cómo organizarás tu solución?', instructions: [], relatedStepNumbers: [], responseFields: [{ id: 'design', prompt: 'Escribe tu propio plan.', multiline: true }] },
   { id: 'prototype', title: 'PROTOTIPO', guidingQuestion: '¿Qué primera versión construirás?', instructions: [], relatedStepNumbers: [], responseFields: [{ id: 'prototype', prompt: 'Describe lo que decidiste construir.', multiline: true }] },
-  { id: 'error', title: 'ERROR', guidingQuestion: '¿Qué aprendiste al probar?', instructions: [], relatedStepNumbers: [], responseFields: [{ id: 'unexpected', prompt: '¿Qué no funcionó como esperabas?', multiline: true }, { id: 'cause', prompt: '¿Qué crees que causó el problema?', multiline: true }] },
+  { id: 'error', title: 'ERROR', guidingQuestion: '¿Qué aprendiste al probar?', instructions: [], relatedStepNumbers: [], responseFields: [{ id: 'unexpected', prompt: '¿Qué no funcionó como esperabas?', multiline: true }, { id: 'step', prompt: '¿En qué paso ocurrió? Si todo funcionó, escribe cómo hiciste la prueba.', multiline: true }, { id: 'expected', prompt: '¿Qué esperabas que ocurriera?', multiline: true }, { id: 'actual', prompt: '¿Qué ocurrió realmente?', multiline: true }, { id: 'cause', prompt: '¿Qué crees que causó el problema?', multiline: true }] },
   { id: 'redesign', title: 'REDISEÑO', guidingQuestion: '¿Cómo lo mejoramos?', instructions: [], relatedStepNumbers: [], responseFields: [{ id: 'change', prompt: '¿Qué cambiaste para mejorar tu proyecto?', multiline: true }, { id: 'worked', prompt: '¿Funcionó mejor después del cambio? Explica qué ocurrió.', multiline: true }, { id: 'next_improvement', prompt: '¿Qué otra mejora te gustaría agregar?', multiline: true }] }
 ];

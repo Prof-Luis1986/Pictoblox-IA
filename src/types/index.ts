@@ -200,6 +200,12 @@ export interface StepSubmission {
   completed: boolean;
 }
 
+export interface EvidenceAttachment {
+  fileName: string;
+  mimeType: 'image/png' | 'image/jpeg' | 'image/webp';
+  base64Data: string;
+}
+
 export interface PracticeSubmissionPayload {
   submissionId: string;
   studentName: string;
@@ -217,6 +223,7 @@ export interface PracticeSubmissionPayload {
   totalSteps: number;
   completedStepsCount: number;
   steps: StepSubmission[];
+  evidenceAttachments?: EvidenceAttachment[];
   simulatorCompleted?: boolean;
   quizScore?: number;
   quizTotalQuestions?: number;

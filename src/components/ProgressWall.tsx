@@ -1,119 +1,56 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import { Check, ChevronRight, ClipboardList, LockKeyhole } from 'lucide-react';
-import { Practice, ProgressWallStageId } from '../types';
-import { emptyProgressWallState, loadProgressWallState, saveProgressWallState } from '../services/sessionStorage';
+import React, { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import { Check, LockKeyhole } from 'lucide-react';
+import { Practice, ProgressWallStage, ProgressWallStageId } from '../types';
+import { emptyProgressWallState, loadProgressWallState, ProgressWallSessionState, saveProgressWallState } from '../services/sessionStorage';
 
 const colors: Record<ProgressWallStageId, string> = {
-  problem: 'border-rose-400/60 text-rose-200 bg-rose-950/50',
-  idea: 'border-amber-400/60 text-amber-200 bg-amber-950/50',
-  design: 'border-sky-400/60 text-sky-200 bg-sky-950/50',
-  prototype: 'border-violet-400/60 text-violet-200 bg-violet-950/50',
-  error: 'border-orange-400/60 text-orange-200 bg-orange-950/50',
-  redesign: 'border-emerald-400/60 text-emerald-200 bg-emerald-950/50'
+  problem: 'border-rose-400/60 text-rose-200 bg-rose-950/50', idea: 'border-amber-400/60 text-amber-200 bg-amber-950/50',
+  design: 'border-sky-400/60 text-sky-200 bg-sky-950/50', prototype: 'border-violet-400/60 text-violet-200 bg-violet-950/50',
+  error: 'border-orange-400/60 text-orange-200 bg-orange-950/50', redesign: 'border-emerald-400/60 text-emerald-200 bg-emerald-950/50'
 };
+type WallContextValue = { practice: Practice; stages: ProgressWallStage[]; state: ProgressWallSessionState; completed: ProgressWallStageId[]; setCurrent: (id: ProgressWallStageId) => void; setResponse: (stageId: ProgressWallStageId, fieldId: string, value: string) => void };
+const WallContext = createContext<WallContextValue | null>(null);
+const useWall = () => { const value = useContext(WallContext); if (!value) throw new Error('Progress Wall components require ProgressWallProvider'); return value; };
+const hasText = (value?: string) => Boolean(value?.trim());
 
-export const ProgressWall: React.FC<{ practice: Practice }> = ({ practice }) => {
+export const ProgressWallProvider: React.FC<{ practice: Practice; completedSteps: number[]; children: React.ReactNode }> = ({ practice, completedSteps, children }) => {
   const stages = useMemo(() => practice.progressWallStages || [], [practice.progressWallStages]);
   const [state, setState] = useState(() => stages.length ? loadProgressWallState(practice.id) : emptyProgressWallState());
-
   useEffect(() => setState(stages.length ? loadProgressWallState(practice.id) : emptyProgressWallState()), [practice.id, stages.length]);
-  useEffect(() => { if (stages.length) saveProgressWallState(practice.id, state); }, [practice.id, stages.length, state]);
+  const completed = useMemo(() => stages.filter(stage => {
+    const answer = (fieldId: string) => state.responses[`${stage.id}:${fieldId}`];
+    if (stage.id === 'problem') return hasText(answer('problem'));
+    if (stage.id === 'idea') return hasText(answer('selected_idea'));
+    if (stage.id === 'design') return hasText(answer('design'));
+    if (stage.id === 'prototype') return stage.relatedStepNumbers.length > 0 ? stage.relatedStepNumbers.every(number => completedSteps.includes(number)) : hasText(answer('prototype'));
+    if (stage.id === 'error') return hasText(answer('unexpected')) && hasText(answer('step')) && hasText(answer('expected')) && hasText(answer('actual')) && hasText(answer('cause'));
+    return hasText(answer('change')) && hasText(answer('worked'));
+  }).map(stage => stage.id), [completedSteps, stages, state.responses]);
+  useEffect(() => { if (stages.length) saveProgressWallState(practice.id, { ...state, completedStageIds: completed }); }, [completed, practice.id, stages.length, state]);
+  const value: WallContextValue = { practice, stages, state, completed, setCurrent: id => setState(previous => ({ ...previous, currentStageId: id })), setResponse: (stageId, fieldId, response) => setState(previous => ({ ...previous, responses: { ...previous.responses, [`${stageId}:${fieldId}`]: response } })) };
+  return <WallContext.Provider value={value}>{children}</WallContext.Provider>;
+};
 
+export const ProgressWallIndicator: React.FC = () => {
+  const { stages, state, completed, setCurrent } = useWall();
   if (!stages.length) return null;
-  const currentIndex = Math.max(0, stages.findIndex(stage => stage.id === state.currentStageId));
-  const current = stages[currentIndex];
-  const isComplete = state.completedStageIds.includes(current.id);
+  const goTo = (id: ProgressWallStageId) => { setCurrent(id); window.requestAnimationFrame(() => document.getElementById(`muro-${id}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' })); };
+  return <nav aria-label="Muro del Progreso" className="sticky top-20 z-30 rounded-2xl bg-slate-950/95 border border-slate-700 p-3 shadow-xl backdrop-blur">
+    <div className="flex items-center justify-between gap-3 mb-2 px-1"><strong className="text-xs text-white">Muro del Progreso</strong><span className="flex items-center gap-1 text-[10px] text-slate-400"><LockKeyhole className="w-3 h-3" /> Privado durante esta sesión</span></div>
+    <div data-progress-wall-indicator className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-1.5">{stages.map((stage, index) => { const done = completed.includes(stage.id); const active = state.currentStageId === stage.id; return <button key={stage.id} type="button" onClick={() => goTo(stage.id)} aria-current={active ? 'step' : undefined} className={`min-h-11 px-2 py-1.5 rounded-xl border text-left transition ${colors[stage.id]} ${active ? 'ring-2 ring-white/80' : 'hover:brightness-125'}`}><span className="flex items-center gap-1 text-[9px] opacity-75">{index + 1} {done && <Check className="w-3 h-3" />}</span><span className="block text-[11px] sm:text-xs font-black">{stage.title}</span></button>; })}</div>
+  </nav>;
+};
 
-  const selectStage = (id: ProgressWallStageId, index: number) => {
-    if (index <= currentIndex || state.completedStageIds.includes(id)) setState(previous => ({ ...previous, currentStageId: id }));
-  };
-
-  const completeAndContinue = () => {
-    const completedStageIds = state.completedStageIds.includes(current.id) ? state.completedStageIds : [...state.completedStageIds, current.id];
-    const next = stages[Math.min(currentIndex + 1, stages.length - 1)];
-    setState(previous => ({ ...previous, completedStageIds, currentStageId: next.id }));
-  };
-
-  return (
-    <section id="muro-del-progreso" className="rounded-3xl bg-slate-950 border border-slate-700 overflow-hidden shadow-xl">
-      <header className="p-5 sm:p-6 border-b border-slate-800">
-        <div className="flex items-start justify-between gap-4 flex-wrap">
-          <div>
-            <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider">Tu proceso de creación</span>
-            <h2 className="text-xl sm:text-2xl font-black text-white">Muro del Progreso</h2>
-            <p className="mt-1 text-sm text-slate-400">Piensa, construye, prueba y mejora. Tus respuestas son privadas y duran sólo esta sesión.</p>
-          </div>
-          <span className="flex items-center gap-2 text-xs text-slate-300 bg-slate-900 px-3 py-2 rounded-xl border border-slate-700">
-            <LockKeyhole className="w-4 h-4 text-emerald-400" /> Guardado privado
-          </span>
-        </div>
-
-        <div data-progress-wall-indicator className="mt-5 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2">
-          {stages.map((stage, index) => {
-            const completed = state.completedStageIds.includes(stage.id);
-            const active = stage.id === current.id;
-            const enabled = index <= currentIndex || completed;
-            return (
-              <button key={stage.id} type="button" onClick={() => selectStage(stage.id, index)} disabled={!enabled}
-                className={`min-h-16 px-3 py-2 rounded-2xl border text-left transition ${colors[stage.id]} ${active ? 'ring-2 ring-white/80 scale-[1.02]' : ''} ${enabled ? 'hover:brightness-125' : 'opacity-45 cursor-not-allowed'}`}
-                aria-current={active ? 'step' : undefined}>
-                <span className="flex items-center gap-1 text-[10px] font-bold opacity-80">ETAPA {index + 1} {completed && <Check className="w-3 h-3" />}</span>
-                <span className="block mt-1 text-xs sm:text-sm font-black">{stage.title}</span>
-              </button>
-            );
-          })}
-        </div>
-      </header>
-
-      <div className="p-5 sm:p-7 space-y-5">
-        <div>
-          <span className={`inline-block px-3 py-1 rounded-full border text-xs font-black ${colors[current.id]}`}>{current.title}</span>
-          <h3 className="mt-3 text-xl font-black text-white">{current.guidingQuestion}</h3>
-        </div>
-
-        {current.instructions.length > 0 && (
-          <ul className="grid gap-2 text-sm text-slate-300">
-            {current.instructions.map(instruction => <li key={instruction} className="flex gap-2"><ChevronRight className="w-4 h-4 mt-0.5 text-emerald-400 shrink-0" /><span>{instruction}</span></li>)}
-          </ul>
-        )}
-
-        {current.relatedStepNumbers.length > 0 && (
-          <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800">
-            <p className="text-xs font-bold text-slate-400 uppercase">Pasos técnicos relacionados</p>
-            <div className="mt-2 flex flex-wrap gap-2">
-              {current.relatedStepNumbers.map(number => <a key={number} href={`#step-pill-${number}`} className="px-3 py-1.5 rounded-xl bg-slate-800 text-emerald-300 text-xs font-bold hover:bg-slate-700">Paso {number}</a>)}
-            </div>
-          </div>
-        )}
-
-        <div className="grid gap-4">
-          {(current.responseFields || []).map(field => (
-            <label key={field.id} className="text-sm font-bold text-slate-200">
-              {field.prompt}
-              <textarea rows={field.multiline ? 3 : 1} value={state.responses[`${current.id}:${field.id}`] || ''}
-                onChange={event => setState(previous => ({ ...previous, responses: { ...previous.responses, [`${current.id}:${field.id}`]: event.target.value } }))}
-                className="mt-2 w-full rounded-2xl border border-slate-700 bg-slate-900 p-3 text-sm font-normal text-white outline-none focus:border-emerald-400 resize-y"
-                placeholder="Escribe con tus propias palabras…" />
-            </label>
-          ))}
-        </div>
-
-        <div className="flex justify-end">
-          <button type="button" onClick={completeAndContinue} className="px-5 py-3 rounded-2xl bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-black text-sm flex items-center gap-2">
-            {isComplete ? 'Continuar' : 'Marcar etapa como terminada'} <ChevronRight className="w-4 h-4" />
-          </button>
-        </div>
-
-        {state.completedStageIds.length > 0 && (
-          <details className="rounded-2xl border border-slate-800 bg-slate-900/70 p-4">
-            <summary className="cursor-pointer font-bold text-white flex items-center gap-2"><ClipboardList className="w-4 h-4 text-emerald-400" /> Resumen privado del Muro del Progreso</summary>
-            <div className="mt-4 grid sm:grid-cols-2 gap-3">
-              {stages.map(stage => <div key={stage.id} className="rounded-xl bg-slate-950 p-3"><h4 className="text-xs font-black text-emerald-300">{stage.title}</h4><p className="mt-1 text-xs text-slate-300 whitespace-pre-wrap">{(stage.responseFields || []).map(field => state.responses[`${stage.id}:${field.id}`]).filter(Boolean).join('\n\n') || 'Sin respuesta todavía.'}</p></div>)}
-            </div>
-            <p className="mt-3 text-xs text-slate-500">Este resumen no se incluye automáticamente en la entrega al docente.</p>
-          </details>
-        )}
-      </div>
-    </section>
-  );
+export const ProgressWallStageSection: React.FC<{ stageId: ProgressWallStageId; children?: React.ReactNode }> = ({ stageId, children }) => {
+  const { stages, state, completed, setCurrent, setResponse } = useWall();
+  const stage = stages.find(item => item.id === stageId);
+  if (!stage) return <>{children}</>;
+  const done = completed.includes(stage.id);
+  return <section id={`muro-${stage.id}`} data-progress-stage={stage.id} className={`scroll-mt-40 rounded-3xl border p-5 sm:p-6 space-y-5 ${colors[stage.id]}`} onFocus={() => setCurrent(stage.id)}>
+    <header className="flex items-start justify-between gap-3"><div><span className="text-[10px] font-black tracking-wider">MURO DEL PROGRESO · {stage.title}</span><h2 className="mt-1 text-lg sm:text-xl font-black text-white">{stage.guidingQuestion}</h2></div><span className="shrink-0 rounded-full border border-current/40 px-2 py-1 text-[10px] font-bold">{done ? '✓ Evidencia registrada' : 'En proceso'}</span></header>
+    {stage.instructions.length > 0 && stage.id !== 'problem' && stage.id !== 'prototype' && <ul className="grid gap-1.5 text-sm text-slate-200">{stage.instructions.map(text => <li key={text}>• {text}</li>)}</ul>}
+    {children}
+    {(stage.responseFields || []).length > 0 && <div className="grid gap-4 rounded-2xl bg-slate-950/55 p-4 border border-white/10">{(stage.responseFields || []).map(field => <label key={field.id} className="text-sm font-bold text-slate-100">{field.prompt}<textarea rows={field.multiline ? 3 : 1} value={state.responses[`${stage.id}:${field.id}`] || ''} onChange={event => setResponse(stage.id, field.id, event.target.value)} onFocus={() => setCurrent(stage.id)} className="mt-2 w-full rounded-xl border border-slate-600 bg-slate-950 p-3 text-sm font-normal text-white outline-none focus:border-emerald-300 resize-y" placeholder="Escribe con tus propias palabras…" /></label>)}</div>}
+    {stage.id === 'prototype' && stage.relatedStepNumbers.length > 0 && <p className="text-xs text-slate-200">El Prototipo se completa automáticamente al terminar sus {stage.relatedStepNumbers.length} pasos técnicos. No puede marcarse manualmente.</p>}
+  </section>;
 };

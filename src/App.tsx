@@ -75,7 +75,7 @@ export default function App() {
   };
 
   const handleClearAcademicSession = () => {
-    const confirmed = window.confirm('¿Seguro que quieres borrar tu nombre, grupo, respuestas y progreso de esta sesión? Esta acción no se puede deshacer.');
+    const confirmed = window.confirm('¿Seguro que quieres terminar y borrar esta sesión? Se eliminarán tu nombre, grupo, respuestas y progreso temporal. Esta acción no se puede deshacer.');
     if (!confirmed) return;
     clearAcademicSession();
     setProgress(createEmptyStudentProgress());

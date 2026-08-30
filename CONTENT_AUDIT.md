@@ -23,4 +23,6 @@ Nombre, grupo, progreso, respuestas, cuestionarios, calificaciones, notas y conf
 
 ## Muro del Progreso
 
-Las 12 prácticas principales declaran las etapas Problema, Idea, Diseño, Prototipo, Error y Rediseño. Cada paso técnico conserva su contenido y queda asociado explícitamente a una etapa. Las respuestas se guardan sólo en `sessionStorage` y no se agregan al envío de Apps Script. Fruta Ninja IA utiliza una plantilla vacía de reto libre, sin instrucciones ni bloques resueltos inventados.
+Las 12 prácticas principales declaran las etapas Problema, Idea, Diseño, Prototipo, Error y Rediseño. El muro funciona como un indicador compacto y como acompañamiento distribuido en el recorrido real: Problema e Idea junto al inicio; Diseño antes de construir; Prototipo envolviendo simulación y guía técnica; Error y Rediseño antes de las preguntas y evidencias finales. No existe una actividad paralela ni una tarjeta extensa que sustituya la práctica.
+
+Cada paso técnico conserva su contenido y queda asociado explícitamente a una etapa. Prototipo se completa sólo cuando todos sus pasos obligatorios están terminados; las demás etapas reaccionan a la evidencia escrita correspondiente. Las respuestas se guardan sólo en `sessionStorage` y no se agregan al envío de Apps Script. Fruta Ninja IA utiliza una plantilla vacía de reto libre, sin instrucciones ni bloques resueltos inventados.

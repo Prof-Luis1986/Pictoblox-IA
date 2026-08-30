@@ -1,10 +1,11 @@
 import { PracticeSubmissionPayload } from '../types';
 
 export const DESTINATION_EMAILS = ['lmartinez@isb.edu.mx', 'dolidos2022@gmail.com'];
+export const EVIDENCE_DRIVE_FOLDER_ID = '18RU-WTqq8D67cuAdCVFC4ahQbQ7CSAkL';
 
-export const DEFAULT_APPSCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw3fiqcEkpN3E0Y2LwWAMx5CqrJGRGIawA-UUF_7Uy0cmAAEJoHjbs-iPpn_tIC6_XXkw/exec';
+export const DEFAULT_APPSCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz0GBLsHlOUUZQltKg8vIfE3nU9JZChx1SDhdFzDjGZ_NYS8Mpw-OinaODREaI5PKXsDg/exec';
 
-const LOCAL_STORAGE_KEY_URL = 'PICTOBLOX_APPSCRIPT_URL';
+const LOCAL_STORAGE_KEY_URL = 'PICTOBLOX_APPSCRIPT_URL_V2';
 
 /**
  * Returns the configured Google Apps Script Web App URL.
@@ -174,6 +175,12 @@ export const generateEmailHtml = (payload: PracticeSubmissionPayload): string =>
           ` : ''}
         </div>
       ` : ''}
+      ${payload.evidenceAttachments && payload.evidenceAttachments.length > 0 ? `
+        <div class="card">
+          <h2>📷 EVIDENCIAS ADJUNTAS</h2>
+          <p>${payload.evidenceAttachments.length} imagen(es) enviadas para guardarse en la carpeta de Drive del curso.</p>
+        </div>
+      ` : ''}
     </div>
 
     <div class="footer">
@@ -203,12 +210,13 @@ export const generateAppsScriptCode = (): string => {
  * 5. Configura:
  *    - Ejecutar como: "Yo" (tu cuenta de Google).
  *    - Quién tiene acceso: "Cualquier persona" (Anyone - sin necesidad de iniciar sesión).
- * 6. Haz clic en "Implementar", autoriza los permisos de Gmail / MailApp.
+ * 6. Haz clic en "Implementar" y autoriza los permisos de Gmail / MailApp y Google Drive.
  * 7. Copia la URL de la aplicación web generada (termina en /exec) y pégala en la plataforma.
  * =========================================================================
  */
 
 const RECIPIENTS = ["lmartinez@isb.edu.mx", "dolidos2022@gmail.com"];
+const EVIDENCE_FOLDER_ID = "18RU-WTqq8D67cuAdCVFC4ahQbQ7CSAkL";
 
 function doGet(e) {
   return ContentService.createTextOutput(
@@ -230,6 +238,8 @@ function doPost(e) {
     var practiceNumber = data.practiceNumber || "Práctica";
     var courseTitle = data.courseTitle || "PictoBlox IA Educativa";
     var quizScore = data.quizScore !== undefined ? data.quizScore + "%" : "N/A";
+    data.evidenceLinks = saveEvidenceFiles(data.evidenceAttachments || [], data, studentName);
+    delete data.evidenceAttachments;
     
     // Asunto del correo
     var subject = "🎓 Práctica Completada: " + studentName + " - " + practiceNumber + " (" + quizScore + ")";
@@ -287,6 +297,26 @@ function doPost(e) {
       })
     ).setMimeType(ContentService.MimeType.JSON);
   }
+}
+
+function saveEvidenceFiles(attachments, data, studentName) {
+  if (!attachments || attachments.length === 0) return [];
+  if (attachments.length > 3) throw new Error("Solo se permiten 3 imágenes por entrega.");
+  var folder = DriveApp.getFolderById(EVIDENCE_FOLDER_ID);
+  var allowedTypes = { "image/png": true, "image/jpeg": true, "image/webp": true };
+  var safeStudent = String(studentName || "Alumno").replace(/[^a-zA-Z0-9áéíóúÁÉÍÓÚñÑ_-]+/g, "_").substring(0, 50);
+  var safePractice = String(data.practiceId || "practica").replace(/[^a-zA-Z0-9_-]+/g, "_").substring(0, 40);
+  var submission = String(data.submissionId || Utilities.getUuid()).replace(/[^a-zA-Z0-9_-]+/g, "_");
+  return attachments.map(function(attachment, index) {
+    if (!allowedTypes[attachment.mimeType]) throw new Error("Tipo de imagen no permitido.");
+    var bytes = Utilities.base64Decode(attachment.base64Data || "");
+    if (bytes.length > 4 * 1024 * 1024) throw new Error("Una imagen supera el límite de 4 MB.");
+    var originalExtension = attachment.mimeType === "image/png" ? ".png" : attachment.mimeType === "image/webp" ? ".webp" : ".jpg";
+    var fileName = safePractice + "_" + safeStudent + "_" + submission + "_" + (index + 1) + originalExtension;
+    var blob = Utilities.newBlob(bytes, attachment.mimeType, fileName);
+    var file = folder.createFile(blob);
+    return { name: file.getName(), url: file.getUrl(), id: file.getId() };
+  });
 }
 
 function buildHtmlReport(data) {
@@ -355,6 +385,16 @@ function buildHtmlReport(data) {
     html += '<div style="background: #0f172a; border: 1px solid #1e293b; border-radius: 12px; padding: 16px; margin-bottom: 16px;">';
     html += '<h3 style="margin: 0 0 8px 0; font-size: 14px; color: #38bdf8;">💡 REFLEXIÓN DEL ALUMNO</h3>';
     html += '<p style="margin: 0; font-size: 13px; color: #e2e8f0; font-style: italic;">"' + data.reflectionAnswer + '"</p>';
+    html += '</div>';
+  }
+
+  if (data.evidenceLinks && data.evidenceLinks.length > 0) {
+    html += '<div style="background: #0f172a; border: 1px solid #1e293b; border-radius: 12px; padding: 16px; margin-bottom: 16px;">';
+    html += '<h3 style="margin: 0 0 8px 0; font-size: 14px; color: #38bdf8;">📷 CAPTURAS E IMÁGENES DE EVIDENCIA</h3>';
+    for (var k = 0; k < data.evidenceLinks.length; k++) {
+      var evidence = data.evidenceLinks[k];
+      html += '<p style="margin: 6px 0;"><a style="color: #34d399;" href="' + evidence.url + '">' + evidence.name + '</a></p>';
+    }
     html += '</div>';
   }
 

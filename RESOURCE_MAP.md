@@ -16,4 +16,4 @@ Los archivos AppleDouble `._*` retirados de `public/` están en `internal/quaran
 
 ## Referencias visuales
 
-Las 196 páginas completas están protegidas en `internal/source-page-captures/` y no se publican. La interfaz recibe únicamente los apoyos visuales recortados que necesita cada actividad; su trazabilidad técnica permanece en `src/data/pdfEmbeddedVisuals.json`.
+Las 196 páginas completas están protegidas en `internal/source-page-captures/` y no se publican. La interfaz recibe únicamente los apoyos visuales recortados que necesita cada actividad; su trazabilidad técnica permanece en `internal/source-data/pdfEmbeddedVisuals.json`.

@@ -163,7 +163,7 @@ export const Header: React.FC<HeaderProps> = ({
             title="Borrar nombre, grupo, respuestas y progreso de esta sesión"
           >
             <Trash2 className="w-4 h-4" />
-            <span className="hidden xl:inline">{hasConfirmedSubmission ? 'Finalizar sesión' : 'Borrar mis datos de esta sesión'}</span>
+            <span className="hidden xl:inline">Terminar y borrar sesión</span>
           </button>
 
           {/* Mobile hamburger menu */}
@@ -179,7 +179,7 @@ export const Header: React.FC<HeaderProps> = ({
             className="w-full flex items-center gap-2 p-3 rounded-xl hover:bg-rose-950 text-rose-300 text-left"
           >
             <Trash2 className="w-4 h-4" />
-            <span>{hasConfirmedSubmission ? 'Finalizar sesión' : 'Borrar mis datos de esta sesión'}</span>
+            <span>Terminar y borrar sesión</span>
           </button>
         </div>
       </div>

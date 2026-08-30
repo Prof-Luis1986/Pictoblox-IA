@@ -4,7 +4,7 @@ import { COURSES_DATA } from '../data/coursesData';
 import { StudentProgress, PracticeSubmissionPayload } from '../types';
 import { PracticeHeader } from '../components/PracticeHeader';
 import { OpenQuestionsSection } from '../components/OpenQuestionsSection';
-import { ProgressWall } from '../components/ProgressWall';
+import { ProgressWallIndicator, ProgressWallProvider, ProgressWallStageSection } from '../components/ProgressWall';
 import { StepViewer } from '../components/StepViewer';
 import { InteractiveBlockSimulation } from '../components/InteractiveBlockSimulation';
 import { QuizComponent } from '../components/QuizComponent';
@@ -268,6 +268,7 @@ export const PracticePage: React.FC<PracticePageProps> = ({
 
   return (
     <div className="space-y-8 py-6 animate-fade-in text-slate-200">
+      <ProgressWallProvider practice={practice} completedSteps={completedSteps}>
       {/* Breadcrumbs & Quick Selector Bar */}
       <div className="flex items-center justify-between gap-4 flex-wrap font-mono text-xs">
         <div className="flex items-center gap-2 flex-wrap">
@@ -431,7 +432,11 @@ export const PracticePage: React.FC<PracticePageProps> = ({
         lastSubmittedAt={lastSubmittedAt}
       />
 
-      <ProgressWall practice={practice} />
+      <ProgressWallIndicator />
+
+      <ProgressWallStageSection stageId="problem" />
+
+      <ProgressWallStageSection stageId="idea" />
 
       {practice.resources && practice.resources.length > 0 && (
         <section className="p-5 sm:p-6 rounded-3xl bg-slate-900/90 border border-cyan-500/30 space-y-4">
@@ -466,21 +471,24 @@ export const PracticePage: React.FC<PracticePageProps> = ({
         </section>
       )}
 
-      {/* Interactive Simulation Playground */}
-      {simulationType && (
-        <InteractiveBlockSimulation
-          type={simulationType}
-          onCompleted={() => {
-            setSimulationCompleted(true);
-            if (!isCompleted) {
-              handleToggleStep(1);
-            }
-          }}
-        />
-      )}
+      <ProgressWallStageSection stageId="design" />
 
-      {/* Step by Step Viewer */}
-      <section className="space-y-4">
+      <ProgressWallStageSection stageId="prototype">
+        {/* Interactive Simulation Playground */}
+        {simulationType && (
+          <InteractiveBlockSimulation
+            type={simulationType}
+            onCompleted={() => {
+              setSimulationCompleted(true);
+              if (!isCompleted) {
+                handleToggleStep(1);
+              }
+            }}
+          />
+        )}
+
+        {/* Step by Step Viewer */}
+        <div className="space-y-4">
         <div className="flex items-center justify-between flex-wrap gap-2">
           <div>
             <h2 className="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
@@ -505,7 +513,12 @@ export const PracticePage: React.FC<PracticePageProps> = ({
           completedStepNumbers={completedSteps}
           onToggleStep={handleToggleStep}
         />
-      </section>
+        </div>
+      </ProgressWallStageSection>
+
+      <ProgressWallStageSection stageId="error" />
+
+      <ProgressWallStageSection stageId="redesign" />
 
       <OpenQuestionsSection practiceId={practice.id} />
 
@@ -678,6 +691,7 @@ export const PracticePage: React.FC<PracticePageProps> = ({
         simulatorCompleted={simulationCompleted}
         onSubmissionSuccess={handleSubmissionSuccess}
       />
+      </ProgressWallProvider>
     </div>
   );
 };

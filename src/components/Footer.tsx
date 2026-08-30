@@ -103,10 +103,10 @@ export const Footer: React.FC<FooterProps> = ({ onOpenColorTable, onClearSession
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> // SEGURIDAD Y PRIVACIDAD
             </h4>
             <p className="text-xs text-slate-400 leading-relaxed font-sans">
-              El progreso y las respuestas se conservan durante recargas de esta pestaña mediante almacenamiento de sesión y normalmente desaparecen al cerrar la pestaña o el navegador.
+              Tu trabajo se conserva solamente durante esta sesión. Cuando termines, presiona “Terminar y borrar sesión” para que el siguiente alumno comience con una sesión limpia.
             </p>
             <button onClick={onClearSession} className="mt-2 w-full rounded-xl border border-rose-500/40 bg-rose-950/60 px-3 py-2 text-left text-xs font-bold text-rose-200 hover:bg-rose-900 transition">
-              Borrar mis datos de esta sesión
+              Terminar y borrar sesión
             </button>
           </div>
         </div>

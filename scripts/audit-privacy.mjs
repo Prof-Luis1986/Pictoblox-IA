@@ -12,6 +12,8 @@ for (const [name, code] of [['OpenQuestionsSection', openQuestions], ['SubmitPra
 }
 assert.ok(app.includes('clearAcademicSession()'), 'Session-clear button is not connected to academic cleanup');
 assert.ok(app.includes("window.location.hash = '#/'"), 'Cleanup must return to the home page');
+assert.ok(readFileSync(`${root}/src/components/Header.tsx`, 'utf8').includes('Terminar y borrar sesión'), 'Required visible session cleanup label is missing');
+assert.ok(readFileSync(`${root}/src/components/Footer.tsx`, 'utf8').includes('Tu trabajo se conserva solamente durante esta sesión.'), 'Student session explanation is missing');
 
 class MemoryStorage {
   data = new Map();
