@@ -99,19 +99,19 @@ export const generateEmailHtml = (payload: PracticeSubmissionPayload): string =>
           <h2>📝 RESULTADOS DEL TEST DE VALIDACIÓN</h2>
           <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; background: #020617; padding: 12px; border-radius: 10px; border: 1px solid #334155;">
             <span style="font-size: 14px; color: #cbd5e1;">Calificación Obtenida:</span>
-            <span style="font-size: 20px; font-weight: 800; color: ${scoreBadgeColor};">${payload.quizScore ?? 0}% (${payload.quizCorrectAnswers || 0}/${payload.quizTotalQuestions || 0} Aciertos)</span>
+            <span style="font-size: 20px; font-weight: 800; color: ${scoreBadgeColor};">${payload.quizScore ?? 0}% (${payload.quizCorrectAnswers || 0} correctas; ${payload.quizAnsweredQuestions || 0}/${payload.quizTotalQuestions || 0} respondidas)</span>
           </div>
 
           ${payload.quizAnswers.map((q, i) => `
-            <div class="quiz-item ${q.isCorrect ? 'correct' : 'incorrect'}">
+            <div class="quiz-item ${!q.answered ? '' : q.isCorrect ? 'correct' : 'incorrect'}">
               <div class="quiz-question">${i + 1}. ${q.questionText}</div>
               <div class="quiz-ans">
                 <strong>Respuesta del Alumno:</strong> 
-                <span class="${q.isCorrect ? 'tag-correct' : 'tag-incorrect'}">
-                  ${q.selectedOptionText} (${q.isCorrect ? '✓ Correcto' : '✗ Incorrecto'})
+                <span class="${!q.answered ? '' : q.isCorrect ? 'tag-correct' : 'tag-incorrect'}">
+                  ${q.answered ? `${q.selectedOptionText} (${q.isCorrect ? '✓ Correcto' : '✗ Incorrecto'})` : 'Sin responder'}
                 </span>
               </div>
-              ${!q.isCorrect ? `
+              ${q.answered && !q.isCorrect ? `
                 <div class="quiz-ans" style="color: #94a3b8;">
                   <strong>Respuesta Correcta:</strong> ${q.correctOptionText}
                 </div>
@@ -356,11 +356,11 @@ function buildHtmlReport(data) {
     html += '<h3 style="margin: 0 0 10px 0; font-size: 14px; color: #38bdf8; border-bottom: 1px solid #334155; padding-bottom: 6px;">📝 TEST DE CONCEPTOS (SCORE: ' + (data.quizScore || 0) + '%)</h3>';
     for (var i = 0; i < data.quizAnswers.length; i++) {
       var q = data.quizAnswers[i];
-      var borderCol = q.isCorrect ? "#10b981" : "#f43f5e";
+      var borderCol = !q.answered ? "#64748b" : q.isCorrect ? "#10b981" : "#f43f5e";
       html += '<div style="background: #020617; border-left: 3px solid ' + borderCol + '; border-radius: 6px; padding: 10px; margin-bottom: 8px; font-size: 12px;">';
       html += '<p style="margin: 0 0 4px 0; font-weight: bold; color: #e2e8f0;">' + (i+1) + '. ' + q.questionText + '</p>';
-      html += '<p style="margin: 2px 0; color: ' + (q.isCorrect ? "#34d399" : "#fb7185") + ';">Respuesta Alumno: ' + q.selectedOptionText + ' (' + (q.isCorrect ? "Correcto" : "Incorrecto") + ')</p>';
-      if (!q.isCorrect) {
+      html += '<p style="margin: 2px 0; color: ' + (!q.answered ? "#94a3b8" : q.isCorrect ? "#34d399" : "#fb7185") + ';">Respuesta Alumno: ' + (q.answered ? q.selectedOptionText + ' (' + (q.isCorrect ? "Correcto" : "Incorrecto") + ')' : 'Sin responder') + '</p>';
+      if (q.answered && !q.isCorrect) {
         html += '<p style="margin: 2px 0; color: #94a3b8;">Correcta: ' + q.correctOptionText + '</p>';
       }
       html += '</div>';

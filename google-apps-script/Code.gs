@@ -150,9 +150,9 @@ function buildHtmlReport(data) {
   if (Array.isArray(data.quizAnswers) && data.quizAnswers.length) {
     let quizHtml = '<p><b>Calificación:</b> ' + escapeHtml(String(data.quizScore || 0)) + '%</p>';
     data.quizAnswers.forEach(function (question, index) {
-      quizHtml += '<div style="margin-top:10px;padding:10px;background:#020617;border-left:3px solid ' + (question.isCorrect ? '#10b981' : '#f43f5e') + '">';
+      quizHtml += '<div style="margin-top:10px;padding:10px;background:#020617;border-left:3px solid ' + (!question.answered ? '#64748b' : question.isCorrect ? '#10b981' : '#f43f5e') + '">';
       quizHtml += '<b>' + (index + 1) + '. ' + escapeHtml(question.questionText || '') + '</b>';
-      quizHtml += '<p>Respuesta: ' + escapeHtml(question.selectedOptionText || 'Sin responder') + '</p></div>';
+      quizHtml += '<p>Respuesta: ' + escapeHtml(question.answered ? (question.selectedOptionText || '') : 'Sin responder') + '</p></div>';
     });
     html += reportCard('RESULTADOS DEL CUESTIONARIO', quizHtml);
   }

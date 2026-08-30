@@ -40,21 +40,23 @@ export const generateConfirmedReceiptPdf = (input: ReceiptPdfInput): GeneratedRe
   };
   const newPageIfNeeded = (needed = 40) => { if (y + needed > height - bottom) { doc.addPage(); y = 48; } };
   const title = (text: string) => { newPageIfNeeded(44); doc.setFillColor(15, 118, 110); doc.roundedRect(margin, y - 16, width - margin * 2, 28, 5, 5, 'F'); doc.setTextColor(255); doc.setFont('helvetica', 'bold'); doc.setFontSize(12); doc.text(text, margin + 10, y + 2); y += 30; };
-  const paragraph = (text: string) => { doc.setFont('helvetica', 'normal'); doc.setFontSize(10); doc.setTextColor(30); const lines = doc.splitTextToSize(text || 'Sin respuesta.', width - margin * 2); lines.forEach((line: string) => { newPageIfNeeded(15); doc.text(line, margin, y); y += 14; }); y += 6; };
-  const item = (label: string, value: string) => { doc.setFont('helvetica', 'bold'); paragraph(`${label}: ${value || 'Sin respuesta.'}`); };
+  const paragraph = (text: string) => { doc.setFont('helvetica', 'normal'); doc.setFontSize(10); doc.setTextColor(30); const lines = doc.splitTextToSize(text, width - margin * 2); lines.forEach((line: string) => { newPageIfNeeded(15); doc.text(line, margin, y); y += 14; }); y += 6; };
+  const item = (label: string, value: string) => { doc.setFont('helvetica', 'bold'); paragraph(`${label}: ${value}`); };
+  const emptySection = () => paragraph('Sección sin respuestas');
 
   doc.setFillColor(2, 6, 23); doc.rect(0, 0, width, 104, 'F'); doc.setTextColor(52, 211, 153); doc.setFont('helvetica', 'bold'); doc.setFontSize(19); doc.text('PICTOBLOX IA EDUCATIVA', margin, 42); doc.setTextColor(255); doc.setFontSize(15); doc.text(payload.practiceTitle, margin, 70); doc.setFontSize(10); doc.text(payload.courseTitle, margin, 90); y = 128;
   title('DATOS DE LA ENTREGA CONFIRMADA');
   item('Alumno', payload.studentName); item('Grupo', payload.studentGroup); item('Fecha indicada', payload.studentDate); item('Fecha y hora de entrega', payload.formattedDate); item('Práctica', `${payload.practiceNumber}: ${payload.practiceTitle}`); item('Identificador', payload.submissionId); item('Estado', 'CONFIRMADA');
   title('OBJETIVO O PROBLEMA'); paragraph(wallResponses['problem:problem'] || practice.description);
   title('MURO DEL PROGRESO');
-  (practice.progressWallStages || []).forEach(stage => { const choice = stage.id === 'error' ? wallResponses['error:outcome'] : stage.id === 'redesign' ? wallResponses['redesign:redesign_choice'] : ''; const answers = [choice, ...(stage.responseFields || []).map(field => wallResponses[`${stage.id}:${field.id}`])].filter(Boolean); item(stage.title, answers.join('\n') || 'Sin respuesta.'); });
+  const answeredWallStages = (practice.progressWallStages || []).map(stage => { const choice = stage.id === 'error' ? wallResponses['error:outcome'] : stage.id === 'redesign' ? wallResponses['redesign:redesign_choice'] : ''; const answers = [choice, ...(stage.responseFields || []).map(field => wallResponses[`${stage.id}:${field.id}`])].filter(Boolean); return { stage, answers }; }).filter(entry => entry.answers.length);
+  if (answeredWallStages.length) answeredWallStages.forEach(({ stage, answers }) => item(stage.title, answers.join('\n'))); else emptySection();
   title('PASOS TÉCNICOS'); practice.steps.forEach(step => paragraph(`${payload.steps.find(item => item.stepNumber === step.stepNumber)?.completed ? 'COMPLETADO' : 'PENDIENTE'} - Paso ${step.stepNumber}: ${step.title}`));
-  title('PREGUNTAS ABIERTAS'); (OPEN_QUESTIONS_BY_PRACTICE[practice.id] || []).forEach(question => item(question.question, openQuestionAnswers[question.id])); if (!Object.keys(openQuestionAnswers).length) paragraph('Esta práctica no contiene preguntas abiertas.');
-  if (payload.experiments?.length) { title('EXPERIMENTOS Y OBSERVACIONES'); payload.experiments.forEach(exp => item(exp.title, exp.notesOrAnswer || exp.selectedOption || 'Sin respuesta.')); }
-  if (payload.quizAnswers?.length) { title('CUESTIONARIO'); payload.quizAnswers.forEach((answer, index) => item(`${index + 1}. ${answer.questionText}`, answer.selectedOptionText)); if (payload.quizScore !== undefined) item('Resultado', `${payload.quizScore}%`); }
+  title('PREGUNTAS ABIERTAS'); const answeredOpenQuestions = (OPEN_QUESTIONS_BY_PRACTICE[practice.id] || []).filter(question => openQuestionAnswers[question.id]?.trim()); if (answeredOpenQuestions.length) answeredOpenQuestions.forEach(question => item(question.question, openQuestionAnswers[question.id])); else emptySection();
+  if (payload.experiments?.length) { title('EXPERIMENTOS Y OBSERVACIONES'); const answeredExperiments = payload.experiments.filter(exp => exp.notesOrAnswer || exp.selectedOption); if (answeredExperiments.length) answeredExperiments.forEach(exp => item(exp.title, exp.notesOrAnswer || exp.selectedOption || '')); else emptySection(); }
+  if (payload.quizAnswers?.length) { title('CUESTIONARIO'); payload.quizAnswers.forEach((answer, index) => item(`${index + 1}. ${answer.questionText}`, answer.answered ? `${answer.selectedOptionText} — ${answer.isCorrect ? 'Correcta' : 'Incorrecta'}` : 'Sin responder')); if (payload.quizScore !== undefined && payload.quizAnsweredQuestions) item('Resultado', `${payload.quizScore}% — ${payload.quizAnsweredQuestions} de ${payload.quizTotalQuestions || payload.quizAnswers.length} respondidas`); }
   if (payload.reflectionAnswer) { title('REFLEXIÓN O CONCLUSIÓN'); paragraph(payload.reflectionAnswer); }
-  title('EVIDENCIAS CONFIRMADAS'); item('Cantidad total', String(evidenceCount)); evidenceLinks.forEach(link => { item('Archivo', link.name); paragraph(link.url); });
+  title('EVIDENCIAS CONFIRMADAS'); if (evidenceCount > 0) { item('Cantidad total', String(evidenceCount)); evidenceLinks.forEach(link => { item('Archivo', link.name); paragraph(link.url); }); } else emptySection();
   title('CONSTANCIA'); paragraph('Este documento es una copia de la práctica realizada. La recepción fue confirmada por el sistema.');
   footer();
   return { blob: doc.output('blob'), fileName: buildReceiptFileName(payload), pageCount: doc.getNumberOfPages() };

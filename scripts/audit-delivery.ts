@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { classifySubmissionServerPayload, classifyUnreadableResponse } from '../src/services/submissionConfirmation';
-import { getSubmissionMissingRequirements, REQUIRED_MAIN_WALL_STAGES } from '../src/services/submissionEligibility';
+import { getSubmissionMissingRequirements, hasIncompleteOptionalResponses } from '../src/services/submissionEligibility';
 import { isProgressStageComplete } from '../src/components/ProgressWall';
 import { ProgressWallStage } from '../src/types';
 
@@ -10,8 +10,15 @@ assert.equal(classifyUnreadableResponse('opaque')?.state, 'pending');
 assert.equal(classifySubmissionServerPayload('sub-1', { status: 'success', submissionId: 'otro', evidenceCount: 0, evidenceLinks: [] }).state, 'failed');
 assert.equal(classifySubmissionServerPayload('sub-1', { status: 'success', submissionId: 'sub-1', evidenceCount: 0, evidenceLinks: [], message: 'ok' }).state, 'confirmed');
 
-const missing = getSubmissionMissingRequirements({ isFreeChallenge: false, totalSteps: 2, completedSteps: [1, 2], completedWallStages: REQUIRED_MAIN_WALL_STAGES.filter(stage => stage !== 'redesign'), openQuestionsComplete: true });
-assert.deepEqual(missing, ['Etapa REDISEÑO']);
+const optionalResponsesDoNotBlock = getSubmissionMissingRequirements({ isFreeChallenge: false, totalSteps: 2, completedSteps: [1, 2], completedWallStages: [], openQuestionsComplete: false });
+assert.deepEqual(optionalResponsesDoNotBlock, []);
+const missingSteps = getSubmissionMissingRequirements({ isFreeChallenge: false, totalSteps: 2, completedSteps: [1], completedWallStages: [], openQuestionsComplete: false });
+assert.deepEqual(missingSteps, ['1 paso(s) técnico(s)']);
+const freeChallenge = getSubmissionMissingRequirements({ isFreeChallenge: true, totalSteps: 0, completedSteps: [], completedWallStages: [], openQuestionsComplete: false });
+assert.deepEqual(freeChallenge, []);
+const completeOptional = { wallCompleted: 6, wallTotal: 6, openAnswered: 2, openTotal: 2, quizAnswered: 3, quizTotal: 3, experimentAnswered: 1, experimentTotal: 1, hasReflectionPrompt: true, reflectionAnswer: 'Aprendí a probar.' };
+assert.equal(hasIncompleteOptionalResponses(completeOptional), false, 'Complete optional responses must not show a warning');
+assert.equal(hasIncompleteOptionalResponses({ ...completeOptional, quizAnswered: 2 }), true, 'Incomplete optional responses must show a warning without blocking eligibility');
 
 const errorStage = { id: 'error', title: 'ERROR', guidingQuestion: 'x', instructions: [], relatedStepNumbers: [], responseFields: [] } as ProgressWallStage;
 assert.equal(isProgressStageComplete(errorStage, { 'error:outcome': 'worked', 'error:test_method': 'bandera', 'error:expected': 'saludo', 'error:actual': 'saludo', 'error:evidence': 'captura' }, []), true);
@@ -30,4 +37,6 @@ assert.ok(service.includes('VITE_APPSCRIPT_WEBAPP_URL') && service.includes('DEF
 assert.ok(!server.includes('data.recipients') && server.includes("const recipients = RECIPIENTS.join(',')"), 'Standalone Apps Script accepts client recipients');
 assert.ok(!service.includes('data.recipients &&') && service.includes('var emailList = RECIPIENTS.join'), 'Generated Apps Script accepts client recipients');
 assert.ok(modal.indexOf('onSubmissionSuccess(localReceipt)') > modal.indexOf("res.state === 'confirmed'"), 'Confirmed progress can be recorded before verification');
-console.log('Delivery audit passed: false positives rejected, IDs verified, mandatory stages enforced, and no-error/no-change paths accepted.');
+assert.ok(modal.includes('Regresar y completar respuestas') && modal.includes('Continuar y enviar'), 'Optional response warning actions are missing');
+assert.ok(modal.includes('quizAnsweredQuestions') && modal.includes('isCorrect = answered ?'), 'Unanswered quiz items are still classified as incorrect');
+console.log('Delivery audit passed: false positives rejected, IDs verified, only technical steps gate submission, optional responses warn without blocking, and free challenges can submit.');

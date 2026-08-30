@@ -32,13 +32,14 @@ export const QuizComponent: React.FC<QuizComponentProps> = ({
 
   const handleSubmit = () => {
     let correctCount = 0;
+    const answeredCount = questions.filter(q => selectedAnswers[q.id] !== undefined).length;
     questions.forEach(q => {
       if (selectedAnswers[q.id] === q.correctOptionIndex) {
         correctCount++;
       }
     });
 
-    const calculatedScore = Math.round((correctCount / questions.length) * 100);
+    const calculatedScore = answeredCount > 0 ? Math.round((correctCount / answeredCount) * 100) : 0;
     setScore(calculatedScore);
     setSubmitted(true);
     onSaveScore(calculatedScore);
@@ -60,7 +61,7 @@ export const QuizComponent: React.FC<QuizComponentProps> = ({
     }
   };
 
-  const allAnswered = questions.every(q => selectedAnswers[q.id] !== undefined);
+  const answeredCount = questions.filter(q => selectedAnswers[q.id] !== undefined).length;
 
   return (
     <div id="practice-quiz-container" className="my-8 p-6 sm:p-8 rounded-3xl cyber-card text-slate-200">
@@ -83,7 +84,7 @@ export const QuizComponent: React.FC<QuizComponentProps> = ({
           <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-2xl bg-slate-900 border border-emerald-500/30">
             <Award className={`w-4 h-4 ${score >= 70 ? 'text-emerald-400' : 'text-slate-500'}`} />
             <span className="text-xs font-mono font-bold text-white">
-              SCORE: {score}%
+              SCORE: {score}% ({answeredCount}/{questions.length} respondidas)
             </span>
           </div>
         )}
@@ -112,7 +113,9 @@ export const QuizComponent: React.FC<QuizComponentProps> = ({
                   const isSelected = userAnswer === optIdx;
                   let buttonStyle = 'bg-slate-900 border-slate-800 text-slate-300 hover:border-emerald-500/40 hover:bg-slate-850';
 
-                  if (submitted) {
+                  if (submitted && userAnswer === undefined) {
+                    buttonStyle = 'bg-slate-950 border-slate-800 text-slate-500';
+                  } else if (submitted) {
                     if (optIdx === q.correctOptionIndex) {
                       buttonStyle = 'bg-emerald-950/80 border-emerald-500 text-emerald-300 font-bold';
                     } else if (isSelected && !isCorrect) {
@@ -139,7 +142,7 @@ export const QuizComponent: React.FC<QuizComponentProps> = ({
                         <span>{opt}</span>
                       </span>
 
-                      {submitted && optIdx === q.correctOptionIndex && (
+                      {submitted && userAnswer !== undefined && optIdx === q.correctOptionIndex && (
                         <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 ml-2" />
                       )}
                       {submitted && isSelected && !isCorrect && (
@@ -152,8 +155,11 @@ export const QuizComponent: React.FC<QuizComponentProps> = ({
 
               {submitted && (
                 <div className="p-3.5 mt-3 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-300 space-y-1 font-mono">
-                  <span className="font-bold text-emerald-400 block">// EXPLICACIÓN TÉCNICA:</span>
-                  <span className="font-sans">{q.explanation}</span>
+                  {userAnswer === undefined ? (
+                    <span className="font-bold text-slate-400 block">SIN RESPONDER</span>
+                  ) : (
+                    <><span className="font-bold text-emerald-400 block">// EXPLICACIÓN TÉCNICA:</span><span className="font-sans">{q.explanation}</span></>
+                  )}
                 </div>
               )}
             </div>
@@ -166,8 +172,7 @@ export const QuizComponent: React.FC<QuizComponentProps> = ({
           <button
             id="btn-submit-quiz"
             onClick={handleSubmit}
-            disabled={!allAnswered}
-            className="px-6 py-2.5 bg-emerald-500 hover:bg-emerald-400 disabled:opacity-40 disabled:cursor-not-allowed text-slate-950 text-xs sm:text-sm font-bold rounded-2xl shadow-[0_0_15px_rgba(16,185,129,0.25)] transition"
+            className="px-6 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs sm:text-sm font-bold rounded-2xl shadow-[0_0_15px_rgba(16,185,129,0.25)] transition"
           >
             COMPROBAR RESPUESTAS
           </button>
@@ -186,7 +191,7 @@ export const QuizComponent: React.FC<QuizComponentProps> = ({
             ? score >= 70
               ? '✨ ¡Excelente rendimiento en el laboratorio!'
               : '// Repasa los bloques y vuelve a intentar el test.'
-            : '// Selecciona una opción para cada pregunta.'}
+            : '// Puedes responder las preguntas que desees.'}
         </p>
       </div>
     </div>

@@ -181,7 +181,8 @@ export interface QuizAnswerSubmission {
   selectedOptionText: string;
   correctOptionIndex: number;
   correctOptionText: string;
-  isCorrect: boolean;
+  answered: boolean;
+  isCorrect: boolean | null;
   explanation: string;
 }
 
@@ -228,6 +229,7 @@ export interface PracticeSubmissionPayload {
   simulatorCompleted?: boolean;
   quizScore?: number;
   quizTotalQuestions?: number;
+  quizAnsweredQuestions?: number;
   quizCorrectAnswers?: number;
   quizAnswers?: QuizAnswerSubmission[];
   experiments?: ExperimentSubmission[];

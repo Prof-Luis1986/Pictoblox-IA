@@ -607,7 +607,7 @@ export const PracticePage: React.FC<PracticePageProps> = ({
 
             <p className="text-sm text-slate-300 leading-relaxed">
               {canSubmit
-                ? 'Revisa tus respuestas y envía tu trabajo al maestro.'
+                ? 'Ya puedes enviar. El Muro del Progreso, las preguntas abiertas, cuestionarios y experimentos son opcionales; puedes completarlos para enriquecer tu evidencia.'
                 : `Falta completar: ${missingRequirements.join(', ')}.`}
             </p>
 
@@ -699,7 +699,9 @@ export const PracticePage: React.FC<PracticePageProps> = ({
         experimentNotes={practiceProgress?.experimentNotes}
         simulatorCompleted={simulationCompleted}
         wallResponses={wallResponses}
+        wallCompletedCount={wallCompleted.length}
         openQuestionAnswers={openQuestionAnswers}
+        openQuestionTotal={(OPEN_QUESTIONS_BY_PRACTICE[practice.id] || []).length}
         missingRequirements={missingRequirements}
         onSubmissionSuccess={handleSubmissionSuccess}
       />

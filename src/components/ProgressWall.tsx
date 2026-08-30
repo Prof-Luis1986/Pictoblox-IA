@@ -8,7 +8,7 @@ const colors: Record<ProgressWallStageId, string> = {
   design: 'border-sky-400/60 text-sky-200 bg-sky-950/50', prototype: 'border-violet-400/60 text-violet-200 bg-violet-950/50',
   error: 'border-orange-400/60 text-orange-200 bg-orange-950/50', redesign: 'border-emerald-400/60 text-emerald-200 bg-emerald-950/50'
 };
-type WallContextValue = { practice: Practice; stages: ProgressWallStage[]; state: ProgressWallSessionState; completed: ProgressWallStageId[]; setCurrent: (id: ProgressWallStageId) => void; setResponse: (stageId: ProgressWallStageId, fieldId: string, value: string) => void };
+type WallContextValue = { practice: Practice; stages: ProgressWallStage[]; state: ProgressWallSessionState; completed: ProgressWallStageId[]; completedSteps: number[]; setCurrent: (id: ProgressWallStageId) => void; setResponse: (stageId: ProgressWallStageId, fieldId: string, value: string) => void };
 const WallContext = createContext<WallContextValue | null>(null);
 const useWall = () => { const value = useContext(WallContext); if (!value) throw new Error('Progress Wall components require ProgressWallProvider'); return value; };
 const hasText = (value?: string) => Boolean(value?.trim());
@@ -35,7 +35,7 @@ export const ProgressWallProvider: React.FC<{ practice: Practice; completedSteps
   const completed = useMemo(() => stages.filter(stage => isProgressStageComplete(stage, state.responses, completedSteps)).map(stage => stage.id), [completedSteps, stages, state.responses]);
   useEffect(() => { if (stages.length) saveProgressWallState(practice.id, { ...state, completedStageIds: completed }); }, [completed, practice.id, stages.length, state]);
   useEffect(() => { onProgressChange?.(completed, state.responses); }, [completed, onProgressChange, state.responses]);
-  const value: WallContextValue = { practice, stages, state, completed, setCurrent: id => setState(previous => ({ ...previous, currentStageId: id })), setResponse: (stageId, fieldId, response) => setState(previous => ({ ...previous, responses: { ...previous.responses, [`${stageId}:${fieldId}`]: response } })) };
+  const value: WallContextValue = { practice, stages, state, completed, completedSteps, setCurrent: id => setState(previous => ({ ...previous, currentStageId: id })), setResponse: (stageId, fieldId, response) => setState(previous => ({ ...previous, responses: { ...previous.responses, [`${stageId}:${fieldId}`]: response } })) };
   return <WallContext.Provider value={value}>{children}</WallContext.Provider>;
 };
 
@@ -50,12 +50,16 @@ export const ProgressWallIndicator: React.FC = () => {
 };
 
 export const ProgressWallStageSection: React.FC<{ stageId: ProgressWallStageId; children?: React.ReactNode }> = ({ stageId, children }) => {
-  const { stages, state, completed, setCurrent, setResponse } = useWall();
+  const { stages, state, completed, completedSteps, setCurrent, setResponse } = useWall();
   const stage = stages.find(item => item.id === stageId);
   if (!stage) return <>{children}</>;
   const done = completed.includes(stage.id);
+  const hasStarted = stage.id === 'prototype'
+    ? stage.relatedStepNumbers.some(number => completedSteps.includes(number))
+    : Object.entries(state.responses).some(([key, value]) => key.startsWith(`${stage.id}:`) && hasText(value));
+  const status = done ? (stage.id === 'prototype' ? 'Prototipo completado' : 'Respondida') : hasStarted ? 'En proceso' : 'Sin comenzar';
   return <section id={`muro-${stage.id}`} data-progress-stage={stage.id} className={`scroll-mt-40 rounded-3xl border p-5 sm:p-6 space-y-5 ${colors[stage.id]}`} onFocus={() => setCurrent(stage.id)}>
-    <header className="flex items-start justify-between gap-3"><div><span className="text-[10px] font-black tracking-wider">MURO DEL PROGRESO · {stage.title}</span><h2 className="mt-1 text-lg sm:text-xl font-black text-white">{stage.guidingQuestion}</h2></div><span className="shrink-0 rounded-full border border-current/40 px-2 py-1 text-[10px] font-bold">{done ? '✓ Evidencia registrada' : 'En proceso'}</span></header>
+    <header className="flex items-start justify-between gap-3"><div><span className="text-[10px] font-black tracking-wider">MURO DEL PROGRESO · {stage.title}</span><h2 className="mt-1 text-lg sm:text-xl font-black text-white">{stage.guidingQuestion}</h2><p className="mt-1 text-[11px] text-slate-300">Registro opcional para documentar tu proceso.</p></div><span className="shrink-0 rounded-full border border-current/40 px-2 py-1 text-[10px] font-bold">{status}</span></header>
     {stage.instructions.length > 0 && stage.id !== 'prototype' && <ul className="grid gap-1.5 text-sm text-slate-200">{stage.instructions.map(text => <li key={text}>• {text}</li>)}</ul>}
     {children}
     {stage.id === 'error' && <ChoiceFields title="Selecciona el resultado de tu prueba" value={state.responses['error:outcome'] || ''} options={[['found', 'Encontré un error'], ['worked', 'Todo funcionó correctamente']]} onChange={value => setResponse('error', 'outcome', value)} />}

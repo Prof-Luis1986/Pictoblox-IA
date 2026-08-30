@@ -28,6 +28,7 @@ import {
 } from '../services/appscript';
 import { getSessionStudentGroup, getSessionStudentName, loadProgressWallState, saveSessionIdentity } from '../services/sessionStorage';
 import { blobToBase64, downloadReceiptPdf, GeneratedReceiptPdf, generateConfirmedReceiptPdf } from '../services/receiptPdf';
+import { hasIncompleteOptionalResponses } from '../services/submissionEligibility';
 
 interface SubmitPracticeModalProps {
   isOpen: boolean;
@@ -40,7 +41,9 @@ interface SubmitPracticeModalProps {
   experimentNotes?: Record<string, string>;
   simulatorCompleted?: boolean;
   wallResponses: Record<string, string>;
+  wallCompletedCount: number;
   openQuestionAnswers: Record<string, string>;
+  openQuestionTotal: number;
   missingRequirements: string[];
   onSubmissionSuccess: (payload: PracticeSubmissionPayload) => void;
 }
@@ -56,7 +59,9 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
   experimentNotes = {},
   simulatorCompleted = false,
   wallResponses,
+  wallCompletedCount,
   openQuestionAnswers,
+  openQuestionTotal,
   missingRequirements,
   onSubmissionSuccess
 }) => {
@@ -76,6 +81,7 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
   const [studentDate, setStudentDate] = useState(new Date().toISOString().substring(0, 10));
   const [receiptPdf, setReceiptPdf] = useState<GeneratedReceiptPdf | null>(null);
   const [pdfMessage, setPdfMessage] = useState('');
+  const [showOptionalWarning, setShowOptionalWarning] = useState(false);
   const downloadedSubmissionIds = useRef(new Set<string>());
   
   useEffect(() => { const clearReceipt = () => { setReceiptPdf(null); setSubmittedPayload(null); setPdfMessage(''); downloadedSubmissionIds.current.clear(); }; window.addEventListener('academic-session-cleared', clearReceipt); return () => window.removeEventListener('academic-session-cleared', clearReceipt); }, []);
@@ -87,8 +93,28 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
   const totalSteps = practice.steps.length;
   const progressWallState = loadProgressWallState(practice.id);
   const isSubmitting = submissionState === 'preparing' || submissionState === 'sending';
+  const wallTotal = practice.progressWallStages?.length || 0;
+  const openAnsweredCount = Object.values(openQuestionAnswers).filter(answer => answer.trim()).length;
+  const quizAnsweredCount = Object.keys(quizAnswers).filter(questionId => quizAnswers[questionId] !== undefined).length;
+  const quizTotal = practice.quizQuestions?.length || 0;
+  const experimentAnsweredCount = (practice.experiments || []).filter(experiment => (
+    (experimentNotes[experiment.id] || experimentNotes[`${experiment.id}_notes`] || '').trim()
+  )).length;
+  const experimentTotal = practice.experiments?.length || 0;
+  const hasIncompleteOptionalSections = hasIncompleteOptionalResponses({
+    wallCompleted: wallCompletedCount,
+    wallTotal,
+    openAnswered: openAnsweredCount,
+    openTotal: openQuestionTotal,
+    quizAnswered: quizAnsweredCount,
+    quizTotal,
+    experimentAnswered: experimentAnsweredCount,
+    experimentTotal,
+    hasReflectionPrompt: Boolean(practice.reflection),
+    reflectionAnswer: studentReflection
+  });
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (continueWithIncompleteOptional = false) => {
     if (missingRequirements.length) { setErrorMessage(`Falta completar: ${missingRequirements.join(', ')}.`); return; }
     if (!studentName.trim()) {
       setErrorMessage('Por favor escribe tu nombre completo para que tus profesores puedan identificarte.');
@@ -96,7 +122,13 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
     }
     if (!studentGroup.trim()) { setErrorMessage('Por favor escribe tu grupo.'); return; }
     if (!studentDate) { setErrorMessage('Por favor selecciona la fecha.'); return; }
+    if (hasIncompleteOptionalSections && !continueWithIncompleteOptional) {
+      setErrorMessage(null);
+      setShowOptionalWarning(true);
+      return;
+    }
 
+    setShowOptionalWarning(false);
     setErrorMessage(null);
     setSubmissionState('preparing');
     let evidenceAttachments: EvidenceAttachment[];
@@ -117,7 +149,8 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
     // Build Quiz Answer Details
     const quizAnswerList: QuizAnswerSubmission[] = (practice.quizQuestions || []).map(q => {
       const selectedIdx = quizAnswers[q.id] ?? -1;
-      const isCorrect = selectedIdx === q.correctOptionIndex;
+      const answered = selectedIdx >= 0;
+      const isCorrect = answered ? selectedIdx === q.correctOptionIndex : null;
       return {
         questionId: q.id,
         questionText: q.question,
@@ -125,6 +158,7 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
         selectedOptionText: selectedIdx >= 0 ? q.options[selectedIdx] : 'Sin responder',
         correctOptionIndex: q.correctOptionIndex,
         correctOptionText: q.options[q.correctOptionIndex],
+        answered,
         isCorrect,
         explanation: q.explanation
       };
@@ -182,7 +216,8 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
       simulatorCompleted,
       quizScore: quizScore !== undefined ? quizScore : undefined,
       quizTotalQuestions: practice.quizQuestions?.length,
-      quizCorrectAnswers: quizAnswerList.filter(q => q.isCorrect).length,
+      quizAnsweredQuestions: quizAnswerList.filter(q => q.answered).length,
+      quizCorrectAnswers: quizAnswerList.filter(q => q.isCorrect === true).length,
       quizAnswers: quizAnswerList,
       experiments: experimentList,
       reflectionPrompt: practice.reflection || undefined,
@@ -428,7 +463,7 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
                     </div>
                   ))}
                 </div>
-                <p className="text-slate-400">Revísalo antes de continuar. Estas respuestas son privadas y no forman parte de los datos que se enviarán al docente.</p>
+                <p className="text-slate-400">Revísalo antes de continuar. Se conserva durante esta sesión y las respuestas que hayas escrito se incluirán en el comprobante de la entrega confirmada.</p>
               </div>
 
               <div className="space-y-3 p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-slate-800 text-xs">
@@ -441,15 +476,44 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
                     <span className="text-slate-400 text-xs block">Pasos de la actividad:</span>
                     <span className="font-bold text-white text-sm">{stepsCount} de {totalSteps} pasos completados</span>
                   </div>
-
                   <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                    <span className="text-slate-400 text-xs block">Calificación de preguntas:</span>
-                    <span className="font-bold text-emerald-400 text-sm">
-                      {quizScore !== undefined ? `${quizScore}% de Aciertos` : 'Sin responder aún'}
-                    </span>
+                    <span className="text-slate-400 text-xs block">Muro del Progreso:</span>
+                    <span className="font-bold text-white text-sm">{wallCompletedCount} de {wallTotal} etapas respondidas</span>
+                  </div>
+                  <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
+                    <span className="text-slate-400 text-xs block">Preguntas abiertas:</span>
+                    <span className="font-bold text-white text-sm">{openAnsweredCount} de {openQuestionTotal} respondidas</span>
+                  </div>
+                  <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
+                    <span className="text-slate-400 text-xs block">Cuestionario:</span>
+                    <span className="font-bold text-white text-sm">{quizAnsweredCount} de {quizTotal} respondidas</span>
+                  </div>
+                  <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
+                    <span className="text-slate-400 text-xs block">Evidencias:</span>
+                    <span className="font-bold text-white text-sm">{evidenceFiles.length} de 3 imágenes</span>
                   </div>
                 </div>
               </div>
+
+              {showOptionalWarning && (
+                <div className="p-4 rounded-2xl bg-amber-950/80 border border-amber-500/60 space-y-3" role="alert">
+                  <div className="flex items-start gap-2 text-amber-100">
+                    <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-black">Hay apartados opcionales sin responder.</p>
+                      <p className="mt-1 text-xs text-amber-200">Puedes regresar para completarlos o continuar. Las respuestas vacías no impedirán la entrega ni se marcarán como incorrectas.</p>
+                    </div>
+                  </div>
+                  <div className="flex flex-col sm:flex-row gap-2">
+                    <button type="button" onClick={onClose} className="px-4 py-2.5 rounded-xl bg-slate-800 text-white font-bold text-xs">
+                      Regresar y completar respuestas
+                    </button>
+                    <button type="button" onClick={() => void handleSubmit(true)} className="px-4 py-2.5 rounded-xl bg-amber-400 text-slate-950 font-black text-xs">
+                      Continuar y enviar
+                    </button>
+                  </div>
+                </div>
+              )}
 
               {/* Reflection question if present */}
               {practice.reflection && (
@@ -493,7 +557,7 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
             </button>
 
             <button
-              onClick={handleSubmit}
+              onClick={() => void handleSubmit(false)}
               disabled={isSubmitting}
               className="px-8 py-4 bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-400 hover:from-emerald-300 hover:to-teal-300 disabled:opacity-50 text-slate-950 text-sm sm:text-base font-black rounded-2xl flex items-center gap-2.5 shadow-[0_0_25px_rgba(16,185,129,0.5)] transform hover:scale-105 active:scale-95 transition-all ring-4 ring-emerald-500/20"
             >

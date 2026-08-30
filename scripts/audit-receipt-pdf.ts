@@ -15,6 +15,9 @@ assert.ok(receipt.pageCount > 1, 'Long answers did not create additional pages')
 assert.match(receipt.fileName, /^Practica_05_Luis_Martinez_N_5_A_2026-08-30_sub_12345\.pdf$/);
 const source = readFileSync('src/services/receiptPdf.ts', 'utf8');
 assert.ok(source.includes('URL.revokeObjectURL'));
+assert.ok(source.includes('Sección sin respuestas'));
+assert.ok(!source.includes("value || 'Sin respuesta.'"), 'Empty fields repeat Sin respuesta instead of using one section marker');
+assert.ok(source.includes("answer.answered ?") && source.includes("'Sin responder'"), 'Quiz does not distinguish unanswered questions');
 for (const forbidden of ['base64Data', 'DEFAULT_APPSCRIPT_URL', '.sb3', 'firebaseConfig']) assert.ok(!source.includes(forbidden), `PDF source contains forbidden ${forbidden}`);
 assert.ok(source.includes('downloadedSubmissionIds') === false, 'Download dedupe belongs outside PDF builder');
 const modal = readFileSync('src/components/SubmitPracticeModal.tsx', 'utf8');
