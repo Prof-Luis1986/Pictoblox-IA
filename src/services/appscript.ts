@@ -6,32 +6,15 @@ export const EVIDENCE_DRIVE_FOLDER_ID = '18RU-WTqq8D67cuAdCVFC4ahQbQ7CSAkL';
 
 export const DEFAULT_APPSCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz0GBLsHlOUUZQltKg8vIfE3nU9JZChx1SDhdFzDjGZ_NYS8Mpw-OinaODREaI5PKXsDg/exec';
 
-const LOCAL_STORAGE_KEY_URL = 'PICTOBLOX_APPSCRIPT_URL_V2';
-
 /**
  * Returns the configured Google Apps Script Web App URL.
  */
 export const getAppScriptUrl = (): string => {
-  if (typeof window !== 'undefined') {
-    const saved = localStorage.getItem(LOCAL_STORAGE_KEY_URL);
-    if (saved && saved.trim() !== '') {
-      return saved.trim();
-    }
-  }
   const envUrl = ((import.meta as any).env?.VITE_APPSCRIPT_WEBAPP_URL || '') as string;
   if (envUrl && envUrl.trim() !== '') {
     return envUrl.trim();
   }
   return DEFAULT_APPSCRIPT_URL;
-};
-
-/**
- * Saves a custom Google Apps Script Web App URL.
- */
-export const setAppScriptUrl = (url: string): void => {
-  if (typeof window !== 'undefined') {
-    localStorage.setItem(LOCAL_STORAGE_KEY_URL, url.trim());
-  }
 };
 
 /**
@@ -246,8 +229,9 @@ function doPost(e) {
     // Asunto del correo
     var subject = "🎓 Práctica Completada: " + studentName + " - " + practiceNumber + " (" + quizScore + ")";
     
-    // Destinatarios configurados o recibidos en el payload
-    var emailList = data.recipients && data.recipients.length > 0 ? data.recipients.join(",") : RECIPIENTS.join(",");
+    // Los destinatarios son exclusivamente los definidos en el servidor.
+    // Nunca se aceptan direcciones recibidas desde el cliente.
+    var emailList = RECIPIENTS.join(",");
 
     // Construcción del correo HTML
     var htmlBody = buildHtmlReport(data);

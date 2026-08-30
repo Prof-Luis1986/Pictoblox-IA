@@ -5,16 +5,9 @@ import {
   Mail,
   CheckCircle2,
   AlertCircle,
-  Code2,
-  Copy,
-  Check,
   Sparkles,
-  ExternalLink,
   ShieldCheck,
   FileText,
-  Award,
-  Terminal,
-  Settings
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import {
@@ -31,9 +24,6 @@ import {
 import {
   DESTINATION_EMAILS,
   submitPracticeToAppScript,
-  generateAppsScriptCode,
-  getAppScriptUrl,
-  setAppScriptUrl,
   uploadReceiptPdfToAppScript
 } from '../services/appscript';
 import { getSessionStudentGroup, getSessionStudentName, loadProgressWallState, saveSessionIdentity } from '../services/sessionStorage';
@@ -88,11 +78,7 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
   const [pdfMessage, setPdfMessage] = useState('');
   const downloadedSubmissionIds = useRef(new Set<string>());
   
-  // AppScript settings view
-  const [showConfig, setShowConfig] = useState(false);
-  const [appScriptUrlInput, setAppScriptUrlInput] = useState(getAppScriptUrl());
-  const [copiedCode, setCopiedCode] = useState(false);
-  const [savedUrlSuccess, setSavedUrlSuccess] = useState(false);
+  useEffect(() => { const clearReceipt = () => { setReceiptPdf(null); setSubmittedPayload(null); setPdfMessage(''); downloadedSubmissionIds.current.clear(); }; window.addEventListener('academic-session-cleared', clearReceipt); return () => window.removeEventListener('academic-session-cleared', clearReceipt); }, []);
 
   if (!isOpen) return null;
 
@@ -101,20 +87,6 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
   const totalSteps = practice.steps.length;
   const progressWallState = loadProgressWallState(practice.id);
   const isSubmitting = submissionState === 'preparing' || submissionState === 'sending';
-  useEffect(() => { const clearReceipt = () => { setReceiptPdf(null); setSubmittedPayload(null); setPdfMessage(''); downloadedSubmissionIds.current.clear(); }; window.addEventListener('academic-session-cleared', clearReceipt); return () => window.removeEventListener('academic-session-cleared', clearReceipt); }, []);
-
-  const handleCopyScriptCode = () => {
-    const code = generateAppsScriptCode();
-    navigator.clipboard.writeText(code);
-    setCopiedCode(true);
-    setTimeout(() => setCopiedCode(false), 2500);
-  };
-
-  const handleSaveAppScriptUrl = () => {
-    setAppScriptUrl(appScriptUrlInput);
-    setSavedUrlSuccess(true);
-    setTimeout(() => setSavedUrlSuccess(false), 2500);
-  };
 
   const handleSubmit = async () => {
     if (missingRequirements.length) { setErrorMessage(`Falta completar: ${missingRequirements.join(', ')}.`); return; }
@@ -505,60 +477,6 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
               )}
               {submissionState === 'pending' && <div className="p-4 rounded-xl bg-amber-950 border border-amber-500 text-amber-200 font-bold">Entrega enviada, pendiente de confirmación. No se registró como entregada y no se generó comprobante.</div>}
 
-              {/* Apps Script Settings Accordion */}
-              <div className="pt-2 border-t border-slate-900">
-                <button
-                  type="button"
-                  onClick={() => setShowConfig(!showConfig)}
-                  className="text-xs text-slate-400 hover:text-emerald-400 flex items-center gap-1.5 transition"
-                >
-                  <Settings className="w-3.5 h-3.5" />
-                  <span>{showConfig ? 'Ocultar ajustes avanzados de Apps Script' : '⚙️ Configuración avanzada (Para profesores)'}</span>
-                </button>
-
-                {showConfig && (
-                  <div className="mt-3 p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-4 text-xs font-mono animate-fade-in">
-                    <div className="space-y-1">
-                      <label className="text-slate-300 font-bold block">
-                        URL de Aplicación Web Google Apps Script (Web App):
-                      </label>
-                      <div className="flex gap-2">
-                        <input
-                          type="url"
-                          value={appScriptUrlInput}
-                          onChange={e => setAppScriptUrlInput(e.target.value)}
-                          placeholder="https://script.google.com/macros/s/.../exec"
-                          className="flex-1 px-3 py-1.5 bg-slate-900 border border-slate-700 rounded-xl text-xs text-slate-200 placeholder-slate-600 focus:outline-hidden focus:border-emerald-500"
-                        />
-                        <button
-                          type="button"
-                          onClick={handleSaveAppScriptUrl}
-                          className="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-emerald-300 rounded-xl font-bold transition"
-                        >
-                          {savedUrlSuccess ? '¡Guardado!' : 'Guardar URL'}
-                        </button>
-                      </div>
-                      <p className="text-[10px] text-slate-500">
-                        Opcional: Si tienes tu propia Web App implementada en Google Workspace.
-                      </p>
-                    </div>
-
-                    <div className="pt-2 border-t border-slate-900 flex items-center justify-between">
-                      <span className="text-slate-400 text-[11px]">
-                        Código listo para implementar en script.google.com:
-                      </span>
-                      <button
-                        type="button"
-                        onClick={handleCopyScriptCode}
-                        className="px-3 py-1.5 bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300 hover:text-white rounded-xl flex items-center gap-1.5 text-xs transition"
-                      >
-                        {copiedCode ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
-                        <span>{copiedCode ? 'Código Copiado' : 'Copiar Código .gs'}</span>
-                      </button>
-                    </div>
-                  </div>
-                )}
-              </div>
             </div>
           )}
         </div>

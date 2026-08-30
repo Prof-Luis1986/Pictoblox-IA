@@ -20,8 +20,14 @@ assert.equal(isProgressStageComplete(redesignStage, { 'redesign:redesign_choice'
 
 const modal = readFileSync('src/components/SubmitPracticeModal.tsx', 'utf8');
 const service = readFileSync('src/services/appscript.ts', 'utf8');
+const server = readFileSync('google-apps-script/Code.gs', 'utf8');
 assert.ok(!service.includes("mode: 'no-cors'"), 'no-cors false-positive path remains');
 assert.ok(modal.includes("res.state === 'confirmed' && res.submissionId === payload.submissionId"), 'UI success is not gated by verified confirmation');
 assert.ok(!modal.includes('if (res.success)'), 'Legacy boolean success path remains');
+assert.ok(!modal.includes('Configuración avanzada') && !modal.includes('appScriptUrlInput'), 'Student can still edit the Apps Script endpoint');
+assert.ok(!service.includes('localStorage') && !service.includes('setAppScriptUrl'), 'Apps Script endpoint persists in localStorage');
+assert.ok(service.includes('VITE_APPSCRIPT_WEBAPP_URL') && service.includes('DEFAULT_APPSCRIPT_URL'), 'Endpoint is not restricted to environment/default values');
+assert.ok(!server.includes('data.recipients') && server.includes("const recipients = RECIPIENTS.join(',')"), 'Standalone Apps Script accepts client recipients');
+assert.ok(!service.includes('data.recipients &&') && service.includes('var emailList = RECIPIENTS.join'), 'Generated Apps Script accepts client recipients');
 assert.ok(modal.indexOf('onSubmissionSuccess(localReceipt)') > modal.indexOf("res.state === 'confirmed'"), 'Confirmed progress can be recorded before verification');
 console.log('Delivery audit passed: false positives rejected, IDs verified, mandatory stages enforced, and no-error/no-change paths accepted.');

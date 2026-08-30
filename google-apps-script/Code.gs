@@ -27,9 +27,7 @@ function doPost(e) {
     const studentName = cleanText(data.studentName || 'Alumno sin nombre', 100);
     const practiceNumber = cleanText(data.practiceNumber || 'Práctica', 80);
     const practiceTitle = cleanText(data.practiceTitle || 'Práctica de IA', 160);
-    const recipients = Array.isArray(data.recipients) && data.recipients.length
-      ? data.recipients.join(',')
-      : RECIPIENTS.join(',');
+    const recipients = RECIPIENTS.join(',');
 
     const evidenceLinks = saveEvidenceFiles(
       data.evidenceAttachments || [],
