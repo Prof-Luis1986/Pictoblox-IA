@@ -92,9 +92,13 @@ export const saveSessionProgress = (progress: StudentProgress): boolean => {
 
 export const getSessionStudentName = (): string => readSessionValue('student_name', '');
 export const getSessionStudentGroup = (): string => readSessionValue('student_group', '');
+export const getSessionStudentDate = (): string => readSessionValue('student_date', '');
 export const saveSessionIdentity = (name: string, group: string): void => {
   writeSessionValue('student_name', name);
   writeSessionValue('student_group', group);
+};
+export const saveSessionStudentDate = (date: string): void => {
+  writeSessionValue('student_date', date);
 };
 
 /** Removes local academic state only. Confirmed external deliveries are untouched. */

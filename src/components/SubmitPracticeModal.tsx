@@ -25,7 +25,7 @@ import {
   DESTINATION_EMAILS,
   submitPracticeToAppScript
 } from '../services/appscript';
-import { getSessionStudentGroup, getSessionStudentName, loadProgressWallState, saveSessionIdentity } from '../services/sessionStorage';
+import { getSessionStudentDate, getSessionStudentGroup, getSessionStudentName, loadProgressWallState, saveSessionIdentity, saveSessionStudentDate } from '../services/sessionStorage';
 import { hasIncompleteOptionalResponses } from '../services/submissionEligibility';
 
 interface SubmitPracticeModalProps {
@@ -73,10 +73,16 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
   const [submittedPayload, setSubmittedPayload] = useState<PracticeSubmissionPayload | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [evidenceFiles, setEvidenceFiles] = useState<File[]>([]);
-  const [studentDate, setStudentDate] = useState(new Date().toISOString().substring(0, 10));
+  const [studentDate, setStudentDate] = useState(getSessionStudentDate() || new Date().toISOString().substring(0, 10));
   const [showOptionalWarning, setShowOptionalWarning] = useState(false);
   
   useEffect(() => { const clearSubmission = () => setSubmittedPayload(null); window.addEventListener('academic-session-cleared', clearSubmission); return () => window.removeEventListener('academic-session-cleared', clearSubmission); }, []);
+  useEffect(() => {
+    if (!isOpen) return;
+    setStudentName(getSessionStudentName() || (progress.studentName === 'Estudiante' ? '' : progress.studentName));
+    setStudentGroup(getSessionStudentGroup() || progress.studentGroup);
+    setStudentDate(getSessionStudentDate() || new Date().toISOString().substring(0, 10));
+  }, [isOpen, progress.studentGroup, progress.studentName]);
 
   if (!isOpen) return null;
 
@@ -139,6 +145,7 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
     }
     setSubmissionState('sending');
     saveSessionIdentity(studentName.trim(), studentGroup.trim());
+    saveSessionStudentDate(studentDate);
 
     // Build Quiz Answer Details
     const quizAnswerList: QuizAnswerSubmission[] = (practice.quizQuestions || []).map(q => {
@@ -362,7 +369,7 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
                       className="w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-hidden focus:border-emerald-500 ring-2 ring-transparent focus:ring-emerald-500/20"
                     />
                   </div>
-                  <div className="space-y-1.5"><label className="text-xs font-bold text-slate-200 block">📅 Fecha <span className="text-rose-400">*</span></label><input type="date" value={studentDate} onChange={event => setStudentDate(event.target.value)} className="w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-xl text-sm text-white focus:outline-hidden focus:border-emerald-500" /></div>
+                  <div className="space-y-1.5"><label className="text-xs font-bold text-slate-200 block">📅 Fecha <span className="text-rose-400">*</span></label><input type="date" value={studentDate} onChange={event => { setStudentDate(event.target.value); saveSessionStudentDate(event.target.value); }} className="w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-xl text-sm text-white focus:outline-hidden focus:border-emerald-500" /></div>
                 </div>
 
                 <div className="space-y-1.5 pt-1">

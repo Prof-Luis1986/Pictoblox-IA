@@ -13,6 +13,7 @@ import { QuizComponent } from '../components/QuizComponent';
 import { ExperimentSection } from '../components/ExperimentSection';
 import { GlossaryTooltip } from '../components/GlossaryTooltip';
 import { SubmitPracticeModal } from '../components/SubmitPracticeModal';
+import { getSessionStudentDate, getSessionStudentGroup, getSessionStudentName, saveSessionIdentity, saveSessionStudentDate } from '../services/sessionStorage';
 import {
   ChevronLeft,
   ChevronRight,
@@ -61,7 +62,16 @@ export const PracticePage: React.FC<PracticePageProps> = ({
   const [wallResponses, setWallResponses] = useState<Record<string, string>>({});
   const [openQuestionAnswers, setOpenQuestionAnswers] = useState<Record<string, string>>({});
   const [openQuestionsComplete, setOpenQuestionsComplete] = useState((OPEN_QUESTIONS_BY_PRACTICE[practiceId] || []).length === 0);
+  const [studentName, setStudentName] = useState(() => getSessionStudentName() || (progress.studentName === 'Estudiante' ? '' : progress.studentName));
+  const [studentGroup, setStudentGroup] = useState(() => getSessionStudentGroup() || progress.studentGroup);
+  const [studentDate, setStudentDate] = useState(() => getSessionStudentDate() || new Date().toISOString().substring(0, 10));
   const handleWallProgress = useCallback((completed: ProgressWallStageId[], responses: Record<string, string>) => { setWallCompleted(completed); setWallResponses(responses); }, []);
+
+  const updateStudentIdentity = (name: string, group: string) => {
+    setStudentName(name);
+    setStudentGroup(group);
+    saveSessionIdentity(name, group);
+  };
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -440,6 +450,45 @@ export const PracticePage: React.FC<PracticePageProps> = ({
         onOpenSubmitModal={() => setIsSubmitModalOpen(true)}
         lastSubmittedAt={lastSubmittedAt}
       />
+
+      <section className="p-5 sm:p-6 rounded-3xl bg-slate-900/90 border border-cyan-500/30 space-y-4" aria-labelledby="student-data-title">
+        <div>
+          <h2 id="student-data-title" className="text-lg font-black text-white">Datos del alumno</h2>
+          <p className="mt-1 text-xs text-slate-400">Completa estos datos antes de realizar la entrega. Se conservarán durante esta sesión.</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <label className="space-y-2 text-sm font-bold text-slate-200">
+            <span>Nombre del alumno <span className="text-rose-400">*</span></span>
+            <input
+              type="text"
+              value={studentName}
+              onChange={event => updateStudentIdentity(event.target.value, studentGroup)}
+              placeholder="Nombre completo"
+              autoComplete="name"
+              className="w-full px-4 py-3.5 bg-slate-950 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-hidden focus:border-cyan-400"
+            />
+          </label>
+          <label className="space-y-2 text-sm font-bold text-slate-200">
+            <span>Grupo <span className="text-rose-400">*</span></span>
+            <input
+              type="text"
+              value={studentGroup}
+              onChange={event => updateStudentIdentity(studentName, event.target.value)}
+              placeholder="Ej. 5.º B"
+              className="w-full px-4 py-3.5 bg-slate-950 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-hidden focus:border-cyan-400"
+            />
+          </label>
+          <label className="space-y-2 text-sm font-bold text-slate-200">
+            <span>Fecha <span className="text-rose-400">*</span></span>
+            <input
+              type="date"
+              value={studentDate}
+              onChange={event => { setStudentDate(event.target.value); saveSessionStudentDate(event.target.value); }}
+              className="w-full px-4 py-3.5 bg-slate-950 border border-slate-700 rounded-xl text-white focus:outline-hidden focus:border-cyan-400"
+            />
+          </label>
+        </div>
+      </section>
 
       <ProgressWallIndicator />
 
