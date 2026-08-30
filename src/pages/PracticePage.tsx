@@ -321,7 +321,7 @@ export const PracticePage: React.FC<PracticePageProps> = ({
               type="date"
               value={studentDate}
               onChange={event => { setStudentDate(event.target.value); saveSessionStudentDate(event.target.value); }}
-              className="w-full px-4 py-3.5 bg-slate-950 border border-slate-700 rounded-xl text-white focus:outline-hidden focus:border-cyan-400"
+              className="student-date-input w-full px-4 py-3.5 bg-slate-950 border border-slate-700 rounded-xl text-white focus:outline-hidden focus:border-cyan-400"
             />
           </label>
         </div>

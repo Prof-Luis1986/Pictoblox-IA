@@ -369,7 +369,7 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
                       className="w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-hidden focus:border-emerald-500 ring-2 ring-transparent focus:ring-emerald-500/20"
                     />
                   </div>
-                  <div className="space-y-1.5"><label className="text-xs font-bold text-slate-200 block">📅 Fecha <span className="text-rose-400">*</span></label><input type="date" value={studentDate} onChange={event => { setStudentDate(event.target.value); saveSessionStudentDate(event.target.value); }} className="w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-xl text-sm text-white focus:outline-hidden focus:border-emerald-500" /></div>
+                  <div className="space-y-1.5"><label className="text-xs font-bold text-slate-200 block">📅 Fecha <span className="text-rose-400">*</span></label><input type="date" value={studentDate} onChange={event => { setStudentDate(event.target.value); saveSessionStudentDate(event.target.value); }} className="student-date-input w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-xl text-sm text-white focus:outline-hidden focus:border-emerald-500" /></div>
                 </div>
 
                 <div className="space-y-1.5 pt-1">
