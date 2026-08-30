@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   X,
   Send,
@@ -24,17 +24,20 @@ import {
   PracticeSubmissionPayload,
   QuizAnswerSubmission,
   ExperimentSubmission,
-  StepSubmission
-  ,EvidenceAttachment
+  StepSubmission,
+  EvidenceAttachment,
+  SubmissionState
 } from '../types';
 import {
   DESTINATION_EMAILS,
   submitPracticeToAppScript,
   generateAppsScriptCode,
   getAppScriptUrl,
-  setAppScriptUrl
+  setAppScriptUrl,
+  uploadReceiptPdfToAppScript
 } from '../services/appscript';
 import { getSessionStudentGroup, getSessionStudentName, loadProgressWallState, saveSessionIdentity } from '../services/sessionStorage';
+import { blobToBase64, downloadReceiptPdf, GeneratedReceiptPdf, generateConfirmedReceiptPdf } from '../services/receiptPdf';
 
 interface SubmitPracticeModalProps {
   isOpen: boolean;
@@ -46,6 +49,9 @@ interface SubmitPracticeModalProps {
   quizScore?: number;
   experimentNotes?: Record<string, string>;
   simulatorCompleted?: boolean;
+  wallResponses: Record<string, string>;
+  openQuestionAnswers: Record<string, string>;
+  missingRequirements: string[];
   onSubmissionSuccess: (payload: PracticeSubmissionPayload) => void;
 }
 
@@ -59,6 +65,9 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
   quizScore,
   experimentNotes = {},
   simulatorCompleted = false,
+  wallResponses,
+  openQuestionAnswers,
+  missingRequirements,
   onSubmissionSuccess
 }) => {
   const [studentName, setStudentName] = useState(
@@ -69,10 +78,15 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
   );
   const [studentNotes, setStudentNotes] = useState('');
   const [studentReflection, setStudentReflection] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissionState, setSubmissionState] = useState<SubmissionState | 'idle'>('idle');
+  const [serverMessage, setServerMessage] = useState('');
   const [submittedPayload, setSubmittedPayload] = useState<PracticeSubmissionPayload | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [evidenceFiles, setEvidenceFiles] = useState<File[]>([]);
+  const [studentDate, setStudentDate] = useState(new Date().toISOString().substring(0, 10));
+  const [receiptPdf, setReceiptPdf] = useState<GeneratedReceiptPdf | null>(null);
+  const [pdfMessage, setPdfMessage] = useState('');
+  const downloadedSubmissionIds = useRef(new Set<string>());
   
   // AppScript settings view
   const [showConfig, setShowConfig] = useState(false);
@@ -86,6 +100,8 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
   const stepsCount = completedSteps.length;
   const totalSteps = practice.steps.length;
   const progressWallState = loadProgressWallState(practice.id);
+  const isSubmitting = submissionState === 'preparing' || submissionState === 'sending';
+  useEffect(() => { const clearReceipt = () => { setReceiptPdf(null); setSubmittedPayload(null); setPdfMessage(''); downloadedSubmissionIds.current.clear(); }; window.addEventListener('academic-session-cleared', clearReceipt); return () => window.removeEventListener('academic-session-cleared', clearReceipt); }, []);
 
   const handleCopyScriptCode = () => {
     const code = generateAppsScriptCode();
@@ -101,12 +117,16 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
   };
 
   const handleSubmit = async () => {
+    if (missingRequirements.length) { setErrorMessage(`Falta completar: ${missingRequirements.join(', ')}.`); return; }
     if (!studentName.trim()) {
       setErrorMessage('Por favor escribe tu nombre completo para que tus profesores puedan identificarte.');
       return;
     }
+    if (!studentGroup.trim()) { setErrorMessage('Por favor escribe tu grupo.'); return; }
+    if (!studentDate) { setErrorMessage('Por favor selecciona la fecha.'); return; }
 
     setErrorMessage(null);
+    setSubmissionState('preparing');
     let evidenceAttachments: EvidenceAttachment[];
     try {
       evidenceAttachments = await Promise.all(evidenceFiles.map(file => new Promise<EvidenceAttachment>((resolve, reject) => {
@@ -119,7 +139,7 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
       setErrorMessage(error instanceof Error ? error.message : 'No se pudieron preparar las imágenes.');
       return;
     }
-    setIsSubmitting(true);
+    setSubmissionState('sending');
     saveSessionIdentity(studentName.trim(), studentGroup.trim());
 
     // Build Quiz Answer Details
@@ -173,6 +193,7 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
       submissionId: `sub_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`,
       studentName: studentName.trim(),
       studentGroup: studentGroup.trim() || 'General',
+      studentDate,
       studentNotes: studentNotes.trim() || undefined,
       practiceId: practice.id,
       practiceTitle: practice.title,
@@ -199,9 +220,10 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
 
     try {
       const res = await submitPracticeToAppScript(payload);
-      setIsSubmitting(false);
+      setSubmissionState(res.state);
+      setServerMessage(res.message);
 
-      if (res.success) {
+      if (res.state === 'confirmed' && res.submissionId === payload.submissionId) {
         const localReceipt = { ...payload, evidenceAttachments: undefined };
         setSubmittedPayload(localReceipt);
         onSubmissionSuccess(localReceipt);
@@ -210,11 +232,21 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
           spread: 70,
           origin: { y: 0.6 }
         });
-      } else {
+        try {
+          setPdfMessage('Generando tu comprobante PDF…');
+          const generated = generateConfirmedReceiptPdf({ payload: localReceipt, practice, wallResponses, openQuestionAnswers, evidenceLinks: res.evidenceLinks || [], evidenceCount: res.evidenceCount || 0 });
+          setReceiptPdf(generated);
+          if (!downloadedSubmissionIds.current.has(payload.submissionId)) { downloadReceiptPdf(generated); downloadedSubmissionIds.current.add(payload.submissionId); }
+          const pdfUpload = await uploadReceiptPdfToAppScript(payload.submissionId, generated.fileName, await blobToBase64(generated.blob));
+          setPdfMessage(pdfUpload.state === 'confirmed' ? 'Comprobante PDF descargado y guardado en Drive.' : pdfUpload.message);
+        } catch {
+          setPdfMessage('Tu práctica fue recibida, pero no fue posible generar el PDF. Puedes intentar descargarlo nuevamente.');
+        }
+      } else if (res.state === 'failed') {
         setErrorMessage(res.message || 'No se pudo enviar la práctica. Intenta nuevamente.');
       }
     } catch (err: any) {
-      setIsSubmitting(false);
+      setSubmissionState('failed');
       setErrorMessage('Error al enviar la información: ' + (err?.message || 'Revisa tu conexión.'));
     }
   };
@@ -273,7 +305,11 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
                 <p className="text-sm text-slate-300 max-w-md mx-auto">
                   Tu tarea y respuestas se han enviado correctamente por correo a tus maestros.
                 </p>
+                <p className="text-xs text-emerald-300">{serverMessage}</p>
               </div>
+
+              {pdfMessage && <p className="text-sm text-cyan-200">{pdfMessage}</p>}
+              {receiptPdf && <button type="button" onClick={() => downloadReceiptPdf(receiptPdf)} className="px-5 py-3 rounded-xl bg-cyan-500 text-slate-950 font-bold">Volver a descargar comprobante</button>}
 
               {/* Email Voucher Info */}
               <div className="p-4 rounded-2xl bg-slate-900 border-2 border-emerald-500/40 text-left max-w-md mx-auto space-y-2 text-sm">
@@ -345,7 +381,7 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
                   </h4>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
                   <div className="space-y-1.5">
                     <label className="text-xs font-bold text-slate-200 block">
                       👦 Tu Nombre y Apellidos <span className="text-rose-400">*</span>
@@ -361,7 +397,7 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
 
                   <div className="space-y-1.5">
                     <label className="text-xs font-bold text-slate-200 block">
-                      🏫 Tu Grado y Grupo
+                      🏫 Tu Grado y Grupo <span className="text-rose-400">*</span>
                     </label>
                     <input
                       type="text"
@@ -371,6 +407,7 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
                       className="w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-hidden focus:border-emerald-500 ring-2 ring-transparent focus:ring-emerald-500/20"
                     />
                   </div>
+                  <div className="space-y-1.5"><label className="text-xs font-bold text-slate-200 block">📅 Fecha <span className="text-rose-400">*</span></label><input type="date" value={studentDate} onChange={event => setStudentDate(event.target.value)} className="w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-xl text-sm text-white focus:outline-hidden focus:border-emerald-500" /></div>
                 </div>
 
                 <div className="space-y-1.5 pt-1">
@@ -466,6 +503,7 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
                   <span>{errorMessage}</span>
                 </div>
               )}
+              {submissionState === 'pending' && <div className="p-4 rounded-xl bg-amber-950 border border-amber-500 text-amber-200 font-bold">Entrega enviada, pendiente de confirmación. No se registró como entregada y no se generó comprobante.</div>}
 
               {/* Apps Script Settings Accordion */}
               <div className="pt-2 border-t border-slate-900">
@@ -544,7 +582,7 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
               {isSubmitting ? (
                 <>
                   <div className="w-5 h-5 border-2 border-slate-950 border-t-transparent rounded-full animate-spin" />
-                  <span>Enviando tarea a tus maestros...</span>
+                  <span>{submissionState === 'preparing' ? 'Preparando entrega…' : 'Enviando tarea a tus maestros…'}</span>
                 </>
               ) : (
                 <>

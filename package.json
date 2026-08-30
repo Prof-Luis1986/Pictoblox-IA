@@ -6,12 +6,14 @@
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
     "build": "vite build",
-    "test": "npm run test:sources && npm run test:sb3 && npm run test:privacy && npm run test:progress-wall && npm run test:evidence",
+    "test": "npm run test:sources && npm run test:sb3 && npm run test:privacy && npm run test:progress-wall && npm run test:evidence && npm run test:delivery && npm run test:receipt-pdf",
     "test:sources": "node scripts/audit-sources.mjs",
     "test:sb3": "node scripts/audit-sb3.mjs",
     "test:privacy": "node scripts/audit-privacy.mjs",
     "test:progress-wall": "node scripts/audit-progress-wall.mjs",
     "test:evidence": "node scripts/audit-evidence.mjs",
+    "test:delivery": "node --import tsx scripts/audit-delivery.ts",
+    "test:receipt-pdf": "node --import tsx scripts/audit-receipt-pdf.ts",
     "preview": "vite preview",
     "clean": "rm -rf dist server.js",
     "lint": "tsc --noEmit"
@@ -24,6 +26,7 @@
     "dotenv": "^17.2.3",
     "express": "^4.21.2",
     "firebase": "^12.18.0",
+    "jspdf": "^3.0.4",
     "lucide-react": "^0.546.0",
     "motion": "^12.23.24",
     "react": "^19.0.1",

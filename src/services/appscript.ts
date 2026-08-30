@@ -1,4 +1,5 @@
-import { PracticeSubmissionPayload } from '../types';
+import { PracticeSubmissionPayload, SubmissionResult } from '../types';
+import { classifySubmissionServerPayload, classifyUnreadableResponse } from './submissionConfirmation';
 
 export const DESTINATION_EMAILS = ['lmartinez@isb.edu.mx', 'dolidos2022@gmail.com'];
 export const EVIDENCE_DRIVE_FOLDER_ID = '18RU-WTqq8D67cuAdCVFC4ahQbQ7CSAkL';
@@ -232,6 +233,7 @@ function doPost(e) {
   try {
     var rawData = e.postData.contents;
     var data = JSON.parse(rawData);
+    if (data.action === "uploadReceiptPdf") return uploadReceiptPdf(data);
 
     var studentName = data.studentName || "Alumno Desconocido";
     var practiceTitle = data.practiceTitle || "Práctica de IA";
@@ -284,7 +286,9 @@ function doPost(e) {
       JSON.stringify({
         status: "success",
         message: "Práctica recibida y correos enviados exitosamente a " + emailList,
-        submissionId: data.submissionId || Utilities.getUuid()
+        submissionId: data.submissionId || Utilities.getUuid(),
+        evidenceCount: data.evidenceLinks.length,
+        evidenceLinks: data.evidenceLinks
       })
     ).setMimeType(ContentService.MimeType.JSON);
 
@@ -305,6 +309,8 @@ function saveEvidenceFiles(attachments, data, studentName) {
   var folder = DriveApp.getFolderById(EVIDENCE_FOLDER_ID);
   var allowedTypes = { "image/png": true, "image/jpeg": true, "image/webp": true };
   var safeStudent = String(studentName || "Alumno").replace(/[^a-zA-Z0-9áéíóúÁÉÍÓÚñÑ_-]+/g, "_").substring(0, 50);
+  var safeGroup = String(data.studentGroup || "sin_grupo").replace(/[^a-zA-Z0-9áéíóúÁÉÍÓÚñÑ_-]+/g, "_").substring(0, 40);
+  var safeDate = String(data.studentDate || new Date().toISOString().substring(0, 10)).replace(/[^a-zA-Z0-9_-]+/g, "_");
   var safePractice = String(data.practiceId || "practica").replace(/[^a-zA-Z0-9_-]+/g, "_").substring(0, 40);
   var submission = String(data.submissionId || Utilities.getUuid()).replace(/[^a-zA-Z0-9_-]+/g, "_");
   return attachments.map(function(attachment, index) {
@@ -312,11 +318,24 @@ function saveEvidenceFiles(attachments, data, studentName) {
     var bytes = Utilities.base64Decode(attachment.base64Data || "");
     if (bytes.length > 4 * 1024 * 1024) throw new Error("Una imagen supera el límite de 4 MB.");
     var originalExtension = attachment.mimeType === "image/png" ? ".png" : attachment.mimeType === "image/webp" ? ".webp" : ".jpg";
-    var fileName = safePractice + "_" + safeStudent + "_" + submission + "_" + (index + 1) + originalExtension;
+    var fileName = safeStudent + "_" + safeGroup + "_" + safeDate + "_" + safePractice + "_" + submission + "_" + (index + 1) + originalExtension;
     var blob = Utilities.newBlob(bytes, attachment.mimeType, fileName);
     var file = folder.createFile(blob);
     return { name: file.getName(), url: file.getUrl(), id: file.getId() };
   });
+}
+
+function uploadReceiptPdf(data) {
+  try {
+    if (!data.submissionId || data.mimeType !== "application/pdf" || !data.base64Data) throw new Error("Comprobante PDF inválido.");
+    var bytes = Utilities.base64Decode(data.base64Data);
+    if (bytes.length > 10 * 1024 * 1024) throw new Error("El PDF supera el límite de 10 MB.");
+    var safeName = String(data.fileName || "comprobante.pdf").replace(/[^a-zA-Z0-9áéíóúÁÉÍÓÚñÑ_.-]+/g, "_");
+    var file = DriveApp.getFolderById(EVIDENCE_FOLDER_ID).createFile(Utilities.newBlob(bytes, "application/pdf", safeName));
+    return ContentService.createTextOutput(JSON.stringify({ status: "success", message: "Comprobante PDF guardado en Drive.", submissionId: data.submissionId, evidenceCount: 1, evidenceLinks: [{ id: file.getId(), name: file.getName(), url: file.getUrl() }] })).setMimeType(ContentService.MimeType.JSON);
+  } catch (error) {
+    return ContentService.createTextOutput(JSON.stringify({ status: "error", message: "No se pudo guardar el PDF: " + error.message, submissionId: data.submissionId || "" })).setMimeType(ContentService.MimeType.JSON);
+  }
 }
 
 function buildHtmlReport(data) {
@@ -412,38 +431,46 @@ function buildHtmlReport(data) {
  */
 export const submitPracticeToAppScript = async (
   payload: PracticeSubmissionPayload
-): Promise<{ success: boolean; message: string; id?: string }> => {
+): Promise<SubmissionResult> => {
   const endpoint = getAppScriptUrl();
 
   if (!endpoint || !endpoint.startsWith('https://script.google.com/')) {
     return {
-      success: false,
+      state: 'failed',
       message: 'El servicio de entregas no está configurado. Avisa a tu profesor.'
     };
   }
 
   try {
-    // Apps Script responde mediante una redirección. El modo no-cors permite que
-    // el navegador entregue el POST sin exponer la respuesta a los alumnos.
-    await fetch(endpoint, {
+    const response = await fetch(endpoint, {
       method: 'POST',
-      mode: 'no-cors',
       headers: {
         'Content-Type': 'text/plain;charset=utf-8'
       },
       body: JSON.stringify(payload)
     });
 
-    return {
-      success: true,
-      message: `Entrega recibida para enviarse a ${payload.recipients.join(' y ')}.`,
-      id: payload.submissionId
-    };
+    const unreadable = classifyUnreadableResponse(response.type);
+    if (unreadable) return unreadable;
+    if (!response.ok) return { state: 'failed', message: `El servidor respondió con el estado ${response.status}.` };
+    let server: any;
+    try { server = await response.json(); } catch { return { state: 'pending', message: 'Entrega enviada, pendiente de confirmación' }; }
+    return classifySubmissionServerPayload(payload.submissionId, server);
   } catch (fetchErr) {
     console.error('No se pudo contactar el receptor de Apps Script:', fetchErr);
     return {
-      success: false,
+      state: 'failed',
       message: 'No se pudo enviar la práctica. Revisa tu conexión e inténtalo nuevamente.'
     };
   }
+};
+
+export const uploadReceiptPdfToAppScript = async (submissionId: string, fileName: string, base64Data: string): Promise<SubmissionResult> => {
+  try {
+    const response = await fetch(getAppScriptUrl(), { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify({ action: 'uploadReceiptPdf', submissionId, fileName, mimeType: 'application/pdf', base64Data }) });
+    if (!response.ok || response.type === 'opaque') return { state: 'pending', message: 'PDF generado; carga en Drive pendiente de confirmación.' };
+    const server = await response.json();
+    if (server.status !== 'success' || server.submissionId !== submissionId) return { state: 'failed', message: server.message || 'No se confirmó el PDF en Drive.' };
+    return { state: 'confirmed', message: server.message, submissionId, evidenceCount: server.evidenceCount, evidenceLinks: server.evidenceLinks };
+  } catch { return { state: 'failed', message: 'La entrega fue confirmada, pero el PDF no pudo guardarse en Drive.' }; }
 };

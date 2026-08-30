@@ -26,7 +26,12 @@ export const getInitialProgress = (): StudentProgress => {
 export const saveStudentProgress = async (progress: StudentProgress): Promise<boolean> => {
   saveSessionProgress(progress);
 
-  // Attempt to sync to Firestore
+  // La sincronización remota guarda el objeto StudentProgress: identificador
+  // anónimo de sesión, nombre, grupo, prácticas/pasos completados, resultados
+  // de cuestionarios, notas de experimentos, insignias y comprobantes de
+  // entregas confirmadas. No guarda respuestas del Muro, preguntas abiertas,
+  // imágenes Base64 ni el archivo PDF. Estos datos remotos no se eliminan al
+  // limpiar sessionStorage.
   try {
     if (!auth.currentUser) {
       await signInAnonymously(auth).catch(() => null);

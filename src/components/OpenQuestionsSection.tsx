@@ -3,7 +3,7 @@ import { MessageCircleQuestion, Save, CheckCircle2 } from 'lucide-react';
 import { OPEN_QUESTIONS_BY_PRACTICE } from '../data/openQuestionsData';
 import { readSessionValue, writeSessionValue } from '../services/sessionStorage';
 
-export const OpenQuestionsSection: React.FC<{ practiceId: string }> = ({ practiceId }) => {
+export const OpenQuestionsSection: React.FC<{ practiceId: string; onAnswersChange?: (answers: Record<string, string>, complete: boolean) => void }> = ({ practiceId, onAnswersChange }) => {
   const questions = OPEN_QUESTIONS_BY_PRACTICE[practiceId] || [];
   const storageKey = `open_questions:${practiceId}`;
   const [answers, setAnswers] = useState<Record<string, string>>({});
@@ -11,17 +11,20 @@ export const OpenQuestionsSection: React.FC<{ practiceId: string }> = ({ practic
 
   useEffect(() => {
     try {
-      setAnswers(readSessionValue<Record<string, string>>(storageKey, {}));
+      const loaded = readSessionValue<Record<string, string>>(storageKey, {});
+      setAnswers(loaded);
+      onAnswersChange?.(loaded, questions.every(question => Boolean(loaded[question.id]?.trim())));
     } catch {
       setAnswers({});
     }
     setSaved(false);
-  }, [storageKey]);
+  }, [storageKey]); // callback intentionally follows the practice key
 
   if (!questions.length) return null;
 
   const saveAnswers = () => {
     writeSessionValue(storageKey, answers);
+    onAnswersChange?.(answers, questions.every(question => Boolean(answers[question.id]?.trim())));
     setSaved(true);
   };
 
@@ -42,7 +45,7 @@ export const OpenQuestionsSection: React.FC<{ practiceId: string }> = ({ practic
             <span className="block text-sm font-bold text-white">{item.question}</span>
             <textarea
               value={answers[item.id] || ''}
-              onChange={event => { setAnswers(current => ({ ...current, [item.id]: event.target.value })); setSaved(false); }}
+              onChange={event => { const next = { ...answers, [item.id]: event.target.value }; setAnswers(next); writeSessionValue(storageKey, next); onAnswersChange?.(next, questions.every(question => Boolean(next[question.id]?.trim()))); setSaved(false); }}
               rows={4}
               placeholder="Escribe aquí tu respuesta..."
               className="w-full resize-y rounded-xl border border-slate-700 bg-slate-900 px-3 py-2.5 text-sm text-white placeholder:text-slate-500 focus:border-violet-400 focus:outline-none"

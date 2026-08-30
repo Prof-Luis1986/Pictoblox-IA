@@ -104,6 +104,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenColorTable, onClearSession
             </h4>
             <p className="text-xs text-slate-400 leading-relaxed font-sans">
               Tu trabajo se conserva solamente durante esta sesión. Cuando termines, presiona “Terminar y borrar sesión” para que el siguiente alumno comience con una sesión limpia.
+              Las entregas confirmadas y cualquier progreso sincronizado remotamente no se eliminan del servidor.
             </p>
             <button onClick={onClearSession} className="mt-2 w-full rounded-xl border border-rose-500/40 bg-rose-950/60 px-3 py-2 text-left text-xs font-bold text-rose-200 hover:bg-rose-900 transition">
               Terminar y borrar sesión

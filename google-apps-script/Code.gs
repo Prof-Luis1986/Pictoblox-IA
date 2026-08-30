@@ -23,6 +23,7 @@ function doPost(e) {
     }
 
     const data = JSON.parse(e.postData.contents);
+    if (data.action === 'uploadReceiptPdf') return uploadReceiptPdf(data);
     const studentName = cleanText(data.studentName || 'Alumno sin nombre', 100);
     const practiceNumber = cleanText(data.practiceNumber || 'Práctica', 80);
     const practiceTitle = cleanText(data.practiceTitle || 'Práctica de IA', 160);
@@ -56,7 +57,8 @@ function doPost(e) {
       status: 'success',
       message: 'Práctica recibida y evidencias guardadas.',
       submissionId: data.submissionId || Utilities.getUuid(),
-      evidenceCount: evidenceLinks.length
+      evidenceCount: evidenceLinks.length,
+      evidenceLinks: evidenceLinks
     });
   } catch (error) {
     console.error(error);
@@ -75,6 +77,8 @@ function saveEvidenceFiles(attachments, data, studentName) {
 
   const folder = DriveApp.getFolderById(EVIDENCE_FOLDER_ID);
   const safeStudent = safeFilePart(studentName, 50);
+  const safeGroup = safeFilePart(data.studentGroup || 'sin_grupo', 40);
+  const safeDate = safeFilePart(data.studentDate || new Date().toISOString().substring(0, 10), 20);
   const safePractice = safeFilePart(data.practiceId || 'practica', 40);
   const safeSubmission = safeFilePart(data.submissionId || Utilities.getUuid(), 80);
 
@@ -94,7 +98,7 @@ function saveEvidenceFiles(attachments, data, studentName) {
       : attachment.mimeType === 'image/webp'
         ? '.webp'
         : '.jpg';
-    const fileName = safePractice + '_' + safeStudent + '_' + safeSubmission + '_' + (index + 1) + extension;
+    const fileName = safeStudent + '_' + safeGroup + '_' + safeDate + '_' + safePractice + '_' + safeSubmission + '_' + (index + 1) + extension;
     const blob = Utilities.newBlob(bytes, attachment.mimeType, fileName);
     const file = folder.createFile(blob);
 
@@ -104,6 +108,19 @@ function saveEvidenceFiles(attachments, data, studentName) {
       url: file.getUrl()
     };
   });
+}
+
+function uploadReceiptPdf(data) {
+  try {
+    if (!data.submissionId || data.mimeType !== 'application/pdf' || !data.base64Data) throw new Error('Comprobante PDF inválido.');
+    const bytes = Utilities.base64Decode(data.base64Data);
+    if (bytes.length > 10 * 1024 * 1024) throw new Error('El PDF supera el límite de 10 MB.');
+    const fileName = safeFilePart(String(data.fileName || 'comprobante').replace(/\.pdf$/i, ''), 180) + '.pdf';
+    const file = DriveApp.getFolderById(EVIDENCE_FOLDER_ID).createFile(Utilities.newBlob(bytes, 'application/pdf', fileName));
+    return jsonResponse({ status: 'success', message: 'Comprobante PDF guardado en Drive.', submissionId: data.submissionId, evidenceCount: 1, evidenceLinks: [{ id: file.getId(), name: file.getName(), url: file.getUrl() }] });
+  } catch (error) {
+    return jsonResponse({ status: 'error', message: 'No se pudo guardar el PDF: ' + error.message, submissionId: data.submissionId || '' });
+  }
 }
 
 function buildHtmlReport(data) {

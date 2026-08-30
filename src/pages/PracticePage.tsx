@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { getPracticeById, getAdjacentPractices, ALL_PRACTICES } from '../data/allPractices';
 import { COURSES_DATA } from '../data/coursesData';
-import { StudentProgress, PracticeSubmissionPayload } from '../types';
+import { StudentProgress, PracticeSubmissionPayload, ProgressWallStageId } from '../types';
+import { OPEN_QUESTIONS_BY_PRACTICE } from '../data/openQuestionsData';
+import { getSubmissionMissingRequirements } from '../services/submissionEligibility';
 import { PracticeHeader } from '../components/PracticeHeader';
 import { OpenQuestionsSection } from '../components/OpenQuestionsSection';
 import { ProgressWallIndicator, ProgressWallProvider, ProgressWallStageSection } from '../components/ProgressWall';
@@ -55,6 +57,11 @@ export const PracticePage: React.FC<PracticePageProps> = ({
   const [isSubmitModalOpen, setIsSubmitModalOpen] = useState(false);
   const [quizAnswersState, setQuizAnswersState] = useState<Record<string, number>>({});
   const [simulationCompleted, setSimulationCompleted] = useState(false);
+  const [wallCompleted, setWallCompleted] = useState<ProgressWallStageId[]>([]);
+  const [wallResponses, setWallResponses] = useState<Record<string, string>>({});
+  const [openQuestionAnswers, setOpenQuestionAnswers] = useState<Record<string, string>>({});
+  const [openQuestionsComplete, setOpenQuestionsComplete] = useState((OPEN_QUESTIONS_BY_PRACTICE[practiceId] || []).length === 0);
+  const handleWallProgress = useCallback((completed: ProgressWallStageId[], responses: Record<string, string>) => { setWallCompleted(completed); setWallResponses(responses); }, []);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -79,6 +86,8 @@ export const PracticePage: React.FC<PracticePageProps> = ({
   const isCompleted = !!practiceProgress?.completed;
   const completedSteps = practiceProgress?.stepsCompleted || [];
   const allStepsCompleted = practice.steps.every(step => completedSteps.includes(step.stepNumber));
+  const missingRequirements = getSubmissionMissingRequirements({ isFreeChallenge: practice.id === 't1-extra-act7', totalSteps: practice.steps.length, completedSteps, completedWallStages: wallCompleted, openQuestionsComplete });
+  const canSubmit = missingRequirements.length === 0;
   const lastSubmittedAt = practiceProgress?.lastSubmittedAt;
 
   // Find the section this practice belongs to
@@ -268,7 +277,7 @@ export const PracticePage: React.FC<PracticePageProps> = ({
 
   return (
     <div className="space-y-8 py-6 animate-fade-in text-slate-200">
-      <ProgressWallProvider practice={practice} completedSteps={completedSteps}>
+      <ProgressWallProvider practice={practice} completedSteps={completedSteps} onProgressChange={handleWallProgress}>
       {/* Breadcrumbs & Quick Selector Bar */}
       <div className="flex items-center justify-between gap-4 flex-wrap font-mono text-xs">
         <div className="flex items-center gap-2 flex-wrap">
@@ -428,7 +437,7 @@ export const PracticePage: React.FC<PracticePageProps> = ({
         courseTitle={course.title}
         isCompleted={isCompleted}
         onToggleCompleted={handleToggleCompleted}
-        onOpenSubmitModal={allStepsCompleted ? () => setIsSubmitModalOpen(true) : undefined}
+        onOpenSubmitModal={canSubmit ? () => setIsSubmitModalOpen(true) : undefined}
         lastSubmittedAt={lastSubmittedAt}
       />
 
@@ -520,7 +529,7 @@ export const PracticePage: React.FC<PracticePageProps> = ({
 
       <ProgressWallStageSection stageId="redesign" />
 
-      <OpenQuestionsSection practiceId={practice.id} />
+      <OpenQuestionsSection practiceId={practice.id} onAnswersChange={(answers, complete) => { setOpenQuestionAnswers(answers); setOpenQuestionsComplete(complete); }} />
 
       {/* What You Learned Card */}
       {practice.conclusion && practice.conclusion.length > 0 && (
@@ -580,7 +589,7 @@ export const PracticePage: React.FC<PracticePageProps> = ({
       )}
 
       {/* Google Apps Script Submission Big Banner */}
-      <section className={`p-6 sm:p-8 rounded-3xl border-2 space-y-5 ${allStepsCompleted ? 'bg-gradient-to-br from-slate-900 via-slate-900 to-emerald-950/60 border-emerald-500/50 shadow-[0_0_30px_rgba(16,185,129,0.2)]' : 'bg-slate-900/80 border-slate-700'}`}>
+      <section className={`p-6 sm:p-8 rounded-3xl border-2 space-y-5 ${canSubmit ? 'bg-gradient-to-br from-slate-900 via-slate-900 to-emerald-950/60 border-emerald-500/50 shadow-[0_0_30px_rgba(16,185,129,0.2)]' : 'bg-slate-900/80 border-slate-700'}`}>
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="space-y-2 max-w-xl">
             <div className="flex items-center gap-2 flex-wrap text-xs">
@@ -593,13 +602,13 @@ export const PracticePage: React.FC<PracticePageProps> = ({
             </div>
 
             <h3 className="text-xl sm:text-2xl font-black text-white font-sans">
-              {allStepsCompleted ? '¡Terminaste! Ya puedes enviar tu tarea ✉️' : 'Completa todos los pasos antes de enviar'}
+              {canSubmit ? '¡Terminaste! Ya puedes enviar tu tarea ✉️' : 'Completa el recorrido antes de enviar'}
             </h3>
 
             <p className="text-sm text-slate-300 leading-relaxed">
-              {allStepsCompleted
+              {canSubmit
                 ? 'Revisa tus respuestas y envía tu trabajo al maestro.'
-                : `Llevas ${completedSteps.length} de ${practice.steps.length} pasos terminados. Regresa a la guía y marca cada paso cuando lo completes.`}
+                : `Falta completar: ${missingRequirements.join(', ')}.`}
             </p>
 
             {lastSubmittedAt && (
@@ -614,11 +623,11 @@ export const PracticePage: React.FC<PracticePageProps> = ({
             <button
               id="btn-submit-practice-bottom"
               onClick={() => setIsSubmitModalOpen(true)}
-              disabled={!allStepsCompleted}
+              disabled={!canSubmit}
               className="px-8 py-5 bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-400 hover:from-emerald-300 hover:to-teal-300 disabled:from-slate-700 disabled:to-slate-700 disabled:text-slate-400 disabled:cursor-not-allowed text-slate-950 text-base font-black rounded-2xl flex items-center justify-center gap-3 shadow-lg transition-all"
             >
               <Send className="w-5 h-5" />
-              <span>{!allStepsCompleted ? `FALTAN ${practice.steps.length - completedSteps.length} PASOS` : lastSubmittedAt ? 'VOLVER A ENVIAR TAREA' : 'ENVIAR TAREA AL MAESTRO'}</span>
+              <span>{!canSubmit ? `FALTAN ${missingRequirements.length} ELEMENTOS` : lastSubmittedAt ? 'VOLVER A ENVIAR TAREA' : 'ENVIAR TAREA AL MAESTRO'}</span>
             </button>
           </div>
         </div>
@@ -689,6 +698,9 @@ export const PracticePage: React.FC<PracticePageProps> = ({
         quizScore={practiceProgress?.quizScore}
         experimentNotes={practiceProgress?.experimentNotes}
         simulatorCompleted={simulationCompleted}
+        wallResponses={wallResponses}
+        openQuestionAnswers={openQuestionAnswers}
+        missingRequirements={missingRequirements}
         onSubmissionSuccess={handleSubmissionSuccess}
       />
       </ProgressWallProvider>

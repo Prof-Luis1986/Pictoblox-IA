@@ -1,0 +1,24 @@
+import assert from 'node:assert/strict';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { generateConfirmedReceiptPdf } from '../src/services/receiptPdf';
+import { Practice, PracticeSubmissionPayload } from '../src/types';
+
+const stages = ['problem', 'idea', 'design', 'prototype', 'error', 'redesign'].map(id => ({ id, title: id.toUpperCase(), guidingQuestion: '¿Qué ocurrió?', instructions: [], relatedStepNumbers: [], responseFields: [{ id: 'answer', prompt: 'Respuesta' }] })) as any;
+const practice = { id: 't1-act1', tomo: 1, courseId: 'aprende-ia-jugando', number: 1, title: 'Práctica con acentos y ñ', description: 'Descripción', requiredMaterials: [], steps: [{ stepNumber: 1, title: 'Paso técnico', instructions: [] }], progressWallStages: stages } as Practice;
+const payload = { submissionId: 'sub_12345', studentName: 'Luis Martínez Ñ', studentGroup: '5° A', studentDate: '2026-08-30', practiceId: practice.id, practiceTitle: practice.title, practiceNumber: 'Práctica 05', courseId: practice.courseId, courseTitle: 'Curso de IA', timestamp: new Date().toISOString(), formattedDate: '30 de agosto de 2026', recipients: [], totalSteps: 1, completedStepsCount: 1, steps: [{ stepNumber: 1, title: 'Paso técnico', completed: true }], status: 'COMPLETADO' } as PracticeSubmissionPayload;
+const longText = 'Respuesta extensa con acentos, eñes y explicación pedagógica. '.repeat(500);
+const receipt = generateConfirmedReceiptPdf({ payload, practice, wallResponses: Object.fromEntries(stages.map((stage: any) => [`${stage.id}:answer`, longText])), openQuestionAnswers: { pregunta: 'Sí funcionó correctamente.' }, evidenceLinks: [{ id: '1', name: 'evidencia.png', url: 'https://drive.google.com/file/d/1/view' }], evidenceCount: 1 });
+assert.ok(receipt.blob.size > 1000);
+mkdirSync('tmp/pdfs', { recursive: true });
+writeFileSync('tmp/pdfs/comprobante-validacion.pdf', Buffer.from(await receipt.blob.arrayBuffer()));
+assert.ok(receipt.pageCount > 1, 'Long answers did not create additional pages');
+assert.match(receipt.fileName, /^Practica_05_Luis_Martinez_N_5_A_2026-08-30_sub_12345\.pdf$/);
+const source = readFileSync('src/services/receiptPdf.ts', 'utf8');
+assert.ok(source.includes('URL.revokeObjectURL'));
+for (const forbidden of ['base64Data', 'DEFAULT_APPSCRIPT_URL', '.sb3', 'firebaseConfig']) assert.ok(!source.includes(forbidden), `PDF source contains forbidden ${forbidden}`);
+assert.ok(source.includes('downloadedSubmissionIds') === false, 'Download dedupe belongs outside PDF builder');
+const modal = readFileSync('src/components/SubmitPracticeModal.tsx', 'utf8');
+assert.ok(modal.includes('downloadedSubmissionIds.current.has'));
+assert.ok(modal.includes("res.state === 'confirmed'"));
+assert.ok(modal.includes('academic-session-cleared'));
+console.log('PDF audit passed: confirmed-only generation, safe filename, Spanish text, multipage output, evidence links, cleanup, and download dedupe.');

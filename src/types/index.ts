@@ -210,6 +210,7 @@ export interface PracticeSubmissionPayload {
   submissionId: string;
   studentName: string;
   studentGroup: string;
+  studentDate: string;
   studentEmail?: string;
   studentNotes?: string;
   practiceId: string;
@@ -233,6 +234,22 @@ export interface PracticeSubmissionPayload {
   reflectionPrompt?: string;
   reflectionAnswer?: string;
   status: 'COMPLETADO' | 'EN_PROGRESO';
+}
+
+export type SubmissionState = 'preparing' | 'sending' | 'confirmed' | 'pending' | 'failed';
+
+export interface ConfirmedEvidence {
+  id: string;
+  name: string;
+  url: string;
+}
+
+export interface SubmissionResult {
+  state: Exclude<SubmissionState, 'preparing' | 'sending'>;
+  message: string;
+  submissionId?: string;
+  evidenceCount?: number;
+  evidenceLinks?: ConfirmedEvidence[];
 }
 
 export interface StudentPracticeRecord {
