@@ -94,20 +94,44 @@ const PIECES: PieceInfo[] = [
   }
 ];
 
+interface PatternRow {
+  sequence: PatternShape[];
+  slotIndex: number;
+  answer: PatternShape;
+}
+
+const shuffled = <T,>(items: T[]): T[] => {
+  const result = [...items];
+  for (let index = result.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(Math.random() * (index + 1));
+    [result[index], result[swapIndex]] = [result[swapIndex], result[index]];
+  }
+  return result;
+};
+
+const createPatternRows = (): PatternRow[] => {
+  const shapes = shuffled(PIECES.map(piece => piece.id));
+  const slotPositions = shuffled([0, 1, 2, 3, 4]);
+
+  return shapes.map((firstShape, rowIndex) => {
+    const secondShape = shapes[(rowIndex + 1) % shapes.length];
+    const startsWithFirst = Math.random() >= 0.5;
+    const sequence = Array.from({ length: 5 }, (_, position) => {
+      const useFirst = position % 2 === 0 ? startsWithFirst : !startsWithFirst;
+      return useFirst ? firstShape : secondShape;
+    });
+    const slotIndex = slotPositions[rowIndex];
+    return { sequence, slotIndex, answer: sequence[slotIndex] };
+  });
+};
+
 const PatternSimulator: React.FC<{ onCompleted?: () => void }> = ({ onCompleted }) => {
-  const [row1, setRow1] = useState<PatternShape | null>(null); // target: triangle
-  const [row2, setRow2] = useState<PatternShape | null>(null); // target: circle
-  const [row3, setRow3] = useState<PatternShape | null>(null); // target: triangle
-  const [row4, setRow4] = useState<PatternShape | null>(null); // target: star
+  const [patternRows, setPatternRows] = useState<PatternRow[]>(createPatternRows);
+  const [answers, setAnswers] = useState<Array<PatternShape | null>>(() => Array(4).fill(null));
   const [selectedPiece, setSelectedPiece] = useState<PatternShape | null>(null);
   const [draggedPiece, setDraggedPiece] = useState<PatternShape | null>(null);
 
-  const isRow1Correct = row1 === 'triangle';
-  const isRow2Correct = row2 === 'circle';
-  const isRow3Correct = row3 === 'triangle';
-  const isRow4Correct = row4 === 'star';
-
-  const isSolved = isRow1Correct && isRow2Correct && isRow3Correct && isRow4Correct;
+  const isSolved = patternRows.every((row, index) => answers[index] === row.answer);
 
   useEffect(() => {
     if (isSolved && onCompleted) {
@@ -117,11 +141,18 @@ const PatternSimulator: React.FC<{ onCompleted?: () => void }> = ({ onCompleted 
   }, [isSolved]);
 
   const reset = () => {
-    setRow1(null);
-    setRow2(null);
-    setRow3(null);
-    setRow4(null);
+    setPatternRows(createPatternRows());
+    setAnswers(Array(4).fill(null));
     setSelectedPiece(null);
+    setDraggedPiece(null);
+  };
+
+  const setRowAnswer = (rowIndex: number): React.Dispatch<React.SetStateAction<PatternShape | null>> => value => {
+    setAnswers(current => {
+      const updated = [...current];
+      updated[rowIndex] = typeof value === 'function' ? value(current[rowIndex]) : value;
+      return updated;
+    });
   };
 
   const handlePlaceInSlot = (slotSetter: React.Dispatch<React.SetStateAction<PatternShape | null>>, currentValue: PatternShape | null) => {
@@ -159,12 +190,14 @@ const PatternSimulator: React.FC<{ onCompleted?: () => void }> = ({ onCompleted 
     value: PatternShape | null,
     isCorrect: boolean,
     slotSetter: React.Dispatch<React.SetStateAction<PatternShape | null>>,
-    rowLabel: string
+    rowLabel: string,
+    cellKey?: React.Key
   ) => {
     const placedPiece = value ? PIECES.find(p => p.id === value) : null;
 
     return (
       <div
+        key={cellKey}
         onDragOver={e => e.preventDefault()}
         onDrop={e => handleDropInSlot(e, slotSetter)}
         onClick={() => handlePlaceInSlot(slotSetter, value)}
@@ -210,91 +243,30 @@ const PatternSimulator: React.FC<{ onCompleted?: () => void }> = ({ onCompleted 
         </button>
       </div>
 
-      {/* Main 4x5 Pattern Grid */}
+      {/* Main randomized 4x5 Pattern Grid */}
       <div className="bg-slate-950 p-5 sm:p-7 rounded-3xl border border-slate-800/90 shadow-inner space-y-4">
-        {/* Row 1: Square, Triangle, Square, Triangle, [Slot -> Triangle] */}
-        <div className="flex items-center justify-between gap-2 sm:gap-4 p-3 rounded-2xl bg-slate-900/60 border border-slate-850 flex-wrap sm:flex-nowrap">
-          <span className="text-xs font-bold text-slate-400 w-16 sm:w-20 shrink-0">// FILA 1:</span>
-          <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
-            {renderShapeCell('square')}
-            {renderShapeCell('triangle')}
-            {renderShapeCell('square')}
-            {renderShapeCell('triangle')}
-            {renderSlotCell(row1, isRow1Correct, setRow1, 'Fila 1')}
-          </div>
-          <div className="text-right shrink-0 w-24">
-            {isRow1Correct ? (
-              <span className="px-2 py-1 rounded bg-emerald-950 text-emerald-400 text-[11px] font-bold border border-emerald-500/40">✓ CORRECTO</span>
-            ) : row1 ? (
-              <span className="px-2 py-1 rounded bg-amber-950 text-amber-400 text-[11px] font-bold border border-amber-500/40">REVISAR</span>
-            ) : (
-              <span className="text-[11px] text-slate-600">VACÍO</span>
-            )}
-          </div>
-        </div>
-
-        {/* Row 2: Circle, Star, [Slot -> Circle], Star, Circle */}
-        <div className="flex items-center justify-between gap-2 sm:gap-4 p-3 rounded-2xl bg-slate-900/60 border border-slate-850 flex-wrap sm:flex-nowrap">
-          <span className="text-xs font-bold text-slate-400 w-16 sm:w-20 shrink-0">// FILA 2:</span>
-          <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
-            {renderShapeCell('circle')}
-            {renderShapeCell('star')}
-            {renderSlotCell(row2, isRow2Correct, setRow2, 'Fila 2')}
-            {renderShapeCell('star')}
-            {renderShapeCell('circle')}
-          </div>
-          <div className="text-right shrink-0 w-24">
-            {isRow2Correct ? (
-              <span className="px-2 py-1 rounded bg-emerald-950 text-emerald-400 text-[11px] font-bold border border-emerald-500/40">✓ CORRECTO</span>
-            ) : row2 ? (
-              <span className="px-2 py-1 rounded bg-amber-950 text-amber-400 text-[11px] font-bold border border-amber-500/40">REVISAR</span>
-            ) : (
-              <span className="text-[11px] text-slate-600">VACÍO</span>
-            )}
-          </div>
-        </div>
-
-        {/* Row 3: [Slot -> Triangle], Circle, Triangle, Circle, Triangle */}
-        <div className="flex items-center justify-between gap-2 sm:gap-4 p-3 rounded-2xl bg-slate-900/60 border border-slate-850 flex-wrap sm:flex-nowrap">
-          <span className="text-xs font-bold text-slate-400 w-16 sm:w-20 shrink-0">// FILA 3:</span>
-          <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
-            {renderSlotCell(row3, isRow3Correct, setRow3, 'Fila 3')}
-            {renderShapeCell('circle')}
-            {renderShapeCell('triangle')}
-            {renderShapeCell('circle')}
-            {renderShapeCell('triangle')}
-          </div>
-          <div className="text-right shrink-0 w-24">
-            {isRow3Correct ? (
-              <span className="px-2 py-1 rounded bg-emerald-950 text-emerald-400 text-[11px] font-bold border border-emerald-500/40">✓ CORRECTO</span>
-            ) : row3 ? (
-              <span className="px-2 py-1 rounded bg-amber-950 text-amber-400 text-[11px] font-bold border border-amber-500/40">REVISAR</span>
-            ) : (
-              <span className="text-[11px] text-slate-600">VACÍO</span>
-            )}
-          </div>
-        </div>
-
-        {/* Row 4: Square, [Slot -> Star], Square, Star, Square */}
-        <div className="flex items-center justify-between gap-2 sm:gap-4 p-3 rounded-2xl bg-slate-900/60 border border-slate-850 flex-wrap sm:flex-nowrap">
-          <span className="text-xs font-bold text-slate-400 w-16 sm:w-20 shrink-0">// FILA 4:</span>
-          <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
-            {renderShapeCell('square')}
-            {renderSlotCell(row4, isRow4Correct, setRow4, 'Fila 4')}
-            {renderShapeCell('square')}
-            {renderShapeCell('star')}
-            {renderShapeCell('square')}
-          </div>
-          <div className="text-right shrink-0 w-24">
-            {isRow4Correct ? (
-              <span className="px-2 py-1 rounded bg-emerald-950 text-emerald-400 text-[11px] font-bold border border-emerald-500/40">✓ CORRECTO</span>
-            ) : row4 ? (
-              <span className="px-2 py-1 rounded bg-amber-950 text-amber-400 text-[11px] font-bold border border-amber-500/40">REVISAR</span>
-            ) : (
-              <span className="text-[11px] text-slate-600">VACÍO</span>
-            )}
-          </div>
-        </div>
+        {patternRows.map((row, rowIndex) => {
+          const isCorrect = answers[rowIndex] === row.answer;
+          return (
+            <div key={`${row.sequence.join('-')}-${row.slotIndex}-${rowIndex}`} className="flex items-center justify-between gap-2 sm:gap-4 p-3 rounded-2xl bg-slate-900/60 border border-slate-850 flex-wrap sm:flex-nowrap">
+              <span className="text-xs font-bold text-slate-400 w-16 sm:w-20 shrink-0">// FILA {rowIndex + 1}:</span>
+              <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+                {row.sequence.map((shape, position) => position === row.slotIndex
+                  ? renderSlotCell(answers[rowIndex], isCorrect, setRowAnswer(rowIndex), `Fila ${rowIndex + 1}`, position)
+                  : renderShapeCell(shape, position))}
+              </div>
+              <div className="text-right shrink-0 w-24">
+                {isCorrect ? (
+                  <span className="px-2 py-1 rounded bg-emerald-950 text-emerald-400 text-[11px] font-bold border border-emerald-500/40">✓ CORRECTO</span>
+                ) : answers[rowIndex] ? (
+                  <span className="px-2 py-1 rounded bg-amber-950 text-amber-400 text-[11px] font-bold border border-amber-500/40">REVISAR</span>
+                ) : (
+                  <span className="text-[11px] text-slate-600">VACÍO</span>
+                )}
+              </div>
+            </div>
+          );
+        })}
       </div>
 
       {/* Piece Palette - Cutout pieces for Dragging / Selecting */}
