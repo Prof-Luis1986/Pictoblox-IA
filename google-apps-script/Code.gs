@@ -67,6 +67,7 @@ function doPost(e) {
     properties.setProperty(submissionPropertyKey(submissionId), String(Date.now()));
     return jsonResponse({ status: 'success', message: 'Práctica recibida correctamente.', submissionId: submissionId, evidenceCount: 0 });
   } catch (error) {
+    if (error && error.processingStage) processingStage = error.processingStage;
     trashFile(reportFileId);
     trashFile(temporaryDocumentId);
     createdEvidenceIds.forEach(trashFile);
@@ -179,20 +180,25 @@ function percentageToPrivateGrade(percentage) {
 function saveTeacherReport(data, grade, evidenceLinks) {
   let documentId = '';
   let pdfFileId = '';
+  let reportStage = 'document';
   try {
     const document = createTeacherReportDocument(data, grade, evidenceLinks);
     documentId = document.getId();
     document.saveAndClose();
     const fileName = buildTeacherReportFileName(data);
+    reportStage = 'pdf';
     const pdfBlob = exportTeacherReportAsPdf(documentId, fileName);
+    reportStage = 'drive';
     const pdfFile = DriveApp.getFolderById(EVIDENCE_FOLDER_ID).createFile(pdfBlob);
     pdfFileId = pdfFile.getId();
     DriveApp.getFileById(documentId).setTrashed(true);
+    reportStage = 'email';
     MailApp.sendEmail({ to: RECIPIENTS.join(','), subject: 'Reporte privado del docente - ' + boundedText(data.submissionId, 100, true), htmlBody: '<p>La práctica fue procesada correctamente.</p><p><a href="' + escapeHtml(pdfFile.getUrl()) + '">Abrir reporte privado</a></p>', name: 'PictoBlox IA Educativa' });
     return { fileId: pdfFileId, temporaryDocumentId: documentId };
   } catch (error) {
     trashFile(pdfFileId);
     trashFile(documentId);
+    error.processingStage = 'report_' + reportStage;
     throw error;
   }
 }
