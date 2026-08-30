@@ -115,7 +115,7 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
   });
 
   const handleSubmit = async (continueWithIncompleteOptional = false) => {
-    if (missingRequirements.length) { setErrorMessage(`Falta completar: ${missingRequirements.join(', ')}.`); return; }
+    if (missingRequirements.length) { setErrorMessage(`Falta completar: ${missingRequirements.join('; ')}.`); return; }
     if (!studentName.trim()) {
       setErrorMessage('Por favor escribe tu nombre completo para que tus profesores puedan identificarte.');
       return;

@@ -96,7 +96,7 @@ export const PracticePage: React.FC<PracticePageProps> = ({
   const isCompleted = !!practiceProgress?.completed;
   const completedSteps = practiceProgress?.stepsCompleted || [];
   const allStepsCompleted = practice.steps.every(step => completedSteps.includes(step.stepNumber));
-  const missingRequirements = getSubmissionMissingRequirements({ isFreeChallenge: practice.id === 't1-extra-act7', totalSteps: practice.steps.length, completedSteps, completedWallStages: wallCompleted, openQuestionsComplete });
+  const missingRequirements = getSubmissionMissingRequirements({ isFreeChallenge: practice.id === 't1-extra-act7', totalSteps: practice.steps.length, completedSteps, steps: practice.steps, completedWallStages: wallCompleted, openQuestionsComplete });
   const canSubmit = missingRequirements.length === 0;
   const lastSubmittedAt = practiceProgress?.lastSubmittedAt;
 
@@ -657,7 +657,7 @@ export const PracticePage: React.FC<PracticePageProps> = ({
             <p className="text-sm text-slate-300 leading-relaxed">
               {canSubmit
                 ? 'Ya puedes enviar. El Muro del Progreso, las preguntas abiertas, cuestionarios y experimentos son opcionales; puedes completarlos para enriquecer tu evidencia.'
-                : `Falta completar: ${missingRequirements.join(', ')}.`}
+                : `Falta completar: ${missingRequirements.join('; ')}.`}
             </p>
 
             {lastSubmittedAt && (

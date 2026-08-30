@@ -91,7 +91,7 @@ test('45 jsPDF no está instalado', () => assert.ok(!packageJson.includes('jspdf
 test('46 navegador no genera PDF', () => assert.ok(!client.includes('generateTeacherReportPdf') && !client.includes('application/pdf')));
 test('47 no existe descarga de PDF', () => assert.ok(!client.includes('downloadReceiptPdf') && !client.includes('URL.createObjectURL') && !client.includes('window.open')));
 test('48 respuestas opcionales no bloquean', () => assert.deepEqual(getSubmissionMissingRequirements({ isFreeChallenge: false, totalSteps: 1, completedSteps: [1], completedWallStages: [], openQuestionsComplete: false }), []));
-test('49 pasos incompletos sí bloquean', () => assert.equal(getSubmissionMissingRequirements({ isFreeChallenge: false, totalSteps: 2, completedSteps: [1], completedWallStages: [], openQuestionsComplete: false }).length, 1));
+test('49 pasos incompletos sí bloquean', () => assert.deepEqual(getSubmissionMissingRequirements({ isFreeChallenge: false, totalSteps: 2, completedSteps: [1], steps: [{ stepNumber: 1, title: 'Inicio' }, { stepNumber: 2, title: 'Paso 2: Probar el programa' }], completedWallStages: [], openQuestionsComplete: false }), ['Paso 2: Probar el programa']));
 test('50 no hay sb3 en public o dist', () => { const walk = (path: string): string[] => readdirSync(path, { withFileTypes: true }).flatMap(entry => entry.isDirectory() ? walk(`${path}/${entry.name}`) : [`${path}/${entry.name}`]); assert.equal([...walk('public'), ...walk('dist')].filter(path => path.endsWith('.sb3')).length, 0); });
 
 assert.equal(tests.length, 50, 'La auditoría debe contener exactamente 50 pruebas');
