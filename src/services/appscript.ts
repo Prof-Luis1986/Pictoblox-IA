@@ -216,7 +216,7 @@ function doPost(e) {
   try {
     var rawData = e.postData.contents;
     var data = JSON.parse(rawData);
-    if (data.action === "uploadReceiptPdf") return uploadReceiptPdf(data);
+    if (data.action === "uploadTeacherReport") return uploadTeacherReport(data);
 
     var studentName = data.studentName || "Alumno Desconocido";
     var practiceTitle = data.practiceTitle || "Práctica de IA";
@@ -309,16 +309,20 @@ function saveEvidenceFiles(attachments, data, studentName) {
   });
 }
 
-function uploadReceiptPdf(data) {
+function uploadTeacherReport(data) {
   try {
-    if (!data.submissionId || data.mimeType !== "application/pdf" || !data.base64Data) throw new Error("Comprobante PDF inválido.");
+    if (!data.submissionId) throw new Error("submissionId obligatorio.");
+    if (data.mimeType !== "application/pdf") throw new Error("MIME inválido.");
+    if (!data.base64Data) throw new Error("Base64 obligatorio.");
     var bytes = Utilities.base64Decode(data.base64Data);
+    if (!bytes.length) throw new Error("El reporte está vacío.");
     if (bytes.length > 10 * 1024 * 1024) throw new Error("El PDF supera el límite de 10 MB.");
-    var safeName = String(data.fileName || "comprobante.pdf").replace(/[^a-zA-Z0-9áéíóúÁÉÍÓÚñÑ_.-]+/g, "_");
+    var safeName = String(data.fileName || "Reporte_Docente.pdf").replace(/[^a-zA-Z0-9áéíóúÁÉÍÓÚñÑ_.-]+/g, "_");
     var file = DriveApp.getFolderById(EVIDENCE_FOLDER_ID).createFile(Utilities.newBlob(bytes, "application/pdf", safeName));
-    return ContentService.createTextOutput(JSON.stringify({ status: "success", message: "Comprobante PDF guardado en Drive.", submissionId: data.submissionId, evidenceCount: 1, evidenceLinks: [{ id: file.getId(), name: file.getName(), url: file.getUrl() }] })).setMimeType(ContentService.MimeType.JSON);
+    MailApp.sendEmail({ to: RECIPIENTS.join(","), subject: "Reporte privado del docente — " + data.submissionId, htmlBody: '<p>El reporte privado está disponible en Drive:</p><p><a href="' + file.getUrl() + '">Abrir reporte docente</a></p>', name: "PictoBlox IA Educativa" });
+    return ContentService.createTextOutput(JSON.stringify({ status: "success", message: "Reporte docente guardado.", submissionId: data.submissionId })).setMimeType(ContentService.MimeType.JSON);
   } catch (error) {
-    return ContentService.createTextOutput(JSON.stringify({ status: "error", message: "No se pudo guardar el PDF: " + error.message, submissionId: data.submissionId || "" })).setMimeType(ContentService.MimeType.JSON);
+    return ContentService.createTextOutput(JSON.stringify({ status: "error", message: "No se pudo guardar el reporte docente.", submissionId: data.submissionId || "" })).setMimeType(ContentService.MimeType.JSON);
   }
 }
 
@@ -449,12 +453,12 @@ export const submitPracticeToAppScript = async (
   }
 };
 
-export const uploadReceiptPdfToAppScript = async (submissionId: string, fileName: string, base64Data: string): Promise<SubmissionResult> => {
+export const uploadTeacherReportToAppScript = async (submissionId: string, fileName: string, base64Data: string): Promise<SubmissionResult> => {
   try {
-    const response = await fetch(getAppScriptUrl(), { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify({ action: 'uploadReceiptPdf', submissionId, fileName, mimeType: 'application/pdf', base64Data }) });
-    if (!response.ok || response.type === 'opaque') return { state: 'pending', message: 'PDF generado; carga en Drive pendiente de confirmación.' };
+    const response = await fetch(getAppScriptUrl(), { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify({ action: 'uploadTeacherReport', submissionId, fileName, mimeType: 'application/pdf', base64Data }) });
+    if (!response.ok || response.type === 'opaque') return { state: 'pending', message: 'Reporte docente pendiente.' };
     const server = await response.json();
-    if (server.status !== 'success' || server.submissionId !== submissionId) return { state: 'failed', message: server.message || 'No se confirmó el PDF en Drive.' };
-    return { state: 'confirmed', message: server.message, submissionId, evidenceCount: server.evidenceCount, evidenceLinks: server.evidenceLinks };
-  } catch { return { state: 'failed', message: 'La entrega fue confirmada, pero el PDF no pudo guardarse en Drive.' }; }
+    if (server.status !== 'success' || server.submissionId !== submissionId) return { state: 'failed', message: 'No se confirmó el reporte docente.' };
+    return { state: 'confirmed', message: 'Reporte docente guardado.', submissionId };
+  } catch { return { state: 'failed', message: 'No se confirmó el reporte docente.' }; }
 };

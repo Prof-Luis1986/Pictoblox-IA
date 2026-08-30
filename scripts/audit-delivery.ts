@@ -39,4 +39,11 @@ assert.ok(!service.includes('data.recipients &&') && service.includes('var email
 assert.ok(modal.indexOf('onSubmissionSuccess(localReceipt)') > modal.indexOf("res.state === 'confirmed'"), 'Confirmed progress can be recorded before verification');
 assert.ok(modal.includes('Regresar y completar respuestas') && modal.includes('Continuar y enviar'), 'Optional response warning actions are missing');
 assert.ok(modal.includes('quizAnsweredQuestions') && modal.includes('isCorrect = answered ?'), 'Unanswered quiz items are still classified as incorrect');
+assert.ok(modal.includes('uploadTeacherReportToAppScript') && modal.includes("console.error('La entrega fue confirmada"), 'Teacher-report failure is not isolated from confirmed delivery');
+assert.ok(service.includes("action: 'uploadTeacherReport'") && !service.includes("action: 'uploadReceiptPdf'"), 'Legacy receipt upload action remains reachable');
+assert.ok(server.includes("data.action === 'uploadTeacherReport'") && !server.includes("data.action === 'uploadReceiptPdf'"), 'Standalone Apps Script does not route the private teacher report exclusively');
+const reportSuccessResponse = "{ status: 'success', message: 'Reporte docente guardado.', submissionId: data.submissionId }";
+assert.ok(server.includes(reportSuccessResponse), 'Teacher report response is not minimal');
+assert.ok(!reportSuccessResponse.includes('url') && !reportSuccessResponse.includes('grade') && !reportSuccessResponse.includes('percentage'), 'Teacher report response leaks private information');
+assert.ok(server.includes("MailApp.sendEmail({ to: RECIPIENTS.join(',')"), 'Teacher report recipients are not restricted to RECIPIENTS');
 console.log('Delivery audit passed: false positives rejected, IDs verified, only technical steps gate submission, optional responses warn without blocking, and free challenges can submit.');

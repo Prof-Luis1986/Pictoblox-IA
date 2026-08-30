@@ -597,7 +597,7 @@ export const PracticePage: React.FC<PracticePageProps> = ({
                 <Mail className="w-3.5 h-3.5" /> Entrega a Maestros
               </span>
               <span className="text-slate-400">
-                Calificación y Reporte Digital
+                Entrega al docente
               </span>
             </div>
 

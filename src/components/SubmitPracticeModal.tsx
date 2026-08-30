@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   X,
   Send,
@@ -6,7 +6,6 @@ import {
   CheckCircle2,
   AlertCircle,
   Sparkles,
-  ShieldCheck,
   FileText,
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
@@ -24,11 +23,12 @@ import {
 import {
   DESTINATION_EMAILS,
   submitPracticeToAppScript,
-  uploadReceiptPdfToAppScript
+  uploadTeacherReportToAppScript
 } from '../services/appscript';
 import { getSessionStudentGroup, getSessionStudentName, loadProgressWallState, saveSessionIdentity } from '../services/sessionStorage';
-import { blobToBase64, downloadReceiptPdf, GeneratedReceiptPdf, generateConfirmedReceiptPdf } from '../services/receiptPdf';
+import { blobToBase64, generateTeacherReportPdf } from '../services/teacherReportPdf';
 import { hasIncompleteOptionalResponses } from '../services/submissionEligibility';
+import { calculateTeacherGrade } from '../services/teacherGrade';
 
 interface SubmitPracticeModalProps {
   isOpen: boolean;
@@ -74,17 +74,13 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
   const [studentNotes, setStudentNotes] = useState('');
   const [studentReflection, setStudentReflection] = useState('');
   const [submissionState, setSubmissionState] = useState<SubmissionState | 'idle'>('idle');
-  const [serverMessage, setServerMessage] = useState('');
   const [submittedPayload, setSubmittedPayload] = useState<PracticeSubmissionPayload | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [evidenceFiles, setEvidenceFiles] = useState<File[]>([]);
   const [studentDate, setStudentDate] = useState(new Date().toISOString().substring(0, 10));
-  const [receiptPdf, setReceiptPdf] = useState<GeneratedReceiptPdf | null>(null);
-  const [pdfMessage, setPdfMessage] = useState('');
   const [showOptionalWarning, setShowOptionalWarning] = useState(false);
-  const downloadedSubmissionIds = useRef(new Set<string>());
   
-  useEffect(() => { const clearReceipt = () => { setReceiptPdf(null); setSubmittedPayload(null); setPdfMessage(''); downloadedSubmissionIds.current.clear(); }; window.addEventListener('academic-session-cleared', clearReceipt); return () => window.removeEventListener('academic-session-cleared', clearReceipt); }, []);
+  useEffect(() => { const clearSubmission = () => setSubmittedPayload(null); window.addEventListener('academic-session-cleared', clearSubmission); return () => window.removeEventListener('academic-session-cleared', clearSubmission); }, []);
 
   if (!isOpen) return null;
 
@@ -228,7 +224,6 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
     try {
       const res = await submitPracticeToAppScript(payload);
       setSubmissionState(res.state);
-      setServerMessage(res.message);
 
       if (res.state === 'confirmed' && res.submissionId === payload.submissionId) {
         const localReceipt = { ...payload, evidenceAttachments: undefined };
@@ -240,14 +235,17 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
           origin: { y: 0.6 }
         });
         try {
-          setPdfMessage('Generando tu comprobante PDF…');
-          const generated = generateConfirmedReceiptPdf({ payload: localReceipt, practice, wallResponses, openQuestionAnswers, evidenceLinks: res.evidenceLinks || [], evidenceCount: res.evidenceCount || 0 });
-          setReceiptPdf(generated);
-          if (!downloadedSubmissionIds.current.has(payload.submissionId)) { downloadReceiptPdf(generated); downloadedSubmissionIds.current.add(payload.submissionId); }
-          const pdfUpload = await uploadReceiptPdfToAppScript(payload.submissionId, generated.fileName, await blobToBase64(generated.blob));
-          setPdfMessage(pdfUpload.state === 'confirmed' ? 'Comprobante PDF descargado y guardado en Drive.' : pdfUpload.message);
-        } catch {
-          setPdfMessage('Tu práctica fue recibida, pero no fue posible generar el PDF. Puedes intentar descargarlo nuevamente.');
+          const grade = calculateTeacherGrade({
+            steps: { completed: stepsCount, available: totalSteps },
+            wall: { completed: wallCompletedCount, available: wallTotal },
+            openQuestions: { completed: openAnsweredCount, available: openQuestionTotal },
+            quiz: { completed: quizAnswerList.filter(answer => answer.isCorrect === true).length, available: quizTotal },
+            experimentsReflection: { completed: experimentAnsweredCount + (studentReflection.trim() ? 1 : 0), available: experimentTotal + (practice.reflection ? 1 : 0) }
+          });
+          const report = generateTeacherReportPdf({ payload: localReceipt, practice, wallResponses, openQuestionAnswers, evidenceLinks: res.evidenceLinks || [], grade, confirmedAt: new Date().toISOString() });
+          await uploadTeacherReportToAppScript(payload.submissionId, report.fileName, await blobToBase64(report.blob));
+        } catch (reportError) {
+          console.error('La entrega fue confirmada, pero falló el reporte privado del docente.', reportError);
         }
       } else if (res.state === 'failed') {
         setErrorMessage(res.message || 'No se pudo enviar la práctica. Intenta nuevamente.');
@@ -306,39 +304,8 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
               </div>
 
               <div className="space-y-2">
-                <h4 className="text-2xl font-black text-white font-sans">
-                  ¡Excelente Trabajo, {submittedPayload.studentName}!
-                </h4>
-                <p className="text-sm text-slate-300 max-w-md mx-auto">
-                  Tu tarea y respuestas se han enviado correctamente por correo a tus maestros.
-                </p>
-                <p className="text-xs text-emerald-300">{serverMessage}</p>
-              </div>
-
-              {pdfMessage && <p className="text-sm text-cyan-200">{pdfMessage}</p>}
-              {receiptPdf && <button type="button" onClick={() => downloadReceiptPdf(receiptPdf)} className="px-5 py-3 rounded-xl bg-cyan-500 text-slate-950 font-bold">Volver a descargar comprobante</button>}
-
-              {/* Email Voucher Info */}
-              <div className="p-4 rounded-2xl bg-slate-900 border-2 border-emerald-500/40 text-left max-w-md mx-auto space-y-2 text-sm">
-                <div className="text-emerald-400 font-bold flex items-center gap-1.5 text-xs">
-                  <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                  <span>COMPROBANTE DE ENTREGA</span>
-                </div>
-                <div className="text-slate-200">
-                  <strong>Alumno:</strong> {submittedPayload.studentName} ({submittedPayload.studentGroup})
-                </div>
-                <div className="text-slate-200">
-                  <strong>Práctica:</strong> {submittedPayload.practiceNumber}: {submittedPayload.practiceTitle}
-                </div>
-                <div className="text-slate-200">
-                  <strong>Calificación Test:</strong> <span className="text-emerald-400 font-bold">{submittedPayload.quizScore ?? 0}%</span>
-                </div>
-                <div className="pt-2 border-t border-slate-800 text-xs text-slate-400 space-y-1">
-                  <div><strong>Destinatarios:</strong></div>
-                  {submittedPayload.recipients.map((mail, idx) => (
-                    <div key={idx} className="text-emerald-300 font-medium">✉️ {mail}</div>
-                  ))}
-                </div>
+                <h4 className="text-2xl font-black text-white font-sans">Tu práctica fue recibida correctamente.</h4>
+                <p className="text-xs text-emerald-300">Identificador: {submittedPayload.submissionId}</p>
               </div>
 
               <button

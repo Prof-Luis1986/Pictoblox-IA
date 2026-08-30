@@ -83,9 +83,7 @@ export const QuizComponent: React.FC<QuizComponentProps> = ({
         {submitted && (
           <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-2xl bg-slate-900 border border-emerald-500/30">
             <Award className={`w-4 h-4 ${score >= 70 ? 'text-emerald-400' : 'text-slate-500'}`} />
-            <span className="text-xs font-mono font-bold text-white">
-              SCORE: {score}% ({answeredCount}/{questions.length} respondidas)
-            </span>
+            <span className="text-xs font-mono font-bold text-white">{answeredCount}/{questions.length} respondidas</span>
           </div>
         )}
       </div>

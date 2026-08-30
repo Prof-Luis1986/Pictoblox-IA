@@ -23,7 +23,7 @@ function doPost(e) {
     }
 
     const data = JSON.parse(e.postData.contents);
-    if (data.action === 'uploadReceiptPdf') return uploadReceiptPdf(data);
+    if (data.action === 'uploadTeacherReport') return uploadTeacherReport(data);
     const studentName = cleanText(data.studentName || 'Alumno sin nombre', 100);
     const practiceNumber = cleanText(data.practiceNumber || 'Práctica', 80);
     const practiceTitle = cleanText(data.practiceTitle || 'Práctica de IA', 160);
@@ -108,16 +108,20 @@ function saveEvidenceFiles(attachments, data, studentName) {
   });
 }
 
-function uploadReceiptPdf(data) {
+function uploadTeacherReport(data) {
   try {
-    if (!data.submissionId || data.mimeType !== 'application/pdf' || !data.base64Data) throw new Error('Comprobante PDF inválido.');
+    if (!data.submissionId) throw new Error('submissionId obligatorio.');
+    if (data.mimeType !== 'application/pdf') throw new Error('MIME inválido.');
+    if (!data.base64Data) throw new Error('Base64 obligatorio.');
     const bytes = Utilities.base64Decode(data.base64Data);
+    if (!bytes.length) throw new Error('El reporte está vacío.');
     if (bytes.length > 10 * 1024 * 1024) throw new Error('El PDF supera el límite de 10 MB.');
-    const fileName = safeFilePart(String(data.fileName || 'comprobante').replace(/\.pdf$/i, ''), 180) + '.pdf';
+    const fileName = safeFilePart(String(data.fileName || 'Reporte_Docente').replace(/\.pdf$/i, ''), 180) + '.pdf';
     const file = DriveApp.getFolderById(EVIDENCE_FOLDER_ID).createFile(Utilities.newBlob(bytes, 'application/pdf', fileName));
-    return jsonResponse({ status: 'success', message: 'Comprobante PDF guardado en Drive.', submissionId: data.submissionId, evidenceCount: 1, evidenceLinks: [{ id: file.getId(), name: file.getName(), url: file.getUrl() }] });
+    MailApp.sendEmail({ to: RECIPIENTS.join(','), subject: 'Reporte privado del docente — ' + cleanText(data.submissionId, 100), htmlBody: '<p>El reporte privado está disponible en Drive:</p><p><a href="' + escapeHtml(file.getUrl()) + '">Abrir reporte docente</a></p>', name: 'PictoBlox IA Educativa' });
+    return jsonResponse({ status: 'success', message: 'Reporte docente guardado.', submissionId: data.submissionId });
   } catch (error) {
-    return jsonResponse({ status: 'error', message: 'No se pudo guardar el PDF: ' + error.message, submissionId: data.submissionId || '' });
+    return jsonResponse({ status: 'error', message: 'No se pudo guardar el reporte docente.', submissionId: data.submissionId || '' });
   }
 }
 

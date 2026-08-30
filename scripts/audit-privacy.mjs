@@ -7,8 +7,13 @@ const openQuestions = readFileSync(`${root}/src/components/OpenQuestionsSection.
 const submitModal = readFileSync(`${root}/src/components/SubmitPracticeModal.tsx`, 'utf8');
 const app = readFileSync(`${root}/src/App.tsx`, 'utf8');
 const firebase = readFileSync(`${root}/src/services/firebase.ts`, 'utf8');
+const teacherGrade = readFileSync(`${root}/src/services/teacherGrade.ts`, 'utf8');
+const teacherReport = readFileSync(`${root}/src/services/teacherReportPdf.ts`, 'utf8');
 for (const [name, code] of [['OpenQuestionsSection', openQuestions], ['SubmitPracticeModal', submitModal], ['App', app], ['firebase', firebase]]) {
   assert.ok(!code.includes('localStorage'), `${name} must not use localStorage for academic data`);
+}
+for (const [name, code] of [['teacherGrade', teacherGrade], ['teacherReportPdf', teacherReport]]) {
+  for (const forbidden of ['localStorage', 'sessionStorage', 'indexedDB', 'caches.open', 'firebase']) assert.ok(!code.includes(forbidden), `${name} persists private report data`);
 }
 assert.ok(app.includes('clearAcademicSession()'), 'Session-clear button is not connected to academic cleanup');
 assert.ok(app.includes("window.location.hash = '#/'"), 'Cleanup must return to the home page');
