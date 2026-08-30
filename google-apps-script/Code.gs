@@ -32,6 +32,19 @@ function doGet() {
   return jsonResponse({ status: 'ok', service: 'PictoBlox IA Educativa', timestamp: new Date().toISOString() });
 }
 
+// Ejecutar una sola vez desde el editor con la cuenta propietaria del despliegue.
+// Fuerza la autorización de los servicios usados por las entregas sin enviar datos.
+function authorizeSubmissionServices() {
+  const folder = DriveApp.getFolderById(EVIDENCE_FOLDER_ID);
+  const document = DocumentApp.create('Autorización temporal - PictoBlox IA');
+  const documentId = document.getId();
+  document.getBody().appendParagraph('Comprobación de permisos para generar reportes PDF.');
+  document.saveAndClose();
+  DriveApp.getFileById(documentId).setTrashed(true);
+  const remainingEmailQuota = MailApp.getRemainingDailyQuota();
+  return 'Servicios autorizados. Carpeta: ' + folder.getName() + '. Cuota de correo disponible: ' + remainingEmailQuota;
+}
+
 function doPost(e) {
   let createdEvidenceIds = [];
   let reportFileId = '';
