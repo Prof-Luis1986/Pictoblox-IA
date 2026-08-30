@@ -2,6 +2,8 @@ import { Practice } from '../types';
 import { PRACTICES_TOMO_1 } from './practicesDataTomo1';
 import { PRACTICES_TOMO_2 } from './practicesDataTomo2';
 import { ADDITIONAL_RESOURCE_PRACTICES } from './additionalResourcePractices';
+import { getBlockGuideImage } from './blockGuideImages';
+import { FRUTA_NINJA_PROGRESS_WALL, PROGRESS_WALL_BY_PRACTICE } from './progressWallData';
 
 // Helper to normalize practice fields
 const normalizePractice = (p: Practice): Practice => {
@@ -21,10 +23,14 @@ const normalizePractice = (p: Practice): Practice => {
     pictobloxExtensions,
     quizQuestions,
     resources: p.resources,
+    progressWallStages: p.id === 't1-extra-act7' ? FRUTA_NINJA_PROGRESS_WALL : PROGRESS_WALL_BY_PRACTICE[p.id],
     // Los proyectos completos se conservan como respaldo interno del curso,
     // pero no se ofrecen al alumno: la práctica consiste en construirlos.
     sb3Project: undefined,
-    steps: p.steps
+    steps: p.steps.map(step => ({
+      ...step,
+      blockImage: getBlockGuideImage(p.id, step.stepNumber) || step.blockImage
+    }))
   };
 };
 

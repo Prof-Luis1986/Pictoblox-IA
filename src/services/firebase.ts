@@ -3,6 +3,7 @@ import { initializeApp, getApps, getApp } from "firebase/app";
 import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
 import { getAuth, signInAnonymously } from "firebase/auth";
 import { StudentProgress } from "../types";
+import { loadSessionProgress, saveSessionProgress } from './sessionStorage';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDeEguIbg7bkWAp0OD8zutMBQDCtXM2wEo",
@@ -18,33 +19,12 @@ const app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 export const auth = getAuth(app);
 
-const LOCAL_STORAGE_KEY = "pictoblox_ia_student_progress_v2";
-
 export const getInitialProgress = (): StudentProgress => {
-  try {
-    const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
-    if (saved) {
-      return JSON.parse(saved);
-    }
-  } catch (e) {
-    console.warn("Could not read local progress:", e);
-  }
-  return {
-    studentId: `student_${Math.random().toString(36).substring(2, 9)}`,
-    studentName: "Estudiante",
-    completedPractices: {},
-    badgesEarned: [],
-    syncedToFirebase: false
-  };
+  return loadSessionProgress();
 };
 
 export const saveStudentProgress = async (progress: StudentProgress): Promise<boolean> => {
-  // Always update localStorage first for instantaneous offline persistence
-  try {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(progress));
-  } catch (e) {
-    console.error("Failed saving to localStorage", e);
-  }
+  saveSessionProgress(progress);
 
   // Attempt to sync to Firestore
   try {
@@ -72,7 +52,7 @@ export const loadStudentProgress = async (): Promise<StudentProgress> => {
     if (snap.exists()) {
       const data = snap.data() as StudentProgress;
       data.syncedToFirebase = true;
-      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(data));
+      saveSessionProgress(data);
       return data;
     }
   } catch (cloudErr) {

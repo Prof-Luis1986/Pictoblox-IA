@@ -11,6 +11,7 @@ import {
   Save,
   Home,
   CheckCircle2
+  ,Trash2
 } from 'lucide-react';
 import { StudentProgress } from '../types';
 
@@ -20,6 +21,8 @@ interface HeaderProps {
   onOpenColorTable: () => void;
   onOpenProgressModal?: () => void;
   currentPath: string;
+  onClearSession: () => void;
+  hasConfirmedSubmission: boolean;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -27,7 +30,9 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenSearch,
   onOpenColorTable,
   onOpenProgressModal,
-  currentPath
+  currentPath,
+  onClearSession,
+  hasConfirmedSubmission
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -152,6 +157,15 @@ export const Header: React.FC<HeaderProps> = ({
             </button>
           )}
 
+          <button
+            onClick={onClearSession}
+            className="hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-xl bg-rose-950/70 hover:bg-rose-900 border border-rose-500/35 text-rose-200 transition"
+            title="Borrar nombre, grupo, respuestas y progreso de esta sesión"
+          >
+            <Trash2 className="w-4 h-4" />
+            <span className="hidden xl:inline">{hasConfirmedSubmission ? 'Finalizar sesión' : 'Borrar mis datos de esta sesión'}</span>
+          </button>
+
           {/* Mobile hamburger menu */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -159,6 +173,13 @@ export const Header: React.FC<HeaderProps> = ({
             aria-label="Abrir menú de navegación"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+          <button
+            onClick={() => { setMobileMenuOpen(false); onClearSession(); }}
+            className="w-full flex items-center gap-2 p-3 rounded-xl hover:bg-rose-950 text-rose-300 text-left"
+          >
+            <Trash2 className="w-4 h-4" />
+            <span>{hasConfirmedSubmission ? 'Finalizar sesión' : 'Borrar mis datos de esta sesión'}</span>
           </button>
         </div>
       </div>

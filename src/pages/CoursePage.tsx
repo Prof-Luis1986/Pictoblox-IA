@@ -182,7 +182,7 @@ export const CoursePage: React.FC<CoursePageProps> = ({ courseId, progress }) =>
                     {section.concepts && section.concepts.length > 0 && (
                       <div className="space-y-4 pt-2">
                         <span className="text-xs font-bold text-slate-400 uppercase tracking-wider font-mono block">
-                          // FUNDAMENTOS TÉCNICOS:
+                          CONTENIDO COMPLEMENTARIO
                         </span>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

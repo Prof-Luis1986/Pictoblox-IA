@@ -4,6 +4,7 @@ import { COURSES_DATA } from '../data/coursesData';
 import { StudentProgress, PracticeSubmissionPayload } from '../types';
 import { PracticeHeader } from '../components/PracticeHeader';
 import { OpenQuestionsSection } from '../components/OpenQuestionsSection';
+import { ProgressWall } from '../components/ProgressWall';
 import { StepViewer } from '../components/StepViewer';
 import { InteractiveBlockSimulation } from '../components/InteractiveBlockSimulation';
 import { QuizComponent } from '../components/QuizComponent';
@@ -373,7 +374,7 @@ export const PracticePage: React.FC<PracticePageProps> = ({
                   {parentSection.title}
                 </span>
                 <h3 className="text-sm sm:text-base font-bold text-white font-sans">
-                  Fundamentos y Contexto de la Lección
+                  Contenido complementario
                 </h3>
               </div>
             </div>
@@ -429,6 +430,8 @@ export const PracticePage: React.FC<PracticePageProps> = ({
         onOpenSubmitModal={allStepsCompleted ? () => setIsSubmitModalOpen(true) : undefined}
         lastSubmittedAt={lastSubmittedAt}
       />
+
+      <ProgressWall practice={practice} />
 
       {practice.resources && practice.resources.length > 0 && (
         <section className="p-5 sm:p-6 rounded-3xl bg-slate-900/90 border border-cyan-500/30 space-y-4">

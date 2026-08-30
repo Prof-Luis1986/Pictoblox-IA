@@ -12,7 +12,7 @@ export const OPEN_QUESTIONS_BY_PRACTICE: Record<string, OpenQuestionItem[]> = {
   ],
   't1-act3': [
     { id: 't1a3-q1', question: '¿La IA detecta tu rostro?' },
-    { id: 't1a3-q2', question: '¿Qué ocurrió cuando te alejaste o cubriste parte de tu rostro?' },
+    { id: 't1a3-q2', question: '¿Qué ocurrió?' },
     { id: 't1a3-q3', question: '¿Qué necesita la Inteligencia Artificial para reconocer tu rostro correctamente?' },
     { id: 't1a3-q4', question: '¿Qué ocurrió cuando había varias personas al mismo tiempo?' }
   ],
@@ -37,7 +37,7 @@ export const OPEN_QUESTIONS_BY_PRACTICE: Record<string, OpenQuestionItem[]> = {
   ],
   't2-act2': [
     { id: 't2a2-q1', question: '¿La IA detecta tu rostro?' },
-    { id: 't2a2-q2', question: '¿Qué cambió cuando modificaste la luz o la distancia?' },
+    { id: 't2a2-q2', question: '¿Qué cambió?' },
     { id: 't2a2-q3', question: '¿Qué necesita la Inteligencia Artificial para reconocer tu rostro correctamente?' },
     { id: 't2a2-q4', question: '¿Detecta uno o varios rostros?' }
   ],
@@ -45,7 +45,7 @@ export const OPEN_QUESTIONS_BY_PRACTICE: Record<string, OpenQuestionItem[]> = {
     { id: 't2a5-q1', question: '¿El sistema reconoció correctamente el rostro entrenado?' },
     { id: 't2a5-q2', question: '¿Qué ocurrió cuando otra persona se colocó frente a la cámara?' },
     { id: 't2a5-q3', question: '¿Qué pasó cuando se cubrió parte del rostro?' },
-    { id: 't2a5-q4', question: '¿Cómo son los datos cuando hay poca luz?' }
+    { id: 't2a5-q4', question: '¿Cómo son los datos con poca luz?' }
   ],
   't2-act6': [
     { id: 't2a6-q1', question: '¿Qué ocurrió cuando el sistema reconoció correctamente el rostro?' },

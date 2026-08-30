@@ -3,9 +3,10 @@ import { Terminal, ShieldCheck, ExternalLink, BookOpen, Layers, Cpu, Palette, Sp
 
 interface FooterProps {
   onOpenColorTable: () => void;
+  onClearSession: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onOpenColorTable }) => {
+export const Footer: React.FC<FooterProps> = ({ onOpenColorTable, onClearSession }) => {
   return (
     <footer id="app-footer" className="w-full bg-slate-950 text-slate-400 text-xs mt-16 border-t border-emerald-500/20 relative overflow-hidden">
       {/* Matrix top glowing line accent */}
@@ -102,8 +103,11 @@ export const Footer: React.FC<FooterProps> = ({ onOpenColorTable }) => {
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> // SEGURIDAD Y PRIVACIDAD
             </h4>
             <p className="text-xs text-slate-400 leading-relaxed font-sans">
-              El procesamiento de cámara y micrófono se ejecuta de forma 100% local en el navegador del usuario para los experimentos y simulaciones interactivas.
+              El progreso y las respuestas se conservan durante recargas de esta pestaña mediante almacenamiento de sesión y normalmente desaparecen al cerrar la pestaña o el navegador.
             </p>
+            <button onClick={onClearSession} className="mt-2 w-full rounded-xl border border-rose-500/40 bg-rose-950/60 px-3 py-2 text-left text-xs font-bold text-rose-200 hover:bg-rose-900 transition">
+              Borrar mis datos de esta sesión
+            </button>
           </div>
         </div>
 

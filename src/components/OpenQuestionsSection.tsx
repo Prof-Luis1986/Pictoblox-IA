@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { MessageCircleQuestion, Save, CheckCircle2 } from 'lucide-react';
 import { OPEN_QUESTIONS_BY_PRACTICE } from '../data/openQuestionsData';
+import { readSessionValue, writeSessionValue } from '../services/sessionStorage';
 
 export const OpenQuestionsSection: React.FC<{ practiceId: string }> = ({ practiceId }) => {
   const questions = OPEN_QUESTIONS_BY_PRACTICE[practiceId] || [];
-  const storageKey = `mentes-ia-open-questions:${practiceId}`;
+  const storageKey = `open_questions:${practiceId}`;
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [saved, setSaved] = useState(false);
 
   useEffect(() => {
     try {
-      setAnswers(JSON.parse(localStorage.getItem(storageKey) || '{}'));
+      setAnswers(readSessionValue<Record<string, string>>(storageKey, {}));
     } catch {
       setAnswers({});
     }
@@ -20,7 +21,7 @@ export const OpenQuestionsSection: React.FC<{ practiceId: string }> = ({ practic
   if (!questions.length) return null;
 
   const saveAnswers = () => {
-    localStorage.setItem(storageKey, JSON.stringify(answers));
+    writeSessionValue(storageKey, answers);
     setSaved(true);
   };
 

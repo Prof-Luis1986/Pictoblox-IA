@@ -6,9 +6,9 @@ import { createHash } from 'node:crypto';
 
 const root = process.cwd();
 const manifest = JSON.parse(readFileSync(join(root, 'src/data/sourceManifest.json'), 'utf8'));
-const bookTranscriptions = JSON.parse(readFileSync(join(root, 'src/data/bookTranscriptions.json'), 'utf8'));
-const activityTranscriptions = JSON.parse(readFileSync(join(root, 'src/data/sourceTranscriptions.json'), 'utf8'));
-const embeddedVisuals = JSON.parse(readFileSync(join(root, 'src/data/pdfEmbeddedVisuals.json'), 'utf8'));
+const bookTranscriptions = JSON.parse(readFileSync(join(root, 'internal/source-data/bookTranscriptions.json'), 'utf8'));
+const activityTranscriptions = JSON.parse(readFileSync(join(root, 'internal/source-data/sourceTranscriptions.json'), 'utf8'));
+const embeddedVisuals = JSON.parse(readFileSync(join(root, 'internal/source-data/pdfEmbeddedVisuals.json'), 'utf8'));
 const walk = dir => existsSync(dir) ? readdirSync(dir, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(join(dir, e.name)) : [join(dir, e.name)]) : [];
 const publicFiles = walk(join(root, 'public'));
 
@@ -48,6 +48,27 @@ for (const activity of manifest.activities) {
     assert.deepEqual(transcription.pages.map(page => page.sourcePage), Array.from({ length: activity.endPage - activity.startPage + 1 }, (_, i) => activity.startPage + i), `Activity page coverage mismatch: ${activity.id}`);
   }
 }
+const practiceSources = [
+  readFileSync(join(root, 'src/data/practicesDataTomo1.ts'), 'utf8'),
+  readFileSync(join(root, 'src/data/practicesDataTomo2.ts'), 'utf8'),
+  readFileSync(join(root, 'src/data/additionalResourcePractices.ts'), 'utf8')
+].join('\n');
+for (const activity of manifest.activities) {
+  const start = practiceSources.indexOf(`id: '${activity.id}'`);
+  assert.ok(start >= 0, `Practice data missing: ${activity.id}`);
+  const nextPractice = practiceSources.slice(start + 1).search(/\n\s*\{\s*\n\s*id: 't[12]-/);
+  const scope = practiceSources.slice(start, nextPractice < 0 ? undefined : start + 1 + nextPractice);
+  const stepNumbers = [...scope.matchAll(/stepNumber:\s*(\d+)/g)].map(match => Number(match[1]));
+  assert.equal(stepNumbers.length, activity.stepCount, `Manifest/application step mismatch: ${activity.id}`);
+  assert.deepEqual(stepNumbers, Array.from({ length: stepNumbers.length }, (_, index) => index + 1), `Non-consecutive steps: ${activity.id}`);
+}
+const guideSource = readFileSync(join(root, 'src/data/blockGuideImages.ts'), 'utf8');
+for (const [, practiceId, step, url] of guideSource.matchAll(/'(t[12]-act\d+):(\d+)'\s*:\s*'([^']+)'/g)) {
+  const activity = manifest.activities.find(item => item.id === practiceId);
+  assert.ok(activity && Number(step) <= activity.stepCount, `Block guide points to an invalid step: ${practiceId}:${step}`);
+  const guidePath = join(root, 'public', url.replace(/^\//, ''));
+  assert.ok(existsSync(guidePath) && statSync(guidePath).size > 0, `Missing block guide: ${url}`);
+}
 
 assert.equal(publicFiles.filter(f => f.endsWith('.sb3')).length, 0, 'No .sb3 may exist below public/');
 assert.equal(publicFiles.filter(f => f.split('/').some(p => p.startsWith('._')) || f.includes('/__MACOSX/')).length, 0, 'macOS metadata leaked into public/');
@@ -68,7 +89,7 @@ const sourceCode = walk(join(root, 'src')).map(f => readFileSync(f, 'utf8')).joi
 assert.ok(!sourceCode.includes('/resources/sb3/'), 'Student bundle references a public sb3 URL');
 assert.ok(!readFileSync(join(root, 'src/data/allPractices.ts'), 'utf8').includes('inferBlockSnippets'), 'Block inference must remain disabled');
 assert.ok(!readFileSync(join(root, 'src/data/allPractices.ts'), 'utf8').includes('sb3ProjectVisuals'), 'Manual SB3 block reconstructions must not reach the student bundle');
-const studentContent = readFileSync(join(root, 'src/data/studentActivityContent.json'), 'utf8');
+const studentContent = readFileSync(join(root, 'internal/source-data/studentActivityContent.json'), 'utf8');
 assert.ok(!/Roboticoss|roboticoss\.com|\.pdf/i.test(studentContent), 'Student activity content exposes source provenance');
 for (const source of manifest.sources.filter(s => s.type === 'zip')) {
   assert.equal(spawnSync('unzip', ['-tqq', join(root, source.file)]).status, 0, `Invalid ZIP: ${source.file}`);

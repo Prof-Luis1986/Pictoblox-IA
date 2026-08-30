@@ -16,3 +16,11 @@ El tomo 1 tiene 109 transcripciones/capturas internas de 109 páginas y el tomo 
 `npm test` valida hashes SHA-256 de las cuatro fuentes, actividades, numeración, cobertura por página, recursos públicos, capturas y recortes, limpieza de metadatos, protección de `.sb3` e integridad de `project.json` dentro de cada proyecto fuente.
 
 La transcripción original se presenta en paneles diferenciados del contenido complementario histórico de la plataforma. Véanse `SOURCE_COVERAGE.md` y `SB3_DIFFERENCES.md`.
+
+## Privacidad de la sesión académica
+
+Nombre, grupo, progreso, respuestas, cuestionarios, calificaciones, notas y confirmaciones temporales se guardan con un prefijo exclusivo en `sessionStorage`. Sobreviven a una recarga normal de la misma pestaña y normalmente desaparecen al cerrar la pestaña o la sesión del navegador. El botón **Borrar mis datos de esta sesión** permite limpiar inmediatamente el estado local sin borrar entregas ya recibidas por servicios externos.
+
+## Muro del Progreso
+
+Las 12 prácticas principales declaran las etapas Problema, Idea, Diseño, Prototipo, Error y Rediseño. Cada paso técnico conserva su contenido y queda asociado explícitamente a una etapa. Las respuestas se guardan sólo en `sessionStorage` y no se agregan al envío de Apps Script. Fruta Ninja IA utiliza una plantilla vacía de reto libre, sin instrucciones ni bloques resueltos inventados.

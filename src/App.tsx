@@ -13,18 +13,13 @@ import { GlossaryPage } from './pages/GlossaryPage';
 import { SearchModal } from './components/SearchModal';
 import { ColorTableModal } from './components/ColorTableModal';
 import { ProgressSaveModal } from './components/ProgressSaveModal';
-import { StudentProgress } from './types';
-import { loadStudentProgress, saveStudentProgress } from './services/firebase';
+import { StudentProgress, StudentPracticeRecord } from './types';
+import { loadStudentProgress } from './services/firebase';
+import { clearAcademicSession, createEmptyStudentProgress, saveSessionProgress } from './services/sessionStorage';
 
 export default function App() {
   const [currentHash, setCurrentHash] = useState<string>(window.location.hash || '#/');
-  const [progress, setProgress] = useState<StudentProgress>({
-    studentId: 'default-student',
-    studentName: 'Estudiante',
-    completedPractices: {},
-    badgesEarned: [],
-    syncedToFirebase: false
-  });
+  const [progress, setProgress] = useState<StudentProgress>(() => createEmptyStudentProgress());
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isColorTableOpen, setIsColorTableOpen] = useState(false);
   const [isProgressModalOpen, setIsProgressModalOpen] = useState(false);
@@ -51,7 +46,7 @@ export default function App() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  // Load initial student progress (from localStorage and Firestore)
+  // Load progress for this browser-tab session. A new tab session starts clean.
   useEffect(() => {
     const initProgress = async () => {
       const saved = await loadStudentProgress();
@@ -69,11 +64,7 @@ export default function App() {
         lastActiveDate: new Date().toISOString()
       };
       // Save locally immediately to avoid UI lag and update storage
-      try {
-        localStorage.setItem('pictoblox_ia_student_progress_v2', JSON.stringify(nextProgress));
-      } catch (e) {
-        console.warn('Local storage write warning:', e);
-      }
+      saveSessionProgress(nextProgress);
       return nextProgress;
     });
   }, []);
@@ -81,6 +72,19 @@ export default function App() {
   // Navigate helper
   const navigateTo = (hash: string) => {
     window.location.hash = hash;
+  };
+
+  const handleClearAcademicSession = () => {
+    const confirmed = window.confirm('¿Seguro que quieres borrar tu nombre, grupo, respuestas y progreso de esta sesión? Esta acción no se puede deshacer.');
+    if (!confirmed) return;
+    clearAcademicSession();
+    setProgress(createEmptyStudentProgress());
+    setIsSearchOpen(false);
+    setIsColorTableOpen(false);
+    setIsProgressModalOpen(false);
+    window.location.hash = '#/';
+    setCurrentHash('#/');
+    window.alert('Tus datos de esta sesión se borraron correctamente.');
   };
 
   // Route Dispatcher
@@ -135,6 +139,8 @@ export default function App() {
         onOpenColorTable={() => setIsColorTableOpen(true)}
         onOpenProgressModal={() => setIsProgressModalOpen(true)}
         currentPath={currentHash}
+        onClearSession={handleClearAcademicSession}
+        hasConfirmedSubmission={Object.values(progress.completedPractices).some((item: StudentPracticeRecord) => Boolean(item.lastSubmittedAt))}
       />
 
       {/* Main Container View */}
@@ -143,7 +149,7 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <Footer onOpenColorTable={() => setIsColorTableOpen(true)} />
+      <Footer onOpenColorTable={() => setIsColorTableOpen(true)} onClearSession={handleClearAcademicSession} />
 
       {/* Global Modals */}
       <SearchModal
@@ -161,7 +167,7 @@ export default function App() {
         isOpen={isProgressModalOpen}
         onClose={() => setIsProgressModalOpen(false)}
         progress={progress}
-        onProgressUpdated={newProg => setProgress(newProg)}
+        onProgressUpdated={newProg => { saveSessionProgress(newProg); setProgress(newProg); }}
       />
     </div>
   );

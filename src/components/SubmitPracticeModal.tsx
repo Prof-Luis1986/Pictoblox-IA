@@ -33,6 +33,7 @@ import {
   getAppScriptUrl,
   setAppScriptUrl
 } from '../services/appscript';
+import { getSessionStudentGroup, getSessionStudentName, loadProgressWallState, saveSessionIdentity } from '../services/sessionStorage';
 
 interface SubmitPracticeModalProps {
   isOpen: boolean;
@@ -60,10 +61,10 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
   onSubmissionSuccess
 }) => {
   const [studentName, setStudentName] = useState(
-    progress.studentName || localStorage.getItem('PICTOBLOX_STUDENT_NAME') || ''
+    progress.studentName === 'Estudiante' ? getSessionStudentName() : (progress.studentName || getSessionStudentName())
   );
   const [studentGroup, setStudentGroup] = useState(
-    progress.studentGroup || localStorage.getItem('PICTOBLOX_STUDENT_GROUP') || ''
+    progress.studentGroup || getSessionStudentGroup()
   );
   const [studentNotes, setStudentNotes] = useState('');
   const [studentReflection, setStudentReflection] = useState('');
@@ -82,6 +83,7 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
   const completedSteps = progress.completedPractices[practice.id]?.stepsCompleted || [];
   const stepsCount = completedSteps.length;
   const totalSteps = practice.steps.length;
+  const progressWallState = loadProgressWallState(practice.id);
 
   const handleCopyScriptCode = () => {
     const code = generateAppsScriptCode();
@@ -105,11 +107,7 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
     setErrorMessage(null);
     setIsSubmitting(true);
 
-    // Save to localStorage for convenience
-    localStorage.setItem('PICTOBLOX_STUDENT_NAME', studentName.trim());
-    if (studentGroup.trim()) {
-      localStorage.setItem('PICTOBLOX_STUDENT_GROUP', studentGroup.trim());
-    }
+    saveSessionIdentity(studentName.trim(), studentGroup.trim());
 
     // Build Quiz Answer Details
     const quizAnswerList: QuizAnswerSubmission[] = (practice.quizQuestions || []).map(q => {
@@ -375,6 +373,23 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
               </div>
 
               {/* Summary to send */}
+              <div className="space-y-3 p-4 sm:p-5 rounded-2xl bg-violet-950/30 border border-violet-500/30 text-xs">
+                <h4 className="font-bold text-violet-200 flex items-center gap-1.5">
+                  <FileText className="w-4 h-4" /> Resumen privado de tu Muro del Progreso
+                </h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {(practice.progressWallStages || []).map(stage => (
+                    <div key={stage.id} className="p-3 rounded-xl bg-slate-950 border border-slate-800">
+                      <span className="font-black text-emerald-300">{stage.title}</span>
+                      <p className="mt-1 text-slate-300 whitespace-pre-wrap">
+                        {(stage.responseFields || []).map(field => progressWallState.responses[`${stage.id}:${field.id}`]).filter(Boolean).join('\n\n') || 'Sin respuesta todavía.'}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-slate-400">Revísalo antes de continuar. Estas respuestas son privadas y no forman parte de los datos que se enviarán al docente.</p>
+              </div>
+
               <div className="space-y-3 p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-slate-800 text-xs">
                 <h4 className="font-bold text-cyan-300 flex items-center gap-1.5 text-xs">
                   <FileText className="w-4 h-4 text-cyan-400" /> Resumen de lo que se va a enviar:

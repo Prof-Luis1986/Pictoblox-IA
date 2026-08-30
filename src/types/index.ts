@@ -60,6 +60,23 @@ export interface PracticeStep {
   uiScreenshot?: string;
 }
 
+export type ProgressWallStageId = 'problem' | 'idea' | 'design' | 'prototype' | 'error' | 'redesign';
+
+export interface ProgressWallResponseField {
+  id: string;
+  prompt: string;
+  multiline?: boolean;
+}
+
+export interface ProgressWallStage {
+  id: ProgressWallStageId;
+  title: string;
+  guidingQuestion: string;
+  instructions: string[];
+  relatedStepNumbers: number[];
+  responseFields?: ProgressWallResponseField[];
+}
+
 export interface QuizQuestion {
   id: string;
   question: string;
@@ -110,6 +127,7 @@ export interface Practice {
   sb3Project?: PracticeResource;
   resources?: PracticeResource[];
   steps: PracticeStep[];
+  progressWallStages?: ProgressWallStage[];
   experiments?: ExperimentItem[];
   reflection?: string;
   conclusion?: string[];
