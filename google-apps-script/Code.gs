@@ -37,10 +37,12 @@ function doPost(e) {
   let reportFileId = '';
   let temporaryDocumentId = '';
   let submissionId = '';
+  let processingStage = 'request';
   let lock = null;
   try {
     if (!e || !e.postData || !e.postData.contents) throw new Error('Solicitud vacía.');
     const data = JSON.parse(e.postData.contents);
+    processingStage = 'validation';
     const validated = validateSubmission(data);
     submissionId = validated.submissionId;
     lock = LockService.getScriptLock();
@@ -50,13 +52,18 @@ function doPost(e) {
     if (properties.getProperty(submissionPropertyKey(submissionId))) {
       return jsonResponse({ status: 'success', message: 'Práctica recibida correctamente.', submissionId: submissionId, evidenceCount: 0 });
     }
+    processingStage = 'evidence';
     const evidenceLinks = saveEvidenceFiles(data.evidenceAttachments || [], data, createdEvidenceIds);
     delete data.evidenceAttachments;
+    processingStage = 'grading';
     const grade = calculateTeacherGrade(data, validated.rule);
+    processingStage = 'report';
     const report = saveTeacherReport(data, grade, evidenceLinks);
     reportFileId = report.fileId;
     temporaryDocumentId = report.temporaryDocumentId;
+    processingStage = 'record';
     appendSpreadsheetRecord(data, evidenceLinks);
+    processingStage = 'confirmation';
     properties.setProperty(submissionPropertyKey(submissionId), String(Date.now()));
     return jsonResponse({ status: 'success', message: 'Práctica recibida correctamente.', submissionId: submissionId, evidenceCount: 0 });
   } catch (error) {
@@ -64,7 +71,7 @@ function doPost(e) {
     trashFile(temporaryDocumentId);
     createdEvidenceIds.forEach(trashFile);
     console.error('Entrega ' + (submissionId || 'sin submissionId') + ': ' + error.message);
-    return jsonResponse({ status: 'error', message: 'No fue posible procesar la entrega.', submissionId: submissionId });
+    return jsonResponse({ status: 'error', message: 'No fue posible procesar la entrega. Código: ' + processingStage + '.', errorCode: processingStage, submissionId: submissionId });
   } finally {
     if (lock && lock.hasLock()) lock.releaseLock();
   }
