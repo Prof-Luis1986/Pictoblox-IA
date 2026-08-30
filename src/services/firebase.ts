@@ -19,6 +19,9 @@ const db = getFirestore(app);
 const auth = getAuth(app);
 let authenticationPromise: Promise<User> | null = null;
 
+const withoutUndefinedValues = <T,>(value: T): T =>
+  JSON.parse(JSON.stringify(value)) as T;
+
 const getSessionUser = async (): Promise<User> => {
   if (auth.currentUser) return auth.currentUser;
   if (!authenticationPromise) {
@@ -41,11 +44,12 @@ export const saveStudentProgress = async (progress: StudentProgress): Promise<bo
   saveSessionProgress(progress);
   try {
     const user = await getSessionUser();
-    await setDoc(doc(db, 'student_progress', user.uid), {
+    const remoteProgress = withoutUndefinedValues({
       ...progress,
       ownerUid: user.uid,
       syncedToFirebase: true
-    }, { merge: true });
+    });
+    await setDoc(doc(db, 'student_progress', user.uid), remoteProgress, { merge: true });
     return true;
   } catch (error) {
     console.warn('No se pudo sincronizar el progreso; permanece guardado en esta sesión.', error);
