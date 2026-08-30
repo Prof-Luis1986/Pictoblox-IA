@@ -437,7 +437,7 @@ export const PracticePage: React.FC<PracticePageProps> = ({
         courseTitle={course.title}
         isCompleted={isCompleted}
         onToggleCompleted={handleToggleCompleted}
-        onOpenSubmitModal={canSubmit ? () => setIsSubmitModalOpen(true) : undefined}
+        onOpenSubmitModal={() => setIsSubmitModalOpen(true)}
         lastSubmittedAt={lastSubmittedAt}
       />
 
@@ -623,12 +623,16 @@ export const PracticePage: React.FC<PracticePageProps> = ({
             <button
               id="btn-submit-practice-bottom"
               onClick={() => setIsSubmitModalOpen(true)}
-              disabled={!canSubmit}
-              className="px-8 py-5 bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-400 hover:from-emerald-300 hover:to-teal-300 disabled:from-slate-700 disabled:to-slate-700 disabled:text-slate-400 disabled:cursor-not-allowed text-slate-950 text-base font-black rounded-2xl flex items-center justify-center gap-3 shadow-lg transition-all"
+              className="px-8 py-5 bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-400 hover:from-emerald-300 hover:to-teal-300 text-slate-950 text-base font-black rounded-2xl flex items-center justify-center gap-3 shadow-lg transition-all"
             >
               <Send className="w-5 h-5" />
-              <span>{!canSubmit ? `FALTAN ${missingRequirements.length} ELEMENTOS` : lastSubmittedAt ? 'VOLVER A ENVIAR TAREA' : 'ENVIAR TAREA AL MAESTRO'}</span>
+              <span>{!canSubmit ? 'DATOS DEL ALUMNO Y ENTREGA' : lastSubmittedAt ? 'VOLVER A ENVIAR TAREA' : 'ENVIAR TAREA AL MAESTRO'}</span>
             </button>
+            {!canSubmit && (
+              <p className="max-w-xs text-center text-xs text-slate-400">
+                Puedes registrar tus datos ahora. El envío se habilitará cuando termines los pasos técnicos.
+              </p>
+            )}
           </div>
         </div>
       </section>
