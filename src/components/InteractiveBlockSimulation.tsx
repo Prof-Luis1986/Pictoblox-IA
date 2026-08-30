@@ -98,6 +98,7 @@ interface PatternRow {
   sequence: PatternShape[];
   slotIndex: number;
   answer: PatternShape;
+  difficulty: string;
 }
 
 const shuffled = <T,>(items: T[]): T[] => {
@@ -110,18 +111,18 @@ const shuffled = <T,>(items: T[]): T[] => {
 };
 
 const createPatternRows = (): PatternRow[] => {
-  const shapes = shuffled(PIECES.map(piece => piece.id));
-  const slotPositions = shuffled([0, 1, 2, 3, 4]);
+  const levelTemplates = [
+    { pattern: [0, 1, 0, 1, 0, 1], difficulty: 'BÁSICO' },
+    { pattern: [0, 0, 1, 0, 0, 1], difficulty: 'INTERMEDIO' },
+    { pattern: [0, 1, 2, 0, 1, 2], difficulty: 'AVANZADO' },
+    { pattern: [0, 1, 0, 2, 0, 1, 0, 2], difficulty: 'RETO EXPERTO' }
+  ];
 
-  return shapes.map((firstShape, rowIndex) => {
-    const secondShape = shapes[(rowIndex + 1) % shapes.length];
-    const startsWithFirst = Math.random() >= 0.5;
-    const sequence = Array.from({ length: 5 }, (_, position) => {
-      const useFirst = position % 2 === 0 ? startsWithFirst : !startsWithFirst;
-      return useFirst ? firstShape : secondShape;
-    });
-    const slotIndex = slotPositions[rowIndex];
-    return { sequence, slotIndex, answer: sequence[slotIndex] };
+  return levelTemplates.map(({ pattern, difficulty }) => {
+    const shapeMapping = shuffled(PIECES.map(piece => piece.id));
+    const sequence = pattern.map(shapeIndex => shapeMapping[shapeIndex]);
+    const slotIndex = Math.floor(Math.random() * sequence.length);
+    return { sequence, slotIndex, answer: sequence[slotIndex], difficulty };
   });
 };
 
@@ -231,7 +232,7 @@ const PatternSimulator: React.FC<{ onCompleted?: () => void }> = ({ onCompleted 
             <span>Tablero Digital de Patrones Geométricos</span>
           </h5>
           <p className="text-xs text-slate-400 font-sans">
-            Arrastra las figuras o haz clic en una pieza y luego en la casilla con el signo <strong className="text-emerald-400">?</strong>
+            Resuelve cuatro patrones de dificultad creciente. Arrastra una figura o selecciónala y después pulsa la casilla <strong className="text-emerald-400">?</strong>
           </p>
         </div>
 
@@ -243,16 +244,19 @@ const PatternSimulator: React.FC<{ onCompleted?: () => void }> = ({ onCompleted 
         </button>
       </div>
 
-      {/* Main randomized 4x5 Pattern Grid */}
+      {/* Four randomized levels with progressively more complex rules. */}
       <div className="bg-slate-950 p-5 sm:p-7 rounded-3xl border border-slate-800/90 shadow-inner space-y-4">
         {patternRows.map((row, rowIndex) => {
           const isCorrect = answers[rowIndex] === row.answer;
           return (
             <div key={`${row.sequence.join('-')}-${row.slotIndex}-${rowIndex}`} className="flex items-center justify-between gap-2 sm:gap-4 p-3 rounded-2xl bg-slate-900/60 border border-slate-850 flex-wrap sm:flex-nowrap">
-              <span className="text-xs font-bold text-slate-400 w-16 sm:w-20 shrink-0">// FILA {rowIndex + 1}:</span>
+              <div className="w-24 sm:w-28 shrink-0">
+                <span className="block text-xs font-bold text-slate-300">// NIVEL {rowIndex + 1}</span>
+                <span className="mt-1 block text-[10px] font-bold text-cyan-400">{row.difficulty}</span>
+              </div>
               <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
                 {row.sequence.map((shape, position) => position === row.slotIndex
-                  ? renderSlotCell(answers[rowIndex], isCorrect, setRowAnswer(rowIndex), `Fila ${rowIndex + 1}`, position)
+                  ? renderSlotCell(answers[rowIndex], isCorrect, setRowAnswer(rowIndex), `Nivel ${rowIndex + 1}`, position)
                   : renderShapeCell(shape, position))}
               </div>
               <div className="text-right shrink-0 w-24">
@@ -327,7 +331,7 @@ const PatternSimulator: React.FC<{ onCompleted?: () => void }> = ({ onCompleted 
             <span>¡EXCELENTE! TODOS LOS PATRONES HAN SIDO DETECTADOS</span>
           </div>
           <p className="leading-relaxed text-slate-300">
-            Has completado las 4 secuencias de patrones lógicos. Así es exactamente como los modelos de Inteligencia Artificial observan datos repetitivos para predecir y tomar decisiones automáticas.
+            Has superado cuatro reglas de dificultad creciente: alternancia, repetición agrupada, ciclos de tres figuras y secuencias combinadas. Así es como los modelos de Inteligencia Artificial observan regularidades para realizar predicciones.
           </p>
         </div>
       )}
