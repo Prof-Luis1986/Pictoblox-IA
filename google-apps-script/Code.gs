@@ -11,20 +11,21 @@ const COMPONENT_DEFINITIONS = [
   { id: 'experimentsReflection', label: 'Experimentos y reflexión', baseWeight: 5 }
 ];
 const WALL_STAGE_IDS = ['problem', 'idea', 'design', 'prototype', 'error', 'redesign'];
+const WALL_RESPONSE_KEYS = ['problem:problem','idea:possible_ideas','idea:selected_idea','design:design','prototype:prototype','error:outcome','error:unexpected','error:step','error:expected','error:actual','error:cause','error:test_method','error:evidence','redesign:redesign_choice','redesign:correction','redesign:improvement','redesign:new_test','redesign:result','redesign:conclusion','redesign:future_improvement'];
 const PRACTICE_RULES = {
-  't1-act1': { practiceId: 't1-act1', steps: [1,2,3,4], stages: WALL_STAGE_IDS, openQuestions: ['t1a1-q1'], quiz: [{ id: 'q1-1', correctIndex: 1, optionCount: 4 }, { id: 'q1-2', correctIndex: 2, optionCount: 4 }], experiments: [], hasReflection: true, isFreeChallenge: false },
-  't1-act2': { practiceId: 't1-act2', steps: [1,2,3,4,5,6,7,8,9], stages: WALL_STAGE_IDS, openQuestions: ['t1a2-q1'], quiz: [{ id: 'q2-1', correctIndex: 1, optionCount: 4 }, { id: 'q2-2', correctIndex: 1, optionCount: 4 }], experiments: [], hasReflection: false, isFreeChallenge: false },
-  't1-act3': { practiceId: 't1-act3', steps: [1,2,3,4,5,6,7,8,9,10,11,12], stages: WALL_STAGE_IDS, openQuestions: ['t1a3-q1','t1a3-q2','t1a3-q3','t1a3-q4'], quiz: [{ id: 'q3-1', correctIndex: 1, optionCount: 4 }, { id: 'q3-2', correctIndex: 1, optionCount: 4 }], experiments: ['exp3-1','exp3-2','exp3-3','exp3-4'], hasReflection: false, isFreeChallenge: false },
-  't1-act4': { practiceId: 't1-act4', steps: [1,2,3,4,5,6,7,8], stages: WALL_STAGE_IDS, openQuestions: ['t1a4-q1','t1a4-q2','t1a4-q3','t1a4-q4'], quiz: [{ id: 'q4-1', correctIndex: 1, optionCount: 4 }, { id: 'q4-2', correctIndex: 1, optionCount: 4 }], experiments: ['exp4-1','exp4-2','exp4-3','exp4-4'], hasReflection: false, isFreeChallenge: false },
-  't1-act5': { practiceId: 't1-act5', steps: [1,2,3,4,5,6], stages: WALL_STAGE_IDS, openQuestions: ['t1a5-q1','t1a5-q2','t1a5-q3','t1a5-q4'], quiz: [{ id: 'q5-1', correctIndex: 1, optionCount: 4 }, { id: 'q5-2', correctIndex: 0, optionCount: 4 }], experiments: ['exp5-1','exp5-2','exp5-3'], hasReflection: false, isFreeChallenge: false },
-  't1-act6': { practiceId: 't1-act6', steps: [1,2,3,4,5,6,7], stages: WALL_STAGE_IDS, openQuestions: ['t1a6-q1'], quiz: [{ id: 'q6-1', correctIndex: 0, optionCount: 4 }, { id: 'q6-2', correctIndex: 1, optionCount: 4 }], experiments: [], hasReflection: false, isFreeChallenge: false },
-  't1-extra-act7': { practiceId: 't1-extra-act7', steps: [], stages: WALL_STAGE_IDS, openQuestions: [], quiz: [], experiments: [], hasReflection: false, isFreeChallenge: true },
-  't2-act1': { practiceId: 't2-act1', steps: [1,2,3,4,5,6,7,8,9], stages: WALL_STAGE_IDS, openQuestions: ['t2a1-q1','t2a1-q2'], quiz: [{ id: 'q-t2-1-1', correctIndex: 1, optionCount: 4 }], experiments: [], hasReflection: false, isFreeChallenge: false },
-  't2-act2': { practiceId: 't2-act2', steps: [1,2,3,4,5,6,7,8,9,10,11,12], stages: WALL_STAGE_IDS, openQuestions: ['t2a2-q1','t2a2-q2','t2a2-q3','t2a2-q4'], quiz: [{ id: 'q-t2-2-1', correctIndex: 1, optionCount: 4 }], experiments: ['t2-exp2-1','t2-exp2-2'], hasReflection: false, isFreeChallenge: false },
-  't2-act5': { practiceId: 't2-act5', steps: [1,2,3,4,5,6], stages: WALL_STAGE_IDS, openQuestions: ['t2a5-q1','t2a5-q2','t2a5-q3','t2a5-q4'], quiz: [{ id: 'q-t2-5-1', correctIndex: 1, optionCount: 4 }, { id: 'q-t2-5-2', correctIndex: 1, optionCount: 4 }], experiments: ['t2-exp5-1','t2-exp5-2','t2-exp5-3'], hasReflection: false, isFreeChallenge: false },
-  't2-act6': { practiceId: 't2-act6', steps: [1,2,3,4,5,6], stages: WALL_STAGE_IDS, openQuestions: ['t2a6-q1','t2a6-q2'], quiz: [{ id: 'q-t2-6-1', correctIndex: 1, optionCount: 4 }, { id: 'q-t2-6-2', correctIndex: 1, optionCount: 4 }], experiments: [], hasReflection: false, isFreeChallenge: false },
-  't2-act7': { practiceId: 't2-act7', steps: [1,2,3,4,5,6,7,8,9], stages: WALL_STAGE_IDS, openQuestions: [], quiz: [{ id: 'q-t2-7-1', correctIndex: 1, optionCount: 4 }, { id: 'q-t2-7-2', correctIndex: 1, optionCount: 4 }], experiments: [], hasReflection: false, isFreeChallenge: false },
-  't2-act8': { practiceId: 't2-act8', steps: [1,2,3,4,5,6,7,8,9], stages: WALL_STAGE_IDS, openQuestions: ['t2a8-q1','t2a8-q2','t2a8-q3','t2a8-q4'], quiz: [{ id: 'q-t2-8-1', correctIndex: 1, optionCount: 4 }, { id: 'q-t2-8-2', correctIndex: 0, optionCount: 4 }], experiments: ['t2-exp8-1','t2-exp8-2'], hasReflection: false, isFreeChallenge: false }
+  't1-act1': { practiceId: 't1-act1', steps: [1,2,3,4], stages: WALL_STAGE_IDS, openQuestions: ['t1a1-q1'], quiz: [{ id: 'q1-1', correctIndex: 1, optionCount: 4 }, { id: 'q1-2', correctIndex: 2, optionCount: 4 }], experiments: [], hasReflection: true, isFreeChallenge: false, allowZeroSteps: false },
+  't1-act2': { practiceId: 't1-act2', steps: [1,2,3,4,5,6,7,8,9], stages: WALL_STAGE_IDS, openQuestions: ['t1a2-q1'], quiz: [{ id: 'q2-1', correctIndex: 1, optionCount: 4 }, { id: 'q2-2', correctIndex: 1, optionCount: 4 }], experiments: [], hasReflection: false, isFreeChallenge: false, allowZeroSteps: false },
+  't1-act3': { practiceId: 't1-act3', steps: [1,2,3,4,5,6,7,8,9,10,11,12], stages: WALL_STAGE_IDS, openQuestions: ['t1a3-q1','t1a3-q2','t1a3-q3','t1a3-q4'], quiz: [{ id: 'q3-1', correctIndex: 1, optionCount: 4 }, { id: 'q3-2', correctIndex: 1, optionCount: 4 }], experiments: ['exp3-1','exp3-2','exp3-3','exp3-4'], hasReflection: false, isFreeChallenge: false, allowZeroSteps: false },
+  't1-act4': { practiceId: 't1-act4', steps: [1,2,3,4,5,6,7,8], stages: WALL_STAGE_IDS, openQuestions: ['t1a4-q1','t1a4-q2','t1a4-q3','t1a4-q4'], quiz: [{ id: 'q4-1', correctIndex: 1, optionCount: 4 }, { id: 'q4-2', correctIndex: 1, optionCount: 4 }], experiments: ['exp4-1','exp4-2','exp4-3','exp4-4'], hasReflection: false, isFreeChallenge: false, allowZeroSteps: false },
+  't1-act5': { practiceId: 't1-act5', steps: [1,2,3,4,5,6], stages: WALL_STAGE_IDS, openQuestions: ['t1a5-q1','t1a5-q2','t1a5-q3','t1a5-q4'], quiz: [{ id: 'q5-1', correctIndex: 1, optionCount: 4 }, { id: 'q5-2', correctIndex: 0, optionCount: 4 }], experiments: ['exp5-1','exp5-2','exp5-3'], hasReflection: false, isFreeChallenge: false, allowZeroSteps: false },
+  't1-act6': { practiceId: 't1-act6', steps: [1,2,3,4,5,6,7], stages: WALL_STAGE_IDS, openQuestions: ['t1a6-q1'], quiz: [{ id: 'q6-1', correctIndex: 0, optionCount: 4 }, { id: 'q6-2', correctIndex: 1, optionCount: 4 }], experiments: [], hasReflection: false, isFreeChallenge: false, allowZeroSteps: false },
+  't1-extra-act7': { practiceId: 't1-extra-act7', steps: [], stages: WALL_STAGE_IDS, openQuestions: [], quiz: [], experiments: [], hasReflection: false, isFreeChallenge: true, allowZeroSteps: true },
+  't2-act1': { practiceId: 't2-act1', steps: [1,2,3,4,5,6,7,8,9], stages: WALL_STAGE_IDS, openQuestions: ['t2a1-q1','t2a1-q2'], quiz: [{ id: 'q-t2-1-1', correctIndex: 1, optionCount: 4 }], experiments: [], hasReflection: false, isFreeChallenge: false, allowZeroSteps: false },
+  't2-act2': { practiceId: 't2-act2', steps: [1,2,3,4,5,6,7,8,9,10,11,12], stages: WALL_STAGE_IDS, openQuestions: ['t2a2-q1','t2a2-q2','t2a2-q3','t2a2-q4'], quiz: [{ id: 'q-t2-2-1', correctIndex: 1, optionCount: 4 }], experiments: ['t2-exp2-1','t2-exp2-2'], hasReflection: false, isFreeChallenge: false, allowZeroSteps: false },
+  't2-act5': { practiceId: 't2-act5', steps: [1,2,3,4,5,6], stages: WALL_STAGE_IDS, openQuestions: ['t2a5-q1','t2a5-q2','t2a5-q3','t2a5-q4'], quiz: [{ id: 'q-t2-5-1', correctIndex: 1, optionCount: 4 }, { id: 'q-t2-5-2', correctIndex: 1, optionCount: 4 }], experiments: ['t2-exp5-1','t2-exp5-2','t2-exp5-3'], hasReflection: false, isFreeChallenge: false, allowZeroSteps: false },
+  't2-act6': { practiceId: 't2-act6', steps: [1,2,3,4,5,6], stages: WALL_STAGE_IDS, openQuestions: ['t2a6-q1','t2a6-q2'], quiz: [{ id: 'q-t2-6-1', correctIndex: 1, optionCount: 4 }, { id: 'q-t2-6-2', correctIndex: 1, optionCount: 4 }], experiments: [], hasReflection: false, isFreeChallenge: false, allowZeroSteps: false },
+  't2-act7': { practiceId: 't2-act7', steps: [1,2,3,4,5,6,7,8,9], stages: WALL_STAGE_IDS, openQuestions: [], quiz: [{ id: 'q-t2-7-1', correctIndex: 1, optionCount: 4 }, { id: 'q-t2-7-2', correctIndex: 1, optionCount: 4 }], experiments: [], hasReflection: false, isFreeChallenge: false, allowZeroSteps: false },
+  't2-act8': { practiceId: 't2-act8', steps: [1,2,3,4,5,6,7,8,9], stages: WALL_STAGE_IDS, openQuestions: ['t2a8-q1','t2a8-q2','t2a8-q3','t2a8-q4'], quiz: [{ id: 'q-t2-8-1', correctIndex: 1, optionCount: 4 }, { id: 'q-t2-8-2', correctIndex: 0, optionCount: 4 }], experiments: ['t2-exp8-1','t2-exp8-2'], hasReflection: false, isFreeChallenge: false, allowZeroSteps: false }
 };
 
 function doGet() {
@@ -88,7 +89,7 @@ function validateSubmission(data) {
   if (unique(receivedStepNumbers).length !== receivedStepNumbers.length) throw new Error('Hay pasos repetidos.');
   if (!sameNumberSet(receivedStepNumbers, rule.steps)) throw new Error('Los números de pasos no corresponden a la práctica.');
   if (!rule.isFreeChallenge && !data.steps.every(step => step.completed === true)) throw new Error('Los pasos técnicos no están completos.');
-  if (rule.steps.length === 0 && !rule.isFreeChallenge) throw new Error('Sólo el reto libre puede omitir pasos.');
+  if (rule.steps.length === 0 && !rule.allowZeroSteps) throw new Error('Sólo el reto libre puede omitir pasos.');
   if (!data.progressWall || !Array.isArray(data.progressWall.availableStages) || !Array.isArray(data.progressWall.respondedStageIds) || !isPlainObject(data.progressWall.responses)) throw new Error('Muro inválido.');
   if (!data.openQuestions || !Array.isArray(data.openQuestions.availableQuestions) || !isPlainObject(data.openQuestions.answers)) throw new Error('Preguntas abiertas inválidas.');
   if (!Array.isArray(data.quizAnswers) || !Array.isArray(data.experiments)) throw new Error('Secciones académicas inválidas.');
@@ -97,32 +98,35 @@ function validateSubmission(data) {
 }
 
 function normalizeAcademicData(data, rule) {
-  Object.keys(data.progressWall.responses).forEach(key => { data.progressWall.responses[key] = boundedText(data.progressWall.responses[key], 3000, false); });
+  Object.keys(data.progressWall.responses).forEach(key => {
+    if (!WALL_RESPONSE_KEYS.includes(key)) { warnOptionalAnomaly(data.submissionId, 'Respuesta desconocida del Muro: ' + key); delete data.progressWall.responses[key]; return; }
+    data.progressWall.responses[key] = boundedText(data.progressWall.responses[key], 3000, false);
+  });
   data.progressWall.availableStages = rule.stages.map(id => ({ id: id, title: id.toUpperCase() }));
   data.progressWall.respondedStageIds = [];
   Object.keys(data.openQuestions.answers).forEach(key => {
-    if (!rule.openQuestions.includes(key)) throw new Error('Pregunta abierta desconocida.');
+    if (!rule.openQuestions.includes(key)) { warnOptionalAnomaly(data.submissionId, 'Pregunta abierta desconocida: ' + key); delete data.openQuestions.answers[key]; return; }
     data.openQuestions.answers[key] = boundedText(data.openQuestions.answers[key], 3000, false);
   });
   data.openQuestions.availableQuestions = rule.openQuestions.map(id => ({ id: id, question: id }));
   const receivedQuizIds = data.quizAnswers.map(answer => boundedText(answer && answer.questionId, 100, true));
-  if (unique(receivedQuizIds).length !== receivedQuizIds.length) throw new Error('Hay preguntas de cuestionario repetidas.');
-  receivedQuizIds.forEach(id => { if (!rule.quiz.some(question => question.id === id)) throw new Error('Pregunta de cuestionario desconocida.'); });
+  if (unique(receivedQuizIds).length !== receivedQuizIds.length) warnOptionalAnomaly(data.submissionId, 'Hay preguntas de cuestionario repetidas.');
+  receivedQuizIds.forEach(id => { if (!rule.quiz.some(question => question.id === id)) warnOptionalAnomaly(data.submissionId, 'Pregunta de cuestionario desconocida: ' + id); });
   const receivedById = {};
-  data.quizAnswers.forEach(answer => { receivedById[answer.questionId] = answer; });
+  data.quizAnswers.forEach(answer => { if (rule.quiz.some(question => question.id === answer.questionId) && !receivedById[answer.questionId]) receivedById[answer.questionId] = answer; });
   data.quizAnswers = rule.quiz.map(function(question) {
     const received = receivedById[question.id];
     if (!received) return { questionId: question.id, selectedOptionIndex: -1, selectedOptionText: 'Sin responder', answered: false, isCorrect: null };
     const selected = Number(received.selectedOptionIndex);
-    if (!Number.isInteger(selected) || selected < -1 || selected >= question.optionCount) throw new Error('Índice de respuesta fuera de rango.');
+    if (!Number.isInteger(selected) || selected < -1 || selected >= question.optionCount) { warnOptionalAnomaly(data.submissionId, 'Índice fuera de rango: ' + question.id); return { questionId: question.id, selectedOptionIndex: -1, selectedOptionText: 'Sin responder', answered: false, isCorrect: null }; }
     const answered = selected >= 0;
     return { questionId: question.id, selectedOptionIndex: selected, selectedOptionText: answered ? 'Opción ' + (selected + 1) : 'Sin responder', answered: answered, isCorrect: answered ? selected === question.correctIndex : null };
   });
   const receivedExperimentIds = data.experiments.map(experiment => boundedText(experiment && experiment.experimentId, 100, true));
-  if (unique(receivedExperimentIds).length !== receivedExperimentIds.length) throw new Error('Hay experimentos repetidos.');
-  receivedExperimentIds.forEach(id => { if (!rule.experiments.includes(id)) throw new Error('Experimento desconocido.'); });
+  if (unique(receivedExperimentIds).length !== receivedExperimentIds.length) warnOptionalAnomaly(data.submissionId, 'Hay experimentos repetidos.');
+  receivedExperimentIds.forEach(id => { if (!rule.experiments.includes(id)) warnOptionalAnomaly(data.submissionId, 'Experimento desconocido: ' + id); });
   const experimentsById = {};
-  data.experiments.forEach(experiment => { experimentsById[experiment.experimentId] = experiment; });
+  data.experiments.forEach(experiment => { if (rule.experiments.includes(experiment.experimentId) && !experimentsById[experiment.experimentId]) experimentsById[experiment.experimentId] = experiment; });
   data.experiments = rule.experiments.map(function(id) {
     const received = experimentsById[id] || {};
     return { experimentId: id, title: id, selectedOption: boundedText(received.selectedOption, 1000, false), notesOrAnswer: boundedText(received.notesOrAnswer, 3000, false) };
@@ -249,7 +253,7 @@ function isWallStageComplete(stageId, responses, steps) {
   if (stageId === 'problem') return has('problem');
   if (stageId === 'idea') return has('selected_idea');
   if (stageId === 'design') return has('design');
-  if (stageId === 'prototype') return steps.length > 0 ? steps.every(step => step.completed === true) : has('prototype');
+  if (stageId === 'prototype') return steps.every(step => step.completed === true);
   if (stageId === 'error') {
     const outcome = boundedText(responses['error:outcome'], 40, false);
     return outcome === 'found'
@@ -269,6 +273,7 @@ function isWallStageComplete(stageId, responses, steps) {
 function sameNumberSet(received, expected) { if (received.length !== expected.length) return false; const sortedReceived = received.slice().sort((a, b) => a - b); const sortedExpected = expected.slice().sort((a, b) => a - b); return sortedReceived.every((number, index) => number === sortedExpected[index]); }
 function submissionPropertyKey(submissionId) { return 'confirmed_submission:' + submissionId; }
 function purgeExpiredSubmissionIds(properties) { const cutoff = Date.now() - 90 * 24 * 60 * 60 * 1000; const stored = properties.getProperties(); Object.keys(stored).forEach(key => { if (key.indexOf('confirmed_submission:') === 0 && Number(stored[key]) < cutoff) properties.deleteProperty(key); }); }
+function warnOptionalAnomaly(submissionId, message) { console.warn('Entrega ' + boundedText(submissionId, 100, false) + ': ' + message); }
 function buildTeacherReportFileName(data) { return ['Reporte_Docente_Practica', safeFilePart(String(data.practiceNumber || '').replace(/[^0-9]/g, '') || data.practiceNumber), safeFilePart(data.studentName), safeFilePart(data.studentGroup), safeFilePart(data.studentDate), safeFilePart(data.submissionId)].join('_') + '.pdf'; }
 function boundedText(value, maxLength, required) { const text = String(value === undefined || value === null ? '' : value).trim().substring(0, maxLength); if (required && !text) throw new Error('Dato obligatorio ausente.'); return text; }
 function safeFilePart(value) { return boundedText(value, 70, false).replace(/[^a-zA-Z0-9áéíóúÁÉÍÓÚñÑ_-]+/g, '_') || 'sin_dato'; }
