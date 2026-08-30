@@ -71,6 +71,20 @@ service cloud.firestore {
       allow read, write: if false;
     }
 
+    // Sincronización limitada para sesiones anónimas. Cada UID sólo puede
+    // consultar o escribir su propio documento y nunca puede cambiar dueño.
+    match /student_progress/{uid} {
+      allow read: if signedIn() && request.auth.uid == uid;
+      allow create: if signedIn()
+        && request.auth.uid == uid
+        && request.resource.data.ownerUid == request.auth.uid;
+      allow update: if signedIn()
+        && request.auth.uid == uid
+        && resource.data.ownerUid == request.auth.uid
+        && request.resource.data.ownerUid == request.auth.uid;
+      allow delete: if false;
+    }
+
     // Progreso individual. El alumno solo accede al documento vinculado con
     // su sesión; las dos cuentas docentes pueden consultar y corregir avances.
     match /progress/{studentId} {

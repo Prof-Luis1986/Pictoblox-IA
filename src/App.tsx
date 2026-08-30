@@ -15,6 +15,7 @@ import { ColorTableModal } from './components/ColorTableModal';
 import { ProgressSaveModal } from './components/ProgressSaveModal';
 import { StudentProgress, StudentPracticeRecord } from './types';
 import { loadStudentProgress } from './services/firebase';
+import { endFirebaseSession } from './services/firebase';
 import { clearAcademicSession, createEmptyStudentProgress, saveSessionProgress } from './services/sessionStorage';
 
 export default function App() {
@@ -77,6 +78,7 @@ export default function App() {
   const handleClearAcademicSession = () => {
     const confirmed = window.confirm('¿Seguro que quieres terminar y borrar esta sesión? Se eliminarán tu nombre, grupo, respuestas y progreso temporal. Esta acción no se puede deshacer.');
     if (!confirmed) return;
+    void endFirebaseSession();
     clearAcademicSession();
     window.dispatchEvent(new Event('academic-session-cleared'));
     setProgress(createEmptyStudentProgress());

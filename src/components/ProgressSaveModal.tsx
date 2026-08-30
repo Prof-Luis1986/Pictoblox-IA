@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import {
   X,
   Save,
-  Cloud,
   HardDrive,
   CheckCircle2,
   Copy,
@@ -10,13 +9,11 @@ import {
   Upload,
   RefreshCw,
   Award,
-  Key,
   AlertCircle,
-  Terminal,
-  Activity
+  Terminal
 } from 'lucide-react';
 import { StudentProgress } from '../types';
-import { saveStudentProgress, loadStudentProgress } from '../services/firebase';
+import { saveStudentProgress } from '../services/firebase';
 
 interface ProgressSaveModalProps {
   isOpen: boolean;
@@ -57,12 +54,12 @@ export const ProgressSaveModal: React.FC<ProgressSaveModalProps> = ({
       lastActiveDate: new Date().toISOString()
     };
 
-    const synced = await saveStudentProgress(updated);
-    updated.syncedToFirebase = synced;
+    const saved = await saveStudentProgress(updated);
+    updated.syncedToFirebase = saved;
     onProgressUpdated(updated);
 
     setIsSaving(false);
-    setSaveStatus(synced ? 'success' : 'idle');
+    setSaveStatus(saved ? 'success' : 'error');
     setTimeout(() => setSaveStatus('idle'), 3000);
   };
 
@@ -129,7 +126,7 @@ export const ProgressSaveModal: React.FC<ProgressSaveModalProps> = ({
                 // CONTROL DE PERSISTENCIA
               </h3>
               <p className="text-xs text-slate-400 font-mono">
-                Almacenamiento Local & Sincronización Firestore
+                Sesión local y respaldo privado en Firestore
               </p>
             </div>
           </div>
@@ -222,7 +219,7 @@ export const ProgressSaveModal: React.FC<ProgressSaveModalProps> = ({
                   </button>
                 </div>
                 <span className="text-[11px] text-slate-400 mt-1 block font-sans">
-                  Usa este ID para sincronizar tu avance en cualquier otro dispositivo.
+                  El respaldo remoto está ligado a la sesión anónima de esta pestaña.
                 </span>
               </div>
             </div>
@@ -238,7 +235,7 @@ export const ProgressSaveModal: React.FC<ProgressSaveModalProps> = ({
                 {isSaving ? (
                   <>
                     <RefreshCw className="w-4 h-4 animate-spin" />
-                    <span>SINCRONIZANDO EN LA NUBE...</span>
+                    <span>GUARDANDO Y SINCRONIZANDO...</span>
                   </>
                 ) : (
                   <>
@@ -252,7 +249,7 @@ export const ProgressSaveModal: React.FC<ProgressSaveModalProps> = ({
             {saveStatus === 'success' && (
               <div className="p-3 rounded-2xl bg-emerald-950/80 border border-emerald-500/50 text-xs font-mono text-emerald-300 flex items-center gap-2 animate-fade-in">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>¡PROGRESO GUARDADO Y SINCRONIZADO CORRECTAMENTE!</span>
+                <span>¡PROGRESO GUARDADO Y SINCRONIZADO!</span>
               </div>
             )}
           </div>
@@ -318,10 +315,7 @@ export const ProgressSaveModal: React.FC<ProgressSaveModalProps> = ({
             <HardDrive className="w-3.5 h-3.5 text-cyan-400" />
             <span>ALMACENAMIENTO LOCAL ACTIVO</span>
           </div>
-          <div className="flex items-center gap-1.5">
-            <Cloud className="w-3.5 h-3.5 text-emerald-400" />
-            <span>CLOUD SYNC DISPONIBLE</span>
-          </div>
+          <span>RESPALDO REMOTO PRIVADO ACTIVO</span>
         </div>
       </div>
     </div>
