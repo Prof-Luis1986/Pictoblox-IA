@@ -1,0 +1,106 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function verifiedEmail() {
+      return signedIn()
+        && request.auth.token.email is string
+        && request.auth.token.email_verified == true;
+    }
+
+    function isTeacher() {
+      return verifiedEmail()
+        && request.auth.token.email in [
+          'lmartinez@isb.edu.mx',
+          'dolidos2022@gmail.com'
+        ];
+    }
+
+    function hasStudentSession() {
+      return signedIn()
+        && exists(/databases/$(database)/documents/studentSessions/$(request.auth.uid));
+    }
+
+    function ownsStudent(studentId) {
+      return hasStudentSession()
+        && get(/databases/$(database)/documents/studentSessions/$(request.auth.uid)).data.studentId == studentId;
+    }
+
+    function validStudentProgress(studentId) {
+      return request.resource.data.studentId == studentId
+        && request.resource.data.ownerUid == request.auth.uid
+        && request.resource.data.teacherId is string
+        && request.resource.data.groupId is string;
+    }
+
+    // Registro de las dos cuentas docentes autorizadas.
+    match /teachers/{teacherUid} {
+      allow read: if isTeacher();
+      allow create, update: if isTeacher() && request.auth.uid == teacherUid;
+      allow delete: if false;
+    }
+
+    // Los grupos únicamente se administran desde el panel docente.
+    match /groups/{groupId} {
+      allow read, create, update: if isTeacher();
+      allow delete: if false;
+    }
+
+    // El docente administra alumnos. Cada alumno solo puede consultar su ficha.
+    match /students/{studentId} {
+      allow read: if isTeacher() || ownsStudent(studentId);
+      allow create, update: if isTeacher();
+      allow delete: if false;
+    }
+
+    // La sesión relaciona el UID de Firebase con un único alumno.
+    // Debe crearla una Cloud Function usando Firebase Admin después de validar
+    // Google o código + PIN. Nunca debe crearla directamente el navegador.
+    match /studentSessions/{uid} {
+      allow read: if signedIn() && request.auth.uid == uid;
+      allow create, update, delete: if false;
+    }
+
+    // Los hashes de PIN y códigos de acceso son privados. La validación debe
+    // realizarse exclusivamente en una Cloud Function callable.
+    match /studentAccess/{code} {
+      allow read, write: if false;
+    }
+
+    // Progreso individual. El alumno solo accede al documento vinculado con
+    // su sesión; las dos cuentas docentes pueden consultar y corregir avances.
+    match /progress/{studentId} {
+      allow read: if isTeacher() || ownsStudent(studentId);
+      allow create: if ownsStudent(studentId) && validStudentProgress(studentId);
+      allow update: if isTeacher()
+        || (ownsStudent(studentId)
+          && validStudentProgress(studentId)
+          && request.resource.data.studentId == resource.data.studentId
+          && request.resource.data.teacherId == resource.data.teacherId
+          && request.resource.data.groupId == resource.data.groupId);
+      allow delete: if false;
+    }
+
+    // Entregas de prácticas. Los alumnos pueden crear y consultar únicamente
+    // sus propias entregas. Una entrega enviada no se sobrescribe ni elimina.
+    match /submissions/{submissionId} {
+      allow read: if isTeacher()
+        || (resource.data.studentId is string && ownsStudent(resource.data.studentId));
+      allow create: if request.resource.data.studentId is string
+        && ownsStudent(request.resource.data.studentId)
+        && request.resource.data.ownerUid == request.auth.uid
+        && request.resource.data.teacherId is string
+        && request.resource.data.practiceId is string;
+      allow update, delete: if false;
+    }
+
+    // Todo lo que no esté declarado expresamente permanece bloqueado.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

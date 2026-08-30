@@ -1,0 +1,6 @@
+{
+  "name": "Mentes IA — Aprende jugando",
+  "description": "Plataforma interactiva para aprender Inteligencia Artificial jugando y creando proyectos con PictoBlox.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
