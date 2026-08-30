@@ -18,7 +18,7 @@ Object.assign(globalThis, { window: { sessionStorage: new MemoryStorage(), addEv
 const practice = { id: 't1-act1', tomo: 1, courseId: 'aprende-ia-jugando', number: 1, practiceNumber: 'Práctica 1', title: 'Prueba', description: '', requiredMaterials: [], steps: [], progressWallStages: [] } as Practice;
 const course = { id: 'aprende-ia-jugando', tomo: 1, title: 'Curso', subtitle: '', edition: '', author: '', description: '', summaryPoints: [], coverGradient: '', accentColor: '', sections: [], practiceIds: [] } as Course;
 const progress = { studentId: 'test', completedPractices: {}, badgesEarned: [] } as StudentProgress;
-const props = { onClose() {}, practice, course, progress, wallResponses: {}, wallCompletedCount: 0, openQuestionAnswers: {}, openQuestionTotal: 0, missingRequirements: [], onSubmissionSuccess() {} };
+const props = { onClose() {}, practice, course, progress, wallResponses: {}, wallCompletedStages: [], openQuestionAnswers: {}, openQuestions: [], missingRequirements: [], onSubmissionSuccess() {} };
 
 let renderer: TestRenderer.ReactTestRenderer;
 await act(async () => { renderer = TestRenderer.create(<SubmitPracticeModal {...props} isOpen={false} />); });

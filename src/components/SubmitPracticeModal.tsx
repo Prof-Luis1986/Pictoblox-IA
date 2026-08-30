@@ -18,17 +18,15 @@ import {
   ExperimentSubmission,
   StepSubmission,
   EvidenceAttachment,
-  SubmissionState
+  SubmissionState,
+  ProgressWallStageId
 } from '../types';
 import {
   DESTINATION_EMAILS,
-  submitPracticeToAppScript,
-  uploadTeacherReportToAppScript
+  submitPracticeToAppScript
 } from '../services/appscript';
 import { getSessionStudentGroup, getSessionStudentName, loadProgressWallState, saveSessionIdentity } from '../services/sessionStorage';
-import { blobToBase64, generateTeacherReportPdf } from '../services/teacherReportPdf';
 import { hasIncompleteOptionalResponses } from '../services/submissionEligibility';
-import { calculateTeacherGrade } from '../services/teacherGrade';
 
 interface SubmitPracticeModalProps {
   isOpen: boolean;
@@ -37,13 +35,12 @@ interface SubmitPracticeModalProps {
   course: Course;
   progress: StudentProgress;
   quizAnswers?: Record<string, number>;
-  quizScore?: number;
   experimentNotes?: Record<string, string>;
   simulatorCompleted?: boolean;
   wallResponses: Record<string, string>;
-  wallCompletedCount: number;
+  wallCompletedStages: ProgressWallStageId[];
   openQuestionAnswers: Record<string, string>;
-  openQuestionTotal: number;
+  openQuestions: Array<{ id: string; question: string }>;
   missingRequirements: string[];
   onSubmissionSuccess: (payload: PracticeSubmissionPayload) => void;
 }
@@ -55,13 +52,12 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
   course,
   progress,
   quizAnswers = {},
-  quizScore,
   experimentNotes = {},
   simulatorCompleted = false,
   wallResponses,
-  wallCompletedCount,
+  wallCompletedStages,
   openQuestionAnswers,
-  openQuestionTotal,
+  openQuestions,
   missingRequirements,
   onSubmissionSuccess
 }) => {
@@ -90,6 +86,8 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
   const progressWallState = loadProgressWallState(practice.id);
   const isSubmitting = submissionState === 'preparing' || submissionState === 'sending';
   const wallTotal = practice.progressWallStages?.length || 0;
+  const wallCompletedCount = wallCompletedStages.length;
+  const openQuestionTotal = openQuestions.length;
   const openAnsweredCount = Object.values(openQuestionAnswers).filter(answer => answer.trim()).length;
   const quizAnsweredCount = Object.keys(quizAnswers).filter(questionId => quizAnswers[questionId] !== undefined).length;
   const quizTotal = practice.quizQuestions?.length || 0;
@@ -152,11 +150,8 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
         questionText: q.question,
         selectedOptionIndex: selectedIdx,
         selectedOptionText: selectedIdx >= 0 ? q.options[selectedIdx] : 'Sin responder',
-        correctOptionIndex: q.correctOptionIndex,
-        correctOptionText: q.options[q.correctOptionIndex],
         answered,
-        isCorrect,
-        explanation: q.explanation
+        isCorrect
       };
     });
 
@@ -204,16 +199,15 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
       courseTitle: course.title,
       timestamp: now.toISOString(),
       formattedDate,
-      recipients: DESTINATION_EMAILS,
-      totalSteps,
-      completedStepsCount: stepsCount,
       steps: stepList,
+      progressWall: {
+        availableStages: (practice.progressWallStages || []).map(stage => ({ id: stage.id, title: stage.title })),
+        respondedStageIds: wallCompletedStages,
+        responses: wallResponses
+      },
+      openQuestions: { availableQuestions: openQuestions, answers: openQuestionAnswers },
       evidenceAttachments: evidenceAttachments.length ? evidenceAttachments : undefined,
       simulatorCompleted,
-      quizScore: quizScore !== undefined ? quizScore : undefined,
-      quizTotalQuestions: practice.quizQuestions?.length,
-      quizAnsweredQuestions: quizAnswerList.filter(q => q.answered).length,
-      quizCorrectAnswers: quizAnswerList.filter(q => q.isCorrect === true).length,
       quizAnswers: quizAnswerList,
       experiments: experimentList,
       reflectionPrompt: practice.reflection || undefined,
@@ -234,19 +228,6 @@ export const SubmitPracticeModal: React.FC<SubmitPracticeModalProps> = ({
           spread: 70,
           origin: { y: 0.6 }
         });
-        try {
-          const grade = calculateTeacherGrade({
-            steps: { completed: stepsCount, available: totalSteps },
-            wall: { completed: wallCompletedCount, available: wallTotal },
-            openQuestions: { completed: openAnsweredCount, available: openQuestionTotal },
-            quiz: { completed: quizAnswerList.filter(answer => answer.isCorrect === true).length, available: quizTotal },
-            experimentsReflection: { completed: experimentAnsweredCount + (studentReflection.trim() ? 1 : 0), available: experimentTotal + (practice.reflection ? 1 : 0) }
-          });
-          const report = generateTeacherReportPdf({ payload: localReceipt, practice, wallResponses, openQuestionAnswers, evidenceLinks: res.evidenceLinks || [], grade, confirmedAt: new Date().toISOString() });
-          await uploadTeacherReportToAppScript(payload.submissionId, report.fileName, await blobToBase64(report.blob));
-        } catch (reportError) {
-          console.error('La entrega fue confirmada, pero falló el reporte privado del docente.', reportError);
-        }
       } else if (res.state === 'failed') {
         setErrorMessage(res.message || 'No se pudo enviar la práctica. Intenta nuevamente.');
       }

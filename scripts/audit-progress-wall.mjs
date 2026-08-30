@@ -57,7 +57,7 @@ expectedOrder.forEach(id => assert.ok(dataSource.includes(`id: '${id}'`), `Indic
 assert.ok(sessionSource.includes('progress_wall:'), 'Progress Wall is not session-scoped');
 assert.ok(!componentSource.includes('localStorage') && !sessionSource.includes('localStorage'), 'Progress Wall uses localStorage');
 assert.ok(modalSource.includes('Resumen privado de tu Muro del Progreso'), 'Private pre-submission summary is missing');
-assert.ok(!readFileSync(`${root}/src/types/index.ts`, 'utf8').includes('progressWallResponses'), 'Progress Wall responses were added to the teacher payload');
+assert.ok(readFileSync(`${root}/src/types/index.ts`, 'utf8').includes('progressWall:'), 'Progress Wall data is missing from the server payload');
 assert.ok(existsSync(`${root}/internal/reference-projects`), 'Internal project protection directory is missing');
 
 console.log('Progress Wall audit passed: 12 practices, six ordered stages, complete step coverage, private session storage, and blank Fruta Ninja template.');

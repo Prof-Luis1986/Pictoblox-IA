@@ -179,11 +179,8 @@ export interface QuizAnswerSubmission {
   questionText: string;
   selectedOptionIndex: number;
   selectedOptionText: string;
-  correctOptionIndex: number;
-  correctOptionText: string;
   answered: boolean;
   isCorrect: boolean | null;
-  explanation: string;
 }
 
 export interface ExperimentSubmission {
@@ -221,16 +218,18 @@ export interface PracticeSubmissionPayload {
   courseTitle: string;
   timestamp: string;
   formattedDate: string;
-  recipients: string[];
-  totalSteps: number;
-  completedStepsCount: number;
   steps: StepSubmission[];
+  progressWall: {
+    availableStages: Array<{ id: ProgressWallStageId; title: string }>;
+    respondedStageIds: ProgressWallStageId[];
+    responses: Record<string, string>;
+  };
+  openQuestions: {
+    availableQuestions: Array<{ id: string; question: string }>;
+    answers: Record<string, string>;
+  };
   evidenceAttachments?: EvidenceAttachment[];
   simulatorCompleted?: boolean;
-  quizScore?: number;
-  quizTotalQuestions?: number;
-  quizAnsweredQuestions?: number;
-  quizCorrectAnswers?: number;
   quizAnswers?: QuizAnswerSubmission[];
   experiments?: ExperimentSubmission[];
   reflectionPrompt?: string;

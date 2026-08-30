@@ -236,7 +236,7 @@ export const PracticePage: React.FC<PracticePageProps> = ({
       ...progress.completedPractices,
       [practice.id]: {
         completed: true,
-        quizScore: payload.quizScore ?? practiceProgress?.quizScore,
+        quizScore: practiceProgress?.quizScore,
         quizAnswers: practiceProgress?.quizAnswers || quizAnswersState,
         stepsCompleted: practiceProgress?.stepsCompleted?.length ? practiceProgress.stepsCompleted : allStepNums,
         experimentNotes: practiceProgress?.experimentNotes,
@@ -695,13 +695,12 @@ export const PracticePage: React.FC<PracticePageProps> = ({
         course={course}
         progress={progress}
         quizAnswers={practiceProgress?.quizAnswers || quizAnswersState}
-        quizScore={practiceProgress?.quizScore}
         experimentNotes={practiceProgress?.experimentNotes}
         simulatorCompleted={simulationCompleted}
         wallResponses={wallResponses}
-        wallCompletedCount={wallCompleted.length}
+        wallCompletedStages={wallCompleted}
         openQuestionAnswers={openQuestionAnswers}
-        openQuestionTotal={(OPEN_QUESTIONS_BY_PRACTICE[practice.id] || []).length}
+        openQuestions={OPEN_QUESTIONS_BY_PRACTICE[practice.id] || []}
         missingRequirements={missingRequirements}
         onSubmissionSuccess={handleSubmissionSuccess}
       />
