@@ -21,17 +21,7 @@ export const PRACTICES_TOMO_1: Practice[] = [
       'Navegador web'
     ],
     extensions: [],
-    resources: [
-      {
-        id: 'res-pdf-patrones',
-        name: 'Hoja de patrones',
-        fileName: 'Test_de_patrones.pdf',
-        fileType: 'pdf',
-        fileUrl: '/resources/pdfs/Test_de_patrones.pdf',
-        description: 'Hoja imprimible para observar y completar las secuencias de la actividad.',
-        howToUse: 'Abrir o imprimir para realizar la actividad.'
-      }
-    ],
+    resources: [],
     steps: [
       {
         stepNumber: 1,
@@ -126,15 +116,6 @@ export const PRACTICES_TOMO_1: Practice[] = [
       'Computadora / Tablet / Laptop con PictoBlox instalado o acceso a pictoblox.ai'
     ],
     extensions: ['Texto a Voz (Text to Speech)'],
-    sb3Project: {
-      id: 'res-sb3-holamundo',
-      name: 'Proyecto Hola Mundo (Hola_mundo.sb3)',
-      fileName: 'Hola_mundo.sb3',
-      fileType: 'sb3',
-      fileUrl: '/resources/sb3/Hola_mundo.sb3',
-      description: 'Archivo de proyecto oficial de PictoBlox con la programación completa del saludo de Niko y síntesis de voz.',
-      howToUse: 'Descargar y abrir en PictoBlox desde Menú Archivo -> Abrir.'
-    },
     resources: [
       {
         id: 'res-img-lab',
@@ -331,15 +312,6 @@ export const PRACTICES_TOMO_1: Practice[] = [
     ],
     extensions: ['Detección de Rostros (Face Detection)', 'Texto a Voz (Text to Speech)'],
     privacyNotice: 'La cámara solo procesa las imágenes localmente en la memoria del programa para detectar puntos faciales. No se comparten fotos personales en internet.',
-    sb3Project: {
-      id: 'res-sb3-det-rostros',
-      name: 'Proyecto Detección de Rostros (Deteccion_de_rostros.sb3)',
-      fileName: 'Deteccion_de_rostros.sb3',
-      fileType: 'sb3',
-      fileUrl: '/resources/sb3/Deteccion_de_rostros.sb3',
-      description: 'Proyecto completo de PictoBlox con detección en tiempo real de rostros y respuesta de Niko.',
-      howToUse: 'Descargar y abrir en PictoBlox.'
-    },
     resources: [
       {
         id: 'res-img-lab-t1-3',
@@ -601,15 +573,6 @@ export const PRACTICES_TOMO_1: Practice[] = [
       'PictoBlox instalado'
     ],
     extensions: ['Detección de Rostros (Face Detection)'],
-    sb3Project: {
-      id: 'res-sb3-gato-raton',
-      name: 'Proyecto Gato y Ratón IA (Gato_y_Raton_IA.sb3)',
-      fileName: 'Gato_y_Raton_IA.sb3',
-      fileType: 'sb3',
-      fileUrl: '/resources/sb3/Gato_y_Raton_IA.sb3',
-      description: 'Proyecto completo de PictoBlox con el videojuego Gato y Ratón IA funcionando con control de nariz.',
-      howToUse: 'Descargar y abrir en PictoBlox.'
-    },
     resources: [
       {
         id: 'res-img-mouse',
@@ -864,15 +827,6 @@ export const PRACTICES_TOMO_1: Practice[] = [
       'PictoBlox instalado'
     ],
     extensions: ['Detección de Rostros (Face Detection)'],
-    sb3Project: {
-      id: 'res-sb3-flappy',
-      name: 'Proyecto Flappy Bird IA (Flappy_Bird_IA.sb3)',
-      fileName: 'Flappy_Bird_IA.sb3',
-      fileType: 'sb3',
-      fileUrl: '/resources/sb3/Flappy_Bird_IA.sb3',
-      description: 'Proyecto completo de PictoBlox con el videojuego Flappy Bird IA con control facial.',
-      howToUse: 'Descargar y abrir en PictoBlox.'
-    },
     resources: [
       {
         id: 'res-img-bird',
@@ -1094,15 +1048,6 @@ export const PRACTICES_TOMO_1: Practice[] = [
       'PictoBlox instalado'
     ],
     extensions: ['Detección de Caras (Face Detection)'],
-    sb3Project: {
-      id: 'res-sb3-espacial',
-      name: 'Proyecto Batalla Espacial con IA (Batalla_Espacial_IA.sb3)',
-      fileName: 'Batalla_Espacial_IA.sb3',
-      fileType: 'sb3',
-      fileUrl: '/resources/sb3/Batalla_Espacial_IA.sb3',
-      description: 'Proyecto completo de PictoBlox con el videojuego de naves espaciales, proyectiles y 3 tipos de enemigos.',
-      howToUse: 'Descargar y abrir en PictoBlox.'
-    },
     resources: [
       {
         id: 'res-img-player',

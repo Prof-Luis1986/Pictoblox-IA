@@ -4,10 +4,10 @@ export const COURSES_DATA: Course[] = [
   {
     id: 'aprende-ia-jugando',
     tomo: 1,
-    title: 'Videojuegos y Visión Artificial',
+    title: 'Aprende IA Jugando',
     subtitle: 'Módulo 1: Detección de Patrones y Control por Visión',
-    edition: 'Cyber Track 01',
-    author: 'AI Core System',
+    edition: 'Segunda edición - 2026',
+    author: '',
     description: 'Descubre qué es la Inteligencia Artificial, cómo aprenden las computadoras mediante patrones y crea videojuegos interactivos controlados en tiempo real por visión artificial (cámara, rostro y nariz) en PictoBlox.',
     summaryPoints: [
       'Algoritmos y detección de patrones lógicos en tiempo real',
@@ -87,18 +87,18 @@ export const COURSES_DATA: Course[] = [
             ]
           }
         ],
-        practices: ['t1-act3', 't1-act4', 't1-act5', 't1-act6']
+        practices: ['t1-act3', 't1-act4', 't1-act5', 't1-act6', 't1-extra-act7']
       }
     ],
-    practiceIds: ['t1-act1', 't1-act2', 't1-act3', 't1-act4', 't1-act5', 't1-act6']
+    practiceIds: ['t1-act1', 't1-act2', 't1-act3', 't1-act4', 't1-act5', 't1-act6', 't1-extra-act7']
   },
   {
     id: 'ia-casas-inteligentes',
     tomo: 2,
-    title: 'Domótica y Redes Neuronales',
+    title: 'IA para Casas Inteligentes',
     subtitle: 'Módulo 2: Reconocimiento Facial Biométrico y Control por Voz',
-    edition: 'Cyber Track 02',
-    author: 'AI Core System',
+    edition: 'Primera edición - 2026',
+    author: '',
     description: 'Implementa sistemas ciber-físicos de automatización y seguridad inteligente. Entrena modelos de Machine Learning para control de acceso biométrico y programa asistentes de reconocimiento de voz.',
     summaryPoints: [
       'Arquitectura de sistemas domóticos y sensores automatizados',

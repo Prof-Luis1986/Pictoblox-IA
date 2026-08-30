@@ -3,6 +3,7 @@ import { getPracticeById, getAdjacentPractices, ALL_PRACTICES } from '../data/al
 import { COURSES_DATA } from '../data/coursesData';
 import { StudentProgress, PracticeSubmissionPayload } from '../types';
 import { PracticeHeader } from '../components/PracticeHeader';
+import { OpenQuestionsSection } from '../components/OpenQuestionsSection';
 import { StepViewer } from '../components/StepViewer';
 import { InteractiveBlockSimulation } from '../components/InteractiveBlockSimulation';
 import { QuizComponent } from '../components/QuizComponent';
@@ -502,6 +503,8 @@ export const PracticePage: React.FC<PracticePageProps> = ({
           onToggleStep={handleToggleStep}
         />
       </section>
+
+      <OpenQuestionsSection practiceId={practice.id} />
 
       {/* What You Learned Card */}
       {practice.conclusion && practice.conclusion.length > 0 && (

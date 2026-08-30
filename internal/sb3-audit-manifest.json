@@ -1,0 +1,775 @@
+{
+  "t1-act2": {
+    "sourceArchive": "Actividades de Laboratorio (1).zip",
+    "sourceArchivePath": "Actividad 2/Hola_mundo.sb3",
+    "blockCount": 7,
+    "targets": [
+      {
+        "name": "Stage",
+        "isStage": true,
+        "costumes": [
+          "fondo1",
+          "Laboratorio"
+        ],
+        "sounds": [
+          "pop"
+        ]
+      },
+      {
+        "name": "Teslin",
+        "isStage": false,
+        "costumes": [
+          "Niko"
+        ],
+        "sounds": []
+      }
+    ],
+    "variables": [
+      "mi variable"
+    ],
+    "broadcasts": [],
+    "opcodes": [
+      "event_whenflagclicked",
+      "looks_say",
+      "text2speech_menu_languages",
+      "text2speech_menu_voices",
+      "text2speech_setLanguage",
+      "text2speech_setVoice",
+      "text2speech_speakAndWait"
+    ]
+  },
+  "t1-act3": {
+    "sourceArchive": "Actividades de Laboratorio (1).zip",
+    "sourceArchivePath": "Actividad 3/Deteccion_de_rostros.sb3",
+    "blockCount": 21,
+    "targets": [
+      {
+        "name": "Stage",
+        "isStage": true,
+        "costumes": [
+          "fondo1",
+          "Laboratorio"
+        ],
+        "sounds": [
+          "pop"
+        ]
+      },
+      {
+        "name": "Teslin",
+        "isStage": false,
+        "costumes": [
+          "Niko"
+        ],
+        "sounds": []
+      }
+    ],
+    "variables": [
+      "mi variable"
+    ],
+    "broadcasts": [],
+    "opcodes": [
+      "control_forever",
+      "control_if_else",
+      "event_whenflagclicked",
+      "faceDetection_analyseImage",
+      "faceDetection_drawBoundingBox",
+      "faceDetection_getNumberFaces",
+      "faceDetection_toggleStageVideoFeed",
+      "looks_say",
+      "math_slider_0_100",
+      "operator_gt",
+      "text2speech_menu_languages",
+      "text2speech_menu_voices",
+      "text2speech_setLanguage",
+      "text2speech_setVoice",
+      "text2speech_speakAndWait"
+    ]
+  },
+  "t1-act4": {
+    "sourceArchive": "Actividades de Laboratorio (1).zip",
+    "sourceArchivePath": "Actividad 4/Cat and Mouse IA/Cat_and_mouse_ia.sb3",
+    "blockCount": 42,
+    "targets": [
+      {
+        "name": "Stage",
+        "isStage": true,
+        "costumes": [
+          "game_over",
+          "Wall 1"
+        ],
+        "sounds": [
+          "pop"
+        ]
+      },
+      {
+        "name": "Mouse1",
+        "isStage": false,
+        "costumes": [
+          "mouse1-a",
+          "mouse1-b"
+        ],
+        "sounds": [
+          "pop"
+        ]
+      },
+      {
+        "name": "Cat 2",
+        "isStage": false,
+        "costumes": [
+          "cat 2"
+        ],
+        "sounds": [
+          "meow2"
+        ]
+      }
+    ],
+    "variables": [
+      "my variable",
+      "score",
+      "speed"
+    ],
+    "broadcasts": [],
+    "opcodes": [
+      "control_create_clone_of",
+      "control_create_clone_of_menu",
+      "control_forever",
+      "control_if",
+      "control_repeat",
+      "control_start_as_clone",
+      "control_stop",
+      "control_wait",
+      "data_changevariableby",
+      "data_setvariableto",
+      "event_whenflagclicked",
+      "faceDetection_analyseImage",
+      "faceDetection_drawBoundingBox",
+      "faceDetection_faceLandmarksF",
+      "faceDetection_menu_faceNumber",
+      "faceDetection_toggleStageVideoFeed",
+      "looks_backdrops",
+      "looks_hide",
+      "looks_setsizeto",
+      "looks_show",
+      "looks_switchbackdropto",
+      "math_slider_0_100",
+      "motion_changexby",
+      "motion_gotoxy",
+      "motion_pointindirection",
+      "motion_xposition",
+      "operator_lt",
+      "operator_random",
+      "sensing_touchingobject",
+      "sensing_touchingobjectmenu"
+    ]
+  },
+  "t1-act5": {
+    "sourceArchive": "Actividades de Laboratorio (1).zip",
+    "sourceArchivePath": "Actividad 5/Flappy Bird IA/Flappy_bird_IA.sb3",
+    "blockCount": 39,
+    "targets": [
+      {
+        "name": "Stage",
+        "isStage": true,
+        "costumes": [
+          "Blue Sky 2 ",
+          "game_over"
+        ],
+        "sounds": [
+          "pop"
+        ]
+      },
+      {
+        "name": "bird",
+        "isStage": false,
+        "costumes": [
+          "bird"
+        ],
+        "sounds": []
+      },
+      {
+        "name": "pipes",
+        "isStage": false,
+        "costumes": [
+          "costume1"
+        ],
+        "sounds": [
+          "pop"
+        ]
+      }
+    ],
+    "variables": [
+      "my variable",
+      "score"
+    ],
+    "broadcasts": [],
+    "opcodes": [
+      "control_create_clone_of",
+      "control_create_clone_of_menu",
+      "control_delete_this_clone",
+      "control_forever",
+      "control_if",
+      "control_repeat_until",
+      "control_start_as_clone",
+      "control_stop",
+      "control_wait",
+      "data_changevariableby",
+      "data_setvariableto",
+      "event_whenflagclicked",
+      "faceDetection_analyseImage",
+      "faceDetection_drawBoundingBox",
+      "faceDetection_faceLandmarksF",
+      "faceDetection_menu_faceNumber",
+      "faceDetection_toggleStageVideoFeed",
+      "looks_backdrops",
+      "looks_hide",
+      "looks_show",
+      "looks_switchbackdropto",
+      "math_slider_0_100",
+      "motion_changexby",
+      "motion_gotoxy",
+      "motion_sety",
+      "motion_xposition",
+      "operator_lt",
+      "operator_random",
+      "sensing_touchingobject",
+      "sensing_touchingobjectmenu"
+    ]
+  },
+  "t1-act6": {
+    "sourceArchive": "Actividades de Laboratorio (1).zip",
+    "sourceArchivePath": "Actividad 6/Batalla Espacial con IA/Batalla Espacial con IA.sb3",
+    "blockCount": 166,
+    "targets": [
+      {
+        "name": "Stage",
+        "isStage": true,
+        "costumes": [
+          "Backdrop2",
+          "Backdrop"
+        ],
+        "sounds": [
+          "pop"
+        ]
+      },
+      {
+        "name": "Player",
+        "isStage": false,
+        "costumes": [
+          "Player",
+          "Exploded"
+        ],
+        "sounds": [
+          "exploded.mp3"
+        ]
+      },
+      {
+        "name": "Bullet",
+        "isStage": false,
+        "costumes": [
+          "Bullet"
+        ],
+        "sounds": [
+          "Shooting.mp3"
+        ]
+      },
+      {
+        "name": "Enermy1",
+        "isStage": false,
+        "costumes": [
+          "Enermy1",
+          "exploded"
+        ],
+        "sounds": [
+          "Exploded.mp3"
+        ]
+      },
+      {
+        "name": "Enermy2",
+        "isStage": false,
+        "costumes": [
+          "Enermy2",
+          "Exploded"
+        ],
+        "sounds": [
+          "Exploded.mp3"
+        ]
+      },
+      {
+        "name": "Enermy3",
+        "isStage": false,
+        "costumes": [
+          "Enermy3",
+          "exploded"
+        ],
+        "sounds": [
+          "Exploded.mp3"
+        ]
+      },
+      {
+        "name": "End Screen",
+        "isStage": false,
+        "costumes": [
+          "you-win",
+          "gameover"
+        ],
+        "sounds": [
+          "Gameover"
+        ]
+      }
+    ],
+    "variables": [
+      "score_float"
+    ],
+    "broadcasts": [
+      "Game Over",
+      "You Win"
+    ],
+    "opcodes": [
+      "control_create_clone_of",
+      "control_create_clone_of_menu",
+      "control_delete_this_clone",
+      "control_forever",
+      "control_if",
+      "control_start_as_clone",
+      "control_stop",
+      "control_wait",
+      "data_changevariableby",
+      "data_setvariableto",
+      "event_broadcast",
+      "event_whenbroadcastreceived",
+      "event_whenflagclicked",
+      "faceDetection_analyseImage",
+      "faceDetection_boxPosition",
+      "faceDetection_drawBoundingBox",
+      "faceDetection_getNumberFaces",
+      "faceDetection_menu_faceNumber",
+      "faceDetection_toggleStageVideoFeed",
+      "looks_costume",
+      "looks_hide",
+      "looks_show",
+      "looks_switchcostumeto",
+      "math_slider_0_100",
+      "motion_changexby",
+      "motion_gotoxy",
+      "motion_pointindirection",
+      "motion_xposition",
+      "operator_gt",
+      "operator_lt",
+      "operator_or",
+      "operator_random",
+      "sensing_of",
+      "sensing_of_object_menu",
+      "sensing_touchingobject",
+      "sensing_touchingobjectmenu",
+      "sound_play",
+      "sound_playuntildone",
+      "sound_sounds_menu"
+    ]
+  },
+  "t1-extra-act7": {
+    "sourceArchive": "Actividades de Laboratorio (1).zip",
+    "sourceArchivePath": "Actividad 7/Fruta Ninja IA/Fruit Ninja IA.sb3",
+    "blockCount": 91,
+    "targets": [
+      {
+        "name": "Stage",
+        "isStage": true,
+        "costumes": [
+          "Fondo Tablilla de corte",
+          "game_over"
+        ],
+        "sounds": [
+          "pop"
+        ]
+      },
+      {
+        "name": "Katana",
+        "isStage": false,
+        "costumes": [
+          "katana"
+        ],
+        "sounds": []
+      },
+      {
+        "name": "Frutas",
+        "isStage": false,
+        "costumes": [
+          "Fruta1",
+          "Fruta2",
+          "Fruta3",
+          "FrutaPartida1",
+          "FrutaPartida2",
+          "FrutaPartida3"
+        ],
+        "sounds": [
+          "Slash-sound",
+          "Wrong_sfx",
+          "Crazy Fruits Music 1"
+        ]
+      }
+    ],
+    "variables": [
+      "fruta partida",
+      "gravedad_float",
+      "score_float",
+      "tipo de fruta",
+      "velocidad x",
+      "velocidad y",
+      "vidas_float"
+    ],
+    "broadcasts": [],
+    "opcodes": [
+      "control_create_clone_of",
+      "control_create_clone_of_menu",
+      "control_delete_this_clone",
+      "control_forever",
+      "control_if",
+      "control_if_else",
+      "control_start_as_clone",
+      "control_stop",
+      "control_wait",
+      "data_changevariableby",
+      "data_setvariableto",
+      "event_whenflagclicked",
+      "looks_backdrops",
+      "looks_changeeffectby",
+      "looks_changesizeby",
+      "looks_costume",
+      "looks_hide",
+      "looks_setsizeto",
+      "looks_show",
+      "looks_switchbackdropto",
+      "looks_switchcostumeto",
+      "math_slider_0_100",
+      "motion_changexby",
+      "motion_changeyby",
+      "motion_gotoxy",
+      "motion_turnright",
+      "motion_xposition",
+      "motion_yposition",
+      "operator_equals",
+      "operator_join",
+      "operator_lt",
+      "operator_random",
+      "posenet_analyseImageHand",
+      "posenet_drawBoundingBox",
+      "posenet_getHand",
+      "posenet_isDetectedHand",
+      "posenet_toggleStageVideoFeed",
+      "procedures_call",
+      "procedures_definition",
+      "procedures_prototype",
+      "sensing_touchingobject",
+      "sensing_touchingobjectmenu",
+      "sound_play",
+      "sound_sounds_menu"
+    ]
+  },
+  "t2-act1": {
+    "sourceArchive": "Actividades de Laboratorio 2.zip",
+    "sourceArchivePath": "Actividades de Laboratorio 2/Actividad 1 Primeros Pasos/Hola_mundo.sb3",
+    "blockCount": 7,
+    "targets": [
+      {
+        "name": "Stage",
+        "isStage": true,
+        "costumes": [
+          "fondo1",
+          "Laboratorio"
+        ],
+        "sounds": [
+          "pop"
+        ]
+      },
+      {
+        "name": "Niko",
+        "isStage": false,
+        "costumes": [
+          "Niko"
+        ],
+        "sounds": []
+      }
+    ],
+    "variables": [
+      "mi variable"
+    ],
+    "broadcasts": [],
+    "opcodes": [
+      "event_whenflagclicked",
+      "looks_say",
+      "text2speech_menu_languages",
+      "text2speech_menu_voices",
+      "text2speech_setLanguage",
+      "text2speech_setVoice",
+      "text2speech_speakAndWait"
+    ]
+  },
+  "t2-act2": {
+    "sourceArchive": "Actividades de Laboratorio 2.zip",
+    "sourceArchivePath": "Actividades de Laboratorio 2/Actividad 2 Deteccion de Rostros/Deteccion_de_rostros.sb3",
+    "blockCount": 21,
+    "targets": [
+      {
+        "name": "Stage",
+        "isStage": true,
+        "costumes": [
+          "fondo1",
+          "Laboratorio"
+        ],
+        "sounds": [
+          "pop"
+        ]
+      },
+      {
+        "name": "Niko",
+        "isStage": false,
+        "costumes": [
+          "Niko"
+        ],
+        "sounds": []
+      }
+    ],
+    "variables": [
+      "mi variable"
+    ],
+    "broadcasts": [],
+    "opcodes": [
+      "control_forever",
+      "control_if_else",
+      "event_whenflagclicked",
+      "faceDetection_analyseImage",
+      "faceDetection_drawBoundingBox",
+      "faceDetection_getNumberFaces",
+      "faceDetection_toggleStageVideoFeed",
+      "looks_say",
+      "math_slider_0_100",
+      "operator_gt",
+      "text2speech_menu_languages",
+      "text2speech_menu_voices",
+      "text2speech_setLanguage",
+      "text2speech_setVoice",
+      "text2speech_speakAndWait"
+    ]
+  },
+  "t2-act5": {
+    "sourceArchive": "Actividades de Laboratorio 2.zip",
+    "sourceArchivePath": "Actividades de Laboratorio 2/Actividad 3 Reconocimiento Facial/Reconocimiento_facial.sb3",
+    "blockCount": 45,
+    "targets": [
+      {
+        "name": "Stage",
+        "isStage": true,
+        "costumes": [
+          "fondo1",
+          "Laboratorio"
+        ],
+        "sounds": [
+          "pop"
+        ]
+      },
+      {
+        "name": "Niko",
+        "isStage": false,
+        "costumes": [
+          "Niko"
+        ],
+        "sounds": []
+      }
+    ],
+    "variables": [
+      "mi variable"
+    ],
+    "broadcasts": [],
+    "opcodes": [
+      "control_if_else",
+      "control_wait",
+      "event_whenkeypressed",
+      "faceDetection_deleteImage",
+      "faceDetection_doFaceMatching",
+      "faceDetection_drawBoundingBox",
+      "faceDetection_isClassDetected",
+      "faceDetection_menu_faceNumber",
+      "faceDetection_saveImage",
+      "faceDetection_toggleStageVideoFeed",
+      "looks_say",
+      "math_slider_0_100",
+      "text2speech_menu_languages",
+      "text2speech_menu_voices",
+      "text2speech_setLanguage",
+      "text2speech_setVoice",
+      "text2speech_speakAndWait"
+    ]
+  },
+  "t2-act6": {
+    "sourceArchive": "Actividades de Laboratorio 2.zip",
+    "sourceArchivePath": "Actividades de Laboratorio 2/Actividad 4 Puerta Inteligente/Puerta_inteligente.sb3",
+    "blockCount": 50,
+    "targets": [
+      {
+        "name": "Stage",
+        "isStage": true,
+        "costumes": [
+          "door_1",
+          "door_2",
+          "door_3",
+          "door_4",
+          "door_5",
+          "door_6",
+          "door_7",
+          "door_8",
+          "door_9",
+          "door_10",
+          "door_11",
+          "door_12",
+          "door_13",
+          "door_14"
+        ],
+        "sounds": [
+          "pop"
+        ]
+      },
+      {
+        "name": "Niko",
+        "isStage": false,
+        "costumes": [
+          "Niko"
+        ],
+        "sounds": []
+      }
+    ],
+    "variables": [
+      "mi variable"
+    ],
+    "broadcasts": [],
+    "opcodes": [
+      "control_if_else",
+      "control_repeat",
+      "control_wait",
+      "event_whenkeypressed",
+      "faceDetection_deleteImage",
+      "faceDetection_doFaceMatching",
+      "faceDetection_drawBoundingBox",
+      "faceDetection_isClassDetected",
+      "faceDetection_menu_faceNumber",
+      "faceDetection_saveImage",
+      "faceDetection_toggleStageVideoFeed",
+      "looks_backdrops",
+      "looks_nextbackdrop",
+      "looks_say",
+      "looks_switchbackdropto",
+      "math_slider_0_100",
+      "text2speech_menu_languages",
+      "text2speech_menu_voices",
+      "text2speech_setLanguage",
+      "text2speech_setVoice",
+      "text2speech_speakAndWait"
+    ]
+  },
+  "t2-act7": {
+    "sourceArchive": "Actividades de Laboratorio 2.zip",
+    "sourceArchivePath": "Actividades de Laboratorio 2/Actividad 5 Reconocimiento de voz/Reconocimiento_de_voz.sb3",
+    "blockCount": 15,
+    "targets": [
+      {
+        "name": "Stage",
+        "isStage": true,
+        "costumes": [
+          "fondo1",
+          "Laboratorio"
+        ],
+        "sounds": [
+          "pop"
+        ]
+      },
+      {
+        "name": "Niko",
+        "isStage": false,
+        "costumes": [
+          "Niko"
+        ],
+        "sounds": []
+      }
+    ],
+    "variables": [
+      "mi variable"
+    ],
+    "broadcasts": [],
+    "opcodes": [
+      "control_wait",
+      "event_whenflagclicked",
+      "looks_say",
+      "realTimeSpeechRecognition_clearResult",
+      "realTimeSpeechRecognition_setLang",
+      "realTimeSpeechRecognition_speechRecognitionResult",
+      "realTimeSpeechRecognition_startListening",
+      "text2speech_menu_languages",
+      "text2speech_menu_voices",
+      "text2speech_setLanguage",
+      "text2speech_setVoice",
+      "text2speech_speakAndWait"
+    ]
+  },
+  "t2-act8": {
+    "sourceArchive": "Actividades de Laboratorio 2.zip",
+    "sourceArchivePath": "Actividades de Laboratorio 2/Actividad Encender Luz/Casa_inteligente.sb3",
+    "blockCount": 30,
+    "targets": [
+      {
+        "name": "Stage",
+        "isStage": true,
+        "costumes": [
+          "fondo1",
+          "Laboratorio"
+        ],
+        "sounds": [
+          "pop"
+        ]
+      },
+      {
+        "name": "Niko",
+        "isStage": false,
+        "costumes": [
+          "Niko"
+        ],
+        "sounds": []
+      },
+      {
+        "name": "ligth_off",
+        "isStage": false,
+        "costumes": [
+          "ligth_off",
+          "ligth_on"
+        ],
+        "sounds": []
+      }
+    ],
+    "variables": [
+      "mi variable"
+    ],
+    "broadcasts": [
+      "apagar",
+      "encender"
+    ],
+    "opcodes": [
+      "control_forever",
+      "control_if",
+      "control_wait",
+      "event_broadcast",
+      "event_whenbroadcastreceived",
+      "event_whenflagclicked",
+      "looks_costume",
+      "looks_say",
+      "looks_switchcostumeto",
+      "operator_contains",
+      "realTimeSpeechRecognition_clearResult",
+      "realTimeSpeechRecognition_setLang",
+      "realTimeSpeechRecognition_speechRecognitionResult",
+      "realTimeSpeechRecognition_startListening",
+      "text2speech_menu_languages",
+      "text2speech_menu_voices",
+      "text2speech_setLanguage",
+      "text2speech_setVoice",
+      "text2speech_speakAndWait"
+    ]
+  }
+}

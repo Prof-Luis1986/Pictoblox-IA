@@ -6,7 +6,7 @@ export const PRACTICES_TOMO_2: Practice[] = [
     tomo: 2,
     courseId: 'ia-casas-inteligentes',
     number: 1,
-    title: 'Actividad de Laboratorio 1: Primeros Pasos en PictoBlox (Smart Home)',
+    title: 'Actividad de Laboratorio 1: Primeros Pasos en Pictoblox',
     shortTitle: '1. Primeros pasos en PictoBlox',
     iconName: 'Terminal',
     description: 'En esta actividad iniciaremos nuestra primera experiencia práctica dentro del laboratorio digital para comenzar a automatizar nuestra casa inteligente con Inteligencia Artificial.',
@@ -20,15 +20,6 @@ export const PRACTICES_TOMO_2: Practice[] = [
       'Computadora / Tablet / Laptop con PictoBlox instalado'
     ],
     extensions: ['Texto a Voz (Text to Speech)'],
-    sb3Project: {
-      id: 'res-sb3-t2-hola',
-      name: 'Proyecto Hola Mundo Smart Home (Hola_mundo.sb3)',
-      fileName: 'Hola_mundo.sb3',
-      fileType: 'sb3',
-      fileUrl: '/resources/sb3/Hola_mundo.sb3',
-      description: 'Proyecto base para el laboratorio de automatización del hogar inteligente.',
-      howToUse: 'Descargar y abrir en PictoBlox.'
-    },
     resources: [
       {
         id: 'res-t2-lab-bg',
@@ -157,7 +148,7 @@ export const PRACTICES_TOMO_2: Practice[] = [
     tomo: 2,
     courseId: 'ia-casas-inteligentes',
     number: 2,
-    title: 'Actividad de Laboratorio 2: Mi primer rostro detectado (Seguridad del Hogar)',
+    title: 'Actividad de Laboratorio 2: Mi primer rostro detectado',
     shortTitle: '2. Mi primer rostro detectado',
     iconName: 'ScanFace',
     description: 'En esta actividad activarás la cámara y comprobarás cómo el sistema de seguridad de nuestra casa inteligente detecta la presencia de personas en tiempo real.',
@@ -173,15 +164,6 @@ export const PRACTICES_TOMO_2: Practice[] = [
     ],
     extensions: ['Detección de Rostros (Face Detection)', 'Texto a Voz (Text to Speech)'],
     privacyNotice: 'Los datos de la cámara se analizan únicamente de manera local para detectar presencia.',
-    sb3Project: {
-      id: 'res-sb3-t2-det',
-      name: 'Proyecto Detección de Rostros (Deteccion_de_rostros.sb3)',
-      fileName: 'Deteccion_de_rostros.sb3',
-      fileType: 'sb3',
-      fileUrl: '/resources/sb3/Deteccion_de_rostros.sb3',
-      description: 'Proyecto de detección de rostros con sensor de presencia para la entrada.',
-      howToUse: 'Descargar y abrir en PictoBlox.'
-    },
     resources: [
       {
         id: 'res-t2-lab-bg2',
@@ -342,7 +324,7 @@ export const PRACTICES_TOMO_2: Practice[] = [
     tomo: 2,
     courseId: 'ia-casas-inteligentes',
     number: 5,
-    numberNote: 'La numeración se conserva de acuerdo con el material original del PDF Tomo 2 (Módulo 4: Reconocimiento Facial).',
+    numberNote: 'Se conserva la numeración original del curso.',
     title: 'Actividad de Laboratorio 5: Reconociendo a una persona especial',
     shortTitle: '5. Reconociendo a una persona especial',
     iconName: 'UserCheck',
@@ -360,15 +342,6 @@ export const PRACTICES_TOMO_2: Practice[] = [
     ],
     extensions: ['Detección de Rostros (Face Detection)', 'Texto a Voz (Text to Speech)'],
     privacyNotice: 'El entrenamiento biométrico almacena únicamente vectores matemáticos de rasgos faciales en la memoria local de tu proyecto PictoBlox.',
-    sb3Project: {
-      id: 'res-sb3-rec-facial',
-      name: 'Proyecto Reconocimiento Facial (Reconocimiento_facial.sb3)',
-      fileName: 'Reconocimiento_facial.sb3',
-      fileType: 'sb3',
-      fileUrl: '/resources/sb3/Reconocimiento_facial.sb3',
-      description: 'Proyecto completo de entrenamiento biométrico y prueba con tecla T y tecla ESPACIO.',
-      howToUse: 'Descargar y abrir en PictoBlox.'
-    },
     resources: [
       {
         id: 'res-t2-niko-lab-rec',
@@ -557,7 +530,7 @@ export const PRACTICES_TOMO_2: Practice[] = [
     tomo: 2,
     courseId: 'ia-casas-inteligentes',
     number: 6,
-    numberNote: 'La numeración se conserva de acuerdo con el material original del PDF Tomo 2.',
+    numberNote: 'Se conserva la numeración original del curso.',
     title: 'Actividad de Laboratorio 6: Puerta Inteligente con Reconocimiento Facial',
     shortTitle: '6. Puerta Inteligente con Reconocimiento Facial',
     iconName: 'DoorClosed',
@@ -573,15 +546,6 @@ export const PRACTICES_TOMO_2: Practice[] = [
       'Carpeta de recursos "Puerta Inteligente" con las 14 imágenes de la puerta (door_1 a door_14)'
     ],
     extensions: ['Detección de Rostros (Face Detection)', 'Texto a Voz (Text to Speech)'],
-    sb3Project: {
-      id: 'res-sb3-puerta',
-      name: 'Proyecto Puerta Inteligente (Puerta_inteligente.sb3)',
-      fileName: 'Puerta_inteligente.sb3',
-      fileType: 'sb3',
-      fileUrl: '/resources/sb3/Puerta_inteligente.sb3',
-      description: 'Proyecto completo de la cerradura biométrica con animación fluida de 14 imágenes.',
-      howToUse: 'Descargar y abrir en PictoBlox.'
-    },
     resources: [
       {
         id: 'res-door-seq',
@@ -747,7 +711,7 @@ export const PRACTICES_TOMO_2: Practice[] = [
     tomo: 2,
     courseId: 'ia-casas-inteligentes',
     number: 7,
-    numberNote: 'La numeración se conserva de acuerdo con el material original del PDF Tomo 2 (Sección 5: Reconocimiento de Voz).',
+    numberNote: 'Se conserva la numeración original del curso.',
     title: 'Actividad de Laboratorio 7: Probando el reconocimiento de voz',
     shortTitle: '7. Probando el reconocimiento de voz',
     iconName: 'Mic',
@@ -763,15 +727,6 @@ export const PRACTICES_TOMO_2: Practice[] = [
       'Navegador web para autenticación en la API de Speech Recognition de PictoBlox'
     ],
     extensions: ['Reconocimiento de Voz (Speech Recognition)', 'Texto a Voz (Text to Speech)'],
-    sb3Project: {
-      id: 'res-sb3-rec-voz',
-      name: 'Proyecto Reconocimiento de Voz (Reconocimiento_de_voz.sb3)',
-      fileName: 'Reconocimiento_de_voz.sb3',
-      fileType: 'sb3',
-      fileUrl: '/resources/sb3/Reconocimiento_de_voz.sb3',
-      description: 'Proyecto base con la rutina de escucha por micrófono y repetición en Modo Loro.',
-      howToUse: 'Descargar y abrir en PictoBlox.'
-    },
     resources: [
       {
         id: 'res-t2-lab-bg-v',
@@ -946,7 +901,7 @@ export const PRACTICES_TOMO_2: Practice[] = [
     tomo: 2,
     courseId: 'ia-casas-inteligentes',
     number: 8,
-    numberNote: 'La numeración se conserva de acuerdo con el material original del PDF Tomo 2.',
+    numberNote: 'Se conserva la numeración original del curso.',
     title: 'Actividad de Laboratorio 8: Luces que obedecen tu voz',
     shortTitle: '8. Luces que obedecen tu voz',
     iconName: 'Lightbulb',
@@ -963,15 +918,6 @@ export const PRACTICES_TOMO_2: Practice[] = [
       'PictoBlox instalado'
     ],
     extensions: ['Reconocimiento de Voz (Speech Recognition)', 'Texto a Voz (Text to Speech)'],
-    sb3Project: {
-      id: 'res-sb3-casa-inteligente',
-      name: 'Proyecto Casa Inteligente (Casa_inteligente.sb3)',
-      fileName: 'Casa_inteligente.sb3',
-      fileType: 'sb3',
-      fileUrl: '/resources/sb3/Casa_inteligente.sb3',
-      description: 'Proyecto completo de control domótico por voz con lámpara interactiva y respuesta de Niko.',
-      howToUse: 'Descargar y abrir en PictoBlox.'
-    },
     resources: [
       {
         id: 'res-lamp-off',

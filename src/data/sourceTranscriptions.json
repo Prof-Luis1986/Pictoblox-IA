@@ -1,0 +1,1010 @@
+{
+  "t1-act1": {
+    "title": "Actividad de Laboratorio 1: Detectando patrones como la IA",
+    "pages": [
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 6,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nProcedimiento\nAntes de comenzar, pide la hoja impresa al adulto responsable. Sigue las indicaciones con\ncuidado y trabaja con orden.\nNombre:\nDescripción de Actividad\nEn esta actividad descubrirás cómo identificar patrones. Los patrones\naparecen cuando algo se repite siguiendo una regla.\nAprender a reconocer patrones te ayudará a entender cómo funciona\nla Inteligencia Artificial. Observa y completa.\nActividad de Laboratorio 1\nDetectando patrones como la IA\nMateriales requeridos\n6\nHoja de actividad\nTijeras\nPaso 1: Observar la secuencia\n1.Observa la secuencia que aparece en la hoja de actividad.\n2.Identifica qué elementos se repiten.\n3.Piensa qué regla sigue la secuencia.\nPaso 2: Recortar las piezas\n1.Ubica las piezas que están marcadas con líneas entrepuntadas.\n2.Recorta cuidadosamente cada una de las piezas.\nPaso 3: Identificar los patrones\n1.Analiza cada pieza recortada.\n2.Relaciona cada pieza con la secuencia principal.\n3.Decide en qué parte encaja cada patrón.",
+        "image": "/resources/pdf-captures/tomo1/page-006.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 7,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com 7\nDetectando patrones como la IAActividades de Laboratorio\nPaso 4: Completar la secuencia\n1.Coloca las piezas en el lugar correcto.\n2.Verifica que la secuencia tenga sentido siguiendo una regla.\n3.Ajusta si es necesario hasta que el patrón sea correcto.\n¿Qué aprendiste?\nEn esta actividad descubriste cómo funcionan los patrones, que son la base de la\nInteligencia Artificial. Aprendiste a observar, analizar y tomar decisiones para completar\ncorrectamente una secuencia.\nDurante la actividad pudiste:\nObservar una secuencia e identificar lo que se repite.\nReconocer patrones dentro de una serie.\nAnalizar cada pieza antes de colocarla.\nRelacionar cada elemento con la secuencia principal.\nTomar decisiones para ubicar correctamente cada pieza.\nAhora sabes que la Inteligencia Artificial aprende de esta forma, identificando patrones\nen la información para tomar decisiones.",
+        "image": "/resources/pdf-captures/tomo1/page-007.webp"
+      }
+    ]
+  },
+  "t1-act2": {
+    "title": "Actividad de Laboratorio 2: Primeros Pasos en Pictoblox",
+    "pages": [
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 23,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nProcedimiento\nSigue paso a paso las indicaciones de esta actividad. Como es tu primera práctica, pide\nayuda a un adulto para que te acompañe. Trabajen juntos, sigan cada paso con atención y\nverán que todo saldrá muy bien.\nNombre:\nDescripción de Actividad\nEn esta actividad iniciaremos nuestra primera experiencia práctica dentro del laboratorio\ndigital (Pictoblox).\nCuando Niko muestre su saludo en pantalla y escuchemos su voz, sabremos que el\nlaboratorio está listo para comenzar a automatizar nuestra casa con IA.\nMateriales requeridos\nActividad de Laboratorio 2\nPrimeros Pasos en Pictoblox\n23\nPaso 1: Abre Pictoblox\n1.En el buscador de Windows, escribe PictoBlox.\n2.Abre el programa.\n3.Cuando se cargue, selecciona la opción Bloques.\nComputadora/ Tablet / Laptop con Pictoblox instalado",
+        "image": "/resources/pdf-captures/tomo1/page-023.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 24,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n 24\nPrimeros Pasos en PictobloxActividades de Laboratorio\nPaso 2: Cambia el fondo del laboratorio\nAntes de programar, vamos a preparar el escenario.\n1.Ve a Fondos.\n2.Selecciona Cargar fondo.\n4. Verás el entorno de trabajo del laboratorio, donde vamos a crear nuestro programa.\n3.El fondo será proporcionado por el instructor o persona encargada.\n4.Solicítalo directamente a él para continuar con la actividad.\n5.Selecciona el fondo del laboratorio.\n6.Cuando se abra la ventana de edición:\nNo hagas ningún cambio\nRegresa directamente al área de bloques.",
+        "image": "/resources/pdf-captures/tomo1/page-024.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 25,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nNombre del Laboratorio\n25\nPrimeros Pasos en PictobloxActividades de Laboratorio\nPaso 3:  Cambia el personaje\n1.Elimina el personaje que viene por defecto.\n2.Ahora vamos a usar nuestro personaje (sprite):\nNiko\n3.Carga el personaje desde la misma carpeta donde estaba el fondo.",
+        "image": "/resources/pdf-captures/tomo1/page-025.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 26,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nNombre del Laboratorio\nPaso 4: Inicia el programa\n1.Ve al área de bloques.\n2.Entra a la sección Eventos       .\n3.Arrastra el bloque:\n4.Este bloque significa: cuando presionas la bandera verde, el programa comienza.\n26\nPrimeros Pasos en PictobloxActividades de Laboratorio\n4.Una vez cargado:\nMueve el personaje hasta que quede bien ubicado.\nDale un tamaño del 70 %.",
+        "image": "/resources/pdf-captures/tomo1/page-026.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 27,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nNombre del Laboratorio\nPaso 5: Muestra el saludo en pantalla\n1.Ve a la sección Apariencia        .\n2.Busca el bloque:\n3.Escribe el texto:\nHola, soy Niko\n4.Conecta este bloque debajo del bloque de la bandera verde.\n27\nPrimeros Pasos en PictobloxActividades de Laboratorio\nPaso 6: ¡Prueba tu programa!\nEn este paso solo estamos probando.\n1.Cuando presiones la bandera verde, verás que aparece una burbuja de texto sobre mí\ndiciendo:\nHola, soy Niko\nEsto ocurre antes de hacer que hable, y sirve para comprobar que el mensaje está bien\nescrito.\nSi ves la burbuja, ¡todo va perfecto!",
+        "image": "/resources/pdf-captures/tomo1/page-027.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 28,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nNombre del Laboratorio\nPaso 7: Haz que Niko hable\n1.Ve a Extensiones (Esquina inferior izquierda).\n2.Agrega la extensión:\nTexto a Voz\n3.Aparecerán nuevos bloques al lado derecho.\n28\nPrimeros Pasos en PictobloxActividades de Laboratorio",
+        "image": "/resources/pdf-captures/tomo1/page-028.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 29,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nNombre del Laboratorio\nPaso 8: ¡Prueba tu programa!\n1.Presiona la bandera verde.\n2.Si lograste esto\nVer el texto en pantalla\nEscuchar a Niko hablar\n¡Felicidades!\nAcabas de crear tu primer programa con voz en el laboratorio.\n5.Arrastra el bloque asignar voz a y selecciona la voz tenor o chillido.\n6.Arrastra el bloque                      y escribe:\nHola, soy Niko\n7.Conecta todos los bloques en la secuencia mostrada.\nAntes de continuar, guarda tu proyecto para no perder tu avance.\n1.Haz clic en Archivo →  Guardar como\n29\nPrimeros Pasos en PictobloxActividades de Laboratorio\nPaso 9:  Guarda tu programa",
+        "image": "/resources/pdf-captures/tomo1/page-029.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 30,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nNombre del Laboratorio\nEn esta actividad realizaste tu primer programa, conocido como “Hola Mundo”.\nAprendiste a preparar el entorno y a dar tus primeras instrucciones dentro del programa,\ndando así tu primer paso en la programación.\nDurante la actividad pudiste:\n¿Qué aprendiste?\n2.Guarda el proyecto en la misma carpeta donde encontraste el fondo y el personaje.\n3.Usa un nombre como: Hola_mundo\nAsí tu proyecto queda bien organizado y listo para usarlo más adelante.\n30\nPrimeros Pasos en PictobloxActividades de Laboratorio\nCargar un escenario dentro del programa.\nAgregar y seleccionar un personaje.\nMostrar un mensaje en texto (burbuja).\nHacer que el personaje hable.\nEjecutar el programa utilizando la bandera verde.\nGuardar tu proyecto correctamente.\nAhora ya sabes cómo crear un programa básico y darle vida a tus ideas paso a paso.",
+        "image": "/resources/pdf-captures/tomo1/page-030.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 31,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nNombre del Laboratorio\n31\nHola MundoActividades de Laboratorio\nPara el Instructor o Padres\nEn esta actividad, acompaña al estudiante durante su primera práctica para que se\nfamiliarice con el entorno de trabajo. Brinda apoyo cuando sea necesario y asegúrate de\nque comprenda cada acción antes de continuar.\nDurante la actividad debes:\nVerificar que el estudiante haya abierto correctamente el programa.\nAsegurar que cargue un escenario y un personaje sin dificultades.\nExplicar cómo funcionan los bloques básicos utilizados en la actividad.\nSupervisar que el mensaje en texto y el sonido se ejecuten correctamente.\nRecordar cómo iniciar el programa (bandera verde).\nComprobar que el proyecto sea guardado correctamente.\nMotivar al estudiante a realizar pequeños cambios (texto, personaje o sonido) para\nreforzar el aprendizaje.\nTu guía es clave para que el estudiante gane confianza y dé sus primeros pasos en\nprogramación con seguridad.\nApoyo en video\nSi el estudiante presenta dificultades, puedes utilizar el video de apoyo para explicar la\nactividad paso a paso.",
+        "image": "/resources/pdf-captures/tomo1/page-031.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 32,
+        "text": "Sección 3\nDetección de rostros\n32\nCuando miramos a una persona, podemos notar rápidamente que frente a nosotros hay\nuna rostro.\nAhora piensa en esto:\n¿crees que una computadora también puede darse cuenta de que hay un rostro frente a\nuna cámara?\n¿Qué es la detección de rostros?\nLa detección de rostros es una tecnología que permite a una\nmáquina identificar si en una imagen o en un video aparece\nun rostro humano.\nSu trabajo no es decir quién es la persona, sino encontrar\ndónde está el rostro dentro de la imagen.\nCuando lo detecta, la computadora puede marcarlo con un\nrecuadro y obtener información importante, como:\nposición\nancho\nalto\nEs momento de ver cómo funciona la Inteligencia Artificial\nen acción.\nUno de los ejemplos más conocidos es la detección de\nrostros.\nLas máquinas pueden analizar una imagen y determinar si\nhay un rostro o no.\nPero entonces aparece una pregunta importante:\n¿Cómo sabemos que hay un rostro frente a nosotros?\n¿Puede una máquina ver un rostro?",
+        "image": "/resources/pdf-captures/tomo1/page-032.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 33,
+        "text": "La inteligencia artificial analiza lo que ve la cámara y busca patrones que se parecen a un\nrostro humano.\nPor ejemplo, busca formas y características generales del rostro, como:\nojos\nnariz\nboca\nCuando encuentra una combinación parecida, indica que allí hay un rostro.\nDespués de detectarlo, puede dibujar un recuadro alrededor y calcular datos como:\nla posición del rostro en la pantalla\nel ancho del recuadro\nel alto del recuadro\nGracias a esto, podemos crear proyectos donde:\nun personaje siga la cara\nun objeto se mueva según la posición del rostro\nel sistema responda cuando detecta a una persona\n33\nDetección de rostrosSección 3\n¿Cómo lo usamos en PictoBlox?\nEn PictoBlox existe una extensión llamada detección de rostros (Face Detection), la cual\nnos permite detectar cuando aparece un rostro frente a la cámara.\n¿Cómo funciona?",
+        "image": "/resources/pdf-captures/tomo1/page-033.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 34,
+        "text": "Con estos datos podemos crear proyectos interactivos, por ejemplo:\nmover un objeto según la posición del rostro\nreaccionar cuando alguien aparece en la cámara\nAdemás, esta extensión también puede trabajar con puntos clave del rostro (como ojos,\nnariz y boca), los cuales nos permiten obtener más información sobre la cara. Estos puntos\npueden ser utilizados para proyectos más avanzados.\nTambién existen otras funciones como el reconocimiento de emociones o el\nreconocimiento facial.\nAhora que ya sabemos qué es la detección de rostros y cómo funciona en PictoBlox,\nvamos a probarlo y luego crearemos juegos divertidos usando nuestro rostro.\nEsta extensión analiza la imagen en tiempo real y dibuja un recuadro alrededor del rostro\ndetectado. Además, nos proporciona información muy útil como:\nposición del rostro (coordenadas x y x)\nancho del recuadro\nalto del recuadro\n34\nDetección de rostrosSección 3",
+        "image": "/resources/pdf-captures/tomo1/page-034.webp"
+      }
+    ]
+  },
+  "t1-act3": {
+    "title": "Actividad de Laboratorio 3: Mi primer rostro detectado",
+    "pages": [
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 35,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nProcedimiento\nNombre:\nMateriales requeridos\nPaso 1: Prepara tu laboratorio de trabajo\n1.Abre PictoBlox.\n2.Carga el escenario como lo hicimos en la actividad de laboratorio Hola mundo.\n3.Agrega al personaje Niko.\n4.Haz clic en Añadir extensiones.\n5.Añade las siguientes extensiones:\nDetección de Rostros (Face Detection)\nActividad de Laboratorio 3\nMi primer rostro detectado\n35\nEn esta actividad activarás la cámara y comprobarás cómo la máquina (computadora)\ndetecta tu rostro en tiempo real.\nComputadora/ Tablet/ Laptop con Pictoblox instalado.\nDescripción de Actividad\n👨‍🔬",
+        "image": "/resources/pdf-captures/tomo1/page-035.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 36,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nTexto a Voz (Text to Speech)\n6.Verifica que ambas extensiones estén activas.\nPaso 2: Guarda tu proyecto correctamente\n1.Haz clic en Archivo.\n2.Selecciona Guardar como.\n3.Cuando aparezca el mensaje para guardar los detalles del rostro, selecciona Sí.\n36\nMi primer rostro detectadoActividades de Laboratorio",
+        "image": "/resources/pdf-captures/tomo1/page-036.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 37,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n 37\nPaso 2: Niko te da la bienvenida\nAquí Niko empieza a interactuar contigo, mostrando texto y hablando al mismo tiempo.\nMi primer rostro detectadoActividades de Laboratorio\n4.Asigna un nombre a tu proyecto.\n5.Guarda el archivo en la ubicación indicada por tu instructor.\nAhora es tu turno: sigue la secuencia\nTu misión es seguir el orden de los bloques y usar la Tabla de colores para encontrarlos\nfácilmente.",
+        "image": "/resources/pdf-captures/tomo1/page-037.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 38,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nPistas\n1.Sigue el orden: Coloca los bloques uno tras otro, como si fueran piezas de LEGO. ¡El\norden importa!\n2.Guíate por los colores: Busca el bloque en la sección que tenga su mismo color.\n38\nPaso 4: Activa la cámara\nAhora sí, le damos “ojos” al programa.\nMi primer rostro detectadoActividades de Laboratorio\n1.Ve a la extensión Face Detection.\n2.Agrega el bloque                                                                debajo de los bloques\nanteriores.\n3.Configura la transparencia del video al 30%.\nPaso 5: Probamos la cámara\n1.Pon el laboratorio en pantalla completa.",
+        "image": "/resources/pdf-captures/tomo1/page-038.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 39,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n 39\nMi primer rostro detectadoActividades de Laboratorio\nPaso 6: Dibujamos la caja del rostro\n1.Presiona la bandera verde.\n2.Niko te saluda.\n3.La pantalla se vuelve un poco transparente y se activa la cámara.\n5.Te ves en el fondo.\n6.Sal de pantalla completa.",
+        "image": "/resources/pdf-captures/tomo1/page-039.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 40,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n 40\nMi primer rostro detectadoActividades de Laboratorio\n¿Qué hace este código?\n1.Cuadro delimitador: Dibuja un cuadro sobre tu rostro cuando lo detecta.\n2.Por siempre: el programa monitorea la cámara continuamente y analiza si hay un\nrostro.\nAhora probamos\n1.Activa la Pantalla completa\n2.Clic en la bandera verde\n3.Ponte frente a la cámara\nAhora es tu turno de armar los bloques usando la imagen como guía.\nAyúdate con la Tabla de colores para saber dónde buscar cada bloque.\nPistas\n1.Busca el bloque por siempre . Todo lo que pongas dentro se repetirá sin parar.\n2.Dentro del bloque por siempre: Mete ahí el siguiente bloque:",
+        "image": "/resources/pdf-captures/tomo1/page-040.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 41,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n 41\nMi primer rostro detectadoActividades de Laboratorio\nPaso 7: Tomamos una decisión\nAhora queremos que, si ve un rostro, haga algo.\nTu misión:\n1.Ve a la sección Control.\n2.Busca el bloque si / si no.\n3.Arrástralo y encájalo dentro del bloque por siempre.\nAhora detén con Stop, sal de pantalla completa y vuelve a programar.\n¡Si ves tu cara con una cajita, lo lograste!",
+        "image": "/resources/pdf-captures/tomo1/page-041.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 42,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n 42\nMi primer rostro detectadoActividades de Laboratorio\nPaso 8: ¿Hay un rostro o no?\nPara que el programa decida, necesita comparar. Si el número de rostros es más que cero,\n¡significa que hay alguien ahí!\n¿Qué acabas de lograr? Al ponerlo dentro de \"por siempre\", el programa revisará la cámara\nsin parar. Es como si le dijeras: \"Todo el tiempo, si ves a alguien haz esto, si no, haz\naquello\".",
+        "image": "/resources/pdf-captures/tomo1/page-042.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 43,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n¿Qué está ocurriendo?\nEl programa analiza lo que ve la cámara y comprueba si hay al menos una persona\ndetectada.\nSi la respuesta es afirmativa, Niko reacciona.\n43\nMi primer rostro detectadoActividades de Laboratorio\nPaso 9: Cuando SÍ hay un rostro\nAhora vamos a programar la reacción de Niko. Mira la imagen de referencia y encaja los\nbloques en este orden dentro del espacio del si:\n¡No olvides los colores! Usa la tabla de colores si no encuentras un bloque.\nPistas\n1.Ve a la sección Operadores y busca el bloque mayor que ( > ).\n2.Ponlo justo en el hueco del bloque \"si\" que usamos antes.\n3.Ahora rellena los espacios:\nEn el lado izquierdo, pon el bloque: obtener # de rostros (lo encuentras en Face\nDetection).\nEn el lado derecho, escribe el número 0.",
+        "image": "/resources/pdf-captures/tomo1/page-043.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 44,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nPaso 10: Cuando NO hay un rostro\nSi no se detecta ningún rostro, Niko mostrará otro mensaje:\nTu reto:\nMira la imagen y completa el área del si no\n1.Mensaje: En Apariencia, usa decir y escribe algo divertido como: “No veo ningún\nrostro. ¿Te escondiste o sigo esperando?”.\n2.Voz: En el bloque “Texto a Voz”, configura el mismo mensaje.\nTip creativo:\n¡Puedes cambiar el mensaje por un chiste o un secreto que Niko diga cuando no haya nadie\ncerca!\nEjemplo: \"¡Me dejaste solo!” , “¿Estás jugando a las escondidas?”\n44\nMi primer rostro detectadoActividades de Laboratorio\n¿Qué lograste?\nAhora, cuando el sistema detecte tu rostro, dibujará un cuadro alrededor (como un\nrastreador real) y Niko te saludará con mucha emoción.",
+        "image": "/resources/pdf-captures/tomo1/page-044.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 45,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n 45\nMi primer rostro detectadoActividades de Laboratorio\nPaso 11: ¡Prueba tu creación!\nHa llegado el momento de probar tu programa. Observa a Niko en acción siguiendo estos\npasos:\n1.Activa la pantalla completa.\n2.Presiona la bandera verde..\n3.¡Ponte frente a la cámara y luego escóndete!\nSi todo está bien, verás un cuadro dibujado sobre tu rostro y Niko saludándote.\nSi te vas y no se detecta ningún rostro, mostrará el mensaje:\n“No veo ningún rostro. ¿Te escondiste o sigo esperando?”\nPaso 12: Guarda los cambios\n1.Haz clic en el icono de guardar 💾\n2.Cuando aparezca el mensaje “Guardar datos del rostro”, selecciona Sí",
+        "image": "/resources/pdf-captures/tomo1/page-045.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 46,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nAhora es tu turno de probar.\nJuega con el sistema y observa qué sucede en cada caso.\n🧪 Experimenta\n46\nMi primer rostro detectadoActividades de Laboratorio\nExperimento 1\nTápate un ojo\n¿La IA detecta tu rostro?\nSí\nNo\n¿Qué ocurrió?\nExperimento 2\nAléjate de la cámara\n¿La IA sigue detectando tu rostro?\nSí\nNo\n¿Qué cambió?",
+        "image": "/resources/pdf-captures/tomo1/page-046.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 47,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n 47\nMi primer rostro detectadoActividades de Laboratorio\nExperimento 3\nMuévete rápidamente\nSí\nNo\n¿Qué pasó con la detección?\nExperimento 4\nColóquense varios compañeros frente a la cámara\n¿Qué detecta la IA?\nUno\nVarios\nReflexiona\n¿Qué necesita la Inteligencia Artificial para reconocer tu rostro correctamente?\n¿Detecta uno o varios rostros?",
+        "image": "/resources/pdf-captures/tomo1/page-047.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 48,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com 48\nMi primer rostro detectadoActividades de Laboratorio\nEn esta actividad aprendiste cómo una computadora puede ver un rostro utilizando\nInteligencia Artificial. Descubriste cómo funciona este proceso en tiempo real y cómo el\nsistema toma decisiones según lo que detecta.\nDurante la actividad pudiste:\nActivar y utilizar la cámara del dispositivo.\nDetectar un rostro en tiempo real.\nObservar cómo el sistema encierra el rostro en una caja.\nComprender que el rostro debe estar visible y de frente para ser detectado.\nRealizar acciones cuando se detecta un rostro.\nRealizar acciones cuando no se detecta ningún rostro.\nYa aprendiste a detectar rostros y ahora daremos el siguiente paso. Descubriremos cómo\nobtener la ubicación del rostro y de algunas de sus partes como la nariz para comenzar a\ncrear nuestros primeros juegos interactivos.\n¡Tu propio rostro se convertirá en el control para jugar!\n¿Qué aprendiste?",
+        "image": "/resources/pdf-captures/tomo1/page-048.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 49,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nPara el Instructor o Padres\nEn esta actividad, aprovecha la experiencia para generar una pequeña discusión con los\nestudiantes. El objetivo es que reflexionen sobre cómo funciona la Inteligencia Artificial en\nsituaciones reales y comprendan sus limitaciones.\nDurante la actividad puedes:\nPreguntar: ¿La IA detectó a todos o solo a algunos?\nPreguntar: ¿Qué ocurrió cuando había varias personas al mismo tiempo?\nExplicar que la Inteligencia Artificial puede cometer errores o variar su\ncomportamiento.\nComentar que factores como la posición, la iluminación o la cantidad de personas\npueden afectar la detección.\nMotivar a los estudiantes a compartir lo que observaron y sus conclusiones.\nGuía la conversación para que comprendan que la IA no es perfecta, pero aprende a partir\nde patrones y condiciones del entorno.\n49\nApoyo en video\nSi los estudiantes presentan dificultades, puedes utilizar el video de apoyo para explicar la\nactividad paso a paso.\nMi primer rostro detectadoActividades de Laboratorio",
+        "image": "/resources/pdf-captures/tomo1/page-049.webp"
+      }
+    ]
+  },
+  "t1-act4": {
+    "title": "Actividad de Laboratorio 4: Gato y Ratón IA",
+    "pages": [
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 50,
+        "text": "Nombre:\nActividad de Laboratorio 4\nGato y Ratón IA\nEn esta actividad controlarás un ratón usando tu nariz gracias a la inteligencia artificial.\nEl objetivo será evitar que los gatos atrapen al ratón mientras aparecen y se mueven por\nla pantalla.\n¡Convierte tu nariz en el control del juego y ayuda al ratón a escapar!\nDescripción de la actividad\n👨‍🔬\nIntroducción\n¿Cómo funciona la inteligencia artificial en este juego?\nImagina que la computadora puede “verte” a través de la cámara. Detecta tu rostro y\nencuentra puntos clave como los ojos, la boca y la nariz.\nLa inteligencia artificial sigue el movimiento de tu nariz en tiempo real, y con eso le dice al\nratón hacia dónde moverse dentro del juego.\nAhora que ya sabes esto, vamos a usar tu nariz para controlar el juego y ayudar al ratón a\nescapar de los gatos.\nMateriales\nPara esta actividad solo necesitas algunos elementos básicos para crear y jugar con\ninteligencia artificial:\nComputadora / Laptop / Tablet con PictoBlox instalado\nCámara (puede ser la integrada en el computador o una cámara externa)\nDesarrollado por Roboticoss www.roboticoss.com 50",
+        "image": "/resources/pdf-captures/tomo1/page-050.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 51,
+        "text": "Gato y Ratón IAActividades de Laboratorio\nDesarrollado por Roboticoss www.roboticoss.com 51\nProcedimiento\nSigue las instrucciones paso a paso. Asegúrate de tener PictoBlox instalado antes de\ncomenzar. Si necesitas ayuda durante la actividad, puedes pedir apoyo a un adulto.\nPaso 1: Abrir PictoBlox\n1.Abrir PictoBlox\n2.Seleccionar la opción de bloques",
+        "image": "/resources/pdf-captures/tomo1/page-051.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 52,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n2.Cargar el personaje Mouse 1.\nGato y Ratón IAActividades de Laboratorio\n52\nPaso 2: Cargar los personajes u objetos\n1.Elimina el personaje que viene por defecto.",
+        "image": "/resources/pdf-captures/tomo1/page-052.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 53,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nPaso 3: Cargar los fondos\n1.Seleccionar el fondo principal del juego: Wall 1.\n2.Seleccionar el fondo de finalización del juego: game_over.\nGato y Ratón IAActividades de Laboratorio\n53\n3.Cargar el objeto Cat 2.",
+        "image": "/resources/pdf-captures/tomo1/page-053.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 54,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nGato y Ratón IAActividades de Laboratorio\n54\nPaso 4: Agregar las extensiones\n1.Agregar la extensión Face Detection o Detección de Caras.",
+        "image": "/resources/pdf-captures/tomo1/page-054.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 55,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n 55\nPaso 5: Programación\nEn este paso vas a programar dos sprites:\nEl primero será el personaje Mouse 1.\nEl segundo será el objeto Cat 2.\nPara realizar la programación, guíate utilizando la tabla de colores de bloques disponible\nen este manual.\nSi tienes dudas, solicita ayuda al adulto encargado.\nGato y Ratón IAActividades de Laboratorio\nProgramación del personaje Mouse 1\n1. Seleccionar el sprite Mouse 1\nHaz clic sobre el personaje Mouse 1\nVerifica que esté seleccionado antes de comenzar a programar",
+        "image": "/resources/pdf-captures/tomo1/page-055.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 56,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n2. Iniciar el programa\nAgrega el bloque:\nal hacer clic en bandera verde [Eventos]\nColócalo en el área de programación\n3. Configurar el fondo y tamaño\nAgrega los bloques:\ncambiar fondo a Wall 1 [Apariencia]\nfijar tamaño a 50% [Apariencia]\nGato y Ratón IAActividades de Laboratorio\n56\n4. Posicionar el ratón\nAgrega el bloque:\nir a x: -200 y: 0 [Movimiento]",
+        "image": "/resources/pdf-captures/tomo1/page-056.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 57,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n6. Detectar el rostro continuamente\nAgrega el bloque:\npor siempre [Control]\nDentro del bloque agrega:\nanalizar imagen desde cámara [Face Detection]\nGato y Ratón IAActividades de Laboratorio\n57\n5. Activar la cámara\nAgrega el bloque:\nactivar video en escenario con 60% de transparencia [Face Detection]\nAgrega el bloque:\nocultar cuadro delimitador [Face Detection]\n7. Mover el ratón con la nariz\nDentro del bloque anterior agrega:\nir a x: (-200) y: ( ) [Movimiento]\nEn el valor de “y” coloca:\nobtener posición en y de la nariz de la cara [Face Detection]",
+        "image": "/resources/pdf-captures/tomo1/page-057.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 58,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nGato y Ratón IAActividades de Laboratorio\n58\n8. Detectar colisión con el gato\nAgrega dentro del bucle:\nsi tocando Cat 2 entonces [Control]\n9. Finalizar el juego\nDentro del bloque condicional agrega:\ncambiar fondo a game_over [Apariencia]\ndetener todos [Control]",
+        "image": "/resources/pdf-captures/tomo1/page-058.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 59,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nGato y Ratón IAActividades de Laboratorio\n59\n8. Finalizar el juego\nDentro del bloque condicional agrega:\nesconder [Apariencia]\ncambiar fondo a game over [Apariencia]\ndetener todos [Control]\nTu programa debería quedar así:",
+        "image": "/resources/pdf-captures/tomo1/page-059.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 60,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nGato y Ratón IAActividades de Laboratorio\n60\nCómo funciona el código\nEl juego empieza cuando haces clic en la bandera verde.\nEn ese momento, se configura el fondo Wall 1, el ratón cambia de tamaño y se ubica al\nlado izquierdo de la pantalla.\nLuego, la cámara se activa con transparencia para que puedas ver el juego y también tu\nrostro.\nLa inteligencia artificial analiza la imagen de la cámara todo el tiempo usando el bloque\npor siempre.\nCuando detecta tu nariz, obtiene su posición en el eje y.\nEl ratón usa ese valor para moverse hacia arriba o hacia abajo, manteniéndose siempre en\nla posición x: -200.\nSi el ratón toca al gato, el juego termina.\nEntonces el fondo cambia a game_over y todo el programa se detiene.",
+        "image": "/resources/pdf-captures/tomo1/page-060.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 61,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nGato y Ratón IAActividades de Laboratorio\n61\nProgramación del personaje Cat 2\n1. Seleccionar el sprite Cat 2\nHaz clic sobre el personaje Cat 2.\nVerifica que esté seleccionado antes de comenzar a programar.\n2. Crear las variables score y speed\nIr a la sección Variables.\nSeleccionar crear nueva variable.\nCrear una variable con el nombre score.\nCrear otra variable con el nombre speed.\nSeleccionar Para todos los objetos.\nHacer clic en aceptar.",
+        "image": "/resources/pdf-captures/tomo1/page-061.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 62,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nGato y Ratón IAActividades de Laboratorio\n62\n3. Iniciar configuración del juego\nAgrega el bloque:\nal hacer clic en bandera verde [Eventos]\nAgrega:\ndar a score el valor 0 [Variables]\napuntar en dirección -90 [Movimiento]\nfijar tamaño al 80% [Apariencia]",
+        "image": "/resources/pdf-captures/tomo1/page-062.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 63,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n4. Crear clones del gato\nAgrega:\nrepetir 3 [Control]\nDentro agrega:\ncrear clon de mí mismo [Control]\nesperar 0.2 segundos [Control]\nDespués del bloque repetir agrega:\nesconder [Apariencia]\nGato y Ratón IAActividades de Laboratorio\n63",
+        "image": "/resources/pdf-captures/tomo1/page-063.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 64,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n7. Mover el gato\nAgrega:\npor siempre [Control]\nDentro agrega:\napuntar en dirección -90 [Movimiento]\nsumar a x speed [Movimiento + Variables]\nFlappy Bird IAActividades de Laboratorio\n64\n5. Programar el comportamiento del clon\nAgrega el bloque:\nal comenzar como clon [Control]\n6. Posicionar el clon del gato\nAgrega:\nir a x: 180 y: número aleatorio entre -170 y -170 [Movimiento + Operadores]\ndar a speed el valor -15 [Variables]\nmostrar [Apariencia]",
+        "image": "/resources/pdf-captures/tomo1/page-064.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 65,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nGato y Ratón IAActividades de Laboratorio\n65\n8. Aumentar puntaje y reiniciar posición\nDentro del bloque por siempre, agrega:\nsi posición en x < -220 entonces [Control + Operadores]\nDentro del bloque condicional agrega:\nsumar a score 1 [Variables]\nir a x: 180 y: número aleatorio entre -170 y 170 [Movimiento + Operadores]\nTu programa debería quedar así:",
+        "image": "/resources/pdf-captures/tomo1/page-065.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 66,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nGato y Ratón IAActividades de Laboratorio\n66\nCómo funciona el código\nCuando haces clic en la bandera verde, el puntaje score inicia en cero.\nLuego, el gato apunta hacia la izquierda, cambia su tamaño al 80% y se crean 3 clones del\npersonaje. Cada clon aparece con una pequeña pausa de 0.2 segundos, para que no todos\nsalgan exactamente al mismo tiempo.\nDespués, el gato original se esconde y solo quedan visibles los clones.\nCuando cada clon comienza, aparece en el lado derecho de la pantalla, en la posición x:\n180. También se configura la variable speed con el valor -15, que indica la velocidad con\nla que el gato se moverá hacia la izquierda.\nDentro del bloque por siempre, cada gato avanza continuamente hacia la izquierda\nusando la variable speed.",
+        "image": "/resources/pdf-captures/tomo1/page-066.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 67,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nGato y Ratón IAActividades de Laboratorio\n67\nPaso  6: Guardar el proyecto\n1. Ir a la opción archivo\nHaz clic en Archivo.\n2. Seleccionar guardar como\nEscoge la opción Guardar como.\n3. Elegir ubicación\nSelecciona la carpeta donde deseas guardar tu proyecto.\n4. Asignar nombre\nEscribe un nombre para tu proyecto, por ejemplo:\nGato y Ratón IA\n5. Guardar\nHaz clic en Guardar.\nSi un gato llega al lado izquierdo de la pantalla y su posición en x es menor que -220, el\npuntaje score aumenta en 1 y ese gato vuelve a aparecer desde el lado derecho en una\nnueva posición aleatoria.\nAsí, el ratón debe evitar a los gatos mientras el puntaje aumenta cada vez que logra\nesquivarlos.",
+        "image": "/resources/pdf-captures/tomo1/page-067.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 68,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nGato y Ratón IAActividades de Laboratorio\n68\nPaso  7: Ejecutar y probar el juego\n1. Iniciar el juego\nHaz clic en la bandera verde.\n2. Visualizar en pantalla completa\nPuedes maximizar la pantalla para ver mejor el juego.\n3. Activar la cámara\nColoca tu rostro frente a la cámara.\n4. Controlar el ratón\nMueve tu nariz para controlar el personaje Mouse 1.\n5. Evitar a los gatos\nIntenta esquivar los gatos el mayor tiempo posible.\n6. Observar el puntaje\nEl puntaje aumenta cada vez que logras evitar a los gatos.",
+        "image": "/resources/pdf-captures/tomo1/page-068.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 69,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nGato y Ratón IAActividades de Laboratorio\n69\nCómo funciona el código\nCuando inicia el juego, el puntaje comienza en cero.\nLos gatos se generan automáticamente como clones y aparecen desde el lado derecho de\nla pantalla.\nCada gato se mueve hacia la izquierda con una velocidad definida por la variable speed.\nCuando un gato sale de la pantalla, vuelve a aparecer en una posición diferente, lo que\nhace que el juego sea continuo.\nEl ratón se mueve con la posición de tu nariz gracias a la inteligencia artificial.\nSi el ratón toca a un gato, el juego termina, cambia el fondo a game_over y todo se\ndetiene.",
+        "image": "/resources/pdf-captures/tomo1/page-069.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 70,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n1. Modifica la variable speed\nCambia el valor de la variable speed (por ejemplo: -10, -15, -20).\n2. Ejecuta el juego\n¿Qué ocurrió con la dificultad del juego?\n1. Modifica el número de clones\nCambia el valor del bloque repetir 3 por otro número (por ejemplo: 4, 5, 6).\n2. Ejecuta el juego\n¿El juego cambió?\nGato y Ratón IAActividades de Laboratorio\n70\nAhora es momento de hacer pruebas. Vas a modificar partes del programa y también\nprobar cómo responde la inteligencia artificial en diferentes condiciones. Observa con\natención y registra tus resultados.\n🧪 Experimenta\nExperimento 1: Cambia la velocidad de los gatos\nMás fácil\nIgual\nMás difícil\nExplica brevemente qué pasó:\nExperimento 2: Cambia la cantidad de gatos",
+        "image": "/resources/pdf-captures/tomo1/page-070.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 71,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nGato y Ratón IAActividades de Laboratorio\n71\nNo\nSí\nDescribe el cambio que notaste:\nExperimento 3: Cambia la posición de aparición\n1. Modifica el valor aleatorio en y\nCambia el rango del bloque número aleatorio entre -170 y 170.\n2. Ejecuta el juego\n¿Los gatos ahora aparecen:\nMás juntos\nIgual\n¿Qué diferencia sentiste al jugar?\nMás separados",
+        "image": "/resources/pdf-captures/tomo1/page-071.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 72,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nGato y Ratón IAActividades de Laboratorio\n72\nExperimento 4: Prueba con diferentes niveles de luz\n1. Cambia el entorno de iluminación\nJuega con buena iluminación.\nLuego prueba con poca luz.\nMarca lo que ocurrió:\nAnota lo que observaste:\nFunciona mejor con mucha luz\nFunciona mejor con poca luz\nFunciona igual\nExperimento 5: Prueba con diferentes fondos\n1. Cambia el fondo del juego\nUsa un fondo claro.\nLuego usa un fondo con muchos elementos.\nLa detección fue:\nMás precisa\nMenos precisa\nIgual",
+        "image": "/resources/pdf-captures/tomo1/page-072.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 73,
+        "text": "Gato y Ratón IAActividades de Laboratorio\nDesarrollado por Roboticoss www.roboticoss.com 73\n¿Qué crees que influyó en el resultado?\nExperimento 6: Prueba con varias personas\n1.Coloca dos o más personas frente a la cámara.\n¿Quién controla el juego?\nUna sola persona\nVarias personas\nNo funciona correctamente\nDescribe lo que pasó:",
+        "image": "/resources/pdf-captures/tomo1/page-073.webp"
+      }
+    ]
+  },
+  "t1-act5": {
+    "title": "Actividad de Laboratorio 5: Flappy Bird IA",
+    "pages": [
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 74,
+        "text": "Nombre:\nActividad de Laboratorio 5\nFlappy Bird IA\nEn esta actividad controlarás un pájaro usando tu nariz gracias a la inteligencia artificial.\nDeberás esquivar tuberías y mantenerlo volando sin chocar.\n¡Convierte tu nariz en el control y supera tu mejor puntaje!\nDescripción de la actividad\n👨‍🔬\nIntroducción\n¿Cómo funciona la inteligencia artificial en este juego?\nImagina que la computadora puede “verte” a través de la cámara. Usamos el módulo\nllamado Face Detection que detecta tu rostro y encuentra puntos clave como ojos, boca,\ny tu nariz.\nLa inteligencia artificial sigue el movimiento de tu nariz en tiempo real, y con eso le dice\nal pájaro hacia dónde moverse dentro del juego.\n🚀 Ahora que ya sabes esto, vamos a usar tu nariz para controlar el juego y comenzar la\naventura.\nMateriales\nPara esta actividad solo necesitas algunos elementos básicos para crear y jugar con\ninteligencia artificial:\nComputadora / Laptop / Tablet con Pictoblox instalado\nCámara (puede ser integrada o una cámara externa)\nDesarrollado por Roboticoss www.roboticoss.com 74",
+        "image": "/resources/pdf-captures/tomo1/page-074.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 75,
+        "text": "Flappy Bird IAActividades de Laboratorio\nDesarrollado por Roboticoss www.roboticoss.com 75\nProcedimiento\nSigue las instrucciones paso a paso. Asegúrate de tener todos los materiales listos y\nPictoBlox instalado antes de comenzar. Si necesitas ayuda durante la actividad, puedes\npedir apoyo a un adulto.\nPaso 1: Abrir PictoBlox\n1.Abrir PictoBlox\n2.Seleccionar la opción de bloques",
+        "image": "/resources/pdf-captures/tomo1/page-075.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 76,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n2.Cargar el personaje bird (ave).\nFlappy Bird IAActividades de Laboratorio\n76\nPaso 2: Cargar los personajes u objetos\n1.Elimina el personaje que viene por defecto.",
+        "image": "/resources/pdf-captures/tomo1/page-076.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 77,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nPaso 3: Cargar los fondos\n1.Seleccionar el fondo principal del juego.\n2.Seleccionar el fondo de Game Over.\nFlappy Bird IAActividades de Laboratorio\n77\n3.Cargar el objeto pipes (tuberías).",
+        "image": "/resources/pdf-captures/tomo1/page-077.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 78,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nFlappy Bird IAActividades de Laboratorio\n78\nPaso 4: Agregar las extensiones\n1.Agregar la extensión Face Detection o Detección de Caras.\n3. Seleccionar el fondo de Game Over.",
+        "image": "/resources/pdf-captures/tomo1/page-078.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 79,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com 79\nPaso 5: Programación\nEn este paso vas a programar dos sprites:\nEl primero será el personaje bird (ave)\nEl segundo será el objeto pipes (tuberías)\nPara realizar la programación, guíate utilizando la tabla de colores de bloques\ndisponible en este manual.\n Si tienes dudas, solicita ayuda al adulto encargado.\nFlappy Bird IAActividades de Laboratorio\nProgramación del personaje bird\n1. Seleccionar el sprite bird\nHaz clic sobre el personaje bird\nVerifica que esté seleccionado antes de comenzar a programar",
+        "image": "/resources/pdf-captures/tomo1/page-079.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 80,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n3. Activar la cámara\nAgrega el bloque:\ncambiar transparencia de video en stage a 60% [Face Detection]\nAgrega el bloque:\nocultar cuadro delimitador [Face Detection]\n2. Iniciar el programa\nAgrega el bloque:\nal hacer clic en bandera verde [Eventos]\nColócalo en el área de programación\nFlappy Bird IAActividades de Laboratorio\n80\n4. Configurar el fondo\nAgrega el bloque:\ncambiar fondo a Blue Sky 2 [Apariencia]\nAgrega el bloque:\nmostrar [Apariencia]",
+        "image": "/resources/pdf-captures/tomo1/page-080.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 81,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n6. Mover el ave con la nariz\nDentro del bloque anterior agrega:\nir a x: ( ) y: ( ) [Movimiento]\nEn los valores coloca:\nobtener x posición de nose de cara [Face Detection]\nobtener y posición de nose de cara [Face Detection]\nFlappy Bird IAActividades de Laboratorio\n81\n5. Detectar el rostro continuamente\nAgrega el bloque:\npor siempre [Control]\nDentro del bloque agrega:\nanalizar imagen desde cámara [Face Detection]\n7. Detectar colisión con tuberías\nAgrega dentro del bucle:\nsi tocando pipes entonces [Control]",
+        "image": "/resources/pdf-captures/tomo1/page-081.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 82,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nFlappy Bird IAActividades de Laboratorio\n82\n8. Finalizar el juego\nDentro del bloque condicional agrega:\nesconder [Apariencia]\ncambiar fondo a game over [Apariencia]\ndetener todos [Control]\nTu programa debería quedar así:",
+        "image": "/resources/pdf-captures/tomo1/page-082.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 83,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nFlappy Bird IAActividades de Laboratorio\n83\nCómo funciona el código\nEl juego empieza cuando haces clic en la bandera verde.\nEn ese momento, la cámara se activa y comienza a observar tu rostro.\nLa inteligencia artificial detecta tu nariz y obtiene su posición en la pantalla.\n El ave copia ese movimiento, por eso se mueve según cómo tú muevas tu nariz.\nEste proceso se repite todo el tiempo gracias al bloque “por siempre”.\nSi el ave toca una tubería, el juego termina.\n Entonces el personaje desaparece, cambia el fondo a “Game Over” y todo se detiene.",
+        "image": "/resources/pdf-captures/tomo1/page-083.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 84,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nFlappy Bird IAActividades de Laboratorio\n84\nProgramación del objeto pipes\n1. Seleccionar el sprite pipes\nHaz clic sobre el objeto pipes\nVerifica que esté seleccionado\n2. Crear la variable score\nIr a la sección: Variables\nSeleccionar: crear nueva variable\nAsignar el nombre: score\nSeleccionar: Para todos los objetos\nHacer clic en aceptar",
+        "image": "/resources/pdf-captures/tomo1/page-084.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 85,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nFlappy Bird IAActividades de Laboratorio\n85\n3. Iniciar configuración del juego\nAgrega el bloque:\nal hacer clic en bandera verde [Eventos]\nAgrega:\ndar a score el valor 0 [Variables]\nir a x: 259 y: 0 [Movimiento]\nesconder [Apariencia]\n4. Generar tuberías automáticamente\nAgrega:\npor siempre [Control]\nDentro agrega:\nesperar 4 segundos [Control]\ncrear clon de mí mismo [Control]",
+        "image": "/resources/pdf-captures/tomo1/page-085.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 86,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nFlappy Bird IAActividades de Laboratorio\n86\n5. Programar el comportamiento del clon\nAgrega el bloque:\nal comenzar como clon [Control], al lado del programa anterior.\n6. Posicionar tuberías\nAgrega:\nmostrar [Apariencia]\ndar a y el valor (número aleatorio entre -80 y 80) [Movimiento + Operadores]\n7. Mover tuberías\nAgrega:\nrepetir hasta que (posición en x < -250) [Control]\nDentro agrega:\nsumar a x -5 [Movimiento]",
+        "image": "/resources/pdf-captures/tomo1/page-086.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 87,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nFlappy Bird IAActividades de Laboratorio\n87\n8. Aumentar puntaje\nAgrega:\nsumar a score 10 [Variables]\n9. Eliminar tubería\nAgrega:\neliminar este clon [Control]\nTu programa debería quedar así:",
+        "image": "/resources/pdf-captures/tomo1/page-087.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 88,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nFlappy Bird IAActividades de Laboratorio\n88\nPaso  6: Guardar el proyecto\n1.Ir a la opción archivo.\n2.Seleccionar guardar como.\n3.Elegir la ubicación donde deseas guardar tu archivo.\n4.Asignar un nombre a tu proyecto.\n5.Hacer clic en guardar.\nPaso  7: Ejecutar y probar el juego\n1.Hacer clic en la bandera verde para iniciar el juego.\n2.Puedes maximizar la pantalla para verlo en tamaño completo.\n3.Coloca tu rostro frente a la cámara.\n4.Mueve tu nariz para controlar el ave.\n5.Intenta esquivar las tuberías y obtener el mayor puntaje posible. 🚀",
+        "image": "/resources/pdf-captures/tomo1/page-088.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 89,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nFlappy Bird IAActividades de Laboratorio\n89\nCómo funciona el código\nCuando inicia el juego, el puntaje comienza en cero.\nLas tuberías se crean automáticamente cada cierto tiempo.\nCada nueva tubería aparece en una posición diferente en la pantalla.\nLuego, las tuberías se mueven hacia la izquierda, simulando que el juego avanza.\nCuando una tubería sale de la pantalla, se elimina automáticamente.\nCada vez que logras pasar una tubería sin chocar, tu puntaje aumenta.",
+        "image": "/resources/pdf-captures/tomo1/page-089.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 90,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nFlappy Bird IAActividades de Laboratorio\n90\nAhora es momento de hacer pruebas. Vas a modificar partes del programa y también\nprobar cómo responde la inteligencia artificial en diferentes condiciones. Observa con\natención y registra tus resultados.\n🧪 Experimenta\nExperimento 1: Cambia la velocidad de las tuberías\n1.Modifica el valor con el que las tuberías se mueven en el eje x.\n2.Ejecuta el juego.\n¿Qué ocurrió con la dificultad del juego?\nMás fácil\nIgual\nMás difícil\nExplica brevemente qué pasó:\nExperimento 2: Cambia la posición de las tuberías\n1.Modifica la posición en y de las tuberías.\n2.Ejecuta el juego.\n¿El recorrido del juego cambió?\nNo\nSí\nDescribe el cambio que notaste:",
+        "image": "/resources/pdf-captures/tomo1/page-090.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 91,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nFlappy Bird IAActividades de Laboratorio\n91\nExperimento 3: Cambia el tiempo de aparición de las tuberías\n1.Modifica el tiempo de espera antes de crear una nueva tubería.\n2.Ejecuta el juego.\n¿Las tuberías ahora aparecen:\nMás juntas\nIgual\n¿Qué diferencia sentiste al jugar?\nMás separadas\nExperimento 4: Prueba con diferentes niveles de luz del entorno\n1.Juega en un lugar con mucha luz del entorno.\n2.Luego prueba en un lugar con poca luz del entorno.\nMarca lo que ocurrió:\nAnota lo que observaste:\nFunciona mejor con mucha luz\nFunciona mejor con poca luz\nFunciona igual",
+        "image": "/resources/pdf-captures/tomo1/page-091.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 92,
+        "text": "Flappy Bird IAActividades de Laboratorio\nDesarrollado por Roboticoss www.roboticoss.com 92\nExperimento 5: Prueba con diferentes fondos\n1.Usa un fondo claro y luego uno con muchos objetos.\nLa detección fue:\nMás precisa\nMenos precisa\n¿Qué crees que influyó en el resultado?\nIgual\nExperimento 6: Prueba con varias personas\n1.Coloca dos o más personas frente a la cámara.\n¿Quién controla el juego?\nUna sola persona\nVarias personas\nNo funciona correctamente\nDescribe lo que pasó:",
+        "image": "/resources/pdf-captures/tomo1/page-092.webp"
+      }
+    ]
+  },
+  "t1-act6": {
+    "title": "Actividad de Laboratorio 6: Batalla Espacial con IA",
+    "pages": [
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 93,
+        "text": "Nombre:\nActividad de Laboratorio 6\nBatalla Espacial con IA\nEn esta actividad controlarás una nave espacial usando tu rostro gracias a la inteligencia\nartificial. Deberás destruir a las naves enemigas y evitar que te derriben.\n¡Convierte tu rostro en el control, defiende el cosmos y supera tu mejor puntaje!\nDescripción de la actividad\n👨‍🔬\nIntroducción\n¿Cómo funciona la inteligencia artificial en este juego?\nGracias al módulo Face Detection y a la Inteligencia Artificial, podemos detectar el rostro\nen tiempo real a través de la cámara.\nUna vez detectado, el sistema obtiene información detallada de nuestro rostro, como su\nposición X y su posición Y. Con estos datos, la computadora puede controlar de forma\nexacta los movimientos de la nave espacial dentro del juego.\nMateriales\nPara esta actividad solo necesitas algunos elementos básicos para crear y jugar con\ninteligencia artificial:\nComputadora / Laptop / Tablet con PictoBlox instalado.\nCámara (puede ser integrada o una cámara externa).\nDesarrollado por Roboticoss www.roboticoss.com 93",
+        "image": "/resources/pdf-captures/tomo1/page-093.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 94,
+        "text": "Actividades de Laboratorio\nDesarrollado por Roboticoss www.roboticoss.com 94\nProcedimiento\nSigue las instrucciones paso a paso. Asegúrate de tener PictoBlox instalado antes de\ncomenzar. Si necesitas ayuda durante la actividad, puedes pedir apoyo a un adulto.\nPaso 1: Abrir PictoBlox\n1.Abrir PictoBlox\n2.Seleccionar la opción de bloques\nBatalla Espacial con IA",
+        "image": "/resources/pdf-captures/tomo1/page-094.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 95,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nActividades de Laboratorio\nPaso 2: Cargar los personajes u objetos\n1.Elimina el personaje que viene por defecto.\n95\n2. Cargar el personaje Player (nave espacial).\n3.Cargar el objeto Bullet (proyectil).\nBatalla Espacial con IA",
+        "image": "/resources/pdf-captures/tomo1/page-095.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 96,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nBatalla Espacial con IAActividades de Laboratorio\n96\n4.Cargar los objetos Enemy1, Enemy2 y Enemy3 (naves enemigas).\n5.Cargar el objeto End Screen (pantalla de final de juego).\nPaso 3: Cargar los fondos\n1.Seleccionar el fondo principal llamado Backdrop para el escenario del juego.",
+        "image": "/resources/pdf-captures/tomo1/page-096.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 97,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nBatalla Espacial con IAActividades de Laboratorio\n97\nPaso 4: Agregar las extensiones\n1.Agregar la extensión Face Detection o Detección de Caras.\nPaso 5: Crear variables\n1.Seleccionar cualquier objeto de tu lista de personajes.\n2.Ir a la categoría de bloques Variables.\n3.Hacer clic en el botón Crear una variable.\n4.Escribir el nombre score.\n5.Asegurarse de que esté seleccionada la opción Para todos los objetos y hacer clic en\nAceptar.",
+        "image": "/resources/pdf-captures/tomo1/page-097.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 98,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nBatalla Espacial con IAActividades de Laboratorio\n98\nPaso 6: Programación\nEn esta sección vas a programar el comportamiento de cada uno de los objetos del juego\npara darles vida con Inteligencia Artificial.\nProgramación del objeto Player\nEste objeto representa a tu nave espacial. La cámara capturará la imagen en tiempo real y\nla Inteligencia Artificial se encargará de detectar tu rostro en ella para guiar los\nmovimientos de la nave.\n1.Seleccionar el sprite Player\nHaz clic sobre el personaje Player en la lista de objetos para asegurarte de\nprogramar en el lugar correcto.",
+        "image": "/resources/pdf-captures/tomo1/page-098.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 99,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nBatalla Espacial con IAActividades de Laboratorio\n99\n2.Buscar y arrastrar los bloques\nSigue las instrucciones paso a paso para ir armando el código de tu nave.\n¡Tip de ayuda! Recuerda guiarte por los colores de los bloques si no sabes\nen qué categoría encontrarlos.\nLos bloques que tengan el símbolo especial de la extensión de Face\nDetection (un rostro escaneado) los encontrarás dentro de esa sección que\nactivamos antes.",
+        "image": "/resources/pdf-captures/tomo1/page-099.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 100,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nBatalla Espacial con IAActividades de Laboratorio\n100\nCómo funciona el código Player\n1.Configuraciones iniciales: Al presionar la bandera verde, la nave se ubica en su\nposición de inicio, cambia a su disfraz original, enciende la cámara de fondo con un 30%\nde transparencia y oculta el cuadro de detección de la cara.\n2.Bucle y detección de movimiento: Dentro de un bucle infinito, la Inteligencia Artificial\nanaliza la cámara constantemente y, si detecta tu rostro, la nave se mueve\nautomáticamente a la misma posición X e Y de tu cara en tiempo real.\n3.Condición de derrota: Se evalúa de forma continua si la nave choca con el enemigo 1,\nel enemigo 2 o el enemigo 3; si toca a cualquiera de ellos, la nave cambia al disfraz de\nexplosión, suena un efecto de sonido y manda el mensaje Game Over.\n4.Condición de victoria: Se revisa todo el tiempo si el puntaje (score) es mayor a 99\npuntos; si se alcanza esa meta, el programa envía el mensaje You Win.",
+        "image": "/resources/pdf-captures/tomo1/page-100.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 101,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nBatalla Espacial con IAActividades de Laboratorio\n101\nProgramación del objeto Bullet\nEste objeto representa los proyectiles que dispara tu nave espacial para destruir a los\nenemigos que aparezcan en la pantalla.\n1.Seleccionar el sprite Bullet\nHaz clic sobre el personaje Bullet en la lista de objetos para asegurarte de\nprogramar en el lugar correcto.\n2.Buscar y arrastrar los bloques\nSigue las instrucciones paso a paso para ir armando el código de tus disparos.\n¡Tip de ayuda! Presta atención a los bloques de control de color naranja; ahí\nencontrarás las opciones especiales para crear y manejar clones.",
+        "image": "/resources/pdf-captures/tomo1/page-101.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 102,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nBatalla Espacial con IAActividades de Laboratorio\n102\nCómo funciona el código Bullet\n1.Generación automática de disparos: Al presionar la bandera verde, el proyectil original\nse oculta y entra en un bucle infinito que crea un clon de sí mismo cada 0.5 segundos,\nreproduciendo al mismo tiempo un sonido de disparo.\n2.Inicio del clon en la nave: Al comenzar cada clon, este se ubica automáticamente en la\nmisma posición X e Y donde se encuentre el objeto Player en ese instante y se hace\nvisible en la pantalla.\n3.Movimiento del proyectil: Dentro de un bucle continuo, el clon avanza de forma\nhorizontal por el escenario sumándole 20 puntos a su eje X en cada repetición.\n4.Condición de eliminación por impacto o límite: Se evalúa constantemente si el proyectil\nchoca contra el borde de la pantalla o si toca a cualquiera de las naves enemigas\n(Enemy1, Enemy2 o Enemy3); si se cumple alguna de estas condiciones, el clon espera\nun instante y se elimina por completo para limpiar el escenario.",
+        "image": "/resources/pdf-captures/tomo1/page-102.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 103,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nBatalla Espacial con IAActividades de Laboratorio\n103\nProgramación del objeto Enermy1\nEste objeto representa a la primera nave enemiga que aparecerá en el espacio y que\ndeberás derribar antes de que te choque.\n1.Seleccionar el sprite Enermy1\nHaz clic sobre el personaje Enermy1 en la lista de objetos para asegurarte de\nprogramar en el lugar correcto.\n2.Buscar y arrastrar los bloques\nSigue las instrucciones paso a paso para ir armando el código de tu enemigo.\n¡Tip de ayuda! Presta atención a los bloques de operadores de color verde claro;\nlos usarás para que la nave aparezca en posiciones sorpresa de la pantalla.",
+        "image": "/resources/pdf-captures/tomo1/page-103.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 104,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nCómo funciona el código de Enermy1\n1.Generación aleatoria de enemigos: Al presionar la bandera verde, el enemigo original\nse oculta y entra en un bucle infinito que espera un tiempo al azar entre 1 y 3 segundos\nantes de crear un clon de sí mismo.\n2.Aparición sorpresa del clon: Al iniciar como clon, la nave apunta en una dirección fija,\nse ubica en el extremo derecho de la pantalla (X: 250) en una altura (Y) elegida al azar\nentre -120 y 120, se pone su disfraz correspondiente y se muestra.\n3.Movimiento hacia la izquierda: Dentro de un bucle continuo, el clon se desplaza de\nforma horizontal hacia el lado izquierdo de la pantalla restándole 12 puntos a su eje X\nen cada repetición.\n4.Eliminación por escapar: Se evalúa de forma constante si la nave enemiga logra cruzar\nla pantalla y su posición en X llega a ser menor a -220; si es así, el clon se elimina para\nno acumular objetos ocultos.\n5.Derrota por proyectil y aumento de puntos: Se revisa continuamente si el enemigo es\ntocado por el objeto Bullet; si recibe el disparo, se le suman 10 puntos a la variable\nscore, el enemigo cambia a su disfraz de explosión, reproduce un efecto de sonido y\nfinalmente elimina su clon.\nBatalla Espacial con IAActividades de Laboratorio\n104",
+        "image": "/resources/pdf-captures/tomo1/page-104.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 105,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nBatalla Espacial con IAActividades de Laboratorio\n105\nProgramación de los objetos Enermy2 y Enermy3\nEstos objetos representan las siguientes naves enemigas. Su comportamiento lógico es\nexactamente el mismo que el de Enermy1 (funcionan con clones que aparecen al azar y se\nmueven a la izquierda), pero cambian sus disfraces, su velocidad de avance y los puntos\nque otorgan al destruirlos.\n1.Seleccionar el sprite correspondiente\nHaz clic sobre Enermy2 o Enermy3 en tu lista de objetos según el código que vayas\na armar.\n2.Replicar el código cambiando los valores clave\nArma la misma estructura de bloques que usaste en el enemigo anterior.\nModifica los disfraces, las velocidades de movimiento en el eje X y los puntos\nsumados a la variable score guiándote por sus imágenes correspondientes.\nYa quedó listo y directo. Quedo a la espera de las imágenes de Enermy2 y Enermy3 para\navanzar.\nEnermy 2",
+        "image": "/resources/pdf-captures/tomo1/page-105.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 106,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nBatalla Espacial con IAActividades de Laboratorio\n106\nProgramación del objeto End Screen\nEste objeto se encarga de mostrar la pantalla final del juego, indicando de forma clara si\nlograste la victoria o si fuiste derrotado por las naves enemigas.\n1.Seleccionar el sprite End Screen\nHaz clic sobre el personaje End Screen en la lista de objetos para asegurarte de\nprogramar en el lugar correcto.\n2.Buscar y arrastrar los bloques\nSigue las instrucciones paso a paso para ir armando los tres eventos de este objeto.\n¡Tip de ayuda! Presta atención a los bloques de eventos de color amarillo; ahí\nencontrarás los bloques para recibir los mensajes de Game Over y You Win.\nEnermy 3",
+        "image": "/resources/pdf-captures/tomo1/page-106.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 107,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nBatalla Espacial con IAActividades de Laboratorio\n107\nCómo funciona el código de End Screen\n1.Inicio del juego: Al hacer clic en la bandera verde, la variable score se reinicia a 0 y este\nobjeto se oculta por completo para permitir que el jugador empiece la partida sin\nobstáculos.\n2.Pantalla de derrota: Al recibir el mensaje Game Over, el objeto cambia\nautomáticamente su disfraz al de derrota (gameover), se muestra en pantalla completa\ny detiene absolutamente todos los programas del juego.\n3.Pantalla de victoria: Al recibir el mensaje You Win, el objeto cambia su disfraz al de\nvictoria (you-win), se hace visible en el escenario y detiene la ejecución de todo el juego\npara dar por terminada la partida con éxito.",
+        "image": "/resources/pdf-captures/tomo1/page-107.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 108,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nBatalla Espacial con IAActividades de Laboratorio\n108\nPaso 7: ¡A jugar y probar tu proyecto!\n¡Felicidades! Has terminado de programar tu juego con Inteligencia Artificial. Ahora es\nmomento de probar que todo funcione correctamente.\n1.Prueba de calibración: Haz clic en la bandera verde y colócate frente a la cámara.\nMueve tu cabeza hacia los lados y de arriba a abajo. ¿La nave espacial sigue tu rostro\ncon precisión?\n2.Prueba de juego: Intenta esquivar a los enemigos mientras tus proyectiles los\ndestruyen.\n3.Verificación de condiciones:\nAsegúrate de que al llegar a 100 puntos el juego se detenga y muestre la pantalla\nde You Win.\nVerifica que si un enemigo toca tu nave, aparezca la pantalla de Game Over.",
+        "image": "/resources/pdf-captures/tomo1/page-108.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - Aprende IA Jugando.pdf",
+        "sourcePage": 109,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nBatalla Espacial con IAActividades de Laboratorio\n109",
+        "image": "/resources/pdf-captures/tomo1/page-109.webp"
+      }
+    ]
+  },
+  "t2-act1": {
+    "title": "Actividad de Laboratorio 1: Primeros Pasos en Pictoblox",
+    "pages": [
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 19,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nProcedimiento\nSigue paso a paso las indicaciones de esta actividad. Como es tu primera práctica, pide\nayuda a un adulto para que te acompañe. Trabajen juntos, sigan cada paso con atención y\nverán que todo saldrá muy bien.\nNombre:\nDescripción de Actividad\nEn esta actividad iniciaremos nuestra primera experiencia práctica dentro del laboratorio\ndigital (Pictoblox).\nCuando Niko muestre su saludo en pantalla y escuchemos su voz, sabremos que el\nlaboratorio está listo para comenzar a automatizar nuestra casa con IA.\nMateriales requeridos\nActividad de Laboratorio 1\nPrimeros Pasos en Pictoblox\n19\nPaso 1: Abre Pictoblox\n1.En el buscador de Windows, escribe PictoBlox.\n2.Abre el programa.\n3.Cuando se cargue, selecciona la opción Bloques.\nComputadora/ Tablet / Laptop con Pictoblox instalado",
+        "image": "/resources/pdf-captures/tomo2/page-019.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 20,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n 20\nPrimeros Pasos en PictobloxActividades de Laboratorio\nPaso 2: Cambia el fondo del laboratorio\nAntes de programar, vamos a preparar el escenario.\n1.Ve a Fondos.\n2.Selecciona Cargar fondo.\n4. Verás el entorno de trabajo del laboratorio, donde vamos a crear nuestro programa.\n3.El fondo será proporcionado por el instructor o persona encargada.\n4.Solicítalo directamente a él para continuar con la actividad.\n5.Selecciona el fondo del laboratorio.\n6.Cuando se abra la ventana de edición:\nNo hagas ningún cambio\nRegresa directamente al área de bloques.",
+        "image": "/resources/pdf-captures/tomo2/page-020.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 21,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nNombre del Laboratorio\n21\nPrimeros Pasos en PictobloxActividades de Laboratorio\nPaso 3:  Cambia el personaje\n1.Elimina el personaje que viene por defecto.\n2.Ahora vamos a usar nuestro personaje (sprite):\nNiko\n3.Carga el personaje desde la misma carpeta donde estaba el fondo.",
+        "image": "/resources/pdf-captures/tomo2/page-021.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 22,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nNombre del Laboratorio\nPaso 4: Inicia el programa\n1.Ve al área de bloques.\n2.Entra a la sección Eventos       .\n3.Arrastra el bloque:\n4.Este bloque significa: cuando presionas la bandera verde, el programa comienza.\n22\nPrimeros Pasos en PictobloxActividades de Laboratorio\n4.Una vez cargado:\nMueve el personaje hasta que quede bien ubicado.\nDale un tamaño del 70 %.",
+        "image": "/resources/pdf-captures/tomo2/page-022.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 23,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nNombre del Laboratorio\nPaso 5: Muestra el saludo en pantalla\n1.Ve a la sección Apariencia        .\n2.Busca el bloque:\n3.Escribe el texto:\nHola, soy Niko\n4.Conecta este bloque debajo del bloque de la bandera verde.\n23\nPrimeros Pasos en PictobloxActividades de Laboratorio\nPaso 6: ¡Prueba tu programa!\nEn este paso solo estamos probando.\n1.Cuando presiones la bandera verde, verás que aparece una burbuja de texto sobre mí\ndiciendo:\nHola, soy Niko\nEsto ocurre antes de hacer que hable, y sirve para comprobar que el mensaje está bien\nescrito.\nSi ves la burbuja, ¡todo va perfecto!",
+        "image": "/resources/pdf-captures/tomo2/page-023.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 24,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nNombre del Laboratorio\nPaso 7: Haz que Niko hable\n1.Ve a Extensiones (Esquina inferior izquierda).\n2.Agrega la extensión:\nTexto a Voz\n3.Aparecerán nuevos bloques al lado derecho.\n24\nPrimeros Pasos en PictobloxActividades de Laboratorio",
+        "image": "/resources/pdf-captures/tomo2/page-024.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 25,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nNombre del Laboratorio\nPaso 8: ¡Prueba tu programa!\n1.Presiona la bandera verde.\n2.Si lograste esto\nVer el texto en pantalla\nEscuchar a Niko hablar\n¡Felicidades!\nAcabas de crear tu primer programa con voz en el laboratorio.\n5.Arrastra el bloque asignar voz a y selecciona la voz tenor o chillido.\n6.Arrastra el bloque                      y escribe:\nHola, soy Niko\n7.Conecta todos los bloques en la secuencia mostrada.\nAntes de continuar, guarda tu proyecto para no perder tu avance.\n1.Haz clic en Archivo →  Guardar como\n25\nPrimeros Pasos en PictobloxActividades de Laboratorio\nPaso 9:  Guarda tu programa",
+        "image": "/resources/pdf-captures/tomo2/page-025.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 26,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nNombre del Laboratorio\nEn esta actividad realizaste tu primer programa, conocido como “Hola Mundo”.\nAprendiste a preparar el entorno y a dar tus primeras instrucciones dentro del programa,\ndando así tu primer paso en la programación.\nDurante la actividad pudiste:\n¿Qué aprendiste?\n2.Guarda el proyecto en la misma carpeta donde encontraste el fondo y el personaje.\n3.Usa un nombre como: Hola_mundo\nAsí tu proyecto queda bien organizado y listo para usarlo más adelante.\n26\nPrimeros Pasos en PictobloxActividades de Laboratorio\nCargar un escenario dentro del programa.\nAgregar y seleccionar un personaje.\nMostrar un mensaje en texto (burbuja).\nHacer que el personaje hable.\nEjecutar el programa utilizando la bandera verde.\nGuardar tu proyecto correctamente.\nAhora ya sabes cómo crear un programa básico y darle vida a tus ideas paso a paso.",
+        "image": "/resources/pdf-captures/tomo2/page-026.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 27,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nNombre del Laboratorio\n27\nPrimeros Pasos en PictobloxActividades de Laboratorio\nPara el Instructor o Padres\nEn esta actividad, acompaña al estudiante durante su primera práctica para que se\nfamiliarice con el entorno de trabajo. Brinda apoyo cuando sea necesario y asegúrate de\nque comprenda cada acción antes de continuar.\nDurante la actividad debes:\nVerificar que el estudiante haya abierto correctamente el programa.\nAsegurar que cargue un escenario y un personaje sin dificultades.\nExplicar cómo funcionan los bloques básicos utilizados en la actividad.\nSupervisar que el mensaje en texto y el sonido se ejecuten correctamente.\nRecordar cómo iniciar el programa (bandera verde).\nComprobar que el proyecto sea guardado correctamente.\nMotivar al estudiante a realizar pequeños cambios (texto, personaje o sonido) para\nreforzar el aprendizaje.\nTu guía es clave para que el estudiante gane confianza y dé sus primeros pasos en\nprogramación con seguridad.\nApoyo en video\nSi el estudiante presenta dificultades, puedes utilizar el video de apoyo para explicar la\nactividad paso a paso.",
+        "image": "/resources/pdf-captures/tomo2/page-027.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 28,
+        "text": "Sección 3\nDetección de rostros\n28\n¿Cómo sabemos que hay un rostro frente a nosotros?\nCuando miramos a una persona, podemos notar rápidamente que frente a nosotros hay\nuna cara. No siempre necesitamos saber quién es esa persona. A veces solo basta con\ndarnos cuenta de que allí hay un rostro.\nPor ejemplo, cuando ves a alguien desde lejos, primero notas que hay una cara. Después,\nsi te acercas más, recién puedes darte cuenta de quién es. Eso significa que primero\ndetectamos el rostro y luego, si hace falta, lo reconocemos.\nAhora piensa en esto:\n ¿crees que una computadora también puede darse cuenta de que hay un rostro frente a\nuna cámara?\nAhora sí comenzaremos a automatizar nuestra casa virtual utilizando Inteligencia\nArtificial.\nUno de los primeros problemas que debemos resolver es la seguridad del hogar.\nImagina un sistema de acceso con reconocimiento facial capaz de permitir el ingreso\nsolamente a personas autorizadas.\nSin embargo, antes de reconocer quién es la persona, primero necesitamos detectar que\nexiste un rostro frente a la cámara.\nPor eso, en esta sección aprenderemos cómo funciona la detección de rostros utilizando\nInteligencia Artificial.",
+        "image": "/resources/pdf-captures/tomo2/page-028.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 29,
+        "text": "¿Qué es la detección de rostros?\nLa detección de rostros es una tecnología que permite a\nun dispositivo identificar si en una imagen o en un video\naparece un rostro humano.\nSu trabajo no es decir quién es la persona, sino\nencontrar dónde está el rostro dentro de la imagen.\nDetección de rostrosSección 3\n29\nLa computadora analiza lo que ve la cámara y busca patrones que se parecen a un rostro\nhumano.\nPor ejemplo, busca formas y características generales del rostro, como:\nojos\nnariz\nboca\n¿Cómo funciona?\nCuando lo detecta, la computadora puede marcarlo con un recuadro y obtener\ninformación importante, como:\nposición\nancho\nalto",
+        "image": "/resources/pdf-captures/tomo2/page-029.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 30,
+        "text": "Cuando encuentra una combinación parecida, indica que allí hay un rostro.\nDespués de detectarlo, puede dibujar un recuadro alrededor y calcular datos como:\nla posición del rostro en la pantalla\nel ancho del recuadro\nel alto del recuadro\nGracias a esto, podemos crear proyectos donde:\nun personaje siga la cara\nun objeto se mueva según la posición del rostro\nel sistema responda cuando detecta a una persona\n30\nDetección de rostrosSección 3\n¿Cómo lo usamos en PictoBlox?\nEn PictoBlox existe una extensión llamada detección de rostros (Face Detection), la cual\nnos permite detectar cuando aparece un rostro frente a la cámara.",
+        "image": "/resources/pdf-captures/tomo2/page-030.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 31,
+        "text": "Con estos datos podemos crear proyectos interactivos, por ejemplo:\nmover un objeto según la posición del rostro\nreaccionar cuando alguien aparece en la cámara\nAdemás, esta extensión también puede trabajar con puntos clave del rostro (como ojos,\nnariz y boca), los cuales nos permiten obtener más información sobre la cara. Estos puntos\npueden ser utilizados para proyectos más avanzados.\nTambién existen otras funciones como el reconocimiento de emociones o el\nreconocimiento facial, pero estos temas los veremos más adelante.\nAhora que ya sabemos qué es la detección de rostros y cómo funciona en PictoBlox,\nvamos a comenzar con nuestro laboratorio donde verás paso a paso cómo hacerlo.\nEsta extensión analiza la imagen en tiempo real y dibuja un recuadro alrededor del rostro\ndetectado. Además, nos proporciona información muy útil como:\nposición del rostro (coordenadas x y x)\nancho del recuadro\nalto del recuadro\n31\nDetección de rostrosSección 3",
+        "image": "/resources/pdf-captures/tomo2/page-031.webp"
+      }
+    ]
+  },
+  "t2-act2": {
+    "title": "Actividad de Laboratorio 2: Mi primer rostro detectado",
+    "pages": [
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 32,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nProcedimiento\nNombre:\nMateriales requeridos\nPaso 1: Prepara tu laboratorio de trabajo\n1.Abre PictoBlox.\n2.Carga el escenario como lo hicimos en la actividad de laboratorio Hola mundo.\n3.Agrega al personaje Niko.\n4.Haz clic en Añadir extensiones.\n5.Añade las siguientes extensiones:\nDetección de Rostros (Face Detection)\nActividad de Laboratorio 2\nMi primer rostro detectado\n32\nEn esta actividad activarás la cámara y comprobarás cómo la máquina (computadora)\ndetecta tu rostro en tiempo real.\nComputadora/ Tablet/ Laptop con Pictoblox instalado.\nDescripción de Actividad\n👨‍🔬",
+        "image": "/resources/pdf-captures/tomo2/page-032.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 33,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nTexto a Voz (Text to Speech)\n6.Verifica que ambas extensiones estén activas.\nPaso 2: Guarda tu proyecto correctamente\n1.Haz clic en Archivo.\n2.Selecciona Guardar como.\n3.Cuando aparezca el mensaje para guardar los detalles del rostro, selecciona Sí.\n33\nMi primer rostro detectadoActividades de Laboratorio",
+        "image": "/resources/pdf-captures/tomo2/page-033.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 34,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n 34\nPaso 2: Niko te da la bienvenida\nAquí Niko empieza a interactuar contigo, mostrando texto y hablando al mismo tiempo.\nMi primer rostro detectadoActividades de Laboratorio\n4.Asigna un nombre a tu proyecto.\n5.Guarda el archivo en la ubicación indicada por tu instructor.\nAhora es tu turno: sigue la secuencia\nTu misión es seguir el orden de los bloques y usar la Tabla de colores para encontrarlos\nfácilmente.",
+        "image": "/resources/pdf-captures/tomo2/page-034.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 35,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nPistas\n1.Sigue el orden: Coloca los bloques uno tras otro, como si fueran piezas de LEGO. ¡El\norden importa!\n2.Guíate por los colores: Busca el bloque en la sección que tenga su mismo color.\n35\nPaso 4: Activa la cámara\nAhora sí, le damos “ojos” al programa.\nMi primer rostro detectadoActividades de Laboratorio\n1.Ve a la extensión Face Detection.\n2.Agrega el bloque                                                                debajo de los bloques\nanteriores.\n3.Configura la transparencia del video al 30%.\nPaso 5: Probamos la cámara\n1.Pon el laboratorio en pantalla completa.",
+        "image": "/resources/pdf-captures/tomo2/page-035.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 36,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n 36\nMi primer rostro detectadoActividades de Laboratorio\nPaso 6: Dibujamos la caja del rostro\n1.Presiona la bandera verde.\n2.Niko te saluda.\n3.La pantalla se vuelve un poco transparente y se activa la cámara.\n5.Te ves en el fondo.\n6.Sal de pantalla completa.",
+        "image": "/resources/pdf-captures/tomo2/page-036.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 37,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n 37\nMi primer rostro detectadoActividades de Laboratorio\n¿Qué hace este código?\n1.Cuadro delimitador: Dibuja un cuadro sobre tu rostro cuando lo detecta.\n2.Por siempre: el programa monitorea la cámara continuamente y analiza si hay un\nrostro.\nAhora probamos\n1.Activa la Pantalla completa\n2.Clic en la bandera verde\n3.Ponte frente a la cámara\nAhora es tu turno de armar los bloques usando la imagen como guía.\nAyúdate con la Tabla de colores para saber dónde buscar cada bloque.\nPistas\n1.Busca el bloque por siempre . Todo lo que pongas dentro se repetirá sin parar.\n2.Dentro del bloque por siempre: Mete ahí el siguiente bloque:",
+        "image": "/resources/pdf-captures/tomo2/page-037.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 38,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n 38\nMi primer rostro detectadoActividades de Laboratorio\nPaso 7: Tomamos una decisión\nAhora queremos que, si ve un rostro, haga algo.\nTu misión:\n1.Ve a la sección Control.\n2.Busca el bloque si / si no.\n3.Arrástralo y encájalo dentro del bloque por siempre.\nAhora detén con Stop, sal de pantalla completa y vuelve a programar.\n¡Si ves tu cara con una cajita, lo lograste!",
+        "image": "/resources/pdf-captures/tomo2/page-038.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 39,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n 39\nMi primer rostro detectadoActividades de Laboratorio\nPaso 8: ¿Hay un rostro o no?\nPara que el programa decida, necesita comparar. Si el número de rostros es más que cero,\n¡significa que hay alguien ahí!\n¿Qué acabas de lograr? Al ponerlo dentro de \"por siempre\", el programa revisará la cámara\nsin parar. Es como si le dijeras: \"Todo el tiempo, si ves a alguien haz esto, si no, haz\naquello\".",
+        "image": "/resources/pdf-captures/tomo2/page-039.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 40,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n¿Qué está ocurriendo?\nEl programa analiza lo que ve la cámara y comprueba si hay al menos una persona\ndetectada.\nSi la respuesta es afirmativa, Niko reacciona.\n40\nMi primer rostro detectadoActividades de Laboratorio\nPaso 9: Cuando SÍ hay un rostro\nAhora vamos a programar la reacción de Niko. Mira la imagen de referencia y encaja los\nbloques en este orden dentro del espacio del si:\n¡No olvides los colores! Usa la tabla de colores si no encuentras un bloque.\nPistas\n1.Ve a la sección Operadores y busca el bloque mayor que ( > ).\n2.Ponlo justo en el hueco del bloque \"si\" que usamos antes.\n3.Ahora rellena los espacios:\nEn el lado izquierdo, pon el bloque: obtener # de rostros (lo encuentras en Face\nDetection).\nEn el lado derecho, escribe el número 0.",
+        "image": "/resources/pdf-captures/tomo2/page-040.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 41,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nPaso 10: Cuando NO hay un rostro\nSi no se detecta ningún rostro, Niko mostrará otro mensaje:\nTu reto:\nMira la imagen y completa el área del si no\n1.Mensaje: En Apariencia, usa decir y escribe algo divertido como: “No veo ningún\nrostro. ¿Te escondiste o sigo esperando?”.\n2.Voz: En el bloque “Texto a Voz”, configura el mismo mensaje.\nTip creativo:\n¡Puedes cambiar el mensaje por un chiste o un secreto que Niko diga cuando no haya nadie\ncerca!\nEjemplo: \"¡Me dejaste solo!” , “¿Estás jugando a las escondidas?”\n41\nMi primer rostro detectadoActividades de Laboratorio\n¿Qué lograste?\nAhora, cuando el sistema detecte tu rostro, dibujará un cuadro alrededor (como un\nrastreador real) y Niko te saludará con mucha emoción.",
+        "image": "/resources/pdf-captures/tomo2/page-041.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 42,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n 42\nMi primer rostro detectadoActividades de Laboratorio\nPaso 11: ¡Prueba tu creación!\nHa llegado el momento de probar tu programa. Observa a Niko en acción siguiendo estos\npasos:\n1.Activa la pantalla completa.\n2.Presiona la bandera verde..\n3.¡Ponte frente a la cámara y luego escóndete!\nSi todo está bien, verás un cuadro dibujado sobre tu rostro y Niko saludándote.\nSi te vas y no se detecta ningún rostro, mostrará el mensaje:\n“No veo ningún rostro. ¿Te escondiste o sigo esperando?”\nPaso 12: Guarda los cambios\n1.Haz clic en el icono de guardar 💾\n2.Cuando aparezca el mensaje “Guardar datos del rostro”, selecciona Sí",
+        "image": "/resources/pdf-captures/tomo2/page-042.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 43,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com 43\nMi primer rostro detectadoActividades de Laboratorio\nEsto nos ayudará a tener todo listo para los siguientes proyectos.\nEn esta actividad aprendiste cómo una computadora puede ver un rostro utilizando\nInteligencia Artificial. Descubriste cómo funciona este proceso en tiempo real y cómo el\nsistema toma decisiones según lo que detecta.\nDurante la actividad pudiste:\nActivar y utilizar la cámara del dispositivo.\nDetectar un rostro en tiempo real.\nObservar cómo el sistema encierra el rostro en una caja.\nComprender que el rostro debe estar visible y de frente para ser detectado.\nRealizar acciones cuando se detecta un rostro.\nRealizar acciones cuando no se detecta ningún rostro.\nAhora sabes que la Inteligencia Artificial reconoce patrones, como el rostro humano,\npara tomar decisiones de manera automática.\n¿Qué aprendiste?",
+        "image": "/resources/pdf-captures/tomo2/page-043.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 44,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nAhora es tu turno de probar.\nJuega con el sistema y observa qué sucede en cada caso.\n🧪 Experimenta\n44\nMi primer rostro detectadoActividades de Laboratorio\nExperimento 1\nTápate un ojo\n¿La IA detecta tu rostro?\nSí\nNo\n¿Qué ocurrió?\nExperimento 2\nAléjate de la cámara\n¿La IA sigue detectando tu rostro?\nSí\nNo\n¿Qué cambió?",
+        "image": "/resources/pdf-captures/tomo2/page-044.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 45,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n 45\nMi primer rostro detectadoActividades de Laboratorio\nExperimento 3\nMuévete rápidamente\nSí\nNo\n¿Qué pasó con la detección?\nExperimento 4\nColóquense varios compañeros frente a la cámara\n¿Qué detecta la IA?\nUno\nVarios\nReflexiona\n¿Qué necesita la Inteligencia Artificial para reconocer tu rostro correctamente?\n¿Detecta uno o varios rostros?",
+        "image": "/resources/pdf-captures/tomo2/page-045.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 46,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nPara el Instructor o Padres\nEn esta actividad, aprovecha la experiencia para generar una pequeña discusión con los\nestudiantes. El objetivo es que reflexionen sobre cómo funciona la Inteligencia Artificial en\nsituaciones reales y comprendan sus limitaciones.\nDurante la actividad puedes:\nPreguntar: ¿La IA detectó a todos o solo a algunos?\nPreguntar: ¿Qué ocurrió cuando había varias personas al mismo tiempo?\nExplicar que la Inteligencia Artificial puede cometer errores o variar su\ncomportamiento.\nComentar que factores como la posición, la iluminación o la cantidad de personas\npueden afectar la detección.\nMotivar a los estudiantes a compartir lo que observaron y sus conclusiones.\nGuía la conversación para que comprendan que la IA no es perfecta, pero aprende a partir\nde patrones y condiciones del entorno.\n46\nApoyo en video\nSi los estudiantes presentan dificultades, puedes utilizar el video de apoyo para explicar la\nactividad paso a paso.\nMi primer rostro detectadoActividades de Laboratorio",
+        "image": "/resources/pdf-captures/tomo2/page-046.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 47,
+        "text": "Sección 4\nReconocimiento facial\n47\nAnteriormente aprendimos cómo detectar si existe una persona frente a la cámara\nutilizando Inteligencia Artificial.\nPero detectar un rostro no es suficiente. Ahora necesitamos reconocer quién es la\npersona para decidir si puede ingresar o no a nuestra casa inteligente.\nPor eso, en esta sección aprenderemos cómo funciona el reconocimiento facial\nutilizando Inteligencia Artificial.\nEl reconocimiento facial es una tecnología que permite a una\nmáquina identificar quién es una persona a partir de su\nrostro.\nA diferencia de la detección de rostros, que solo indica que\nhay una cara, el reconocimiento facial permite diferenciar\nentre personas.\nPor ejemplo, la máquina puede reconocer si eres tú u otra\npersona.\n¿Qué es el reconocimiento facial?\nEn nuestra vida diaria, no solo detectamos rostros, sino que también reconocemos a\nlas personas.\nPor ejemplo, puedes identificar a tus amigos, familiares o profesores con solo ver su\ncara. Esto es porque tu cerebro ha aprendido a diferenciar los rasgos de cada persona.\nAhora piensa en esto:\n ¿crees que una computadora puede aprender a reconocer a diferentes personas como\nnosotros?\n¿Cómo reconocemos a las personas?",
+        "image": "/resources/pdf-captures/tomo2/page-047.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 48,
+        "text": "48\nReconocimiento facialMódulo 4\nPara que la computadora pueda reconocer un rostro, primero necesita aprender.\nEsto se hace mediante un proceso llamado entrenamiento.\nDurante el entrenamiento, se capturan varias imágenes del rostro de una persona. Con\nesta información, el sistema aprende sus características.\nLuego, cuando aparece un rostro frente a la cámara, la computadora compara ese rostro\ncon los que ya tiene guardados.\nSi encuentra coincidencia, puede identificar a la persona.\n¿Cómo funciona?\nEn PictoBlox, la misma extensión de detección de rostros (Face Detection) incluye la\nopción de reconocimiento facial mediante un bloque específico.\nPara usarlo, primero debemos entrenar el sistema con nuestro rostro.\nEste proceso es muy sencillo. Se activa la cámara y la persona se coloca frente a ella. El\nbloque se encarga de recolectar automáticamente varias imágenes del rostro.\nCon estas imágenes, el sistema realiza el entrenamiento y guarda la información en una\nbase de datos.\n¿Cómo lo usamos en PictoBlox?",
+        "image": "/resources/pdf-captures/tomo2/page-048.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 49,
+        "text": "A cada rostro se le puede asignar un nombre o etiqueta, lo que permite identificar a\ndiferentes personas.\nPictoBlox permite registrar hasta 10 rostros diferentes, lo que es suficiente para crear\nvarios tipos de proyectos.\nUna vez entrenado, el sistema puede reconocer el rostro en tiempo real y ejecutar\nacciones según la persona detectada.\nAhora que ya sabemos cómo funciona el reconocimiento facial en PictoBlox, vamos a\ncontinuar con las actividades de laboratorio, donde veremos paso a paso cómo\nentrenar un rostro y cómo utilizarlo en un sistema de acceso.\n49\nReconocimiento facialMódulo 4\n¿Sabías que... ?\nMuchos teléfonos modernos utilizan reconocimiento facial para desbloquear la\npantalla automáticamente.\nLa cámara analiza tu rostro y lo compara con la información almacenada\npreviamente. Si detecta que eres la persona autorizada, el teléfono permite el\nacceso.",
+        "image": "/resources/pdf-captures/tomo2/page-049.webp"
+      }
+    ]
+  },
+  "t2-act5": {
+    "title": "Actividad de Laboratorio 5: Reconociendo a una persona especial",
+    "pages": [
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 50,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nProcedimiento\nNombre:\nActividad de Laboratorio 5\nReconociendo a una persona especial\nMateriales requeridos\n50\nDescripción de Actividad\nHasta ahora el sistema solo veía rostros . Ahora dará un gran salto: reconocer a una\npersona especial.\nEntrenarás el modelo IA y comprobarás si puede identificar correctamente quién está\nfrente a la cámara.\nComputadora/ Tablet/ Laptop con Pictoblox instalado.\nPARTE 1: Entrenamiento\n¡Ahora vas a darle memoria al sistema!\nPara que sepa quién eres, incorporarás un nuevo bloque de código al programa\nanterior.\nLos programadores de verdad siempre reutilizan sus mejores códigos. ¡Vamos a hacer\nlo mismo!\n👨‍🔬\nPrimero, la Inteligencia Artificial necesita aprender.\nEso se llama entrenamiento.\nLuego, cuando la cámara vuelve a mirar:\ncompara el rostro que ve\ncon los rostros que aprendió antes\nY entonces decide:\nSí, te conozco\n¿Eres un extraño?",
+        "image": "/resources/pdf-captures/tomo2/page-050.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 51,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n 51\nReconociendo a una persona especialActividades de Laboratorio\n1.Abre tu proyecto anterior de detección de rostros.\n2.Guarda el proyecto con un nuevo nombre: Reconocimiento_facial. (Así crearás una\ncopia y no modificarás el archivo original).\n3.Agrega el nuevo bloque de código que aparece en la imagen.\nColócalo debajo del programa que ya habías creado.",
+        "image": "/resources/pdf-captures/tomo2/page-051.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 52,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n2.En el bloque                             , escribe 3 segundos.\n1.En el bloque                                              , asegúrate de que diga Clase 1 y borra \"Jarvis\"\npara escribir tu propio nombre.\n¿Qué está pasando en el algoritmo?\nCuando presionas la T, este es el orden que sigue tu algoritmo:\n52\nReconociendo a una persona especialActividades de Laboratorio\nPistas\n1.Réplica los bloques de la imagen exactamente igual. Por ahora, no cambies nada;\ndéjalo todo como viene por defecto.\n2.Busca por colores: Si no encuentras un bloque, consulta tu Tabla de Colores. Por\nejemplo       pertenece a los bloques de Apariencia.\n3.Los bloques con el icono         los encontrarás en la extensión Face Detection.\n4.Los bloques con el icono       los encontrarás en la extensión Texto a voz.\nTu misión\nPara que el algoritmo funcione, debes cambiar estos detalles en tus bloques:\n1.En el bloque                                         , selecciona la tecla t.",
+        "image": "/resources/pdf-captures/tomo2/page-052.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 53,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n 53\nReconociendo a una persona especialActividades de Laboratorio\nPARTE 2: Reconocimiento facial\nEl sistema de inteligencia artificial ya conoce tu rostro, ahora vamos a ponerlo a prueba.\n¿Qué debes hacer?\nMira la Imagen 1 (Programa anterior) y compárala con la Imagen 2 (Programa nuevo).\n1.Encuentra las diferencias: ¿Qué bloques nuevos aparecieron? ¿Cuáles cambiaron?\n2.Actualiza: Mueve, quita o agrega los bloques hasta que tu área de programación sea\nidéntica a la Imagen 2.\n3.Prueba: Cuando sean iguales, Niko dejará de decir \"Rostro detectado\" para decir ¡tu\nnombre!\n1.Modo entrenamiento: Niko te saluda y el sistema activa la cámara para comenzar a\nobtener datos.\n2.Limpieza total: Con el bloque reiniciar clase, borra cualquier rostro antiguo para no\nconfundirse.\n3.Después de esperar 3 segundos, el sistema utiliza el bloque añadir clase para\ncapturar tu rostro desde la cámara y almacenarlo.\n4.Registro listo: Una vez completado el entrenamiento, Niko mostrará el mensaje de\nconfirmación y el sistema apagará la cámara.\nConsejos importantes\nAntes de entrenar, revisa esto\nBuena iluminación en el rostro\nNo pongas la luz detrás de ti\nMira de frente a la cámara\nAsí el reconocimiento funciona mejor y sin errores",
+        "image": "/resources/pdf-captures/tomo2/page-053.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 54,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n 54\nReconociendo a una persona especialActividades de Laboratorio\n Algoritmo anterior                             Algoritmo nuevo",
+        "image": "/resources/pdf-captures/tomo2/page-054.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 55,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n¡Pon a prueba tu Sistema de Seguridad!\n¡Es hora de ver si el sistema de IA es un buen detective! Para que la experiencia sea\nincreíble, sigue estos pasos:\n1.Pantalla Completa: Haz clic en el botón de pantalla completa.\n2.Entrenamiento (Tecla T): Presiona la T y quédate quieto hasta que Niko guarde tu\nrostro. ¡Ahora ya te tiene en su memoria!\n3.El Gran Test (Tecla Espacio): Presiona el ESPACIO y mira si te saluda por tu nombre.\nPistas\n1.Escaneo de arriba hacia abajo: Compara el programa nuevo con el anterior\nempezando desde el primer bloque. Ve bajando poco a poco.\n2.Reemplaza o aumenta: Si ves un bloque diferente, reemplázalo. Si ves uno que no\ntenías, ¡auméntalo!\n3.Rescata tu código: Cuando llegues al bloque por siempre. Antes de quitarlo, saca\ntodo lo que tiene adentro y ponlo a un ladito. ¡Esos bloques te servirán para armar el\nprograma nuevo!\n4.Mueve y acomoda: Ahora sí, ve moviendo y agregando los bloques necesarios hasta\nque tu pantalla sea igual a la imagen.\n5.Guíate por los iconos:\nLos bloques con el icono          son de Face Detection.\nLos bloques con el icono          son de Voz.\n6.Colores: Si un bloque se esconde, búscalo por su color. ¡Es la forma más rápida!\n55\nReconociendo a una persona especialActividades de Laboratorio",
+        "image": "/resources/pdf-captures/tomo2/page-055.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 56,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nLlegó el momento de ver qué tan bien funciona tu sistema de IA. Haz estos experimentos y\nescribe tus resultados:\nExperimento 1: El Camuflaje\nTápate un poco la cara con las manos o una libreta y presiona ESPACIO.\n¿Qué pasó?\nExperimento 2: El Intruso\nDile a un amigo, a tu papá o a tu mamá que se ponga frente a la cámara y presiona\nESPACIO.\n¿Qué dijo Niko?\nExperimento 3: Luz y Sombra\nApaga un poco la luz o ponte de espaldas a una ventana y prueba otra vez.\n¿Cómo son los datos con poca luz?\n56\nReconociendo a una persona especialActividades de Laboratorio\n🧪Experimenta",
+        "image": "/resources/pdf-captures/tomo2/page-056.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 57,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nPara el Instructor o Padres\nEn esta actividad, aprovecha la experiencia para generar una pequeña discusión con los\nestudiantes. El objetivo es que comprendan cómo funciona el reconocimiento facial\nmediante Inteligencia Artificial y cómo diferentes condiciones pueden afectar el\nresultado.\nDurante la actividad puedes:\nPreguntar: ¿El sistema reconoció correctamente el rostro entrenado?\nPreguntar: ¿Qué ocurrió cuando otra persona se colocó frente a la cámara?\nPreguntar: ¿Qué pasó cuando se cubrió parte del rostro?\nExplicar que la Inteligencia Artificial analiza patrones del rostro para intentar\nreconocer a una persona.\nComentar que factores como la iluminación, el ángulo de la cámara o cubrir parte de\nla cara pueden afectar el reconocimiento.\nMotivar a los estudiantes a compartir lo que observaron durante los experimentos.\nGuía la conversación para que comprendan que la Inteligencia Artificial no “ve” como los\nhumanos, sino que analiza características y busca patrones para tomar decisiones.\n57\nApoyo en video\nSi los estudiantes presentan dificultades, puedes utilizar el video de apoyo para explicar la\nactividad paso a paso.\nActividades de Laboratorio Reconociendo a una persona especial",
+        "image": "/resources/pdf-captures/tomo2/page-057.webp"
+      }
+    ]
+  },
+  "t2-act6": {
+    "title": "Actividad de Laboratorio 6: Puerta Inteligente con Reconocimiento Facial",
+    "pages": [
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 58,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nProcedimiento\nNombre:\nActividad de Laboratorio 6\nPuerta Inteligente con Reconocimiento Facial\nMateriales requeridos\n58\nDescripción de Actividad\nEn esta actividad utilizaremos el reconocimiento facial que entrenamos anteriormente\npara comenzar a automatizar nuestra casa inteligente\nComputadora/ Tablet/ Laptop con Pictoblox instalado.\n👨‍🔬\nCuando el sistema de IA reconozca un rostro autorizado, se abrirá la puerta\nautomáticamente.\nEn este proyecto, tu programa se convertirá en la llave:\nSi te reconoce: ¡Acceso concedido! La puerta se abre automáticamente\nSi no te reconoce: ¡Acceso denegado! La puerta se queda bajo llave por seguridad.\nPaso 1: Abrir y guardar el proyecto base\nVamos a reutilizar el programa anterior para no empezar desde cero.\n1.Abre el archivo llamado Reconocimiento_facial.",
+        "image": "/resources/pdf-captures/tomo2/page-058.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 59,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nPaso 2: Cambiar y preparar los fondos de la puerta\nAhora vamos a crear el efecto visual de apertura de la puerta.\n1.Ve a la sección de Fondos.\n2.Solicita la carpeta con los recursos de esta actividad a tu instructor.\n3.Entra en la carpeta Puerta Inteligente.\n4.Selecciona la subcarpeta Puerta.\n5.Carga todas las imágenes de la puerta.\nEn total son 14 imágenes.\n6.Una vez cargadas, elimina los fondos antiguos que ya no se van a usar.\n59\nPuerta Inteligente con Reconocimiento FacialActividades de Laboratorio\n1.Espera a que el proyecto se cargue completamente.\n2.Ve a Archivo.\n3.Selecciona Guardar como.\n4.Cambia el nombre del proyecto a Puerta_inteligente. Así trabajamos sobre una copia\ny no perdemos el proyecto anterior.",
+        "image": "/resources/pdf-captures/tomo2/page-059.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 60,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n 60\nPuerta Inteligente con Reconocimiento FacialActividades de Laboratorio\nEstas imágenes nos permitirán simular el movimiento de la puerta.\nPaso 3: Regresar a programación en bloques\n1.Presiona la pestaña Bloques para regresar al entorno de programación.\n2.Selecciona al personaje Niko para comenzar a editar la programación del sistema de\nacceso inteligente.",
+        "image": "/resources/pdf-captures/tomo2/page-060.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 61,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n 61\nPuerta Inteligente con Reconocimiento FacialActividades de Laboratorio\nPaso 4: Modificar la programación para controlar el acceso\n1.Observa el programa anterior utilizado para el reconocimiento facial.\n2.Compara el código anterior con el nuevo código del sistema de acceso inteligente.\n3.Retira los bloques que ya no serán necesarios para la nueva programación.\n4.Agrega los nuevos bloques que permitirán abrir la puerta cuando se reconozca a una\npersona autorizada.\n¿Cómo funciona el código?\n1.Cuando presionamos la tecla espacio, el sistema inicia con el fondo de la puerta\ncerrada.\n2.Luego se configura el sistema de texto a voz y se reproduce un mensaje indicando que\nel sistema de seguridad ha sido activado correctamente.\n3.Después, se activa la cámara y el sistema muestra un mensaje indicando al usuario que\nel rostro será escaneado y que debe permanecer quieto frente a la cámara.\n4.Una vez realizado el escaneo, la Inteligencia Artificial compara el rostro detectado con\nla información almacenada previamente en la base de datos. Después de realizar la\ncomparación, la cámara se desactiva automáticamente.\n5.Si el rostro coincide con la persona autorizada, el sistema mostrará un mensaje de\nbienvenida y comenzará la animación de apertura de la puerta.\n6.La animación se realiza utilizando un bloque de repetir que cambia los fondos de la\npuerta progresivamente para generar el efecto de movimiento. Como la secuencia\ncontiene 14 imágenes y necesitamos mantener la puerta abierta al final, la repetición\nse realiza 13 veces utilizando el bloque siguiente fondo junto con una pausa de 0.1\nsegundos entre cada imagen.\n7.En caso de que el rostro no coincida con la base de datos, el sistema mostrará un\nmensaje indicando que el acceso ha sido denegado y la puerta permanecerá\nbloqueada.",
+        "image": "/resources/pdf-captures/tomo2/page-061.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 62,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n 62\nPuerta Inteligente con Reconocimiento FacialActividades de Laboratorio\n Algoritmo anterior                             Algoritmo nuevo",
+        "image": "/resources/pdf-captures/tomo2/page-062.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 63,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n 63\nPaso 6: Guardar el programa\nMuy importante para no perder el trabajo.\n1.Haz clic en el ícono de Guardar.\n2.Cuando aparezca el mensaje:\nGuardar datos de rostro, selecciona Sí.\nPuerta Inteligente con Reconocimiento FacialActividades de Laboratorio\nPaso 5: Probar el sistema\nAhora toca probar todo.\n1.Activa el modo pantalla completa.\n2.Presiona la tecla espacio (simula el timbre).\n3.Colócate frente a la cámara:\nSi te reconoce →  la puerta se abre.\nSi no →  acceso denegado.",
+        "image": "/resources/pdf-captures/tomo2/page-063.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 64,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com 64\nPuerta Inteligente con Reconocimiento FacialActividades de Laboratorio\nEn esta actividad aprendiste cómo utilizar el reconocimiento facial para crear un sistema\nde acceso inteligente utilizando Inteligencia Artificial.\nDescubriste cómo una casa inteligente puede analizar un rostro, compararlo con una base\nde datos y tomar decisiones automáticamente para permitir o bloquear el acceso.\nDurante la actividad pudiste:\nComparar el rostro detectado con una base de datos entrenada previamente.\nComprender cómo funciona un sistema de acceso mediante reconocimiento facial.\nCrear una animación para abrir automáticamente una puerta inteligente.\nRealizar acciones cuando el acceso es permitido o denegado.\nAhora sabes que la Inteligencia Artificial puede reconocer patrones del rostro humano\npara automatizar sistemas de seguridad dentro de una casa inteligente.\n¿Qué aprendiste?",
+        "image": "/resources/pdf-captures/tomo2/page-064.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 65,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nPara el Instructor o Padres\nDurante esta actividad, aprovecha la experiencia para conversar con los estudiantes sobre\ncómo funcionan los sistemas de seguridad inteligentes utilizados actualmente en muchas\ncasas y dispositivos modernos.\nDurante la práctica puedes:\nPreguntar: ¿Qué ocurrió cuando el sistema reconoció correctamente el rostro?\nPreguntar: ¿Qué sucedió cuando una persona diferente intentó ingresar?\nExplicar que el sistema compara el rostro detectado con una base de datos\npreviamente entrenada.\nComentar que la iluminación, la posición de la cámara o cubrir parte del rostro pueden\nafectar el reconocimiento.\nMotivar a los estudiantes a probar diferentes posiciones y condiciones para observar\ncómo responde el sistema.\nRelacionar la actividad con tecnologías reales utilizadas en teléfonos móviles, cámaras\ninteligentes y sistemas modernos de acceso.\nGuía la conversación para que comprendan que la Inteligencia Artificial puede automatizar\ntareas de seguridad analizando patrones y tomando decisiones automáticamente según la\ninformación detectada.\n65\nApoyo en video\nSi los estudiantes presentan dificultades, puedes utilizar el video de apoyo para explicar la\nactividad paso a paso.\nPuerta Inteligente con Reconocimiento FacialActividades de Laboratorio",
+        "image": "/resources/pdf-captures/tomo2/page-065.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 66,
+        "text": "Sección 5\nReconocimiento de Voz\n66\nAnteriormente aprendimos cómo utilizar cámaras inteligentes para detectar y\nreconocer personas mediante Inteligencia Artificial.\nAhora vamos a controlar nuestra casa utilizando la voz.\nImagina poder decir:\n—“Enciende la lámpara”\n —“Apaga el ventilador”\ny que los dispositivos respondan automáticamente.\nEste tipo de tecnología se conoce como reconocimiento de voz. Sin embargo, antes de\nejecutar una acción, el sistema primero necesita escuchar, interpretar y comprender lo\nque la persona está diciendo.\nPor eso, en esta sección aprenderemos cómo funciona el reconocimiento de voz\nutilizando Inteligencia Artificial.\n¿Cómo aprendemos a reconocer lo que escuchamos?\nCuando somos pequeños, no entendemos las palabras de inmediato. Primero\nescuchamos sonidos y, poco a poco, aprendemos a relacionarlos con palabras.\nPor ejemplo, escuchas muchas veces “mamá” hasta que entiendes que ese sonido\ntiene un significado.\nEsto sucede porque tu cerebro aprende a relacionar sonidos con palabras.\nAhora piensa en esto:\n ¿crees que una computadora puede hacer lo mismo?",
+        "image": "/resources/pdf-captures/tomo2/page-066.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 67,
+        "text": "El reconocimiento de voz es una tecnología que permite a una\nmáquina reconocer el habla humana y representarla como\ntexto.\nPor ejemplo:\ncuando hablas y el celular escribe lo que dices\ncuando usas el micrófono para buscar en YouTube\ncuando dices algo a Alexa y entiende\n¿Sabías que... ?\nLos primeros sistemas de reconocimiento de voz aparecieron en la década de\n1950, pero solo podían reconocer números del 0 al 9.\n67\nReconocimiento de VozSección 5\n¿Qué es el reconocimiento de voz?\nEn todos estos casos, el dispositivo reconoce lo que dices, lo convierte en texto y a\npartir de ese texto puede realizar una acción.\nPor ejemplo:\ndecir “enciende la luz” y que se prenda una bombilla\ndecir “hola” y que aparezca un mensaje en pantalla\ndecir “izquierda” y que un robot se mueva\ndecir “apagar” y que el ventilador se apague\nLa computadora utiliza un micrófono para captar la voz.\nEse sonido se procesa y el sistema intenta identificar qué palabra fue dicha, comparando el\nsonido con palabras que reconoce.\nFinalmente, la palabra identificada se muestra como texto en la pantalla.\n¿Cómo funciona?",
+        "image": "/resources/pdf-captures/tomo2/page-067.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 68,
+        "text": "En PictoBlox existe una extensión de reconocimiento de voz (Speech Recognition) que\npermite trabajar con lo que decimos.\nAl activarla, el sistema escucha a través del micrófono y reconoce las palabras que\ndecimos.\nLuego, esas palabras aparecen en forma de texto dentro del programa.\nAdemás, se puede seleccionar el idioma, lo que permite que el sistema reconozca\ncorrectamente las palabras según cómo hablamos.\nAhora que ya sabemos cómo funciona el reconocimiento de voz en PictoBlox, vamos a\ncontinuar con las actividades de laboratorio, donde veremos paso a paso cómo utilizar\nla voz en nuestros proyectos.\n¿Cómo lo usamos en PictoBlox?\n68\nReconocimiento de VozSección 5",
+        "image": "/resources/pdf-captures/tomo2/page-068.webp"
+      }
+    ]
+  },
+  "t2-act7": {
+    "title": "Actividad de Laboratorio 7: Probando el reconocimiento de voz",
+    "pages": [
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 69,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nProcedimiento\nNombre:\nActividad de Laboratorio 7\nProbando el reconocimiento de voz\nMateriales requeridos\n69\nDescripción de Actividad\nEn esta práctica utilizarás la extensión Speech Recognition para que el sistema de IA\nescuche lo que dices y reconozca tus palabras. Verás cómo tu voz se convierte en texto\ndentro del programa.\nComputadora/ Tablet/ Laptop con Pictoblox instalado.\nPaso 2: Activa el poder de escuchar\nAhora sí, la parte importante.\n1.Ve a Extensiones.\n2.Selecciona Speech Recognition.\n👨‍🔬\n¡Es momento de comprobar cómo la IA entiende tu voz!\nHasta aquí todo es igual que en prácticas anteriores.\nPaso 1: Prepara el escenario\n1.Carga el escenario como ya lo hicimos antes.\n2.Agrega el personaje Niko al escenario.",
+        "image": "/resources/pdf-captures/tomo2/page-069.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 70,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n 70\nProbando el reconocimiento de vozActividades de Laboratorio\nPaso 3: Iniciar sesión o registrarse en Pictoblox\n1.Para usar esta extensión debes iniciar sesión o regístrate en PictoBlox.\n2.Da clic en Sign In.\nPaso 4: Crear una nueva cuenta\n1.Da clic en Unirse.\n2.Selecciona la opción Estudiante.\n3.Si eres mayor de 16 años, selecciona Sí.",
+        "image": "/resources/pdf-captures/tomo2/page-070.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 71,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n 71\nProbando el reconocimiento de vozActividades de Laboratorio\nPaso 5: Completar los datos\n1.Ingresa tu correo electrónico.\n2.Escribe un nombre de usuario.\n3.Crea una contraseña.\n4.Confirma la contraseña.\n5.Activa la casilla de Aceptar los términos y condiciones.\n6.Da clic en Crear mi cuenta.",
+        "image": "/resources/pdf-captures/tomo2/page-071.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 72,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n 72\nProbando el reconocimiento de vozActividades de Laboratorio\nPaso 6: Activar la cuenta\n1.Revisa tu correo electrónico.\n2.Busca el mensaje de activación de cuenta.\n3.Da clic en el botón Activar cuenta.\nPaso 7: Completar datos personales\n1.Ingresa tu fecha de nacimiento.\n2.Selecciona tu género.\n3.Selecciona tu país.\n4.Da clic en Enviar.\n5.Automáticamente se iniciará sesión y tu cuenta quedará lista para usar.",
+        "image": "/resources/pdf-captures/tomo2/page-072.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 73,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n 73\nProbando el reconocimiento de vozActividades de Laboratorio\nPaso 9: Conecta el reconocimiento de voz\nEste paso es obligatorio para que funcione correctamente.\n1.Al cargar la extensión Speech Recognition, aparecerá una ventana que indica que\ndebes conectar el navegador.\n2.Haz clic en Okay.\nPaso 8: Iniciar sesión en una cuenta existente\n1.Si ya tienes una cuenta creada, simplemente inicia sesión con tu nombre de usuario y\ncontraseña.\n2.Para evitar cualquier inconveniente, guarda tus credenciales en un lugar seguro.",
+        "image": "/resources/pdf-captures/tomo2/page-073.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 74,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n 74\nProbando el reconocimiento de vozActividades de Laboratorio\n3.Se abrirá automáticamente una nueva pestaña en el navegador web. Esta página es\nla API que permite reconocer tu voz.\n4.En el navegador, haz clic en Test Speech Recognition.\n5.El navegador pedirá permiso para usar el micrófono.\nSelecciona Permitir mientras se visita el sitio.",
+        "image": "/resources/pdf-captures/tomo2/page-074.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 75,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nPaso 11: Agrega voz al proyecto\nPara que el programa también hable.\n1.Vuelve a Extensiones.\n2.Añade la extensión Texto a Voz.\nAsí el proyecto podrá hablar y escuchar.\n75\nProbando el reconocimiento de vozActividades de Laboratorio\n6.Ahora habla normalmente.\nEn el área Result verás el texto de lo que estás diciendo.\n¡Funciona! La IA ya te está escuchando.\n7.Regresa a PictoBlox y sigue con la práctica. Con esto, el reconocimiento de voz queda\nlisto para usar.\nPaso 12: Guarda tu proyecto\nMuy importante para no perder el avance.\n1.Haz clic en Archivo.\n2.Selecciona Guardar como.\n3.Guarda el proyecto en la carpeta indicada por el profesor.\n4.Nombre del archivo: Reconocimiento_de_voz.",
+        "image": "/resources/pdf-captures/tomo2/page-075.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 76,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n 76\nPaso 13: Mensaje de inicio\nAquí le decimos al programa que todo está listo para escuchar.\n1.Ve a Eventos y usa al hacer clic en la bandera verde.\n2.Agrega un bloque decir (texto) y otro de texto a voz.\n3.Escribe la frase: “Habla ahora, modo loro activado”\nProbando el reconocimiento de vozActividades de Laboratorio\n1.Ve a la extensión Speech Recognition.\n2.Selecciona el idioma Español (Latinoamérica).\n3.Agrega el bloque Iniciar escucha.\n4.Desde Control, agrega esperar 3 segundos para que tengas tiempo de hablar.\nPaso 14: Activar el reconocimiento de voz\nAhora el programa empieza a escuchar lo que dices.",
+        "image": "/resources/pdf-captures/tomo2/page-076.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 77,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n 77\nPaso 15: Repetir lo que dices\nAquí ocurre la magia: lo que dices aparece y se escucha.\nProbando el reconocimiento de vozActividades de Laboratorio\n1.Ve a Apariencia y usa el bloque decir con el resultado del reconocimiento de voz.\n2.Usa Texto a Voz para que el programa diga exactamente lo mismo.\n3.Al final, agrega Clear Speech Recognition Result para borrar el texto escuchado.\nPaso 16: Prueba final\nHora de probar todo.\n1.Verificar que este activa la extensión api\n2.Haz clic en la bandera verde.\n3.Di algo como:\n“Probando 1, 2, 3”\n“Hola”\n4.Verás y escucharás cómo el programa repite exactamente lo que dices.",
+        "image": "/resources/pdf-captures/tomo2/page-077.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 78,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com 78\nProbando el reconocimiento de vozActividades de Laboratorio\nPaso 17: Guarda tu práctica\nEste paso es muy importante porque vamos a usar este mismo programa en la siguiente\npráctica.\n1.Haz clic en el icono de guardar.\n2.Listo. Tu programa queda guardado y preparado para seguir avanzando.\n¿Qué sigue?\nEn la siguiente práctica ya no solo vamos a repetir palabras, vamos a encender y apagar\nuna lámpara usando tu voz.",
+        "image": "/resources/pdf-captures/tomo2/page-078.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 79,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nPara el Instructor\n79\n🎥 Apoyo en video\nSi los estudiantes presentan dificultades, puedes utilizar el video de apoyo para explicar la\nactividad paso a paso.\nProbando el reconocimiento de vozActividades de Laboratorio",
+        "image": "/resources/pdf-captures/tomo2/page-079.webp"
+      }
+    ]
+  },
+  "t2-act8": {
+    "title": "Actividad de Laboratorio 8: Luces que obedecen tu voz",
+    "pages": [
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 80,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nProcedimiento\nTu misión es convertir el laboratorio en una verdadera Smart Home.\nMateriales requeridos\nComputadora/ Tablet/ Laptop con Pictoblox instalado.\nNombre:\nActividad de Laboratorio 8\n Luces que obedecen tu voz\n80\nPaso 1: Crea una copia del proyecto\nPara no dañar tu trabajo anterior, actúa como un programador PRO: duplica tu proyecto y\núsalo como base para esta nueva misión.\n1.Abre el programa de la práctica anterior.\n2.Ve a Archivo →  Guardar como.\n3.Guarda el proyecto con el nombre: Casa_inteligente\nEn esta práctica continuaremos automatizando nuestra casa inteligente utilizando\nreconocimiento de voz.\nAhora el sistema de IA escuchará los comandos hablados para controlar las luces del\nhogar, permitiendo encenderlas o apagarlas mediante la voz.\nDescripción de Actividad\n👨‍🔬\nPaso 2: Agrega la lámpara\nAhora vamos a crear la animación de la luz.\n1.Carga un objeto de lámpara apagada.",
+        "image": "/resources/pdf-captures/tomo2/page-080.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 81,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n 81\nPaso 3: Ajusta los diálogos\nVamos a dar personalidad al sistema.\n1.Cambia el mensaje inicial por: “Modo casa inteligente activado.”\n2.Este mensaje se mostrará en texto y también se escuchará con voz.\n Luces que obedecen tu vozActividades de Laboratorio\n1.Selecciona el objeto de la lámpara.\n2.Ve a la pestaña Disfraces.\n3.Sube el segundo disfraz: lámpara encendida.\n5.Acomoda la lámpara en el escenario y ajusta su tamaño. Usaremos los disfraces para\nsimular prender y apagar la luz.\nPaso 4: Eliminar código\nElimina la sección marcada con el recuadro rojo en la imagen; simplemente arrástrala\nfuera para liberar espacio en tu código.",
+        "image": "/resources/pdf-captures/tomo2/page-081.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 82,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n 82\nPaso 5: El Cerebro de tu Smart Home\nAhora vas a programar la lógica para que tu laboratorio se convierta en una casa\ninteligente.\nTu Misión:\nTu reto es armar el código siguiendo la imagen paso a paso. Pero ¡mucho ojo!, hay partes\nincompletas que sólo un gran ingeniero puede resolver. Sigue las pistas para lograrlo con\néxito.\n Luces que obedecen tu vozActividades de Laboratorio",
+        "image": "/resources/pdf-captures/tomo2/page-082.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 83,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n 83\n Luces que obedecen tu vozActividades de Laboratorio\nPistas\n1.Mapa de colores: Para encontrar los bloques rápido, guíate con la Tabla de colores. Por\nejemplo: El bloque verde  está en Operadores.\n2.En el bloque Enviar mensaje. Haz clic en la flechita del bloque, elige \"Nuevo mensaje\"\ny escribe exactamente: encender.\n¿Qué está haciendo tu algoritmo?\nTu código funciona así: el bucle Por siempre se queda esperando 3 segundos para que tú\npuedas hablar. Luego, la IA analiza lo que dijiste; si encuentra la frase \"encender luz\",\nenviará un mensaje interno para activar la lámpara y Niko te responderá con un mensaje\ngenial.",
+        "image": "/resources/pdf-captures/tomo2/page-083.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 84,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nPaso 6: ¡Activando la lámpara!\n¿Te acuerdas del mensaje secreto que enviamos en el paso anterior? Ahora programarás la\nlámpara para que reaccione a tus órdenes y cambie su disfraz para encenderse.\n1.Selecciona el objeto lámpara.\n2.Agrega el evento:\n84\n Luces que obedecen tu vozActividades de Laboratorio\nTu Segunda Tarea: Completar el Código\nSi te fijas en el segundo bloque \"Si\", verás que está incompleto. Usando la misma lógica\nque aprendiste arriba para encender:\n¿Qué palabras clave deberías poner para que Niko entienda que quieres apagar la luz?\n¿Qué nuevo mensaje deberías crear y enviar para que la lámpara se apague?\n¡Usa tu lógica de programador y completa el espacio faltante!\n3.Selecciona el mensaje enceder\n4.Cambia el disfraz a ligth_on.",
+        "image": "/resources/pdf-captures/tomo2/page-084.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 85,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n  Podrías probar con:\n\"Modo noche\"\n\"¡Que se haga la luz!\"\n85\nPaso 8: Pruebas de Campo\n¡Es hora de probar tu invento!\n1.Prueba básica: Di fuerte y claro \"Encender luz\" y \"Apagar luz\" para verificar que todo\nfuncione.\n2.¡Sé creativo!: Cambia la palabra clave en tu código por algo más divertido. ¿Cómo\nencenderías tú una lámpara?\n Luces que obedecen tu vozActividades de Laboratorio\nPaso 7: Apagar la lámpara\n1.En el objeto lámpara, agrega otro bloque al recibir y seleciona el otro mensaje\n2.Cambia el disfraz a light_off.",
+        "image": "/resources/pdf-captures/tomo2/page-085.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 86,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\n 86\n Luces que obedecen tu vozActividades de Laboratorio\nPaso 9: Guarda tu proyecto\n1.Haz clic en el icono de guardar.",
+        "image": "/resources/pdf-captures/tomo2/page-086.webp"
+      },
+      {
+        "sourceFile": "Inteligencia Artificial Educativa - IA para Casas Inteligentes.pdf",
+        "sourcePage": 87,
+        "text": "Desarrollado por Roboticoss www.roboticoss.com\nPara el Instructor\n87\n🎥 Apoyo en video\nSi los estudiantes presentan dificultades, puedes utilizar el video de apoyo para explicar la\nactividad paso a paso.\nActividades de Laboratorio  Luces que obedecen tu voz",
+        "image": "/resources/pdf-captures/tomo2/page-087.webp"
+      }
+    ]
+  }
+}

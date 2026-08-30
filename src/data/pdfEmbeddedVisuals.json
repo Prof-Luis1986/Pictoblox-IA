@@ -1,0 +1,1806 @@
+{
+  "tomo1:6": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-006-image-02.png",
+      "width": 256,
+      "height": 256,
+      "sourcePage": 6
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-006-image-04.png",
+      "width": 461,
+      "height": 308,
+      "sourcePage": 6
+    }
+  ],
+  "tomo1:23": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-023-image-02.png",
+      "width": 256,
+      "height": 256,
+      "sourcePage": 23
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-023-image-04.png",
+      "width": 412,
+      "height": 393,
+      "sourcePage": 23
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-023-image-05.png",
+      "width": 102,
+      "height": 349,
+      "sourcePage": 23
+    }
+  ],
+  "tomo1:24": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-024-image-01.png",
+      "width": 522,
+      "height": 340,
+      "sourcePage": 24
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-024-image-02.png",
+      "width": 768,
+      "height": 408,
+      "sourcePage": 24
+    }
+  ],
+  "tomo1:25": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-025-image-01.png",
+      "width": 768,
+      "height": 254,
+      "sourcePage": 25
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-025-image-02.png",
+      "width": 301,
+      "height": 409,
+      "sourcePage": 25
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-025-image-03.png",
+      "width": 768,
+      "height": 408,
+      "sourcePage": 25
+    }
+  ],
+  "tomo1:26": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-026-image-03.png",
+      "width": 768,
+      "height": 408,
+      "sourcePage": 26
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-026-image-04.png",
+      "width": 319,
+      "height": 392,
+      "sourcePage": 26
+    }
+  ],
+  "tomo1:27": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-027-image-03.png",
+      "width": 768,
+      "height": 408,
+      "sourcePage": 27
+    }
+  ],
+  "tomo1:28": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-028-image-01.png",
+      "width": 739,
+      "height": 115,
+      "sourcePage": 28
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-028-image-02.png",
+      "width": 768,
+      "height": 409,
+      "sourcePage": 28
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-028-image-03.png",
+      "width": 306,
+      "height": 410,
+      "sourcePage": 28
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-028-image-04.png",
+      "width": 657,
+      "height": 293,
+      "sourcePage": 28
+    }
+  ],
+  "tomo1:29": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-029-image-01.png",
+      "width": 820,
+      "height": 372,
+      "sourcePage": 29
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-029-image-03.png",
+      "width": 518,
+      "height": 264,
+      "sourcePage": 29
+    }
+  ],
+  "tomo1:30": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-030-image-02.png",
+      "width": 768,
+      "height": 408,
+      "sourcePage": 30
+    }
+  ],
+  "tomo1:31": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-031-image-01.png",
+      "width": 238,
+      "height": 86,
+      "sourcePage": 31
+    }
+  ],
+  "tomo1:32": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-032-image-01.png",
+      "width": 245,
+      "height": 199,
+      "sourcePage": 32
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-032-image-02.png",
+      "width": 308,
+      "height": 308,
+      "sourcePage": 32
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-032-image-03.png",
+      "width": 442,
+      "height": 250,
+      "sourcePage": 32
+    }
+  ],
+  "tomo1:33": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-033-image-01.png",
+      "width": 318,
+      "height": 303,
+      "sourcePage": 33
+    }
+  ],
+  "tomo1:34": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-034-image-01.png",
+      "width": 370,
+      "height": 234,
+      "sourcePage": 34
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-034-image-02.png",
+      "width": 421,
+      "height": 259,
+      "sourcePage": 34
+    }
+  ],
+  "tomo1:35": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-035-image-03.png",
+      "width": 701,
+      "height": 421,
+      "sourcePage": 35
+    }
+  ],
+  "tomo1:36": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-036-image-01.png",
+      "width": 388,
+      "height": 347,
+      "sourcePage": 36
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-036-image-02.png",
+      "width": 501,
+      "height": 512,
+      "sourcePage": 36
+    }
+  ],
+  "tomo1:37": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-037-image-01.png",
+      "width": 560,
+      "height": 328,
+      "sourcePage": 37
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-037-image-02.png",
+      "width": 460,
+      "height": 348,
+      "sourcePage": 37
+    }
+  ],
+  "tomo1:38": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-038-image-01.png",
+      "width": 477,
+      "height": 425,
+      "sourcePage": 38
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-038-image-02.png",
+      "width": 368,
+      "height": 53,
+      "sourcePage": 38
+    }
+  ],
+  "tomo1:39": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-039-image-01.png",
+      "width": 420,
+      "height": 360,
+      "sourcePage": 39
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-039-image-02.png",
+      "width": 557,
+      "height": 429,
+      "sourcePage": 39
+    }
+  ],
+  "tomo1:40": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-040-image-01.png",
+      "width": 304,
+      "height": 74,
+      "sourcePage": 40
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-040-image-02.png",
+      "width": 387,
+      "height": 401,
+      "sourcePage": 40
+    }
+  ],
+  "tomo1:41": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-041-image-01.png",
+      "width": 570,
+      "height": 432,
+      "sourcePage": 41
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-041-image-02.png",
+      "width": 561,
+      "height": 433,
+      "sourcePage": 41
+    }
+  ],
+  "tomo1:42": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-042-image-01.png",
+      "width": 557,
+      "height": 256,
+      "sourcePage": 42
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-042-image-02.png",
+      "width": 585,
+      "height": 435,
+      "sourcePage": 42
+    }
+  ],
+  "tomo1:43": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-043-image-01.png",
+      "width": 570,
+      "height": 306,
+      "sourcePage": 43
+    }
+  ],
+  "tomo1:44": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-044-image-01.png",
+      "width": 560,
+      "height": 310,
+      "sourcePage": 44
+    }
+  ],
+  "tomo1:45": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-045-image-01.png",
+      "width": 445,
+      "height": 338,
+      "sourcePage": 45
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-045-image-02.png",
+      "width": 482,
+      "height": 354,
+      "sourcePage": 45
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-045-image-03.png",
+      "width": 438,
+      "height": 296,
+      "sourcePage": 45
+    }
+  ],
+  "tomo1:49": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-049-image-01.png",
+      "width": 238,
+      "height": 86,
+      "sourcePage": 49
+    }
+  ],
+  "tomo1:51": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-051-image-02.png",
+      "width": 800,
+      "height": 450,
+      "sourcePage": 51
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-051-image-03.png",
+      "width": 473,
+      "height": 367,
+      "sourcePage": 51
+    }
+  ],
+  "tomo1:52": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-052-image-01.png",
+      "width": 591,
+      "height": 329,
+      "sourcePage": 52
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-052-image-02.png",
+      "width": 768,
+      "height": 409,
+      "sourcePage": 52
+    }
+  ],
+  "tomo1:53": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-053-image-01.png",
+      "width": 768,
+      "height": 409,
+      "sourcePage": 53
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-053-image-02.png",
+      "width": 767,
+      "height": 408,
+      "sourcePage": 53
+    }
+  ],
+  "tomo1:54": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-054-image-01.png",
+      "width": 440,
+      "height": 596,
+      "sourcePage": 54
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-054-image-02.png",
+      "width": 360,
+      "height": 349,
+      "sourcePage": 54
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-054-image-03.png",
+      "width": 768,
+      "height": 409,
+      "sourcePage": 54
+    }
+  ],
+  "tomo1:55": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-055-image-01.png",
+      "width": 309,
+      "height": 512,
+      "sourcePage": 55
+    }
+  ],
+  "tomo1:56": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-056-image-01.png",
+      "width": 293,
+      "height": 221,
+      "sourcePage": 56
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-056-image-02.png",
+      "width": 232,
+      "height": 128,
+      "sourcePage": 56
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-056-image-03.png",
+      "width": 282,
+      "height": 134,
+      "sourcePage": 56
+    }
+  ],
+  "tomo1:57": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-057-image-01.png",
+      "width": 458,
+      "height": 137,
+      "sourcePage": 57
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-057-image-02.png",
+      "width": 431,
+      "height": 166,
+      "sourcePage": 57
+    }
+  ],
+  "tomo1:58": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-058-image-01.png",
+      "width": 450,
+      "height": 247,
+      "sourcePage": 58
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-058-image-02.png",
+      "width": 620,
+      "height": 123,
+      "sourcePage": 58
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-058-image-03.png",
+      "width": 586,
+      "height": 113,
+      "sourcePage": 58
+    }
+  ],
+  "tomo1:59": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-059-image-01.png",
+      "width": 569,
+      "height": 619,
+      "sourcePage": 59
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-059-image-02.png",
+      "width": 322,
+      "height": 212,
+      "sourcePage": 59
+    }
+  ],
+  "tomo1:60": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-060-image-01.png",
+      "width": 558,
+      "height": 421,
+      "sourcePage": 60
+    }
+  ],
+  "tomo1:61": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-061-image-01.png",
+      "width": 370,
+      "height": 613,
+      "sourcePage": 61
+    }
+  ],
+  "tomo1:62": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-062-image-01.png",
+      "width": 339,
+      "height": 584,
+      "sourcePage": 62
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-062-image-02.png",
+      "width": 364,
+      "height": 360,
+      "sourcePage": 62
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-062-image-03.png",
+      "width": 232,
+      "height": 128,
+      "sourcePage": 62
+    }
+  ],
+  "tomo1:63": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-063-image-01.png",
+      "width": 296,
+      "height": 244,
+      "sourcePage": 63
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-063-image-02.png",
+      "width": 218,
+      "height": 243,
+      "sourcePage": 63
+    }
+  ],
+  "tomo1:64": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-064-image-01.png",
+      "width": 319,
+      "height": 96,
+      "sourcePage": 64
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-064-image-02.png",
+      "width": 501,
+      "height": 216,
+      "sourcePage": 64
+    }
+  ],
+  "tomo1:65": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-065-image-01.png",
+      "width": 271,
+      "height": 224,
+      "sourcePage": 65
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-065-image-02.png",
+      "width": 476,
+      "height": 262,
+      "sourcePage": 65
+    }
+  ],
+  "tomo1:66": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-066-image-01.png",
+      "width": 581,
+      "height": 413,
+      "sourcePage": 66
+    }
+  ],
+  "tomo1:67": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-067-image-01.png",
+      "width": 399,
+      "height": 338,
+      "sourcePage": 67
+    }
+  ],
+  "tomo1:68": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-068-image-01.png",
+      "width": 595,
+      "height": 129,
+      "sourcePage": 68
+    }
+  ],
+  "tomo1:69": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-069-image-01.png",
+      "width": 636,
+      "height": 496,
+      "sourcePage": 69
+    }
+  ],
+  "tomo1:70": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-070-image-01.png",
+      "width": 237,
+      "height": 142,
+      "sourcePage": 70
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-070-image-02.png",
+      "width": 432,
+      "height": 125,
+      "sourcePage": 70
+    }
+  ],
+  "tomo1:71": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-071-image-01.png",
+      "width": 437,
+      "height": 135,
+      "sourcePage": 71
+    }
+  ],
+  "tomo1:75": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-075-image-02.png",
+      "width": 800,
+      "height": 450,
+      "sourcePage": 75
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-075-image-03.png",
+      "width": 473,
+      "height": 367,
+      "sourcePage": 75
+    }
+  ],
+  "tomo1:76": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-076-image-01.png",
+      "width": 591,
+      "height": 329,
+      "sourcePage": 76
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-076-image-02.png",
+      "width": 767,
+      "height": 408,
+      "sourcePage": 76
+    }
+  ],
+  "tomo1:77": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-077-image-01.png",
+      "width": 768,
+      "height": 410,
+      "sourcePage": 77
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-077-image-02.png",
+      "width": 767,
+      "height": 409,
+      "sourcePage": 77
+    }
+  ],
+  "tomo1:78": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-078-image-01.png",
+      "width": 766,
+      "height": 409,
+      "sourcePage": 78
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-078-image-02.png",
+      "width": 440,
+      "height": 596,
+      "sourcePage": 78
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-078-image-03.png",
+      "width": 360,
+      "height": 349,
+      "sourcePage": 78
+    }
+  ],
+  "tomo1:79": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-079-image-01.png",
+      "width": 375,
+      "height": 613,
+      "sourcePage": 79
+    }
+  ],
+  "tomo1:80": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-080-image-01.png",
+      "width": 475,
+      "height": 168,
+      "sourcePage": 80
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-080-image-02.png",
+      "width": 232,
+      "height": 128,
+      "sourcePage": 80
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-080-image-03.png",
+      "width": 452,
+      "height": 192,
+      "sourcePage": 80
+    }
+  ],
+  "tomo1:81": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-081-image-01.png",
+      "width": 421,
+      "height": 147,
+      "sourcePage": 81
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-081-image-02.png",
+      "width": 989,
+      "height": 118,
+      "sourcePage": 81
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-081-image-03.png",
+      "width": 819,
+      "height": 104,
+      "sourcePage": 81
+    }
+  ],
+  "tomo1:82": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-082-image-01.png",
+      "width": 894,
+      "height": 596,
+      "sourcePage": 82
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-082-image-02.png",
+      "width": 322,
+      "height": 212,
+      "sourcePage": 82
+    }
+  ],
+  "tomo1:83": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-083-image-01.png",
+      "width": 636,
+      "height": 500,
+      "sourcePage": 83
+    }
+  ],
+  "tomo1:84": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-084-image-01.png",
+      "width": 373,
+      "height": 515,
+      "sourcePage": 84
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-084-image-02.png",
+      "width": 339,
+      "height": 584,
+      "sourcePage": 84
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-084-image-03.png",
+      "width": 364,
+      "height": 360,
+      "sourcePage": 84
+    }
+  ],
+  "tomo1:85": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-085-image-01.png",
+      "width": 335,
+      "height": 239,
+      "sourcePage": 85
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-085-image-02.png",
+      "width": 263,
+      "height": 235,
+      "sourcePage": 85
+    }
+  ],
+  "tomo1:86": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-086-image-01.png",
+      "width": 319,
+      "height": 96,
+      "sourcePage": 86
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-086-image-02.png",
+      "width": 385,
+      "height": 126,
+      "sourcePage": 86
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-086-image-03.png",
+      "width": 360,
+      "height": 136,
+      "sourcePage": 86
+    }
+  ],
+  "tomo1:87": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-087-image-01.png",
+      "width": 835,
+      "height": 459,
+      "sourcePage": 87
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-087-image-02.png",
+      "width": 367,
+      "height": 112,
+      "sourcePage": 87
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-087-image-03.png",
+      "width": 214,
+      "height": 108,
+      "sourcePage": 87
+    }
+  ],
+  "tomo1:88": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-088-image-01.png",
+      "width": 399,
+      "height": 338,
+      "sourcePage": 88
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-088-image-02.png",
+      "width": 595,
+      "height": 129,
+      "sourcePage": 88
+    }
+  ],
+  "tomo1:89": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-089-image-01.png",
+      "width": 638,
+      "height": 495,
+      "sourcePage": 89
+    }
+  ],
+  "tomo1:90": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-090-image-01.png",
+      "width": 322,
+      "height": 121,
+      "sourcePage": 90
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-090-image-02.png",
+      "width": 350,
+      "height": 165,
+      "sourcePage": 90
+    }
+  ],
+  "tomo1:91": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-091-image-01.png",
+      "width": 242,
+      "height": 180,
+      "sourcePage": 91
+    }
+  ],
+  "tomo1:94": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-094-image-02.png",
+      "width": 800,
+      "height": 450,
+      "sourcePage": 94
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-094-image-03.png",
+      "width": 473,
+      "height": 367,
+      "sourcePage": 94
+    }
+  ],
+  "tomo1:95": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-095-image-01.png",
+      "width": 591,
+      "height": 329,
+      "sourcePage": 95
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-095-image-02.png",
+      "width": 800,
+      "height": 430,
+      "sourcePage": 95
+    }
+  ],
+  "tomo1:96": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-096-image-01.png",
+      "width": 800,
+      "height": 429,
+      "sourcePage": 96
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-096-image-02.png",
+      "width": 800,
+      "height": 430,
+      "sourcePage": 96
+    }
+  ],
+  "tomo1:97": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-097-image-01.png",
+      "width": 440,
+      "height": 596,
+      "sourcePage": 97
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-097-image-02.png",
+      "width": 360,
+      "height": 349,
+      "sourcePage": 97
+    }
+  ],
+  "tomo1:98": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-098-image-01.png",
+      "width": 339,
+      "height": 584,
+      "sourcePage": 98
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-098-image-02.png",
+      "width": 1440,
+      "height": 772,
+      "sourcePage": 98
+    }
+  ],
+  "tomo1:99": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-099-image-01.png",
+      "width": 742,
+      "height": 770,
+      "sourcePage": 99
+    }
+  ],
+  "tomo1:100": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-100-image-01.png",
+      "width": 643,
+      "height": 608,
+      "sourcePage": 100
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-100-image-02.png",
+      "width": 334,
+      "height": 70,
+      "sourcePage": 100
+    }
+  ],
+  "tomo1:101": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-101-image-01.png",
+      "width": 303,
+      "height": 305,
+      "sourcePage": 101
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-101-image-02.png",
+      "width": 931,
+      "height": 415,
+      "sourcePage": 101
+    }
+  ],
+  "tomo1:102": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-102-image-01.png",
+      "width": 872,
+      "height": 623,
+      "sourcePage": 102
+    }
+  ],
+  "tomo1:103": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-103-image-01.png",
+      "width": 442,
+      "height": 291,
+      "sourcePage": 103
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-103-image-02.png",
+      "width": 471,
+      "height": 750,
+      "sourcePage": 103
+    }
+  ],
+  "tomo1:104": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-104-image-01.png",
+      "width": 628,
+      "height": 501,
+      "sourcePage": 104
+    }
+  ],
+  "tomo1:105": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-105-image-01.png",
+      "width": 752,
+      "height": 589,
+      "sourcePage": 105
+    }
+  ],
+  "tomo1:106": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-106-image-01.png",
+      "width": 713,
+      "height": 580,
+      "sourcePage": 106
+    }
+  ],
+  "tomo1:107": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-107-image-01.png",
+      "width": 571,
+      "height": 435,
+      "sourcePage": 107
+    }
+  ],
+  "tomo1:108": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-108-image-01.png",
+      "width": 571,
+      "height": 435,
+      "sourcePage": 108
+    }
+  ],
+  "tomo1:109": [
+    {
+      "path": "/resources/pdf-block-crops/tomo1/page-109-image-01.png",
+      "width": 512,
+      "height": 700,
+      "sourcePage": 109
+    }
+  ],
+  "tomo2:19": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-019-image-02.png",
+      "width": 256,
+      "height": 256,
+      "sourcePage": 19
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-019-image-04.png",
+      "width": 412,
+      "height": 393,
+      "sourcePage": 19
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-019-image-05.png",
+      "width": 102,
+      "height": 349,
+      "sourcePage": 19
+    }
+  ],
+  "tomo2:20": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-020-image-01.png",
+      "width": 522,
+      "height": 340,
+      "sourcePage": 20
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-020-image-02.png",
+      "width": 768,
+      "height": 408,
+      "sourcePage": 20
+    }
+  ],
+  "tomo2:21": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-021-image-01.png",
+      "width": 768,
+      "height": 254,
+      "sourcePage": 21
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-021-image-02.png",
+      "width": 301,
+      "height": 409,
+      "sourcePage": 21
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-021-image-03.png",
+      "width": 768,
+      "height": 408,
+      "sourcePage": 21
+    }
+  ],
+  "tomo2:22": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-022-image-03.png",
+      "width": 768,
+      "height": 408,
+      "sourcePage": 22
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-022-image-04.png",
+      "width": 319,
+      "height": 392,
+      "sourcePage": 22
+    }
+  ],
+  "tomo2:23": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-023-image-03.png",
+      "width": 768,
+      "height": 408,
+      "sourcePage": 23
+    }
+  ],
+  "tomo2:24": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-024-image-01.png",
+      "width": 739,
+      "height": 115,
+      "sourcePage": 24
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-024-image-02.png",
+      "width": 768,
+      "height": 409,
+      "sourcePage": 24
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-024-image-03.png",
+      "width": 306,
+      "height": 410,
+      "sourcePage": 24
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-024-image-04.png",
+      "width": 657,
+      "height": 293,
+      "sourcePage": 24
+    }
+  ],
+  "tomo2:25": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-025-image-01.png",
+      "width": 820,
+      "height": 372,
+      "sourcePage": 25
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-025-image-03.png",
+      "width": 518,
+      "height": 264,
+      "sourcePage": 25
+    }
+  ],
+  "tomo2:26": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-026-image-02.png",
+      "width": 768,
+      "height": 408,
+      "sourcePage": 26
+    }
+  ],
+  "tomo2:27": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-027-image-01.png",
+      "width": 238,
+      "height": 86,
+      "sourcePage": 27
+    }
+  ],
+  "tomo2:28": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-028-image-01.png",
+      "width": 245,
+      "height": 199,
+      "sourcePage": 28
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-028-image-02.png",
+      "width": 450,
+      "height": 300,
+      "sourcePage": 28
+    }
+  ],
+  "tomo2:29": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-029-image-01.png",
+      "width": 300,
+      "height": 225,
+      "sourcePage": 29
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-029-image-02.png",
+      "width": 450,
+      "height": 338,
+      "sourcePage": 29
+    }
+  ],
+  "tomo2:30": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-030-image-01.png",
+      "width": 318,
+      "height": 303,
+      "sourcePage": 30
+    }
+  ],
+  "tomo2:31": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-031-image-01.png",
+      "width": 370,
+      "height": 234,
+      "sourcePage": 31
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-031-image-02.png",
+      "width": 421,
+      "height": 259,
+      "sourcePage": 31
+    }
+  ],
+  "tomo2:32": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-032-image-03.png",
+      "width": 701,
+      "height": 421,
+      "sourcePage": 32
+    }
+  ],
+  "tomo2:33": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-033-image-01.png",
+      "width": 388,
+      "height": 347,
+      "sourcePage": 33
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-033-image-02.png",
+      "width": 501,
+      "height": 512,
+      "sourcePage": 33
+    }
+  ],
+  "tomo2:34": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-034-image-01.png",
+      "width": 560,
+      "height": 328,
+      "sourcePage": 34
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-034-image-02.png",
+      "width": 460,
+      "height": 348,
+      "sourcePage": 34
+    }
+  ],
+  "tomo2:35": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-035-image-01.png",
+      "width": 477,
+      "height": 425,
+      "sourcePage": 35
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-035-image-02.png",
+      "width": 368,
+      "height": 53,
+      "sourcePage": 35
+    }
+  ],
+  "tomo2:36": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-036-image-01.png",
+      "width": 420,
+      "height": 360,
+      "sourcePage": 36
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-036-image-02.png",
+      "width": 557,
+      "height": 429,
+      "sourcePage": 36
+    }
+  ],
+  "tomo2:37": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-037-image-01.png",
+      "width": 304,
+      "height": 74,
+      "sourcePage": 37
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-037-image-02.png",
+      "width": 387,
+      "height": 401,
+      "sourcePage": 37
+    }
+  ],
+  "tomo2:38": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-038-image-01.png",
+      "width": 570,
+      "height": 432,
+      "sourcePage": 38
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-038-image-02.png",
+      "width": 561,
+      "height": 433,
+      "sourcePage": 38
+    }
+  ],
+  "tomo2:39": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-039-image-01.png",
+      "width": 557,
+      "height": 256,
+      "sourcePage": 39
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-039-image-02.png",
+      "width": 585,
+      "height": 435,
+      "sourcePage": 39
+    }
+  ],
+  "tomo2:40": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-040-image-01.png",
+      "width": 570,
+      "height": 306,
+      "sourcePage": 40
+    }
+  ],
+  "tomo2:41": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-041-image-01.png",
+      "width": 560,
+      "height": 310,
+      "sourcePage": 41
+    }
+  ],
+  "tomo2:42": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-042-image-01.png",
+      "width": 445,
+      "height": 338,
+      "sourcePage": 42
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-042-image-02.png",
+      "width": 482,
+      "height": 354,
+      "sourcePage": 42
+    }
+  ],
+  "tomo2:43": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-043-image-01.png",
+      "width": 526,
+      "height": 356,
+      "sourcePage": 43
+    }
+  ],
+  "tomo2:46": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-046-image-01.png",
+      "width": 238,
+      "height": 86,
+      "sourcePage": 46
+    }
+  ],
+  "tomo2:47": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-047-image-01.png",
+      "width": 205,
+      "height": 205,
+      "sourcePage": 47
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-047-image-02.png",
+      "width": 320,
+      "height": 229,
+      "sourcePage": 47
+    }
+  ],
+  "tomo2:48": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-048-image-01.png",
+      "width": 385,
+      "height": 107,
+      "sourcePage": 48
+    }
+  ],
+  "tomo2:49": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-049-image-01.png",
+      "width": 419,
+      "height": 318,
+      "sourcePage": 49
+    }
+  ],
+  "tomo2:51": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-051-image-01.png",
+      "width": 556,
+      "height": 752,
+      "sourcePage": 51
+    }
+  ],
+  "tomo2:52": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-052-image-03.png",
+      "width": 418,
+      "height": 250,
+      "sourcePage": 52
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-052-image-07.png",
+      "width": 218,
+      "height": 75,
+      "sourcePage": 52
+    }
+  ],
+  "tomo2:54": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-054-image-01.png",
+      "width": 509,
+      "height": 797,
+      "sourcePage": 54
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-054-image-02.png",
+      "width": 467,
+      "height": 668,
+      "sourcePage": 54
+    }
+  ],
+  "tomo2:55": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-055-image-03.png",
+      "width": 485,
+      "height": 288,
+      "sourcePage": 55
+    }
+  ],
+  "tomo2:57": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-057-image-01.png",
+      "width": 238,
+      "height": 86,
+      "sourcePage": 57
+    }
+  ],
+  "tomo2:58": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-058-image-03.png",
+      "width": 266,
+      "height": 197,
+      "sourcePage": 58
+    }
+  ],
+  "tomo2:59": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-059-image-01.png",
+      "width": 800,
+      "height": 395,
+      "sourcePage": 59
+    }
+  ],
+  "tomo2:60": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-060-image-01.png",
+      "width": 801,
+      "height": 432,
+      "sourcePage": 60
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-060-image-02.png",
+      "width": 796,
+      "height": 393,
+      "sourcePage": 60
+    }
+  ],
+  "tomo2:62": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-062-image-01.png",
+      "width": 350,
+      "height": 791,
+      "sourcePage": 62
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-062-image-02.png",
+      "width": 496,
+      "height": 786,
+      "sourcePage": 62
+    }
+  ],
+  "tomo2:63": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-063-image-01.png",
+      "width": 400,
+      "height": 256,
+      "sourcePage": 63
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-063-image-02.png",
+      "width": 396,
+      "height": 264,
+      "sourcePage": 63
+    }
+  ],
+  "tomo2:65": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-065-image-01.png",
+      "width": 238,
+      "height": 86,
+      "sourcePage": 65
+    }
+  ],
+  "tomo2:66": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-066-image-01.png",
+      "width": 205,
+      "height": 205,
+      "sourcePage": 66
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-066-image-02.png",
+      "width": 412,
+      "height": 412,
+      "sourcePage": 66
+    }
+  ],
+  "tomo2:67": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-067-image-02.png",
+      "width": 330,
+      "height": 270,
+      "sourcePage": 67
+    }
+  ],
+  "tomo2:68": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-068-image-01.png",
+      "width": 324,
+      "height": 303,
+      "sourcePage": 68
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-068-image-02.png",
+      "width": 473,
+      "height": 177,
+      "sourcePage": 68
+    }
+  ],
+  "tomo2:69": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-069-image-03.png",
+      "width": 768,
+      "height": 408,
+      "sourcePage": 69
+    }
+  ],
+  "tomo2:70": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-070-image-01.png",
+      "width": 534,
+      "height": 332,
+      "sourcePage": 70
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-070-image-02.png",
+      "width": 768,
+      "height": 407,
+      "sourcePage": 70
+    }
+  ],
+  "tomo2:71": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-071-image-01.png",
+      "width": 414,
+      "height": 283,
+      "sourcePage": 71
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-071-image-02.png",
+      "width": 497,
+      "height": 298,
+      "sourcePage": 71
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-071-image-03.png",
+      "width": 608,
+      "height": 378,
+      "sourcePage": 71
+    }
+  ],
+  "tomo2:72": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-072-image-01.png",
+      "width": 737,
+      "height": 396,
+      "sourcePage": 72
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-072-image-02.png",
+      "width": 503,
+      "height": 296,
+      "sourcePage": 72
+    }
+  ],
+  "tomo2:73": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-073-image-01.png",
+      "width": 428,
+      "height": 186,
+      "sourcePage": 73
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-073-image-02.png",
+      "width": 570,
+      "height": 376,
+      "sourcePage": 73
+    }
+  ],
+  "tomo2:74": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-074-image-01.png",
+      "width": 508,
+      "height": 327,
+      "sourcePage": 74
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-074-image-02.png",
+      "width": 608,
+      "height": 293,
+      "sourcePage": 74
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-074-image-03.png",
+      "width": 768,
+      "height": 229,
+      "sourcePage": 74
+    }
+  ],
+  "tomo2:75": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-075-image-01.png",
+      "width": 960,
+      "height": 288,
+      "sourcePage": 75
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-075-image-02.png",
+      "width": 287,
+      "height": 244,
+      "sourcePage": 75
+    }
+  ],
+  "tomo2:76": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-076-image-01.png",
+      "width": 280,
+      "height": 225,
+      "sourcePage": 76
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-076-image-02.png",
+      "width": 380,
+      "height": 176,
+      "sourcePage": 76
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-076-image-03.png",
+      "width": 576,
+      "height": 306,
+      "sourcePage": 76
+    }
+  ],
+  "tomo2:77": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-077-image-01.png",
+      "width": 384,
+      "height": 206,
+      "sourcePage": 77
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-077-image-02.png",
+      "width": 768,
+      "height": 406,
+      "sourcePage": 77
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-077-image-03.png",
+      "width": 768,
+      "height": 202,
+      "sourcePage": 77
+    }
+  ],
+  "tomo2:79": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-079-image-01.png",
+      "width": 238,
+      "height": 86,
+      "sourcePage": 79
+    }
+  ],
+  "tomo2:80": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-080-image-03.png",
+      "width": 701,
+      "height": 412,
+      "sourcePage": 80
+    }
+  ],
+  "tomo2:81": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-081-image-01.png",
+      "width": 768,
+      "height": 409,
+      "sourcePage": 81
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-081-image-04.png",
+      "width": 532,
+      "height": 716,
+      "sourcePage": 81
+    }
+  ],
+  "tomo2:82": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-082-image-01.png",
+      "width": 414,
+      "height": 557,
+      "sourcePage": 82
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-082-image-02.png",
+      "width": 265,
+      "height": 353,
+      "sourcePage": 82
+    }
+  ],
+  "tomo2:83": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-083-image-01.png",
+      "width": 744,
+      "height": 229,
+      "sourcePage": 83
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-083-image-02.png",
+      "width": 373,
+      "height": 213,
+      "sourcePage": 83
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-083-image-03.png",
+      "width": 320,
+      "height": 219,
+      "sourcePage": 83
+    }
+  ],
+  "tomo2:84": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-084-image-01.png",
+      "width": 165,
+      "height": 79,
+      "sourcePage": 84
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-084-image-02.png",
+      "width": 795,
+      "height": 448,
+      "sourcePage": 84
+    }
+  ],
+  "tomo2:85": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-085-image-01.png",
+      "width": 563,
+      "height": 82,
+      "sourcePage": 85
+    },
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-085-image-02.png",
+      "width": 559,
+      "height": 364,
+      "sourcePage": 85
+    }
+  ],
+  "tomo2:86": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-086-image-01.png",
+      "width": 960,
+      "height": 510,
+      "sourcePage": 86
+    }
+  ],
+  "tomo2:87": [
+    {
+      "path": "/resources/pdf-block-crops/tomo2/page-087-image-01.png",
+      "width": 238,
+      "height": 86,
+      "sourcePage": 87
+    }
+  ]
+}

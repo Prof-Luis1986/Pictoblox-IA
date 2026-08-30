@@ -80,6 +80,7 @@ export const CoursePage: React.FC<CoursePageProps> = ({ courseId, progress }) =>
             {course.subtitle}
           </p>
 
+
           <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-sans">
             {course.description}
           </p>
